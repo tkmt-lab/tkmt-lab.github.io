@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tatsuhiko Takimoto（滝本竜彦）— 個人の研究室</title>
+<meta name="description" content="AI のチームで数学と科学を研究する個人の研究室。証明は Lean で機械により確かめ、検証のデータも公開しています。">
+<link rel="alternate" hreflang="en" href="https://tkmt-lab.github.io/">
+<style>
+  :root { --fg:#1d1d1f; --muted:#5f6368; --line:#e3e3e3; --bg:#ffffff; --link:#1a5fb4; }
+  @media (prefers-color-scheme: dark) { :root { --fg:#e8e8e8; --muted:#a0a0a0; --line:#333; --bg:#141414; --link:#8ab4f8; } }
+  body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.8 system-ui, -apple-system, "Hiragino Sans", "Segoe UI", sans-serif; }
+  main { max-width:720px; margin:0 auto; padding:48px 16px 64px; }
+  h1 { font-size:1.6rem; margin:0 0 4px; }
+  h2 { font-size:1.1rem; margin:40px 0 8px; border-bottom:1px solid var(--line); padding-bottom:4px; }
+  p, li { color:var(--fg); }
+  .muted { color:var(--muted); }
+  a { color:var(--link); }
+  ul { padding-left:1.2rem; }
+  .work { margin:16px 0; }
+  .work .t { font-weight:600; }
+  table { border-collapse:collapse; width:100%; font-size:.95rem; }
+  td { border-top:1px solid var(--line); padding:6px 4px; vertical-align:top; }
+</style>
+</head>
+<body>
+<main>
+  <p class="muted"><a href="../">English</a> · 日本語</p>
+  <h1>Tatsuhiko Takimoto（滝本竜彦）</h1>
+  <p class="muted">個人の研究室 tkmt-lab · AI のチームで数学と科学を研究しています</p>
+
+  <p>このページは日本語の要約です。正確な主張と、何をどこまで確かめたかは、<a href="../">英語のページ</a>と各リポジトリに書いています。</p>
+
+  <h2>研究</h2>
+  <div class="work">
+    <div class="t">十二面体から作るフラーレンでの、経路の二段の分類（第1弾）</div>
+    <div>フラーレンは炭素原子がかご状につながった分子で、その形は点と線のつながり（グラフ）として調べられます。A. Bille、V. Buchstaber、E. Spodarev がフラーレンの未解決問題の一覧で定義した「一般化 Stone–Wales 経路」が、どの形にあるかを調べました。十二面体から Goldberg–Coxeter 構成で作る形 GC(k,l)[C20] について、経路があるかどうかを、割り算の余りを使った二段の条件で完全に決めました。この分類は Lean 4 で証明され、計算機が証明の全段階を確かめています。</div>
+    <div class="muted"><a href="https://github.com/tkmt-lab/a3-gsw-classification">論文・Lean の証明・検証のデータ（英語）</a> · Zenodo <a href="https://doi.org/10.5281/zenodo.23491202">doi:10.5281/zenodo.23491202</a></div>
+  </div>
+  <div class="work">
+    <div class="t">形を大きくしていくと、答えはいずれくり返す（第2弾）</div>
+    <div>決まった数の凸な面を貼り合わせて作るフラーレンの族では、形を一方向に大きくしていくと、経路があるかどうかが、いずれ周期的にくり返すことを示しました。この定理の形式版は Lean 4 で証明されています。ただし、論文の図形から形式版へ移す一段は、Lean ではなく文章による証明です。J. E. Graver の目録にある族 K3 については、その一段も含めて、すべて Lean で証明されています。</div>
+    <div class="muted"><a href="https://github.com/tkmt-lab/gsw-ray-periodicity">論文・Lean の証明・検証のデータ（英語）</a> · Zenodo <a href="https://doi.org/10.5281/zenodo.23491204">doi:10.5281/zenodo.23491204</a></div>
+  </div>
+
+  <h2>どう確かめているか</h2>
+  <ul>
+    <li><b>形式証明</b>：Lean 4 という証明の検査系が、証明の全段階を機械で確かめます。その証明が、別の者が先に書いておいた主張文と同じことの証明であることも、Comparator という道具で確かめています。</li>
+    <li><b>独立な導出</b>：別のチームが、もう一方の証明を見ずに、別の証明を書きました。</li>
+    <li><b>AI による点検</b>：AI が文章の証明を読み、計算し直しました。人間の専門家による査読ではありません。</li>
+    <li><b>有限の計算</b>：範囲を決めて、すべてを計算で調べました。</li>
+  </ul>
+  <p>人間の専門家による査読は、まだ受けていません。結果が新しいかどうかも、確かめ切れていません。各リポジトリでは、主張ごとに、何を確かめ、何を確かめていないかを書いています。</p>
+
+  <h2>研究の進め方</h2>
+  <p>AI（OpenAI の Codex と Anthropic の Claude Code）が、探索、独立な検証、文献の調査、形式化を、別々のチームとして担っています。私が方向を決め、判断し、公開するものとその限界の書き方に責任を持ちます。AI は著者に入れていません。</p>
+
+  <h2>元になった研究への感謝</h2>
+  <p>これらの結果は、この分野を切り開いてきた研究者の方々の仕事の上にあります。問いは、A. Bille、V. Buchstaber、E. Spodarev による未解決問題の一覧から生まれました。調べた形は、M. Goldberg と H. S. M. Coxeter の名を冠した構成と、それを広げた M. Dutour Sikirić と M. Deza の仕事、そして J. E. Graver の目録によるものです。K. Kutnar と D. Marušič によるフラーレンの辺連結性の研究、J. R. Büchi、C. C. Elgot、B. A. Trakhtenbrot による論理と有限オートマトンを結ぶ定理、Lean 4 と mathlib、Comparator と独立な検査器を作った方々の仕事も使わせていただきました。心から感謝します。この小さな仕事が、この分野にわずかでも新しいものを付け加えられたなら幸いです。</p>
+  <p class="muted">出典は各論文にすべて挙げています。</p>
+
+  <h2>もう一つの仕事</h2>
+  <p>小説家：<a href="https://tatsuhikotakimoto.com/">滝本竜彦</a></p>
+
+  <h2>連絡</h2>
+  <p>質問や誤りのご指摘は、各リポジトリの GitHub の Issue でお知らせください。</p>
+
+  <h2>ライセンス</h2>
+  <p>このサイトの文章は <a href="https://creativecommons.org/licenses/by/4.0/deed.ja">CC BY 4.0</a> で公開しています。各リポジトリのライセンスは、それぞれに書いています。</p>
+</main>
+</body>
+</html>
