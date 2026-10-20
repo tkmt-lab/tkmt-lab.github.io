@@ -20,6 +20,8 @@
   .work { margin:28px 0 36px; padding:2px 0 2px 16px; border-left:3px solid var(--fig-yes); }
   .work .num { font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-bottom:2px; }
   .work .t { font-size:1.2rem; line-height:1.4; font-weight:650; margin:0 0 8px; }
+  .work .tag { font-size:1.02rem; color:var(--fg); font-style:italic; margin:-2px 0 10px; }
+  :lang(ja) .work .tag { font-style:normal; font-weight:500; }
   .work .links { font-size:.95rem; margin:10px 0 4px; }
   .work .note { font-size:.9rem; color:var(--muted); margin:4px 0 0; }
   table { border-collapse:collapse; width:100%; font-size:.95rem; }
@@ -41,6 +43,7 @@
   <div class="work">
     <div class="num">論文 1 · 2026</div>
     <div class="t">十二面体から作るフラーレンでの、経路の二段の分類</div>
+    <div class="tag">ねじれたサッカーボール形の炭素のかごに、五角形から五角形へのまっすぐな道はあるか。割り算の余りの規則で、すべて決まる（Lean で証明）。</div>
     <p class="plain">フラーレンは、五角形と六角形でできた、サッカーボールのようなかご形の炭素の分子です（C60 がいちばん有名です）。ここで調べた「経路」は、ある五角形から別の五角形まで、六角形がまっすぐ一列に並んだ道のことで、かごの形を組み替える「一般化 Stone–Wales 変形」が働く場所です。十二面体から作る、ねじれたかごの無限の族 GC(k,l)[C20]（k &gt; l &gt; 0）について、どのかごにこの経路があるかを、割り算の余りを使った簡単な規則で、すべて決めました。小さいかごを単に拡大しただけではないかごの中で、経路のない最初のかごは、炭素原子 7,980 個です。</p>
     <figure><svg viewBox="0 -14 402 462" role="img" aria-label="経路あり / 経路なし" style="width:100%;max-width:440px;height:auto;display:block">
 <rect x="46" y="358" width="11" height="11" fill="var(--fig-yes)"/>
@@ -496,6 +499,7 @@
   <div class="work">
     <div class="num">論文 2 · 2026</div>
     <div class="t">形を大きくしていくと、答えはいずれくり返す</div>
+    <div class="tag">かごを大きくしていくと、答えはいずれくり返す。フラーレンの族まるごとに当てはまる、一般の定理。</div>
     <p class="plain">論文1は一つの族について答えを出しました。この論文では、<strong>一般の定理</strong>を証明しました。決まった数の平らな格子の面を貼り合わせ、その大きさが一定の割合で大きくなっていくフラーレンの族なら、どれでも、かごを大きくしていくと「経路はあるか」の答えが、いずれ決まった周期でくり返します。Graver の目録の11の族に一度に当てはまり、一つの定理で無限に多くのかごが分かります。定理の形式版は Lean で証明されています。証明は周期があることを示しますが、一般には周期そのものを計算しません。族 K3 については、規則がはっきり分かっています。</p>
     <figure><svg viewBox="0 0 416 64" role="img" aria-label="K3(5,s)" style="width:100%;max-width:440px;height:auto;display:block">
 <rect x="8" y="6" width="9" height="22" fill="var(--fig-no)"/>
