@@ -25,4 +25,5 @@
 - Formal proof, independent derivation, AI review, and finite computation are labelled separately in each claims.json.
 - Human peer review and novelty are not claimed unless stated.
 - Contact: research@tatsuhikotakimoto.com, or GitHub issues in the relevant repository.
+- News and the lab diary: https://x.com/tkmt_lab
 - Licence of this site's text: CC BY 4.0. Each repository states its own licences.
