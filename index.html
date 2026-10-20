@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tatsuhiko Takimoto — independent research</title>
+<meta name="description" content="Independent research in mathematics and science with AI teams, with machine-checked proofs and open verification data.">
+<link rel="alternate" type="text/plain" href="llms.txt" title="Index for AI readers">
+<style>
+  :root { --fg:#1d1d1f; --muted:#5f6368; --line:#e3e3e3; --bg:#ffffff; --link:#1a5fb4; }
+  @media (prefers-color-scheme: dark) { :root { --fg:#e8e8e8; --muted:#a0a0a0; --line:#333; --bg:#141414; --link:#8ab4f8; } }
+  body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width:720px; margin:0 auto; padding:48px 16px 64px; }
+  h1 { font-size:1.6rem; margin:0 0 4px; }
+  h2 { font-size:1.1rem; margin:40px 0 8px; border-bottom:1px solid var(--line); padding-bottom:4px; }
+  p, li { color:var(--fg); }
+  .muted { color:var(--muted); }
+  a { color:var(--link); }
+  ul { padding-left:1.2rem; }
+  .work { margin:16px 0; }
+  .work .t { font-weight:600; }
+  table { border-collapse:collapse; width:100%; font-size:.95rem; }
+  td { border-top:1px solid var(--line); padding:6px 4px; vertical-align:top; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Tatsuhiko Takimoto</h1>
+  <p class="muted">Independent research · mathematics and science with AI teams</p>
+
+  <h2>Works</h2>
+  <div class="work">
+    <div class="t">A two-stage classification of linear generalized Stone–Wales paths in Goldberg–Coxeter images of the dodecahedron</div>
+    <div>Studies the linear generalized Stone–Wales paths defined by A. Bille, V. Buchstaber and E. Spodarev in their list of open problems on fullerenes, on the Goldberg–Coxeter family of the dodecahedron.</div>
+    <div>Paper, Lean 4 proof and verification data: <a href="https://github.com/tkmt-lab/a3-gsw-classification">tkmt-lab/a3-gsw-classification</a></div>
+    <div class="muted">Evidence: <a href="https://github.com/tkmt-lab/a3-gsw-classification/blob/v1.0.5/packet/claims.json">claims.json (v1.0.5)</a> · <a href="https://github.com/tkmt-lab/a3-gsw-classification/actions">build and axiom checks</a></div>
+  </div>
+  <div class="work">
+    <div class="t">Eventual periodicity of linear generalized Stone–Wales paths in affine fullerene families with convex lattice-face decompositions</div>
+    <div>Extends the same question to the fullerene families of J. E. Graver's catalogue, using the classical link between monadic second-order logic and finite automata.</div>
+    <div>Paper, Lean 4 proof of the main theorem for a formal specification, and verification data: <a href="https://github.com/tkmt-lab/gsw-ray-periodicity">tkmt-lab/gsw-ray-periodicity</a></div>
+    <div class="muted">The Lean statement has weaker hypotheses than the paper; a short prose lemma in the paper, not checked by Lean, carries the paper's geometric hypotheses to it. For the family K3 the whole chain, including its closed classification, is Lean-proved with no prose step.</div>
+    <div class="muted">Evidence: <a href="https://github.com/tkmt-lab/gsw-ray-periodicity/blob/v1.3.1/packet/claims.json">claims.json (v1.3.1)</a> · <a href="https://github.com/tkmt-lab/gsw-ray-periodicity/actions">build and axiom checks</a></div>
+  </div>
+
+  <h2>Built on the work of others</h2>
+  <p>These results rest on ideas and tools that others created and shared:</p>
+  <ul>
+    <li>A. Bille, V. Buchstaber and E. Spodarev, who defined generalized Stone–Wales paths and collected open problems on fullerenes. Our question comes from their work.</li>
+    <li>M. Goldberg and H. S. M. Coxeter, after whom the Goldberg–Coxeter construction is named, and M. Dutour Sikirić and M. Deza, who developed it for plane graphs together with the theory of zigzags.</li>
+    <li>J. E. Graver, whose catalogue of highly symmetric fullerenes gives the families we study, and K. Kutnar and D. Marušič, whose work on cyclic edge-connectivity of fullerenes we rely on.</li>
+    <li>J. R. Büchi, C. C. Elgot and B. A. Trakhtenbrot, whose theorem connecting logic on words with finite automata is the last step of the periodicity proof.</li>
+    <li>The developers of Lean 4 and mathlib, and of the Comparator tool and the independent proof kernels used to check our proofs.</li>
+  </ul>
+  <p>These results would not exist without the work above: Bille, Buchstaber and Spodarev gave us the question, and Goldberg, Coxeter, Deza, Dutour Sikirić and Graver built the objects we study. I am grateful to them, and I hope this modest work adds a little to the field they opened. The papers cite these and other sources in full.</p>
+
+  <h2>How the work is checked</h2>
+  <p>Each release keeps different kinds of evidence apart, and says which applies to each claim:</p>
+  <table>
+    <tr><td>Formal proof</td><td>Checked by the Lean 4 kernel. Separately, the Comparator tool checks that the proof proves exactly a statement written in advance by a different agent. Anyone can re-run the build; each repository's GitHub Actions workflow rebuilds the main modules and checks their axioms on every push. Any step from the paper to the formal statement that is not in Lean is said so in the repository.</td></tr>
+    <tr><td>Independent derivation</td><td>A second proof written by a separate team that did not see the first proof or its code.</td></tr>
+    <tr><td>AI review</td><td>Prose read and recalculated by an AI reviewer. Not human peer review.</td></tr>
+    <tr><td>Finite computation</td><td>Exhaustive or sampled checks, with their exact ranges.</td></tr>
+  </table>
+  <p>What is not yet established — for example human peer review or novelty — is stated in each repository. Corrections are listed openly.</p>
+
+  <h2>How this research is done</h2>
+  <p>The research is carried out with AI systems (OpenAI Codex and Anthropic Claude Code) working as separate teams for exploration, independent verification, literature search and formalization. I direct the work, make the decisions, and am responsible for what is released, its provenance and the stated limits of verification. AI systems are not listed as authors.</p>
+
+  <h2>For AI readers</h2>
+  <p>A plain-text index is at <a href="llms.txt">llms.txt</a>. Each repository has an <code>AGENTS.md</code> and a machine-readable <code>claims.json</code>.</p>
+
+  <h2>My other work</h2>
+  <p>Novelist: <a href="https://tatsuhikotakimoto.com/en/">Tatsuhiko Takimoto (滝本竜彦)</a></p>
+
+  <h2>Contact</h2>
+  <p>Questions, errors and related work: please open an issue in the relevant repository.</p>
+
+  <h2>Licence</h2>
+  <p>The text of this site is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Each repository states its own licences.</p>
+</main>
+</body>
+</html>
