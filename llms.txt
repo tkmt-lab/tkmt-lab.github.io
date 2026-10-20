@@ -1,4 +1,4 @@
-# Tatsuhiko Takimoto — independent research
+# tkmt-lab — research lab of Tatsuhiko Takimoto
 
 > Independent research in mathematics and science with AI teams. The first results are on fullerene graphs. Each result is released with a paper, a Lean 4 formalization where available, verification data, and a machine-readable claim list stating what has and has not been checked.
 
