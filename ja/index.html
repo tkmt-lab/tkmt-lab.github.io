@@ -17,8 +17,11 @@
   .muted { color:var(--muted); }
   a { color:var(--link); }
   ul { padding-left:1.2rem; }
-  .work { margin:16px 0; }
-  .work .t { font-weight:600; }
+  .work { margin:28px 0 36px; padding:2px 0 2px 16px; border-left:3px solid var(--fig-yes); }
+  .work .num { font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-bottom:2px; }
+  .work .t { font-size:1.2rem; line-height:1.4; font-weight:650; margin:0 0 8px; }
+  .work .links { font-size:.95rem; margin:10px 0 4px; }
+  .work .note { font-size:.9rem; color:var(--muted); margin:4px 0 0; }
   table { border-collapse:collapse; width:100%; font-size:.95rem; }
   figure { margin:12px 0 8px; }
   figcaption { color:var(--muted); font-size:.9rem; margin-top:4px; }
@@ -36,7 +39,8 @@
 
   <h2>研究</h2>
   <div class="work">
-    <div class="t">十二面体から作るフラーレンでの、経路の二段の分類（第1弾）</div>
+    <div class="num">論文 1 · 2026</div>
+    <div class="t">十二面体から作るフラーレンでの、経路の二段の分類</div>
     <p class="plain">フラーレンは、五角形と六角形でできた、サッカーボールのようなかご形の炭素の分子です（C60 がいちばん有名です）。ここで調べた「経路」は、ある五角形から別の五角形まで、六角形がまっすぐ一列に並んだ道のことで、かごの形を組み替える「一般化 Stone–Wales 変形」が働く場所です。十二面体から作る、ねじれたかごの無限の族 GC(k,l)[C20]（k &gt; l &gt; 0）について、どのかごにこの経路があるかを、割り算の余りを使った簡単な規則で、すべて決めました。小さいかごを単に拡大しただけではないかごの中で、経路のない最初のかごは、炭素原子 7,980 個です。</p>
     <figure><svg viewBox="0 -14 402 462" role="img" aria-label="経路あり / 経路なし" style="width:100%;max-width:440px;height:auto;display:block">
 <rect x="46" y="358" width="11" height="11" fill="var(--fig-yes)"/>
@@ -486,11 +490,12 @@
 <rect x="208" y="422" width="11" height="11" fill="var(--fig-np)"/>
 <text x="224" y="432" font-size="11" fill="var(--fg)">拡大しただけの形（経路なし）</text>
 </svg><figcaption>一つのます目が一つのかご GC(k,l)[C20] です。色は証明した規則のとおりです。</figcaption></figure>
-    <div>この問いは A. Bille、V. Buchstaber、E. Spodarev がフラーレンの未解決問題の一覧で定義したものです。この分類は Lean 4 で証明され、計算機が証明の全段階を確かめています。</div>
-    <div class="muted"><a href="https://github.com/tkmt-lab/a3-gsw-classification">論文・Lean の証明・検証のデータ（英語）</a> · Zenodo <a href="https://doi.org/10.5281/zenodo.23491202">doi:10.5281/zenodo.23491202</a></div>
+    <div class="links"><a href="https://github.com/tkmt-lab/a3-gsw-classification/blob/main/paper/paper-A3-en.pdf">論文（PDF、英語）</a> · <a href="https://github.com/tkmt-lab/a3-gsw-classification">リポジトリ</a> · <a href="https://doi.org/10.5281/zenodo.23491202">doi:10.5281/zenodo.23491202</a></div>
+    <p class="note">この問いは A. Bille、V. Buchstaber、E. Spodarev がフラーレンの未解決問題の一覧で定義したものです。この分類は Lean 4 で証明され、計算機が証明の全段階を確かめています。</p>
   </div>
   <div class="work">
-    <div class="t">形を大きくしていくと、答えはいずれくり返す（第2弾）</div>
+    <div class="num">論文 2 · 2026</div>
+    <div class="t">形を大きくしていくと、答えはいずれくり返す</div>
     <p class="plain">フラーレンの族の多くは、大きさを表す数を増やすと、かごがどんどん大きくなります。広い種類の族について、かごを大きくしていくと「経路はあるか」の答えが、いずれ決まった周期でくり返すことを示しました。一つずつ調べなくても、一つの規則で無限に多くのかごが分かる、ということです。証明は周期があることを示しますが、一般には周期そのものを計算しません。族 K3 については、規則がはっきり分かっています。</p>
     <figure><svg viewBox="0 0 416 64" role="img" aria-label="K3(5,s)" style="width:100%;max-width:440px;height:auto;display:block">
 <rect x="8" y="6" width="9" height="22" fill="var(--fig-no)"/>
@@ -546,8 +551,8 @@
 <rect x="118" y="48" width="11" height="11" fill="var(--fig-no)"/>
 <text x="134" y="58" font-size="11" fill="var(--fg)">経路なし</text>
 </svg><figcaption>Graver の族 K3(5,s)（s = 2〜41）：s を 5 で割った余りが 1 か 4 のときだけ経路があるので、5 ごとに同じ模様がくり返します。</figcaption></figure>
-    <div>決まった数の凸な面を貼り合わせて作るフラーレンの族では、形を一方向に大きくしていくと、経路があるかどうかが、いずれ周期的にくり返すことを示しました。この定理の形式版は Lean 4 で証明されています。ただし、論文の図形から形式版へ移す一段は、Lean ではなく文章による証明です。J. E. Graver の目録にある族 K3 については、その一段も含めて、すべて Lean で証明されています。</div>
-    <div class="muted"><a href="https://github.com/tkmt-lab/gsw-ray-periodicity">論文・Lean の証明・検証のデータ（英語）</a> · Zenodo <a href="https://doi.org/10.5281/zenodo.23491204">doi:10.5281/zenodo.23491204</a></div>
+    <div class="links"><a href="https://github.com/tkmt-lab/gsw-ray-periodicity/blob/main/paper/paper-lines-en.pdf">論文（PDF、英語）</a> · <a href="https://github.com/tkmt-lab/gsw-ray-periodicity">リポジトリ</a> · <a href="https://doi.org/10.5281/zenodo.23491204">doi:10.5281/zenodo.23491204</a></div>
+    <p class="note">この定理の形式版は Lean 4 で証明されています。ただし、論文の図形から形式版へ移す一段は、Lean ではなく文章による証明です。J. E. Graver の目録にある族 K3 については、その一段も含めて、すべて Lean で証明されています。</p>
   </div>
 
   <h2>どう確かめているか</h2>

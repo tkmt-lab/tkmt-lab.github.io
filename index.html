@@ -18,8 +18,11 @@
   .muted { color:var(--muted); }
   a { color:var(--link); }
   ul { padding-left:1.2rem; }
-  .work { margin:16px 0; }
-  .work .t { font-weight:600; }
+  .work { margin:28px 0 36px; padding:2px 0 2px 16px; border-left:3px solid var(--fig-yes); }
+  .work .num { font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-bottom:2px; }
+  .work .t { font-size:1.2rem; line-height:1.4; font-weight:650; margin:0 0 8px; }
+  .work .links { font-size:.95rem; margin:10px 0 4px; }
+  .work .note { font-size:.9rem; color:var(--muted); margin:4px 0 0; }
   table { border-collapse:collapse; width:100%; font-size:.95rem; }
   figure { margin:12px 0 8px; }
   figcaption { color:var(--muted); font-size:.9rem; margin-top:4px; }
@@ -35,6 +38,7 @@
 
   <h2>Works</h2>
   <div class="work">
+    <div class="num">Paper 1 · 2026</div>
     <div class="t">A two-stage classification of linear generalized Stone–Wales paths in Goldberg–Coxeter images of the dodecahedron</div>
     <p class="plain">Fullerenes are cage-shaped carbon molecules made of pentagons and hexagons, like a football (C60 is the best known). The paths studied here are straight chains of hexagons running from one pentagon to another, along which a generalized Stone–Wales rearrangement of the cage acts. For one infinite family of twisted cages built from the dodecahedron, GC(k,l)[C20] with k &gt; l &gt; 0, we found a simple rule based on remainders that tells exactly which cages have such a path. Among the cages that are not just enlarged copies of a smaller one, the first without such a path has 7,980 carbon atoms.</p>
     <figure><svg viewBox="0 -14 402 462" role="img" aria-label="path exists / no path" style="width:100%;max-width:440px;height:auto;display:block">
@@ -485,11 +489,11 @@
 <rect x="208" y="422" width="11" height="11" fill="var(--fig-np)"/>
 <text x="224" y="432" font-size="11" fill="var(--fg)">enlarged copy (no path)</text>
 </svg><figcaption>Each square is one cage GC(k,l)[C20]. The colours follow the proved rule.</figcaption></figure>
-    <div>Studies the linear generalized Stone–Wales paths defined by A. Bille, V. Buchstaber and E. Spodarev in their list of open problems on fullerenes, on the Goldberg–Coxeter family of the dodecahedron.</div>
-    <div>Paper, Lean 4 proof and verification data: <a href="https://github.com/tkmt-lab/a3-gsw-classification">tkmt-lab/a3-gsw-classification</a></div>
-    <div class="muted">Evidence: <a href="https://github.com/tkmt-lab/a3-gsw-classification/blob/v1.0.5/packet/claims.json">claims.json (v1.0.5)</a> · Zenodo <a href="https://doi.org/10.5281/zenodo.23491202">doi:10.5281/zenodo.23491202</a> · <a href="https://github.com/tkmt-lab/a3-gsw-classification/actions">build and axiom checks</a></div>
+    <div class="links"><a href="https://github.com/tkmt-lab/a3-gsw-classification/blob/main/paper/paper-A3-en.pdf">Paper (PDF)</a> · <a href="https://github.com/tkmt-lab/a3-gsw-classification">Repository</a> · <a href="https://doi.org/10.5281/zenodo.23491202">doi:10.5281/zenodo.23491202</a> · <a href="https://github.com/tkmt-lab/a3-gsw-classification/blob/v1.0.5/packet/claims.json">claims.json</a> · <a href="https://github.com/tkmt-lab/a3-gsw-classification/actions">Build and axiom checks</a></div>
+    <p class="note">The question is from the list of open problems on fullerenes by A. Bille, V. Buchstaber and E. Spodarev. The classification is proved in Lean 4 and checked with Comparator against a statement written in advance.</p>
   </div>
   <div class="work">
+    <div class="num">Paper 2 · 2026</div>
     <div class="t">Eventual periodicity of linear generalized Stone–Wales paths in affine fullerene families with convex lattice-face decompositions</div>
     <p class="plain">Many fullerene families grow with a size parameter. We showed that, for a broad class of such families, the answer to “is there such a path?” eventually repeats in a regular cycle as the cages grow. So instead of checking cages one by one, a single rule covers infinitely many of them. The proof shows that the cycle exists but in general does not compute it; for the family K3 the rule is explicit.</p>
     <figure><svg viewBox="0 0 416 64" role="img" aria-label="K3(5,s)" style="width:100%;max-width:440px;height:auto;display:block">
@@ -546,10 +550,8 @@
 <rect x="118" y="48" width="11" height="11" fill="var(--fig-no)"/>
 <text x="134" y="58" font-size="11" fill="var(--fg)">no path</text>
 </svg><figcaption>Graver’s family K3(5,s) for s = 2 to 41: a path exists exactly when s leaves remainder 1 or 4 on division by 5, so the pattern repeats every 5 steps.</figcaption></figure>
-    <div>Extends the same question to the fullerene families of J. E. Graver's catalogue, using the classical link between monadic second-order logic and finite automata.</div>
-    <div>Paper, Lean 4 proof of the main theorem for a formal specification, and verification data: <a href="https://github.com/tkmt-lab/gsw-ray-periodicity">tkmt-lab/gsw-ray-periodicity</a></div>
-    <div class="muted">The Lean statement has weaker hypotheses than the paper; a short prose lemma in the paper, not checked by Lean, carries the paper's geometric hypotheses to it. For the family K3 the whole chain, including its closed classification, is Lean-proved with no prose step.</div>
-    <div class="muted">Evidence: <a href="https://github.com/tkmt-lab/gsw-ray-periodicity/blob/v1.3.1/packet/claims.json">claims.json (v1.3.1)</a> · Zenodo <a href="https://doi.org/10.5281/zenodo.23491204">doi:10.5281/zenodo.23491204</a> · <a href="https://github.com/tkmt-lab/gsw-ray-periodicity/actions">build and axiom checks</a></div>
+    <div class="links"><a href="https://github.com/tkmt-lab/gsw-ray-periodicity/blob/main/paper/paper-lines-en.pdf">Paper (PDF)</a> · <a href="https://github.com/tkmt-lab/gsw-ray-periodicity">Repository</a> · <a href="https://doi.org/10.5281/zenodo.23491204">doi:10.5281/zenodo.23491204</a> · <a href="https://github.com/tkmt-lab/gsw-ray-periodicity/blob/v1.3.1/packet/claims.json">claims.json</a> · <a href="https://github.com/tkmt-lab/gsw-ray-periodicity/actions">Build and axiom checks</a></div>
+    <p class="note">Extends the same question to the families of J. E. Graver's catalogue, using the classical link between monadic second-order logic and finite automata. A formal version of the main theorem is proved in Lean 4; it has weaker hypotheses than the paper, and a short prose lemma in the paper, not checked by Lean, carries the paper's geometric hypotheses to it. For the family K3 the whole chain, including its closed classification, is Lean-proved with no prose step.</p>
   </div>
 
   <h2>How the work is checked</h2>
