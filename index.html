@@ -577,6 +577,14 @@
     <div class="links"><a href="https://github.com/tkmt-lab/gsw-ray-periodicity/blob/main/paper/paper-lines-en.pdf">Paper (PDF)</a> · <a href="https://github.com/tkmt-lab/gsw-ray-periodicity">Repository</a> · <a href="https://doi.org/10.5281/zenodo.23491204">doi:10.5281/zenodo.23491204</a> · <a href="https://github.com/tkmt-lab/gsw-ray-periodicity/blob/main/packet/claims.json">claims.json</a> · <a href="https://github.com/tkmt-lab/gsw-ray-periodicity/actions">Build and axiom checks</a></div>
     <p class="note">Extends the same question to the families of J. E. Graver's catalogue, using the classical link between monadic second-order logic and finite automata. A formal version of the main theorem is proved in Lean 4; it has weaker hypotheses than the paper, and a short prose lemma in the paper, not checked by Lean, carries the paper's geometric hypotheses to it. For the families K3 and C1 the whole chain, including their closed classifications, is Lean-proved with no prose step; for O2 the same holds for the ray result and the absence of paths when both parameters are at least 2, for D14 for the ray result, and for E10 for its classification and the ray result.</p>
   </div>
+  <div class="work">
+    <div class="num">Paper 3 · 2026</div>
+    <div class="t">Rational two-qubit certificates for two published Bell-facet lists</div>
+    <div class="tag">Can each of 4.3 million Bell inequalities be broken by two qubits? An exact certificate for each, checked twice.</div>
+    <p class="plain">A Bell inequality is a limit that every classical explanation of a two-party experiment must obey; quantum mechanics can break some of them. R. Gill asked whether every nontrivial facet inequality can be broken by quantum correlations. C. Staufenbiel published large lists of such inequalities found by polyhedral sampling. For every row of two of those lists — 49,358 inequalities with four and five measurement settings, and 4,327,233 with four and six — we check that it is a facet. For every row except one trivial positivity facet in each list, we give a two-qubit state and measurements, written with rational numbers, that break it. Two separately written exact verifiers accept every row.</p>
+    <div class="links"><a href="https://github.com/tkmt-lab/bell-facet-certificates/blob/main/paper-bell-v1-en.pdf">Paper (PDF)</a> · <a href="https://github.com/tkmt-lab/bell-facet-certificates">Repository</a> · <a href="https://doi.org/10.5281/zenodo.23538696">doi:10.5281/zenodo.23538696</a> · <a href="https://github.com/tkmt-lab/bell-facet-certificates/blob/main/claims.json">claims.json</a> · <a href="https://github.com/tkmt-lab/bell-facet-certificates/actions">Exact verification</a></div>
+    <p class="note">This is finite evidence about two fixed published lists, not a solution of Gill's question; completeness of the lists and optimal quantum values are not claimed. The full certificates for the larger list are attached to the release. The repository's CI re-checks the smaller lists completely, and samples of the larger one, with both verifiers. There is no Lean proof and no human peer review.</p>
+  </div>
 
   <h2>How the work is checked</h2>
   <p>Each release keeps different kinds of evidence apart, and says which applies to each claim:</p>
@@ -597,6 +605,7 @@
     <li>M. Goldberg and H. S. M. Coxeter, after whom the Goldberg–Coxeter construction is named, and M. Dutour Sikirić and M. Deza, who developed it for plane graphs together with the theory of zigzags.</li>
     <li>J. E. Graver, whose catalogue of highly symmetric fullerenes gives the families we study, and K. Kutnar and D. Marušič, whose work on cyclic edge-connectivity of fullerenes we rely on.</li>
     <li>J. R. Büchi, C. C. Elgot and B. A. Trakhtenbrot, whose theorem connecting logic on words with finite automata is the last step of the periodicity proof.</li>
+    <li>R. Gill, who asked whether every nontrivial Bell facet can be violated quantum mechanically; C. Staufenbiel, whose sampled facet lists and tools we certify; and S. Lörwald and G. Reinelt, the authors of the polyhedral software PANDA on which those tools are built.</li>
     <li>The developers of Lean 4 and mathlib, and of the Comparator tool and the independent proof kernels used to check our proofs.</li>
   </ul>
   <p>I am grateful to them, and I hope this work adds something new to the field they opened. The papers cite these and other sources in full.</p>

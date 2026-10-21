@@ -579,6 +579,14 @@
     <div class="links"><a href="https://github.com/tkmt-lab/gsw-ray-periodicity/blob/main/paper/paper-lines-en.pdf">論文（PDF、英語）</a> · <a href="https://github.com/tkmt-lab/gsw-ray-periodicity">リポジトリ</a> · <a href="https://doi.org/10.5281/zenodo.23491204">doi:10.5281/zenodo.23491204</a></div>
     <p class="note">この定理の形式版は Lean 4 で証明されています。ただし、論文の図形から形式版へ移す一段は、Lean ではなく文章による証明です。J. E. Graver の目録にある族 K3 と C1 については、その一段も含めて、すべて Lean で証明されています。族 O2 についても、直線上の結果と、二つのパラメータがどちらも2以上なら経路がないことを、族 D14 についても直線上の結果を、族 E10 についても分類と直線上の結果を、同じく Lean で証明しました。</p>
   </div>
+  <div class="work">
+    <div class="num">論文 3 · 2026</div>
+    <div class="t">公開された二つの Bell 不等式の面のリストへの、有理数の 2 量子ビットの証明書</div>
+    <div class="tag">430 万個の Bell 不等式の一つ一つを、2 量子ビットで破れるか。それぞれに厳密な証明書を付け、二度確かめました。</div>
+    <p class="plain">Bell 不等式は、二者の実験を古典的に説明するなら必ず守られる限界で、量子力学はその一部を破ります。R. Gill は「自明でない面の不等式は、どれも量子の相関で破れるか」と問いました。C. Staufenbiel は、多面体の標本抽出で見つけた不等式の大きなリストを公開しています。そのうち二つのリスト（測定の設定が 4 と 5 の 49,358 個、4 と 6 の 4,327,233 個）のすべての行について、面であることを確かめました。各リストに一つずつある自明な正値性の面を除くすべての行に、それを破る 2 量子ビットの状態と測定を、有理数で書いて付けました。別々に書いた二つの厳密な検査器が、すべての行を受け入れています。</p>
+    <div class="links"><a href="https://github.com/tkmt-lab/bell-facet-certificates/blob/main/paper-bell-v1-en.pdf">論文（PDF、英語）</a> · <a href="https://github.com/tkmt-lab/bell-facet-certificates">リポジトリ</a> · <a href="https://doi.org/10.5281/zenodo.23538696">doi:10.5281/zenodo.23538696</a></div>
+    <p class="note">固定した二つの公開リストについての有限の証拠で、Gill の問いを解いたものではありません。リストが完全であることや、量子での最大の値は主張していません。Lean の証明はなく、人間の査読もまだです。</p>
+  </div>
 
   <h2>どう確かめているか</h2>
   <ul>
@@ -593,7 +601,7 @@
   <p>AI（OpenAI の Codex と Anthropic の Claude Code）が、探索、独立な検証、文献の調査、形式化を、別々のチームとして担っています。私（滝本竜彦）が方向を決め、判断し、公開するものとその限界の書き方に責任を持ちます。AI は著者に入れていません。</p>
 
   <h2>元になった研究への感謝</h2>
-  <p>これらの結果は、この分野を切り開いてきた研究者の方々の仕事の上にあります。問いは、A. Bille、V. Buchstaber、E. Spodarev による未解決問題の一覧から生まれました。調べた形は、M. Goldberg と H. S. M. Coxeter の名を冠した構成と、それを広げた M. Dutour Sikirić と M. Deza の仕事、そして J. E. Graver の目録によるものです。K. Kutnar と D. Marušič によるフラーレンの辺連結性の研究、J. R. Büchi、C. C. Elgot、B. A. Trakhtenbrot による論理と有限オートマトンを結ぶ定理、Lean 4 と mathlib、Comparator と独立な検査器を作った方々の仕事も使わせていただきました。心から感謝します。この小さな仕事が、この分野にわずかでも新しいものを付け加えられたなら幸いです。</p>
+  <p>これらの結果は、この分野を切り開いてきた研究者の方々の仕事の上にあります。問いは、A. Bille、V. Buchstaber、E. Spodarev による未解決問題の一覧から生まれました。調べた形は、M. Goldberg と H. S. M. Coxeter の名を冠した構成と、それを広げた M. Dutour Sikirić と M. Deza の仕事、そして J. E. Graver の目録によるものです。K. Kutnar と D. Marušič によるフラーレンの辺連結性の研究、J. R. Büchi、C. C. Elgot、B. A. Trakhtenbrot による論理と有限オートマトンを結ぶ定理、Lean 4 と mathlib、Comparator と独立な検査器を作った方々の仕事も使わせていただきました。Bell 不等式の仕事は、R. Gill の問いと、C. Staufenbiel が公開した面のリストと道具、その土台になった S. Lörwald と G. Reinelt の PANDA の上にあります。心から感謝します。この小さな仕事が、この分野にわずかでも新しいものを付け加えられたなら幸いです。</p>
   <p class="muted">出典は各論文にすべて挙げています。</p>
 
   <h2>もう一つの仕事</h2>
