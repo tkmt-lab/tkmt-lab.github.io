@@ -1,9 +1,9 @@
 {
   "$schema": "https://tkmt-lab.github.io/catalog.schema.json",
   "version": "1.0",
-  "generated_at": "2026-10-22T19:34:00+09:00",
+  "generated_at": "2026-10-23T02:17:59+09:00",
   "sources": {
-    "releases": "docs/releases.json (lab research repository, updated 2026-10-22T14:22:34+09:00)",
+    "releases": "docs/releases.json (lab research repository, updated 2026-10-23T02:12:19+09:00)",
     "repositories": "claims.json, AGENTS.md, README.md, CITATION.cff, .zenodo.json at each repository's published main branch"
   },
   "lab": {
@@ -11,7 +11,7 @@
     "homepage": "https://tkmt-lab.github.io/",
     "llms_txt": "https://tkmt-lab.github.io/llms.txt",
     "owner": "Tatsuhiko Takimoto",
-    "description": "Independent research in mathematics and science with AI teams. The first results are on fullerene graphs; later work covers Bell inequalities, analogue Hawking radiation and epidemic-model identifiability. Each result is released with a paper, a Lean 4 formalization where available, verification data, and a machine-readable claim list stating what has and has not been checked.",
+    "description": "Independent research in mathematics and science with AI teams. The first results are on fullerene graphs; later work covers Bell inequalities, analogue Hawking radiation, epidemic-model identifiability and Heesch numbers of polyforms. Each result is released with a paper, a Lean 4 formalization where available, verification data, and a machine-readable claim list stating what has and has not been checked.",
     "contact": {
       "text": "research@tatsuhikotakimoto.com, or GitHub issues in the relevant repository.",
       "email": "research@tatsuhikotakimoto.com"
@@ -5389,6 +5389,587 @@
             "results/check_proof_algebra.out",
             "independent/check_article_algebra.py",
             "results/check_article_algebra.out"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tkmt-lab/heesch-certificates",
+      "title": "Heesch numbers and maximal coronas of small polyforms with certificates and a Lean-verified SAT encoding",
+      "title_tex": "Heesch numbers and maximal coronas of small polyforms\\newline\nwith certificates and a Lean-verified SAT encoding",
+      "paper_version": "2.1",
+      "packet_version": "1.0.0",
+      "authors": [
+        {
+          "name": "Tatsuhiko Takimoto",
+          "affiliation": "Independent researcher"
+        }
+      ],
+      "summary": "for a fixed selection of 3,964 polyominoes, polyhexes and polyiamonds from C. S. Kaplan's tables, every Heesch number (hole-free Hc and outer-holes Hh) equals Kaplan's value and comes with checkable evidence: 6,574 corona witnesses accepted by two geometric checkers (lower bounds) and 5,019 unsatisfiability proofs accepted by drat-trim (upper bounds). Soundness of the SAT encoding on the square, hexagonal and triangular grids is proved in Lean 4 (standard axioms only; Comparator, six kernel runs); the checked CNFs equal the Lean encoding up to renaming by a recorded finite comparison. Also: maximal-corona counts for 22 shapes by two separately written implementations, and a restricted search of 3,442 polyominoes with 20-28 cells that found no finite Hh = 4. The DRAT proofs are checked outside Lean; outer-layer counts have no certificate; the search is not exhaustive; only the listed shapes are covered; no priority or human peer review is claimed.",
+      "release": {
+        "tag": "v1.0.0",
+        "date": "2026-10-23",
+        "commit": "271bc8ce223a1fd641494352eb31f350e3d8bf37",
+        "github_release": "https://github.com/tkmt-lab/heesch-certificates/releases/tag/v1.0.0",
+        "version_doi": "10.5281/zenodo.23572883",
+        "concept_doi": "10.5281/zenodo.23572882",
+        "doi_status": "minted"
+      },
+      "repo_url": "https://github.com/tkmt-lab/heesch-certificates",
+      "paper_pdf": {
+        "path": "paper-heesch-certificates-v2.1-en.pdf",
+        "url": "https://github.com/tkmt-lab/heesch-certificates/blob/v1.0.0/paper-heesch-certificates-v2.1-en.pdf",
+        "raw_url": "https://raw.githubusercontent.com/tkmt-lab/heesch-certificates/v1.0.0/paper-heesch-certificates-v2.1-en.pdf"
+      },
+      "paper_source": {
+        "path": "paper-heesch-certificates-v2.1-en.tex",
+        "url": "https://github.com/tkmt-lab/heesch-certificates/blob/v1.0.0/paper-heesch-certificates-v2.1-en.tex"
+      },
+      "entry_points": {
+        "agents_md": [
+          {
+            "path": "AGENTS.md",
+            "url": "https://github.com/tkmt-lab/heesch-certificates/blob/v1.0.0/AGENTS.md"
+          }
+        ],
+        "claims_json": {
+          "path": "claims.json",
+          "url": "https://github.com/tkmt-lab/heesch-certificates/blob/v1.0.0/claims.json",
+          "raw_url": "https://raw.githubusercontent.com/tkmt-lab/heesch-certificates/v1.0.0/claims.json"
+        },
+        "readme": {
+          "path": "README.md",
+          "url": "https://github.com/tkmt-lab/heesch-certificates/blob/v1.0.0/README.md"
+        },
+        "citation_cff": {
+          "path": "CITATION.cff",
+          "url": "https://github.com/tkmt-lab/heesch-certificates/blob/v1.0.0/CITATION.cff"
+        }
+      },
+      "scope": [
+        {
+          "text": "Finite certificates and Lean soundness of the encoding; corona counts by two independent implementations; bounded search record",
+          "lang": "en",
+          "source": "docs/releases.json"
+        }
+      ],
+      "not_claimed": [
+        {
+          "text": "Lean check of the DRAT proofs, certificates for outer-layer corona counts, priority, human peer review",
+          "lang": "en",
+          "source": "docs/releases.json"
+        }
+      ],
+      "scope_flags": {
+        "human_expert_review": false,
+        "lean_internal_unsat_proofs": false,
+        "lrat_or_verified_checker": false,
+        "off_grid_placements": false,
+        "exhaustive_beyond_listed_inputs": false,
+        "counting_formally_verified": false,
+        "inputs_redistributed": false,
+        "priority_claimed": false
+      },
+      "verification": [
+        {
+          "source": "README.md#Check in a minute",
+          "working_directory": ".",
+          "shell": "sh",
+          "script": "python3 -B check_packet.py              # file list, hashes, claims, records cross-checked, privacy (seconds)\npython3 -B checkers/check_all_witnesses.py   # both geometric checkers on all 6,574 witnesses (~10 s)",
+          "expected_output": "{\"status\": \"PASS\", \"shapes\": 3964, \"witnesses_first_checker\": 6574, \"witnesses_second_checker\": 6574, ...}"
+        },
+        {
+          "source": "README.md#Check in a minute",
+          "working_directory": ".",
+          "shell": "sh",
+          "script": "sh tools/build_drat_trim.sh                  # clones drat-trim at the pinned commit and compiles it\npython3 -B recheck_certificates.py --name omino_10omino_0up_0000_0"
+        }
+      ],
+      "claims": [
+        {
+          "id": "tkmt-lab/heesch-certificates#encoding-soundness",
+          "local_id": "encoding-soundness",
+          "paper_label": "thm:sound",
+          "kind": "lean-proof",
+          "statement": "For the square, hexagonal and triangular grids, every finite S, K >= 1, every permutation order of the at-most-one counter inputs and every list of hole blocks valid for level K-1 (resp. K): if cnfOrd G ord S K blocks is unsatisfiable, S has no Hh-corona (resp. Hc-corona) with K layers.",
+          "lean_declarations": [
+            "Heesch.hh_sound_square",
+            "Heesch.hc_sound_square",
+            "Heesch.hh_sound_hex",
+            "Heesch.hc_sound_hex",
+            "Heesch.hh_sound_tri",
+            "Heesch.hc_sound_tri"
+          ],
+          "evidence": [
+            {
+              "kind": "lean-proof",
+              "basis": "lean",
+              "declaration": "Heesch.hh_sound_square",
+              "source_file": "formal/Heesch/Challenge.lean",
+              "axioms": [
+                "propext",
+                "Classical.choice",
+                "Quot.sound"
+              ],
+              "statement_file": "formal/Heesch/Challenge.lean"
+            },
+            {
+              "kind": "comparator",
+              "basis": "README.md",
+              "declaration": "Heesch.hh_sound_square",
+              "statement_file": "formal/Heesch/Challenge.lean",
+              "statement_declaration": "Heesch.hh_sound_square",
+              "kernels": 6
+            },
+            {
+              "kind": "lean-proof",
+              "basis": "lean",
+              "declaration": "Heesch.hc_sound_square",
+              "source_file": "formal/Heesch/Challenge.lean",
+              "axioms": [
+                "propext",
+                "Classical.choice",
+                "Quot.sound"
+              ],
+              "statement_file": "formal/Heesch/Challenge.lean"
+            },
+            {
+              "kind": "comparator",
+              "basis": "README.md",
+              "declaration": "Heesch.hc_sound_square",
+              "statement_file": "formal/Heesch/Challenge.lean",
+              "statement_declaration": "Heesch.hc_sound_square",
+              "kernels": 6
+            },
+            {
+              "kind": "lean-proof",
+              "basis": "lean",
+              "declaration": "Heesch.hh_sound_hex",
+              "source_file": "formal/Heesch/Challenge.lean",
+              "axioms": [
+                "propext",
+                "Classical.choice",
+                "Quot.sound"
+              ],
+              "statement_file": "formal/Heesch/Challenge.lean"
+            },
+            {
+              "kind": "comparator",
+              "basis": "README.md",
+              "declaration": "Heesch.hh_sound_hex",
+              "statement_file": "formal/Heesch/Challenge.lean",
+              "statement_declaration": "Heesch.hh_sound_hex",
+              "kernels": 6
+            },
+            {
+              "kind": "lean-proof",
+              "basis": "lean",
+              "declaration": "Heesch.hc_sound_hex",
+              "source_file": "formal/Heesch/Challenge.lean",
+              "axioms": [
+                "propext",
+                "Classical.choice",
+                "Quot.sound"
+              ],
+              "statement_file": "formal/Heesch/Challenge.lean"
+            },
+            {
+              "kind": "comparator",
+              "basis": "README.md",
+              "declaration": "Heesch.hc_sound_hex",
+              "statement_file": "formal/Heesch/Challenge.lean",
+              "statement_declaration": "Heesch.hc_sound_hex",
+              "kernels": 6
+            },
+            {
+              "kind": "lean-proof",
+              "basis": "lean",
+              "declaration": "Heesch.hh_sound_tri",
+              "source_file": "formal/Heesch/Challenge.lean",
+              "axioms": [
+                "propext",
+                "Classical.choice",
+                "Quot.sound"
+              ],
+              "statement_file": "formal/Heesch/Challenge.lean"
+            },
+            {
+              "kind": "comparator",
+              "basis": "README.md",
+              "declaration": "Heesch.hh_sound_tri",
+              "statement_file": "formal/Heesch/Challenge.lean",
+              "statement_declaration": "Heesch.hh_sound_tri",
+              "kernels": 6
+            },
+            {
+              "kind": "lean-proof",
+              "basis": "lean",
+              "declaration": "Heesch.hc_sound_tri",
+              "source_file": "formal/Heesch/Challenge.lean",
+              "axioms": [
+                "propext",
+                "Classical.choice",
+                "Quot.sound"
+              ],
+              "statement_file": "formal/Heesch/Challenge.lean"
+            },
+            {
+              "kind": "comparator",
+              "basis": "README.md",
+              "declaration": "Heesch.hc_sound_tri",
+              "statement_file": "formal/Heesch/Challenge.lean",
+              "statement_declaration": "Heesch.hc_sound_tri",
+              "kernels": 6
+            }
+          ],
+          "evidence_kinds": [
+            "comparator",
+            "lean-proof"
+          ],
+          "scope": "statement accepts any finite set of points as S; copies on the fixed grid; the link between a DIMACS file and cnfOrd is outside the statement",
+          "reproduce": "CI job 'lean' (lake build, ci/Axioms.lean, lake comparator --paranoid)",
+          "evidence_files": [
+            "formal/Heesch/Challenge.lean",
+            "formal/Heesch/Solution.lean",
+            "formal/comparator.json",
+            "ci/Axioms.lean",
+            "evidence/comparator-2026-10-22.txt",
+            "evidence/comparator-public-names-2026-10-23.txt"
+          ]
+        },
+        {
+          "id": "tkmt-lab/heesch-certificates#square-instance-equals-earlier-definition",
+          "local_id": "square-instance-equals-earlier-definition",
+          "paper_label": "sec:lean",
+          "kind": "lean-proof",
+          "statement": "cnfOrd squareGrid ord S K blocks equals the earlier square-only cnfOrd for all arguments.",
+          "lean_declarations": [
+            "HeeschProof.cnfOrd_square"
+          ],
+          "evidence": [
+            {
+              "kind": "lean-proof",
+              "basis": "lean",
+              "declaration": "HeeschProof.cnfOrd_square",
+              "source_file": "formal/Heesch/SquareEq.lean",
+              "axioms": [
+                "propext",
+                "Classical.choice",
+                "Quot.sound"
+              ]
+            }
+          ],
+          "evidence_kinds": [
+            "lean-proof"
+          ],
+          "reproduce": "CI job 'lean'",
+          "evidence_files": [
+            "formal/Heesch/SquareEq.lean",
+            "ci/Axioms.lean"
+          ]
+        },
+        {
+          "id": "tkmt-lab/heesch-certificates#lower-bounds",
+          "local_id": "lower-bounds",
+          "paper_label": "sec:certificates",
+          "kind": "finite-computation",
+          "statement": "6,574 corona witnesses for the 3,964 selected shapes (Table 3) satisfy (P0)-(P3), congruence and the disc conditions for the claimed Hc and Hh; two separately written geometric checkers accept all.",
+          "evidence": [
+            {
+              "kind": "finite-computation",
+              "basis": "kind=finite-computation"
+            }
+          ],
+          "evidence_kinds": [
+            "finite-computation"
+          ],
+          "reproduce": "python3 -B checkers/check_all_witnesses.py (seconds); part of ci_check.py",
+          "numbers": {
+            "shapes": 3964,
+            "witnesses": 6574,
+            "combined": 1354
+          },
+          "evidence_files": [
+            "witnesses/hex/06hex_0up.jsonl",
+            "witnesses/hex/07hex_0up.jsonl",
+            "witnesses/hex/08hex_0up.jsonl",
+            "witnesses/hex/10hex_2up.jsonl",
+            "witnesses/hex/11hex_3up.jsonl",
+            "witnesses/hex/12hex_3up.jsonl",
+            "witnesses/hex/13hex_3up.jsonl",
+            "witnesses/hex/15hex_3up.jsonl",
+            "witnesses/hex/16hex_3up.jsonl",
+            "witnesses/iamond/07iamond_0up.jsonl",
+            "witnesses/iamond/09iamond_0up.jsonl",
+            "witnesses/iamond/10iamond_0up.jsonl",
+            "witnesses/iamond/11iamond_0up.jsonl",
+            "witnesses/iamond/12iamond_0up.jsonl",
+            "witnesses/iamond/20iamond_2up.jsonl",
+            "witnesses/omino/07omino_0up.jsonl",
+            "witnesses/omino/08omino_0up.jsonl",
+            "witnesses/omino/09omino_0up.jsonl",
+            "witnesses/omino/10omino_0up.jsonl",
+            "witnesses/omino/11omino_2up.jsonl",
+            "witnesses/omino/13omino_2up.jsonl",
+            "witnesses/omino/17omino_2up.jsonl",
+            "checkers/check_witness.py",
+            "checkers/geometry.py",
+            "checkers/check_all_witnesses.py"
+          ]
+        },
+        {
+          "id": "tkmt-lab/heesch-certificates#upper-bounds",
+          "local_id": "upper-bounds",
+          "paper_label": "sec:certificates",
+          "kind": "finite-computation",
+          "statement": "For every selected shape, the CNF for K = Hh+1 (mode Hh, no blocks) and, if Hc < Hh, for K = Hc+1 (mode Hc, with hole blocks) is unsatisfiable: 5,019 DRAT/DRUP proofs accepted by drat-trim.",
+          "evidence": [
+            {
+              "kind": "finite-computation",
+              "basis": "kind=finite-computation"
+            }
+          ],
+          "evidence_kinds": [
+            "finite-computation"
+          ],
+          "scope": "drat-trim is not formally verified; proofs are not archived (regenerated by the recorded solver)",
+          "reproduce": "python3 -B recheck_certificates.py --sample (CI) or --all (hours); CNFs regenerate byte-identically",
+          "numbers": {
+            "certificates": 5019,
+            "Hh": 3964,
+            "Hc": 1055,
+            "blocks": 13287,
+            "cadical_binary_drat": 4998,
+            "glucose_drup": 16,
+            "lingeling_text_drat": 5,
+            "cnf_total_bytes": 8701205806,
+            "proof_total_bytes": 25184139473,
+            "largest_proof_bytes": 7175887914
+          },
+          "evidence_files": [
+            "certificates/hex/06hex_0up.jsonl",
+            "certificates/hex/07hex_0up.jsonl",
+            "certificates/hex/08hex_0up.jsonl",
+            "certificates/hex/10hex_2up.jsonl",
+            "certificates/hex/11hex_3up.jsonl",
+            "certificates/hex/12hex_3up.jsonl",
+            "certificates/hex/13hex_3up.jsonl",
+            "certificates/hex/15hex_3up.jsonl",
+            "certificates/hex/16hex_3up.jsonl",
+            "certificates/iamond/07iamond_0up.jsonl",
+            "certificates/iamond/09iamond_0up.jsonl",
+            "certificates/iamond/10iamond_0up.jsonl",
+            "certificates/iamond/11iamond_0up.jsonl",
+            "certificates/iamond/12iamond_0up.jsonl",
+            "certificates/iamond/20iamond_2up.jsonl",
+            "certificates/omino/07omino_0up.jsonl",
+            "certificates/omino/08omino_0up.jsonl",
+            "certificates/omino/09omino_0up.jsonl",
+            "certificates/omino/10omino_0up.jsonl",
+            "certificates/omino/11omino_2up.jsonl",
+            "certificates/omino/13omino_2up.jsonl",
+            "certificates/omino/17omino_2up.jsonl",
+            "generator/encode.py",
+            "generator/grids.py",
+            "generator/heesch.py",
+            "recheck_certificates.py",
+            "tools/build_drat_trim.sh"
+          ]
+        },
+        {
+          "id": "tkmt-lab/heesch-certificates#file-comparison",
+          "local_id": "file-comparison",
+          "paper_label": "sec:bridge",
+          "kind": "finite-computation",
+          "statement": "Each of the 5,019 checked CNF files is equivalent up to renaming of variables (and reordering of clauses and literals) to the Lean cnfOrd for the recorded grid, shape, K, blocks and the counter order recovered from the file; all blocks are valid.",
+          "evidence": [
+            {
+              "kind": "finite-computation",
+              "basis": "kind=finite-computation"
+            }
+          ],
+          "evidence_kinds": [
+            "finite-computation"
+          ],
+          "scope": "the Python transcriptions of cnfOrd were validated on 64 Lean outputs, not proved; the comparison programs are not part of this packet",
+          "reproduce": "records only; check_packet.py cross-checks every row against the certificate records",
+          "evidence_files": [
+            "bridge/file-comparison.jsonl.gz",
+            "bridge/summary.json"
+          ]
+        },
+        {
+          "id": "tkmt-lab/heesch-certificates#values-agree-second-encoding",
+          "local_id": "values-agree-second-encoding",
+          "paper_label": "sec:certificates",
+          "kind": "independent-implementation",
+          "statement": "A second encoding, written from the mathematical description without the first implementation, agrees with the first and with Kaplan on (Hc, Hh) for all 3,964 shapes; all 5,019 upper-bound instances are UNSAT there and all witnesses satisfy its clauses.",
+          "evidence": [
+            {
+              "kind": "independent-implementation",
+              "basis": "kind=independent-implementation"
+            }
+          ],
+          "evidence_kinds": [
+            "independent-implementation"
+          ],
+          "scope": "shares the specification and SAT solvers; corroborates values, not a second certificate",
+          "reproduce": "not distributed (no proof logs)",
+          "evidence_files": [
+            "VERIFICATION-RECORD.md"
+          ]
+        },
+        {
+          "id": "tkmt-lab/heesch-certificates#maximal-corona-counts",
+          "local_id": "maximal-corona-counts",
+          "paper_label": "tab:counts",
+          "kind": "independent-implementation",
+          "statement": "Table 6: prefix counts N_1..N_k and totals N_k of maximal Hh- and Hc-coronas for 22 shapes (30 shape-variant combinations); two separate counting implementations agree in 28 combinations (prefix sets in cell coordinates, every per-inner-part completion count, totals); for 15-hex #315 the prefix sets agree and the totals come from the second implementation only.",
+          "evidence": [
+            {
+              "kind": "independent-implementation",
+              "basis": "kind=independent-implementation"
+            }
+          ],
+          "evidence_kinds": [
+            "independent-implementation"
+          ],
+          "scope": "inner enumeration has checked DRAT exhaustion proofs in 28 combinations, whose CNFs are outside the Lean theorem and the file comparison; outer counts have no proof certificate",
+          "reproduce": "python3 -B check_counts.py (recompares both sides and checks every inner part and every completed corona geometrically)",
+          "evidence_files": [
+            "counts/table.json",
+            "counts/inner-parts/hex-10hex_2up-13-Hh.json.gz",
+            "counts/inner-parts/hex-11hex_3up-18-Hc.json.gz",
+            "counts/inner-parts/hex-11hex_3up-18-Hh.json.gz",
+            "counts/inner-parts/hex-11hex_3up-20-Hh.json.gz",
+            "counts/inner-parts/hex-11hex_3up-30-Hh.json.gz",
+            "counts/inner-parts/hex-11hex_3up-32-Hh.json.gz",
+            "counts/inner-parts/hex-11hex_3up-37-Hh.json.gz",
+            "counts/inner-parts/hex-11hex_3up-59-Hh.json.gz",
+            "counts/inner-parts/hex-12hex_3up-21-Hh.json.gz",
+            "counts/inner-parts/hex-12hex_3up-5-Hh.json.gz",
+            "counts/inner-parts/hex-13hex_3up-19-Hc.json.gz",
+            "counts/inner-parts/hex-13hex_3up-19-Hh.json.gz",
+            "counts/inner-parts/hex-13hex_3up-38-Hh.json.gz",
+            "counts/inner-parts/hex-15hex_3up-278-Hc.json.gz",
+            "counts/inner-parts/hex-15hex_3up-278-Hh.json.gz",
+            "counts/inner-parts/hex-15hex_3up-315-Hc.json.gz",
+            "counts/inner-parts/hex-15hex_3up-315-Hh.json.gz",
+            "counts/inner-parts/hex-16hex_3up-2-Hc.json.gz",
+            "counts/inner-parts/hex-16hex_3up-2-Hh.json.gz",
+            "counts/inner-parts/hex-16hex_3up-72-Hh.json.gz",
+            "counts/inner-parts/iamond-10iamond_0up-51-Hh.json.gz",
+            "counts/inner-parts/iamond-20iamond_2up-130-Hc.json.gz",
+            "counts/inner-parts/iamond-20iamond_2up-130-Hh.json.gz",
+            "counts/inner-parts/omino-11omino_2up-2-Hh.json.gz",
+            "counts/inner-parts/omino-13omino_2up-50-Hh.json.gz",
+            "counts/inner-parts/omino-17omino_2up-192-Hc.json.gz",
+            "counts/inner-parts/omino-17omino_2up-192-Hh.json.gz",
+            "counts/inner-parts/omino-17omino_2up-43-Hc.json.gz",
+            "counts/inner-parts/omino-17omino_2up-43-Hh.json.gz",
+            "counts/inner-parts/omino-17omino_2up-521-Hh.json.gz",
+            "check_counts.py"
+          ]
+        },
+        {
+          "id": "tkmt-lab/heesch-certificates#forced-inner-parts",
+          "local_id": "forced-inner-parts",
+          "paper_label": "sec:counts",
+          "kind": "finite-computation",
+          "statement": "In the 28 fully compared combinations no outer layer is forced (minimum completion count 2); exactly six Hh and four Hc combinations have a unique inner part.",
+          "evidence": [
+            {
+              "kind": "finite-computation",
+              "basis": "kind=finite-computation"
+            }
+          ],
+          "evidence_kinds": [
+            "finite-computation"
+          ],
+          "reproduce": "python3 -B check_counts.py",
+          "evidence_files": [
+            "counts/table.json",
+            "counts/inner-parts/hex-10hex_2up-13-Hh.json.gz",
+            "counts/inner-parts/hex-11hex_3up-18-Hc.json.gz",
+            "counts/inner-parts/hex-11hex_3up-18-Hh.json.gz",
+            "counts/inner-parts/hex-11hex_3up-20-Hh.json.gz",
+            "counts/inner-parts/hex-11hex_3up-30-Hh.json.gz",
+            "counts/inner-parts/hex-11hex_3up-32-Hh.json.gz",
+            "counts/inner-parts/hex-11hex_3up-37-Hh.json.gz",
+            "counts/inner-parts/hex-11hex_3up-59-Hh.json.gz",
+            "counts/inner-parts/hex-12hex_3up-21-Hh.json.gz",
+            "counts/inner-parts/hex-12hex_3up-5-Hh.json.gz",
+            "counts/inner-parts/hex-13hex_3up-19-Hc.json.gz",
+            "counts/inner-parts/hex-13hex_3up-19-Hh.json.gz",
+            "counts/inner-parts/hex-13hex_3up-38-Hh.json.gz",
+            "counts/inner-parts/hex-15hex_3up-278-Hc.json.gz",
+            "counts/inner-parts/hex-15hex_3up-278-Hh.json.gz",
+            "counts/inner-parts/hex-15hex_3up-315-Hc.json.gz",
+            "counts/inner-parts/hex-15hex_3up-315-Hh.json.gz",
+            "counts/inner-parts/hex-16hex_3up-2-Hc.json.gz",
+            "counts/inner-parts/hex-16hex_3up-2-Hh.json.gz",
+            "counts/inner-parts/hex-16hex_3up-72-Hh.json.gz",
+            "counts/inner-parts/iamond-10iamond_0up-51-Hh.json.gz",
+            "counts/inner-parts/iamond-20iamond_2up-130-Hc.json.gz",
+            "counts/inner-parts/iamond-20iamond_2up-130-Hh.json.gz",
+            "counts/inner-parts/omino-11omino_2up-2-Hh.json.gz",
+            "counts/inner-parts/omino-13omino_2up-50-Hh.json.gz",
+            "counts/inner-parts/omino-17omino_2up-192-Hc.json.gz",
+            "counts/inner-parts/omino-17omino_2up-192-Hh.json.gz",
+            "counts/inner-parts/omino-17omino_2up-43-Hc.json.gz",
+            "counts/inner-parts/omino-17omino_2up-43-Hh.json.gz",
+            "counts/inner-parts/omino-17omino_2up-521-Hh.json.gz",
+            "check_counts.py"
+          ]
+        },
+        {
+          "id": "tkmt-lab/heesch-certificates#restricted-search",
+          "local_id": "restricted-search",
+          "paper_label": "sec:search",
+          "kind": "finite-computation",
+          "statement": "Of the fixed collection of 3,442 polyominoes with 20-28 cells, 1,515 are K=1 UNSAT, 1,351 K=3 UNSAT and 576 have explicit periodic tilings; no finite-Hh=4 example is obtained.",
+          "evidence": [
+            {
+              "kind": "finite-computation",
+              "basis": "kind=finite-computation"
+            }
+          ],
+          "evidence_kinds": [
+            "finite-computation"
+          ],
+          "scope": "UNSAT outcomes are solver records without proof logs except two sampled DRAT checks and 14 cross-checks; the collection is not exhaustive",
+          "reproduce": "python3 -B check_search.py (identities, topology, all 576 tilings, 513 satisfying patches)",
+          "evidence_files": [
+            "search/audit-witnesses.json",
+            "search/audit.json",
+            "search/candidates.jsonl.gz",
+            "search/classification.jsonl",
+            "search/periodic-tilings.jsonl.gz",
+            "search/sample-certificates.json",
+            "search/sat-patches.jsonl.gz",
+            "search/search.py",
+            "search/solver-crosscheck.json",
+            "search/summary.json"
+          ]
+        },
+        {
+          "id": "tkmt-lab/heesch-certificates#prose-steps",
+          "local_id": "prose-steps",
+          "paper_label": "sec:status",
+          "kind": "prose",
+          "statement": "Lemma 1 (truncation, Hh-1 <= Hc <= Hh), Proposition 6 (minimality), the disc criteria used in counting, and the consequence that empty-block UNSAT excludes every (P0)-(P3) patch.",
+          "evidence": [
+            {
+              "kind": "prose-proof",
+              "basis": "kind=prose"
+            }
+          ],
+          "evidence_kinds": [
+            "prose-proof"
+          ],
+          "reproduce": "read the article (Sections 3, 4, 9)",
+          "evidence_files": [
+            "paper-heesch-certificates-v2.1-en.tex"
           ]
         }
       ]

@@ -157,7 +157,7 @@
         "depends_on": {"type": "array", "items": {"type": "string"}},
         "depends_on_published_results": {"type": "array"},
         "reproduce": {"type": "string"},
-        "numbers": {"type": "string"},
+        "numbers": {"type": ["string", "object"], "description": "numbers from claims.json, verbatim (a text or an object of counts)."},
         "independent_verification": {"type": "string", "description": "independent_verification from claims.json when it is not already an evidence item."},
         "evidence_files": {
           "type": "array",
