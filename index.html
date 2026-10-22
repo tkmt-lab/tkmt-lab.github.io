@@ -595,6 +595,15 @@
     <p class="note">The calculation rests on three stated assumptions that are not proved, and there is no remainder bound, so the formula is supported by numerical evidence rather than proved. There is no Lean proof and no human peer review.</p>
   </div>
 
+  <div class="work">
+    <div class="num">Paper 5 · 2026</div>
+    <div class="t">Global identifiability of a behavioral SIR model for every integer saturation exponent k ≥ 2</div>
+    <div class="tag">If people cut their contacts when infections are high, can the infection curve alone still reveal the model's parameters? Yes, for every integer saturation exponent k ≥ 2.</div>
+    <p class="plain">In this epidemic model, the transmission rate is divided by (1 + αI)^k, so people reduce their contacts when many others are infected. B. Pant, O. Saucedo and G. Pogudin showed that for k = 1 a perfect record of the infected count I(t) does not determine the parameters, and conjectured that for k ≥ 2 it does. We prove this for every fixed integer k ≥ 2: for generic values, the infection curve and the total population determine the three rates and the hidden numbers of susceptible and recovered people. The proof gives the input–output equation in closed form and shows that the model has no hidden conserved quantity, then uses results of A. Ovchinnikov, G. Pogudin and P. Thompson.</p>
+    <div class="links"><a href="https://github.com/tkmt-lab/behavioral-sir-identifiability/blob/main/paper-behavioral-sir-v1.1-en.pdf">Paper (PDF)</a> · <a href="https://github.com/tkmt-lab/behavioral-sir-identifiability">Repository</a> · <a href="https://doi.org/10.5281/zenodo.23553806">doi:10.5281/zenodo.23553806</a> · <a href="https://github.com/tkmt-lab/behavioral-sir-identifiability/blob/main/claims.json">claims.json</a> · <a href="https://github.com/tkmt-lab/behavioral-sir-identifiability/actions">Exact checks</a></div>
+    <p class="note">The proof is in prose; two AI reviewers read it and recomputed parts, and exact computer-algebra checks cover k = 1 to 12. Non-integer or unknown k and noisy data are not covered. There is no Lean proof and no human peer review.</p>
+  </div>
+
   <h2>How the work is checked</h2>
   <p>Each release keeps different kinds of evidence apart, and says which applies to each claim:</p>
   <table>
@@ -616,6 +625,7 @@
     <li>J. R. Büchi, C. C. Elgot and B. A. Trakhtenbrot, whose theorem connecting logic on words with finite automata is the last step of the periodicity proof.</li>
     <li>R. Gill, who asked whether every nontrivial Bell facet can be violated quantum mechanically; C. Staufenbiel, whose sampled facet lists and tools we certify; and S. Lörwald and G. Reinelt, the authors of the polyhedral software PANDA on which those tools are built.</li>
     <li>W. G. Unruh, whose sonic analogue of a black hole started the field, and the authors who developed Hawking radiation with dispersion — among them S. Corley and T. Jacobson, W. G. Unruh and R. Schützhold, J. Macher, A. Coutant, S. Finazzi and R. Parentani, U. Leonhardt and S. Robertson, Y. Himemoto and T. Tanaka, A. Moreno-Ruiz and D. Bermudez, A. Coutant and S. Weinfurtner, and F. Del Porro, S. Liberati and M. Schneider, whose effective-horizon result is our point of comparison.</li>
+    <li>B. Pant, O. Saucedo and G. Pogudin, who posed the identifiability question for the behavioral SIR model and its conjecture; A. Ovchinnikov, G. Pogudin and P. Thompson, and H. Hong, A. Ovchinnikov, G. Pogudin and C. Yap, whose differential-algebra results on identifiability carry our proof.</li>
     <li>The developers of Lean 4 and mathlib, and of the Comparator tool and the independent proof kernels used to check our proofs.</li>
   </ul>
   <p>I am grateful to them, and I hope this work adds something new to the field they opened. The papers cite these and other sources in full.</p>

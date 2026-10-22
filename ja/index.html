@@ -597,6 +597,15 @@
     <p class="note">計算は、証明していない三つの仮定の上にあり、残りの項の評価もありません。公式は証明ではなく、数値の証拠で支えられています。Lean の証明はなく、人間の査読もまだです。</p>
   </div>
 
+  <div class="work">
+    <div class="num">論文 5 · 2026</div>
+    <div class="t">2 以上のすべての整数の飽和指数 k での、行動変容 SIR モデルの大域的な識別可能性</div>
+    <div class="tag">感染が多いと人が接触を減らすとき、感染者数の曲線だけからモデルのパラメータが分かるか。2 以上のどの整数 k でも分かることを証明しました。</div>
+    <p class="plain">この感染症のモデルでは、感染の速さが (1 + αI)^k で割られ、感染者が多いほど人が接触を減らします。B. Pant、O. Saucedo、G. Pogudin は、k = 1 では感染者数 I(t) を完全に知ってもパラメータが決まらないことを示し、k ≥ 2 なら決まると予想しました。2 以上のどの整数 k についても、一般の値では、感染者数の曲線と総人口から、三つの速さと、見えない感受性者・回復者の数が決まることを証明しました。証明は、入出力の方程式を閉じた形で求め、モデルに隠れた保存量がないことを示したうえで、A. Ovchinnikov、G. Pogudin、P. Thompson の結果を使います。</p>
+    <div class="links"><a href="https://github.com/tkmt-lab/behavioral-sir-identifiability/blob/main/paper-behavioral-sir-v1.1-en.pdf">論文（PDF、英語）</a> · <a href="https://github.com/tkmt-lab/behavioral-sir-identifiability">リポジトリ</a> · <a href="https://doi.org/10.5281/zenodo.23553806">doi:10.5281/zenodo.23553806</a></div>
+    <p class="note">証明は文章によるもので、二つの AI の読み手が読み、一部を計算し直しました。k = 1〜12 は厳密な数式処理でも確かめています。整数でない k、未知の k、誤差のあるデータは扱っていません。Lean の証明はなく、人間の査読もまだです。</p>
+  </div>
+
   <h2>どう確かめているか</h2>
   <ul>
     <li><b>形式証明</b>：Lean 4 という証明の検査系が、証明の全段階を機械で確かめます。その証明が、別の者が先に書いておいた主張文と同じことの証明であることも、Comparator という道具で確かめています。</li>
@@ -610,7 +619,7 @@
   <p>AI（OpenAI の Codex と Anthropic の Claude Code）が、探索、独立な検証、文献の調査、形式化を、別々のチームとして担っています。私（滝本竜彦）が方向を決め、判断し、公開するものとその限界の書き方に責任を持ちます。AI は著者に入れていません。</p>
 
   <h2>元になった研究への感謝</h2>
-  <p>これらの結果は、この分野を切り開いてきた研究者の方々の仕事の上にあります。問いは、A. Bille、V. Buchstaber、E. Spodarev による未解決問題の一覧から生まれました。調べた形は、M. Goldberg と H. S. M. Coxeter の名を冠した構成と、それを広げた M. Dutour Sikirić と M. Deza の仕事、そして J. E. Graver の目録によるものです。K. Kutnar と D. Marušič によるフラーレンの辺連結性の研究、J. R. Büchi、C. C. Elgot、B. A. Trakhtenbrot による論理と有限オートマトンを結ぶ定理、Lean 4 と mathlib、Comparator と独立な検査器を作った方々の仕事も使わせていただきました。Bell 不等式の仕事は、R. Gill の問いと、C. Staufenbiel が公開した面のリストと道具、その土台になった S. Lörwald と G. Reinelt の PANDA の上にあります。分散のある Hawking 放射の仕事は、W. G. Unruh の音のブラックホールの考えと、S. Corley と T. Jacobson、W. G. Unruh と R. Schützhold、J. Macher、A. Coutant、S. Finazzi、R. Parentani、U. Leonhardt と S. Robertson、Y. Himemoto と T. Tanaka、A. Moreno-Ruiz と D. Bermudez、A. Coutant と S. Weinfurtner、そして比べる相手とした有効地平線の結果を出した F. Del Porro、S. Liberati、M. Schneider の仕事の上にあります。心から感謝します。この小さな仕事が、この分野にわずかでも新しいものを付け加えられたなら幸いです。</p>
+  <p>これらの結果は、この分野を切り開いてきた研究者の方々の仕事の上にあります。問いは、A. Bille、V. Buchstaber、E. Spodarev による未解決問題の一覧から生まれました。調べた形は、M. Goldberg と H. S. M. Coxeter の名を冠した構成と、それを広げた M. Dutour Sikirić と M. Deza の仕事、そして J. E. Graver の目録によるものです。K. Kutnar と D. Marušič によるフラーレンの辺連結性の研究、J. R. Büchi、C. C. Elgot、B. A. Trakhtenbrot による論理と有限オートマトンを結ぶ定理、Lean 4 と mathlib、Comparator と独立な検査器を作った方々の仕事も使わせていただきました。Bell 不等式の仕事は、R. Gill の問いと、C. Staufenbiel が公開した面のリストと道具、その土台になった S. Lörwald と G. Reinelt の PANDA の上にあります。分散のある Hawking 放射の仕事は、W. G. Unruh の音のブラックホールの考えと、S. Corley と T. Jacobson、W. G. Unruh と R. Schützhold、J. Macher、A. Coutant、S. Finazzi、R. Parentani、U. Leonhardt と S. Robertson、Y. Himemoto と T. Tanaka、A. Moreno-Ruiz と D. Bermudez、A. Coutant と S. Weinfurtner、そして比べる相手とした有効地平線の結果を出した F. Del Porro、S. Liberati、M. Schneider の仕事の上にあります。感染症のモデルの仕事は、B. Pant、O. Saucedo、G. Pogudin の問いと予想、そして識別可能性の微分代数の結果を築いた A. Ovchinnikov、G. Pogudin、P. Thompson と、H. Hong、A. Ovchinnikov、G. Pogudin、C. Yap の仕事の上にあります。心から感謝します。この小さな仕事が、この分野にわずかでも新しいものを付け加えられたなら幸いです。</p>
   <p class="muted">出典は各論文にすべて挙げています。</p>
 
   <h2>もう一つの仕事</h2>
