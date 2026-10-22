@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How the work is checked: a reusable procedure — tkmt-lab</title>
+<meta name="description" content="How tkmt-lab checks its results: eight reusable verification procedures with published examples, what each check establishes, and what still requires judgment.">
+<link rel="alternate" type="text/plain" href="llms.txt" title="Index for AI readers">
+<link rel="alternate" hreflang="ja" href="https://tkmt-lab.github.io/ja/verification.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<style>
+  :root { --fg:#1d1d1f; --muted:#5f6368; --line:#e3e3e3; --bg:#ffffff; --link:#1a5fb4; --code-bg:#f5f5f7; }
+  @media (prefers-color-scheme: dark) { :root { --fg:#e8e8e8; --muted:#a0a0a0; --line:#333; --bg:#141414; --link:#8ab4f8; --code-bg:#1f1f1f; } }
+  body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width:720px; margin:0 auto; padding:48px 16px 64px; }
+  h1 { font-size:1.6rem; margin:0 0 4px; }
+  h2 { font-size:1.1rem; margin:40px 0 8px; border-bottom:1px solid var(--line); padding-bottom:4px; }
+  p, li { color:var(--fg); overflow-wrap:anywhere; }
+  .muted { color:var(--muted); }
+  a { color:var(--link); }
+  ul, ol { padding-left:1.2rem; }
+  table { border-collapse:collapse; width:100%; font-size:.95rem; }
+  td { border-top:1px solid var(--line); padding:6px 4px; vertical-align:top; }
+  td:first-child { padding-right:12px; }
+  code { font:.9em ui-monospace, SFMono-Regular, Menlo, monospace; overflow-wrap:anywhere; }
+  pre { background:var(--code-bg); border-radius:6px; padding:10px 12px; overflow-x:auto; font-size:.85rem; line-height:1.5; }
+  pre code { overflow-wrap:normal; }
+  nav.toc ol { margin:8px 0 0; }
+</style>
+</head>
+<body>
+<main>
+  <p class="muted"><a href="./">tkmt-lab</a> · English · <a href="ja/verification.html">日本語</a></p>
+  <h1>How the work is checked: a reusable procedure</h1>
+  <p class="muted">For AI agents and AI-assisted researchers, with published examples</p>
+  <p>I release claims with evidence that another researcher or AI agent can inspect and, where the package supports it, replay. This reduces repeated checking work; it does not transfer responsibility for a result to its readers. I remain responsible for what I release. None of the examples below has had human expert peer review.</p>
+  <p>These are different checks with different conclusions. A formal proof establishes a formal statement. A second implementation tests a computation through another code path. A numerical comparison supports an approximation on stated inputs. An AI reading is a review, not a proof certificate. No result receives all these guarantees merely by appearing in this guide.</p>
+  <p>Start with the <a href="catalog.json">public catalog</a>, choose one claim, and read its repository's <code>AGENTS.md</code>, <code>claims.json</code> and verification record. The examples below point to fixed published commits, rather than an unspecified current branch. Their dated records describe prior runs; this guide is not a new execution of those checks.</p>
+
+  <nav class="toc"><p><strong>Procedures</strong></p>
+  <ol>
+    <li><a href="#statement">Freeze the statement before the proof</a></li>
+    <li><a href="#lean">Rebuild the proof and inspect its axiom dependencies</a></li>
+    <li><a href="#implementations">Compare separately written implementations</a></li>
+    <li><a href="#certificates">Separate finding an answer from checking a certificate</a></li>
+    <li><a href="#readers">Ask a separate AI reader to reconstruct the argument</a></li>
+    <li><a href="#scope">Audit the words used to describe the result</a></li>
+    <li><a href="#machine">Make claims and evidence navigable by machines</a></li>
+    <li><a href="#corrections">Preserve failures, scope changes and corrections</a></li>
+  </ol></nav>
+  <h2 id="statement">1. Freeze the statement before the proof</h2>
+  <p><strong>Procedure.</strong> Write the domains, quantifiers, definitions and intended conclusion before asking for a proof. Give a separate reader the statement and its mathematical sources, and ask for a correspondence report: which definition matches which source passage, where conventions differ, and which bridge remains prose. Record findings before giving the statement to the prover.</p>
+  <p><strong>What it establishes.</strong> This makes a changed target visible and gives the modeling choices a separate reading. A verdict such as <code>FAITHFUL</code> or <code>FAITHFUL WITH CAVEATS</code> is the reader's assessment, not a kernel result. Comparator separately checks whether the submitted proof proves the specified statement, including the definitions on which the comparison depends.</p>
+  <p><strong>What remains.</strong> A well-checked proof can still prove an inadequate model. Neither a favorable reading nor Comparator proves that the formal graph, equation or experiment is the intended one. Freeze relevant definitions too, and state any correspondence argument outside the formal proof.</p>
+  <p><strong>Minimum to copy.</strong> Save a versioned statement; obtain a source-by-source reading with unresolved points; then bind the proof to that frozen target and retain the comparison configuration. Do not rewrite the target silently after seeing a proof.</p>
+  <p><strong>Published example.</strong> The A3 classification supplies a <a href="https://github.com/tkmt-lab/a3-gsw-classification/blob/58124b20fa4a3b19aaa62e734c2036210f7bdcf8/packet/formal/Formal/ComparatorChallengeMain.lean">separate statement</a>, <a href="https://github.com/tkmt-lab/a3-gsw-classification/blob/58124b20fa4a3b19aaa62e734c2036210f7bdcf8/packet/formal/comparator-main.json">Comparator configuration</a> and <a href="https://github.com/tkmt-lab/a3-gsw-classification/blob/58124b20fa4a3b19aaa62e734c2036210f7bdcf8/packet/VERIFICATION-RECORD.md">scope record</a>. The record keeps model correspondence separate from proof acceptance. Its six kernel runs use five implementations: the official Lean kernel in two modes plus four external checkers. They check the same proof, not six independently derived arguments.</p>
+
+  <h2 id="lean">2. Rebuild the proof and inspect its axiom dependencies</h2>
+  <p><strong>Procedure.</strong> Pin the proof-assistant toolchain and library revisions, rebuild the relevant declarations, and inspect their transitive axiom dependencies. Enforce an explicit allowlist rather than accepting a successful build alone.</p>
+  <p><strong>What it establishes.</strong> Subject to the trusted kernel and permitted axioms, the checked proof term establishes its declared theorem. A dependency gate can reject unfinished-proof axioms, custom assumptions and compiler-trust axioms outside the chosen policy.</p>
+  <p><strong>What remains.</strong> This does not establish the model-to-source correspondence, novelty, or claims absent from the checked declarations. An existence theorem for a period is not automatically a verified algorithm that computes a period. Checking the same proof with several implementations broadens implementation checks; it is not a new mathematical derivation.</p>
+  <p><strong>Minimum to copy.</strong> Record the exact theorem names, rebuild at the pinned version, print their axioms and fail on dependencies outside the documented allowlist. Reject unresolved placeholders in the finished proof's dependency closure; a challenge statement can intentionally leave its target unproved.</p>
+  <p><strong>Published example.</strong> The A3 <a href="https://github.com/tkmt-lab/a3-gsw-classification/blob/58124b20fa4a3b19aaa62e734c2036210f7bdcf8/packet/formal/Formal/StandardAxiomGate.lean">gate</a> permits only <code>propext</code>, <code>Classical.choice</code> and <code>Quot.sound</code>; its <a href="https://github.com/tkmt-lab/a3-gsw-classification/blob/58124b20fa4a3b19aaa62e734c2036210f7bdcf8/packet/formal/Formal/A3ReleaseCheck.lean">release check</a> names the declarations it inspects. The <a href="https://github.com/tkmt-lab/a3-gsw-classification/blob/58124b20fa4a3b19aaa62e734c2036210f7bdcf8/README.md">published instructions</a> give, from the repository root with the pinned toolchain installed:</p>
+  <pre><code>cd packet/formal
+lake exe cache get
+lake build
+lake env lean Formal/A3ReleaseCheck.lean</code></pre>
+  <p>These commands check the specified release. They do not upgrade its separate prose claims to Lean theorems.</p>
+
+  <h2 id="implementations">3. Compare separately written implementations and protect the comparison</h2>
+  <p><strong>Procedure.</strong> Agree on a mathematical input/output contract before coding. Have the second implementation work without the first implementation's code. Record exactly what it was allowed to read, which libraries or adapters are shared, and whether expected answers were visible. Compare mathematical objects, exact values and input coverage, not just a final <code>PASS</code>.</p>
+  <p><strong>What it establishes.</strong> Agreement can expose implementation-specific mistakes. For exact witnesses, compare exact values and identities; for numerical work, fix error measures, refinement checks and tolerances. The strength of independence belongs to the specific components and information boundary.</p>
+  <p><strong>What remains.</strong> Shared specifications, inputs, libraries or integration code can carry common errors. A second program is not automatically an independent model, and a fresh AI session is not automatically blind.</p>
+  <p><strong>Minimum to copy.</strong> Write the contract, keep the first code and expected results out of the second implementation's inputs, freeze outputs before comparison, and publish both agreements and mismatches. If the information boundary was breached, record it and narrow the independence claim.</p>
+  <p><strong>Published examples.</strong> Bell certificates have a <a href="https://github.com/tkmt-lab/bell-facet-certificates/blob/cd1e141455cf3f5fe05a739782271201cdefe7e8/FORMAT.md">format</a>, a <a href="https://github.com/tkmt-lab/bell-facet-certificates/blob/cd1e141455cf3f5fe05a739782271201cdefe7e8/independent/checker.py">probability/rank checker</a> and a <a href="https://github.com/tkmt-lab/bell-facet-certificates/blob/cd1e141455cf3f5fe05a739782271201cdefe7e8/matrix/check.py">matrix checker</a>. Their <a href="https://github.com/tkmt-lab/bell-facet-certificates/blob/cd1e141455cf3f5fe05a739782271201cdefe7e8/VERIFICATION-RECORD.md">record</a> discloses shared packaging routines and an accidental pre-run reading of a preparation report; strict outcome blindness is not claimed. Historical complete-list receipts are distinguished from present replay coverage: the distributed larger-list CI replay checks three specified intervals, not the whole larger list.</p>
+  <p>For prediction withholding, the Hawking package records <a href="https://github.com/tkmt-lab/hawking-dispersive-offset/blob/00f229f7afd38ebd67be3daa27f89dcb78436aaf/independent/predictions-sealed.json">sealed values</a>, a <a href="https://github.com/tkmt-lab/hawking-dispersive-offset/blob/00f229f7afd38ebd67be3daa27f89dcb78436aaf/independent/README.md">separately written scattering calculation</a> and the <a href="https://github.com/tkmt-lab/hawking-dispersive-offset/blob/00f229f7afd38ebd67be3daa27f89dcb78436aaf/VERIFICATION-RECORD.md">order of recording and comparison</a>. The record reports that the expected values were withheld from that calculation. Withholding cannot be inferred from the filename <code>sealed</code> or from the currently public file alone. A different test in the same release recorded <a href="https://github.com/tkmt-lab/hawking-dispersive-offset/blob/00f229f7afd38ebd67be3daa27f89dcb78436aaf/b0/blind_predictions.json">predictions before computation</a> but used the same investigators; that is prediction-first, not a blinded experiment. Numerical agreement does not prove the release's asymptotic assumptions or a remainder bound.</p>
+
+  <h2 id="certificates">4. Separate finding an answer from checking a certificate</h2>
+  <p><strong>Procedure.</strong> Let a search program propose a witness or a proof trace. Give a smaller checker a frozen input, an explicit certificate format and a precisely stated acceptance condition. Preserve input/certificate hashes and the exact checked range. Include deliberately corrupted certificates and missing or duplicate input indices among rejection checks.</p>
+  <p><strong>What it establishes.</strong> A checker can validate a particular witness without repeating the search.</p>
+  <p>For Boolean unsatisfiability, a DRAT trace checked by an external checker establishes unsatisfiability of the identified CNF, subject to the checker being correct. A separate argument must connect that CNF to the mathematical problem. This is a general procedure, not a claim that the Bell package uses DRAT.</p>
+  <p>For rigorous numerical certificates, distinguish exact rational arithmetic, interval enclosures and ordinary floating-point approximations. Ball/interval arithmetic needs a complete enclosure argument, including input uncertainty and truncation errors. More digits or agreement of two floating-point outputs does not supply it.</p>
+  <p><strong>What remains.</strong> The checker itself may be an unverified program. A witness need not prove optimality or completeness of a list. A bare <code>UNSAT</code> answer without a checked trace is a different evidence type. An exact integer count without an exhaustion certificate remains a computed result; a second counter does not by itself make it a formally verified count.</p>
+  <p><strong>Minimum to copy.</strong> Publish the contract, one small valid certificate, an independently usable checker, one rejection example and the input/range binding. Label any unverified reduction, checker or count. The tool references for DRAT and rigorous arithmetic are collected below; they are not additional claims about the linked releases.</p>
+  <p><strong>Published example.</strong> The Bell <a href="https://github.com/tkmt-lab/bell-facet-certificates/blob/cd1e141455cf3f5fe05a739782271201cdefe7e8/FORMAT.md">certificate contract</a> requires exact rational normalization, rank and strictly negative slack; the <a href="https://github.com/tkmt-lab/bell-facet-certificates/blob/cd1e141455cf3f5fe05a739782271201cdefe7e8/README.md">quick example</a> runs the same supplied row through both engines. Its <a href="https://github.com/tkmt-lab/bell-facet-certificates/blob/cd1e141455cf3f5fe05a739782271201cdefe7e8/negative_controls.py">negative controls</a> exercise malformed witnesses and coverage errors. The result concerns those identified inputs and witnesses.</p>
+
+  <h2 id="readers">5. Ask a separate AI reader to reconstruct the argument</h2>
+  <p><strong>Procedure.</strong> Give a reader the statement, proof or article and original references, while withholding the author's implementation and calculation outputs where practical. Ask it to check hypotheses, definitions, cited theorem versions and inference steps, and to recompute selected identities by another route. Save its findings and a response table.</p>
+  <p><strong>What it establishes.</strong> This is an additional critical reading and may catch errors in prose, algebra or citations. A recomputed identity is evidence for that identity; a verdict describes the reading that was done.</p>
+  <p><strong>What remains.</strong> AI readers can miss the same mistake or share the same misconception. Their reports are not human peer review, formal proof, or an exhaustive literature search. Giving a reader the proof makes it a proof review, not an independent derivation of an unseen proof.</p>
+  <p><strong>Minimum to copy.</strong> State what the reader saw, require concrete findings and independent checks, respond item by item, and keep unresolved points visible. A favorable review of one version does not automatically cover its revision.</p>
+  <p><strong>Published example.</strong> The behavioral SIR <a href="https://github.com/tkmt-lab/behavioral-sir-identifiability/blob/6691a76801a522592712e41993b6f4353decee88/VERIFICATION-RECORD.md">verification record</a> separates a proof reader and an article reader, their inputs, recomputations and responses. The <a href="https://github.com/tkmt-lab/behavioral-sir-identifiability/blob/6691a76801a522592712e41993b6f4353decee88/independent/check_proof_algebra.py">reader's algebra checker</a> is public; the full original reviews are not distributed. The <a href="https://github.com/tkmt-lab/behavioral-sir-identifiability/blob/6691a76801a522592712e41993b6f4353decee88/claims.json">claim record</a> keeps the prose theorem for each fixed known integer separate from finite computational checks. The finite checks do not establish the general theorem on their own.</p>
+
+  <h2 id="scope">6. Audit the words used to describe the result</h2>
+  <p><strong>Procedure.</strong> For each claim, write the objects, parameters, assumptions, range and evidence type in one place. Compare every abstract, README and catalog description with it. Add an explicit list of what is not claimed.</p>
+  <p><strong>What it establishes.</strong> A scope audit can detect a report becoming stronger than its evidence: sample to census, approximation to rigorous enclosure, specified model to real-world validation, or a limited literature search to priority.</p>
+  <p><strong>What remains.</strong> Accurate labels do not supply a missing proof or establish novelty. An unresolved assumption stays unresolved after a successful numerical reproduction.</p>
+  <p><strong>Minimum to copy.</strong> Pair each claim with its evidence and exclusions; check headline language against them; preserve unresolved hypotheses and exceptions. Use dated, bounded descriptions of literature searches.</p>
+  <p><strong>Published examples.</strong> Hawking <a href="https://github.com/tkmt-lab/hawking-dispersive-offset/blob/00f229f7afd38ebd67be3daa27f89dcb78436aaf/claims.json">claims</a> retain assumptions A1–A3 and the absence of a remainder bound. Behavioral SIR <a href="https://github.com/tkmt-lab/behavioral-sir-identifiability/blob/6691a76801a522592712e41993b6f4353decee88/claims.json">claims</a> retain the fixed known integer and generic-parameter scope, and exclude noisy-data estimation. Bell <a href="https://github.com/tkmt-lab/bell-facet-certificates/blob/cd1e141455cf3f5fe05a739782271201cdefe7e8/claims.json">claims</a> concern fixed lists and witnesses rather than complete enumeration, optimal quantum values or the general question.</p>
+
+  <h2 id="machine">7. Make claims and evidence navigable by machines</h2>
+  <p><strong>Procedure.</strong> Give claims stable identifiers. Provide an agent entry point, a claim list, versioned evidence paths, exact theorem names where applicable, commands with working directories, and explicit scope/exclusions. Bind an evidence file to a hash and record which result each command checks.</p>
+  <p><strong>What it establishes.</strong> Another agent can locate the target, choose the relevant check and avoid silently mixing versions or evidence kinds. The <a href="catalog.json">catalog</a> routes to individual releases; their schemas and status vocabularies can differ.</p>
+  <p><strong>What remains.</strong> JSON syntax, a matching hash, a closed file list or an agent instruction file does not establish mathematical correctness. A stored <code>PASS</code> must be read with the command, checker, inputs and coverage that produced it. Machine-readable text can itself overstate a claim.</p>
+  <p><strong>Minimum to copy.</strong> Start with one claim record and one reproducible check. Include: claim ID and statement; evidence kind; assumptions and range; versioned evidence plus hashes; reproduction command and directory; unresolved points and exclusions. Validate links and coverage as well as schema syntax, then refresh the catalog from the released records.</p>
+  <p><strong>Published example.</strong> Bell <a href="https://github.com/tkmt-lab/bell-facet-certificates/blob/cd1e141455cf3f5fe05a739782271201cdefe7e8/AGENTS.md">AGENTS.md</a> directs readers to its <a href="https://github.com/tkmt-lab/bell-facet-certificates/blob/cd1e141455cf3f5fe05a739782271201cdefe7e8/claims.json">claim list</a>, format and reproduction commands. The public <a href="catalog.schema.json">catalog schema</a> describes the cross-repository layer. These are navigation and record checks, not a further proof layer.</p>
+
+  <h2 id="corrections">8. Preserve failures, scope changes and corrections</h2>
+  <p><strong>Procedure.</strong> Keep the failed run or original argument identifiable. Add a correction that says what failed, what claim is affected, what replaced it and which checks were repeated. Retain resource stops and inconclusive results separately from mathematical counterexamples.</p>
+  <p><strong>What it establishes.</strong> Readers can find the currently adopted statement without losing the evidence of how it changed. A rerun can test a specified repair; a correction log can prevent an obsolete claim from propagating.</p>
+  <p><strong>What remains.</strong> Recording a correction does not independently validate the replacement. A timeout is neither a counterexample nor an UNSAT proof. A failed implementation is not evidence that the mathematical proposition is false.</p>
+  <p><strong>Minimum to copy.</strong> Save the original, append a versioned correction and its scope, bind the replacement evidence, and update every current claim summary. Distinguish an editorial repair, a code repair and a change of mathematics.</p>
+  <p><strong>Published example.</strong> The Hawking <a href="https://github.com/tkmt-lab/hawking-dispersive-offset/blob/00f229f7afd38ebd67be3daa27f89dcb78436aaf/VERIFICATION-RECORD.md">record</a> records corrected Wronskian/Airy conventions and a numerical sensitivity range that misses a prediction; the <a href="https://github.com/tkmt-lab/hawking-dispersive-offset/blob/00f229f7afd38ebd67be3daa27f89dcb78436aaf/independent/README.md">independent check's notes</a> record two solver pilots that did not converge and were not used. Neither relabels these as proofs of the asymptotic assumptions.</p>
+
+  <h2 id="limits">What still requires judgment</h2>
+  <ul>
+    <li><strong>Mathematical meaning.</strong> Models, specifications, cited hypotheses and reductions need scrutiny outside the final program's success message.</li>
+    <li><strong>Common causes of error.</strong> Two implementations may share the statement, data, solver, library, adapter or geometric checker. Name the shared parts. Counting without a proof certificate and floating-point convergence without a rigorous bound remain explicit limitations.</li>
+    <li><strong>Coverage.</strong> Checking all supplied records is not proving that every possible object was supplied. A sampled CI run does not replace an earlier full run, and a saved full-run receipt is not a fresh replay.</li>
+    <li><strong>Review and novelty.</strong> AI readings are not human expert peer review. The examples linked here do not establish priority beyond their stated literature searches. The work may still need specialist evaluation; making checks runnable does not oblige another researcher to supply it.</li>
+  </ul>
+  <p>A useful handoff is a narrow claim with a short route to its evidence and an honest account of what remains. An unresolved point can be a reason to narrow the claim or stop, rather than to produce another favorable label.</p>
+
+  <h2 id="credits">Tools and prior work</h2>
+  <p>The versions of the linked releases are listed <a href="#versions">below</a>. The credits are collected here once, and they cover only tools the linked releases actually use.</p>
+  <ul>
+    <li><strong>Lean 4 and Mathlib:</strong> Leonardo de Moura, Sebastian Ullrich and the Lean contributors; the mathlib Community. They provide the proof assistant and mathematical library used by the formal examples. <a href="https://doi.org/10.1007/978-3-030-79876-5_37">Lean 4 paper</a>, <a href="https://doi.org/10.1145/3372885.3373824">Mathlib paper</a>.</li>
+    <li><strong>Comparator and external checkers:</strong> the Lean/Comparator contributors and the authors of lean4lean, nanoda, con-leche and con-ron provide statement/dependency comparison and further checking implementations. <a href="https://github.com/leanprover/comparator">Comparator</a>, <a href="https://github.com/digama0/lean4lean">lean4lean</a>, <a href="https://github.com/ammkrn/nanoda_lib">nanoda</a>, <a href="https://github.com/leanprover/con-leche">con-leche</a>, <a href="https://github.com/leanprover/con-ron">con-ron</a>.</li>
+    <li><strong>Exact algebra and numerical software:</strong> the Python, NumPy, SciPy and SymPy communities provide the implementations used by the public computational examples. <a href="https://www.python.org/">Python</a>, <a href="https://numpy.org/">NumPy</a>, <a href="https://scipy.org/">SciPy</a>, <a href="https://www.sympy.org/">SymPy</a>.</li>
+  </ul>
+  <p>The mathematical questions and prior results credited by each linked article remain the starting point of those works. I am grateful to their authors and to the tool developers, and I hope this work adds something new to the fields they opened. These credits imply no review or endorsement by them.</p>
+  <p><strong>Method references.</strong> The general procedures in section 4 point to tools that none of the linked releases uses; they are listed for readers who adopt those routes, not as evidence for any result here. Boolean certificates: <a href="https://github.com/marijnheule/drat-trim">DRAT-trim</a> (Nathan Wetzler, Marijn Heule and Warren Hunt) and <a href="https://github.com/arminbiere/cadical">CaDiCaL</a> (Armin Biere and contributors). Rigorous arithmetic: <a href="https://arxiv.org/abs/1611.02831v1">Arb</a> (Fredrik Johansson; now part of FLINT) and <a href="https://www.mpfr.org/mpfr-current/mpfr.html">GNU MPFR</a>; an enclosure still needs a complete mathematical error argument.</p>
+
+  <h2 id="versions">Fixed versions used by the examples</h2>
+  <p>The links above point to these published commits (checked 23 October 2026). They are fixed for reproducibility; later releases may exist.</p>
+  <table>
+    <tr><td><a href="https://github.com/tkmt-lab/a3-gsw-classification">a3-gsw-classification</a></td><td><a href="https://github.com/tkmt-lab/a3-gsw-classification/releases/tag/v1.1.0">v1.1.0</a></td><td><code>58124b20fa4a3b19aaa62e734c2036210f7bdcf8</code></td></tr>
+    <tr><td><a href="https://github.com/tkmt-lab/bell-facet-certificates">bell-facet-certificates</a></td><td><a href="https://github.com/tkmt-lab/bell-facet-certificates/releases/tag/v1.0.0">v1.0.0</a></td><td><code>cd1e141455cf3f5fe05a739782271201cdefe7e8</code></td></tr>
+    <tr><td><a href="https://github.com/tkmt-lab/hawking-dispersive-offset">hawking-dispersive-offset</a></td><td><a href="https://github.com/tkmt-lab/hawking-dispersive-offset/releases/tag/v1.0.0">v1.0.0</a></td><td><code>00f229f7afd38ebd67be3daa27f89dcb78436aaf</code></td></tr>
+    <tr><td><a href="https://github.com/tkmt-lab/behavioral-sir-identifiability">behavioral-sir-identifiability</a></td><td><a href="https://github.com/tkmt-lab/behavioral-sir-identifiability/releases/tag/v1.0.0">v1.0.0</a></td><td><code>6691a76801a522592712e41993b6f4353decee88</code></td></tr>
+  </table>
+
+  <h2>Contact</h2>
+  <p>Errors on this page or in a result: <a href="mailto:research@tatsuhikotakimoto.com">research@tatsuhikotakimoto.com</a>, or an issue in the relevant repository. The text of this page is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>
+</main>
+</body>
+</html>

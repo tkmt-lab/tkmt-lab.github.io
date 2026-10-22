@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>成果をどう確かめるか：他の研究でも使える手順 — tkmt-lab</title>
+<meta name="description" content="tkmt-lab が成果をどう確かめているか。他の研究でも使える八つの検証の手順と公開済みの実例、それぞれの検査で言えること、なお判断を要すること。">
+<link rel="alternate" hreflang="en" href="https://tkmt-lab.github.io/verification.html">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<style>
+  :root { --fg:#1d1d1f; --muted:#5f6368; --line:#e3e3e3; --bg:#ffffff; --link:#1a5fb4; --code-bg:#f5f5f7; }
+  @media (prefers-color-scheme: dark) { :root { --fg:#e8e8e8; --muted:#a0a0a0; --line:#333; --bg:#141414; --link:#8ab4f8; --code-bg:#1f1f1f; } }
+  body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.8 system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", sans-serif; }
+  main { max-width:720px; margin:0 auto; padding:48px 16px 64px; }
+  h1 { font-size:1.6rem; margin:0 0 4px; }
+  h2 { font-size:1.1rem; margin:40px 0 8px; border-bottom:1px solid var(--line); padding-bottom:4px; }
+  p, li { color:var(--fg); overflow-wrap:anywhere; }
+  .muted { color:var(--muted); }
+  a { color:var(--link); }
+  ul, ol { padding-left:1.2rem; }
+  table { border-collapse:collapse; width:100%; font-size:.95rem; }
+  td { border-top:1px solid var(--line); padding:6px 4px; vertical-align:top; }
+  td:first-child { padding-right:12px; }
+  code { font:.9em ui-monospace, SFMono-Regular, Menlo, monospace; overflow-wrap:anywhere; }
+  pre { background:var(--code-bg); border-radius:6px; padding:10px 12px; overflow-x:auto; font-size:.85rem; line-height:1.5; }
+  pre code { overflow-wrap:normal; }
+  nav.toc ol { margin:8px 0 0; }
+</style>
+</head>
+<body>
+<main>
+  <p class="muted"><a href="./">tkmt-lab</a> · <a href="../verification.html">English</a> · 日本語</p>
+  <h1>成果をどう確かめるか：他の研究でも使える手順</h1>
+  <p class="muted">AIエージェントとAIを使う研究者のために。公開済みの実例つき</p>
+  <p class="muted">このページは英語版の翻訳です。英語版が正本です。</p>
+  <p>私は、別の研究者やAIエージェントが根拠を読み、公開一式が対応する範囲では検査を再実行できる形で、主張を公開しています。確かめる作業の重複を減らすためですが、結果への責任を読者へ移すものではありません。公開する内容への責任は私にあります。以下の実例は、どれも人間の専門家による査読を受けていません。</p>
+  <p>検査ごとに、言える結論は違います。形式証明が示すのは形式化された主張です。別実装は、異なるコードの経路で計算を照合します。数値比較は、指定した入力で近似を裏付けます。AIの読解は点検であり、証明書ではありません。この手順の頁に載っただけで、ある結果にすべての保証が付くわけではありません。</p>
+  <p>まず<a href="../catalog.json">公開目録</a>で主張を一つ選び、そのリポジトリの <code>AGENTS.md</code>・<code>claims.json</code>・検証記録を読みます。以下の実例は、更新され続けるブランチではなく、公開済みのcommitに固定しています。日付のある記録は過去の実行を示すもので、この頁が新しい検査の実行記録になるわけではありません。</p>
+
+  <nav class="toc"><p><strong>手順</strong></p>
+  <ol>
+    <li><a href="#statement">証明の前に主張文を固定する</a></li>
+    <li><a href="#lean">証明を作り直し、依存する公理を点検する</a></li>
+    <li><a href="#implementations">別々に書いた実装を照合する</a></li>
+    <li><a href="#certificates">答えを探す処理と、証明書を検査する処理を分ける</a></li>
+    <li><a href="#readers">別のAIの読み手に議論を組み直してもらう</a></li>
+    <li><a href="#scope">結果を説明する言葉を点検する</a></li>
+    <li><a href="#machine">機械が主張と根拠をたどれる形にする</a></li>
+    <li><a href="#corrections">失敗、範囲の変更、訂正を残す</a></li>
+  </ol></nav>
+  <h2 id="statement">1. 証明の前に主張文を固定する</h2>
+  <p><strong>手順。</strong> 証明を求める前に、対象の範囲、量化、定義、結論を書きます。別の読み手には主張文と元の数学の資料を渡し、どの定義が原文のどこに対応するか、約束の違いはどこか、形式証明の外に文章でつなぐ段が残るかを点検してもらいます。指摘を記録してから、主張文を証明する側へ渡します。</p>
+  <p><strong>確かめられること。</strong> 途中で対象の主張が変わったことを見つけやすくなり、モデルの選び方にも別の読みが入ります。<code>FAITHFUL</code>・<code>FAITHFUL WITH CAVEATS</code> などは読み手の評価であり、kernelの出力ではありません。Comparatorは別に、提出された証明が指定した主張と、その比較に関わる定義を保っているかを検査します。</p>
+  <p><strong>残ること。</strong> 十分に検査された証明でも、不適切なモデルの主張を証明している可能性があります。読み手の良い評価やComparatorは、形式化したグラフ・方程式・実験が意図したものだと証明するものではありません。関連する定義も固定し、形式証明の外にある対応づけを明記します。</p>
+  <p><strong>真似する最小手順。</strong> 版を固定した主張文を保存する。原文ごとの対応と未解決点を、別の読み手に記録してもらう。その固定した対象へ証明を結び、比較の設定も残す。証明を見てから主張文を黙って書き換えないことが必要です。</p>
+  <p><strong>公開済みの実例。</strong> A3の分類には、<a href="https://github.com/tkmt-lab/a3-gsw-classification/blob/58124b20fa4a3b19aaa62e734c2036210f7bdcf8/packet/formal/Formal/ComparatorChallengeMain.lean">別に書いた主張文</a>、<a href="https://github.com/tkmt-lab/a3-gsw-classification/blob/58124b20fa4a3b19aaa62e734c2036210f7bdcf8/packet/formal/comparator-main.json">Comparatorの設定</a>、<a href="https://github.com/tkmt-lab/a3-gsw-classification/blob/58124b20fa4a3b19aaa62e734c2036210f7bdcf8/packet/VERIFICATION-RECORD.md">範囲の記録</a>があります。モデルとの対応と証明の受理は分けて記録されています。六つのkernel実行は五つの実装で、公式Lean kernelの二つのモードと四つの外部検査器です。同じ証明を検査しており、独立に導いた六つの証明ではありません。</p>
+
+  <h2 id="lean">2. 証明を作り直し、依存する公理を点検する</h2>
+  <p><strong>手順。</strong> 証明支援系のtoolchainとライブラリの版を固定し、対象の宣言をビルドし直し、間接に使うものも含めて公理の依存を調べます。ビルドの成功だけで済ませず、許す公理の一覧を決めて検査します。</p>
+  <p><strong>確かめられること。</strong> 信頼するkernelと許した公理を前提に、検査された証明項が、その宣言の定理を示します。依存の検査は、未完成の証明の公理、独自の仮定、選んだ方針の外にあるコンパイラ信頼の公理を拒否できます。</p>
+  <p><strong>残ること。</strong> モデルと原文の対応、新しさ、検査対象の宣言に入っていない主張は保証しません。周期の存在の定理が、その周期を計算する検証済みの算法になるわけでもありません。複数の実装で同じ証明を検査すると実装の照合は広がりますが、新しい数学の導出にはなりません。</p>
+  <p><strong>真似する最小手順。</strong> 正確な定理名を記録し、固定した版でビルドし、公理を表示して、許可一覧以外への依存があれば失敗させます。完成した証明の依存に未解決の穴を残しません。ただし、問題として渡す主張文では、証明する対象を意図的に未証明にしてよい場合があります。</p>
+  <p><strong>公開済みの実例。</strong> A3の<a href="https://github.com/tkmt-lab/a3-gsw-classification/blob/58124b20fa4a3b19aaa62e734c2036210f7bdcf8/packet/formal/Formal/StandardAxiomGate.lean">公理の検査</a>は、<code>propext</code>・<code>Classical.choice</code>・<code>Quot.sound</code> のみを許します。<a href="https://github.com/tkmt-lab/a3-gsw-classification/blob/58124b20fa4a3b19aaa62e734c2036210f7bdcf8/packet/formal/Formal/A3ReleaseCheck.lean">リリース用の検査</a>には、調べる宣言名があります。<a href="https://github.com/tkmt-lab/a3-gsw-classification/blob/58124b20fa4a3b19aaa62e734c2036210f7bdcf8/README.md">公開された手順</a>では、固定したtoolchainを入れたうえで、リポジトリの最上位から次を実行します。</p>
+  <pre><code>cd packet/formal
+lake exe cache get
+lake build
+lake env lean Formal/A3ReleaseCheck.lean</code></pre>
+  <p>このコマンドが検査するのは、指定した版の対象です。別に文章で述べた主張が、これによってLeanの定理になるわけではありません。</p>
+
+  <h2 id="implementations">3. 別々に書いた実装を照合し、照合までの独立性を守る</h2>
+  <p><strong>手順。</strong> コードを書く前に、数学の入力と出力の約束を決めます。二つ目の実装は、一つ目のコードを見ずに作ります。何を読んでよかったか、どのライブラリや接続用コードを共有したか、期待する答えを知っていたかを記録します。最後の <code>PASS</code> だけでなく、数学の対象、厳密な値、入力の範囲を比べます。</p>
+  <p><strong>確かめられること。</strong> 一致によって、特定の実装にだけある誤りを見つけられる場合があります。厳密な証人なら値と恒等式を厳密に比べ、数値計算なら誤差の測り方、細かくして確かめる方法、許容差を決めます。独立性の強さは、何の部品が別で、どの情報を伏せたかによって決まります。</p>
+  <p><strong>残ること。</strong> 仕様・入力・ライブラリ・接続用コードの共有から、共通の誤りが入り得ます。二つ目のプログラムが独立なモデルになるとは限らず、新しいAIの会話が盲検になるとも限りません。</p>
+  <p><strong>真似する最小手順。</strong> 約束を先に書く。一つ目のコードと期待する答えを、二つ目に渡す入力から外す。比較する前に出力を固定し、一致と不一致を両方残す。情報を伏せる約束が破れたら、その事実を記録して独立性の主張を狭めます。</p>
+  <p><strong>公開済みの実例。</strong> Bellの証明書には、<a href="https://github.com/tkmt-lab/bell-facet-certificates/blob/cd1e141455cf3f5fe05a739782271201cdefe7e8/FORMAT.md">形式の約束</a>、<a href="https://github.com/tkmt-lab/bell-facet-certificates/blob/cd1e141455cf3f5fe05a739782271201cdefe7e8/independent/checker.py">確率とrankによる検査器</a>、<a href="https://github.com/tkmt-lab/bell-facet-certificates/blob/cd1e141455cf3f5fe05a739782271201cdefe7e8/matrix/check.py">行列による検査器</a>があります。<a href="https://github.com/tkmt-lab/bell-facet-certificates/blob/cd1e141455cf3f5fe05a739782271201cdefe7e8/VERIFICATION-RECORD.md">記録</a>は、梱包のための共通処理と、実行前に準備報告を誤って読んだことを開示し、答えを完全に知らない盲検とはしていません。過去の全件検査と現在の再実行の範囲も区別されており、大きいリストの配布版CIが再検査するのは、指定した三つの区間です。</p>
+  <p>予測を伏せる例として、Hawkingの一式には、<a href="https://github.com/tkmt-lab/hawking-dispersive-offset/blob/00f229f7afd38ebd67be3daa27f89dcb78436aaf/independent/predictions-sealed.json">封じた値</a>、<a href="https://github.com/tkmt-lab/hawking-dispersive-offset/blob/00f229f7afd38ebd67be3daa27f89dcb78436aaf/independent/README.md">別に書いた散乱計算</a>、<a href="https://github.com/tkmt-lab/hawking-dispersive-offset/blob/00f229f7afd38ebd67be3daa27f89dcb78436aaf/VERIFICATION-RECORD.md">保存と比較の順序</a>があります。その計算には予測値を渡さなかったと記録されています。<code>sealed</code> というファイル名や、いま公開されているファイルだけから、値を伏せたことが分かるわけではありません。別の試験は、同じ担当者が<a href="https://github.com/tkmt-lab/hawking-dispersive-offset/blob/00f229f7afd38ebd67be3daa27f89dcb78436aaf/b0/blind_predictions.json">計算前に予測を保存</a>したもので、予測を先に決めた試験であり、盲検実験ではありません。数値の一致は、漸近計算の仮定や剰余の上界を証明しません。</p>
+
+  <h2 id="certificates">4. 答えを探す処理と、証明書を検査する処理を分ける</h2>
+  <p><strong>手順。</strong> 探索するプログラムに、証人や証明の記録を提案させます。小さくした検査器へ、固定した入力、明確な証明書の形式、正確な受理条件を渡します。入力と証明書のhash、実際に調べた範囲を残します。わざと壊した証明書や、入力番号の欠落・重複も、拒否できるか試します。</p>
+  <p><strong>確かめられること。</strong> 探索を繰り返さず、個々の証人を検査できます。</p>
+  <p>Boolean式の充足不能では、外部検査器が確認したDRATの記録が、検査器の正しさを前提に、その特定のCNFが充足不能であることを示します。CNFと数学の問題を結ぶ議論は別に必要です。これは一般の手順であり、Bellの一式がDRATを使うという説明ではありません。</p>
+  <p>数値の厳密な証明書では、厳密な有理数の計算、区間による包絡、通常の浮動小数点の近似を分けます。球・区間の計算には、入力の不確かさと打切り誤差まで含む、包絡の議論が必要です。桁を増やすことや浮動小数点の出力が二つ一致することだけでは足りません。</p>
+  <p><strong>残ること。</strong> 検査器自体が形式検証されていない場合があります。証人は最適性やリストの完全性まで示すとは限りません。検査済みの証明記録を伴わない <code>UNSAT</code> は、別の種類の証拠です。列挙が尽きたことの証明書がない整数の件数は、計算された結果です。別の計数器との一致だけで、形式検証済みの計数になるわけではありません。</p>
+  <p><strong>真似する最小手順。</strong> 約束、小さい有効な証明書一つ、単独で使える検査器、拒否の例、入力と範囲の結びつきを公開します。未検証の還元・検査器・計数があれば明示します。DRATと厳密算術の道具の出典は末尾にまとめました。道具の紹介から、各公開結果への保証を足すことはしません。</p>
+  <p><strong>公開済みの実例。</strong> Bellの<a href="https://github.com/tkmt-lab/bell-facet-certificates/blob/cd1e141455cf3f5fe05a739782271201cdefe7e8/FORMAT.md">証明書の約束</a>は、正規化、rank、厳密に負のslackを有理数で要求します。<a href="https://github.com/tkmt-lab/bell-facet-certificates/blob/cd1e141455cf3f5fe05a739782271201cdefe7e8/README.md">短い実行例</a>は同じ一行を二つの検査器に渡し、<a href="https://github.com/tkmt-lab/bell-facet-certificates/blob/cd1e141455cf3f5fe05a739782271201cdefe7e8/negative_controls.py">不正な入力の検査</a>は壊れた証人や範囲の誤りを拒否させます。結論は、指定した入力と証人に関するものです。</p>
+
+  <h2 id="readers">5. 別のAIの読み手に議論を組み直してもらう</h2>
+  <p><strong>手順。</strong> 読み手へ主張文、証明や論文、原典を渡し、可能なら著者の実装と計算結果は伏せます。仮定・定義・引用した定理の版・推論の段を確かめ、選んだ恒等式を別の方法で計算し直すよう求めます。指摘と対応表を残します。</p>
+  <p><strong>確かめられること。</strong> 追加の批判的な読みとして、文章・代数・引用の誤りを見つけられる場合があります。計算し直した恒等式は、その恒等式への証拠です。判定は、実際に行った読解の評価です。</p>
+  <p><strong>残ること。</strong> AIの読み手も、同じ誤りを見落とし、同じ思い違いを共有し得ます。報告は、人間の査読、形式証明、網羅的な文献調査ではありません。証明を渡した読み手は証明を点検したのであって、見ていない証明を独立に導いたのではありません。</p>
+  <p><strong>真似する最小手順。</strong> 読んだものを示し、具体的な指摘と別の検算を求め、一件ずつ対応し、未解決を見えるままにします。ある版の良い評価を、改訂版にもそのまま付けません。</p>
+  <p><strong>公開済みの実例。</strong> behavioral SIRの<a href="https://github.com/tkmt-lab/behavioral-sir-identifiability/blob/6691a76801a522592712e41993b6f4353decee88/VERIFICATION-RECORD.md">検証記録</a>は、証明の読み手と論文の読み手、それぞれの入力、検算、対応を分けています。<a href="https://github.com/tkmt-lab/behavioral-sir-identifiability/blob/6691a76801a522592712e41993b6f4353decee88/independent/check_proof_algebra.py">読み手の代数検査コード</a>は公開されていますが、元の査読全文は配布していません。<a href="https://github.com/tkmt-lab/behavioral-sir-identifiability/blob/6691a76801a522592712e41993b6f4353decee88/claims.json">主張の記録</a>も、既知の整数を一つ固定した場合ごとの散文の定理と、有限個の計算の照合を分けています。有限の照合だけで一般の定理を示すものではありません。</p>
+
+  <h2 id="scope">6. 結果を説明する言葉を点検する</h2>
+  <p><strong>手順。</strong> 主張ごとに、対象、パラメータ、仮定、範囲、証拠の種類を一か所に書きます。要旨・README・目録の説明を、それと照合します。主張しないことも明示します。</p>
+  <p><strong>確かめられること。</strong> 標本が全数調査へ、近似が厳密な包絡へ、モデルの結果が現実での有効性へ、限られた文献調査が優先権へと、根拠より強い説明になった箇所を見つけられる場合があります。</p>
+  <p><strong>残ること。</strong> 正確なラベルが、足りない証明や新しさを与えるわけではありません。数値の再現が成功しても、未解決の仮定は未解決です。</p>
+  <p><strong>真似する最小手順。</strong> 各主張に根拠と除外範囲を組にし、見出しの言葉を照合し、未解決の仮定と例外を残します。文献調査は、日付と範囲を区切って説明します。</p>
+  <p><strong>公開済みの実例。</strong> Hawkingの<a href="https://github.com/tkmt-lab/hawking-dispersive-offset/blob/00f229f7afd38ebd67be3daa27f89dcb78436aaf/claims.json">主張一覧</a>は、A1〜A3と剰余の上界がないことを残しています。behavioral SIRの<a href="https://github.com/tkmt-lab/behavioral-sir-identifiability/blob/6691a76801a522592712e41993b6f4353decee88/claims.json">主張一覧</a>は、既知で固定した整数と一般的なパラメータの範囲を残し、雑音を含むデータからの推定を除外しています。Bellの<a href="https://github.com/tkmt-lab/bell-facet-certificates/blob/cd1e141455cf3f5fe05a739782271201cdefe7e8/claims.json">主張一覧</a>は、固定リストと証人についてのもので、完全な列挙、最適な量子の値、一般の問いの解決ではありません。</p>
+
+  <h2 id="machine">7. 機械が主張と根拠をたどれる形にする</h2>
+  <p><strong>手順。</strong> 主張に安定したIDを付けます。エージェント向けの入口、主張一覧、版を固定した根拠のパス、該当する場合の正確な定理名、実行場所つきのコマンド、範囲と除外を用意します。根拠のファイルをhashで結び、各コマンドが何の結果を調べるか記録します。</p>
+  <p><strong>確かめられること。</strong> 別のエージェントが対象と適切な検査を見つけ、異なる版や証拠の種類を黙って混ぜることを避けやすくなります。<a href="../catalog.json">目録</a>は個々の公開版への入口です。各一式のschemaや状態の語彙は同じとは限りません。</p>
+  <p><strong>残ること。</strong> JSONの構文、hashの一致、ファイル一覧の閉じていること、エージェントへの指示文は、数学の正しさを証明しません。保存された <code>PASS</code> は、どのコマンド・検査器・入力・範囲が出したものかと一緒に読みます。機械可読の文章も、主張を言い過ぎることがあります。</p>
+  <p><strong>真似する最小手順。</strong> 主張の記録一つと、再実行できる検査一つから始めます。IDと主張文、証拠の種類、仮定と範囲、版とhashの付いた根拠、コマンドと実行場所、未解決点と除外を含めます。schemaの構文に加えてリンクと対象範囲を点検し、公開した記録から目録を更新します。</p>
+  <p><strong>公開済みの実例。</strong> Bellの <a href="https://github.com/tkmt-lab/bell-facet-certificates/blob/cd1e141455cf3f5fe05a739782271201cdefe7e8/AGENTS.md">AGENTS.md</a>は、<a href="https://github.com/tkmt-lab/bell-facet-certificates/blob/cd1e141455cf3f5fe05a739782271201cdefe7e8/claims.json">主張一覧</a>、形式の約束、再実行のコマンドへ案内しています。公開の<a href="../catalog.schema.json">目録schema</a>が、リポジトリを横断する層を定めます。これらは入口と記録の検査であり、もう一段の証明ではありません。</p>
+
+  <h2 id="corrections">8. 失敗、範囲の変更、訂正を残す</h2>
+  <p><strong>手順。</strong> 失敗した実行や元の議論を識別できるまま保存します。何が失敗し、どの主張に影響し、何が置き換わり、どの検査を繰り返したかを、訂正として追加します。資源の上限による停止や未判定を、数学の反例と分けます。</p>
+  <p><strong>確かめられること。</strong> 読者は、経緯の根拠を失わずに、いま採る主張を見つけられます。再実行では指定した修正を試せ、訂正の一覧は古い主張の流通を防ぐ助けになります。</p>
+  <p><strong>残ること。</strong> 訂正を記録しただけで、置き換えた結果が独立に確かめられるわけではありません。時間切れは反例でもUNSATの証明でもありません。実装の失敗は、数学の命題が偽である証拠にはなりません。</p>
+  <p><strong>真似する最小手順。</strong> 元の記録を保存し、版と範囲を付けて訂正を追記し、代わりの根拠を結び、現在の主張の要約をすべて更新します。文章、コード、数学そのものの修正を区別します。</p>
+  <p><strong>公開済みの実例。</strong> Hawkingの<a href="https://github.com/tkmt-lab/hawking-dispersive-offset/blob/00f229f7afd38ebd67be3daa27f89dcb78436aaf/VERIFICATION-RECORD.md">記録</a>は、Wronskian/Airyの約束の訂正と、予測を含まない数値感度の範囲を残しています。<a href="https://github.com/tkmt-lab/hawking-dispersive-offset/blob/00f229f7afd38ebd67be3daa27f89dcb78436aaf/independent/README.md">独立な検査の説明</a>は、収束せず使わなかったsolverの試行を二つ記録しています。どちらも、それらを漸近計算の仮定の証明へ言い換えてはいません。</p>
+
+  <h2 id="limits">なお判断を要すること</h2>
+  <ul>
+    <li><strong>数学の意味。</strong> モデル、仕様、引用した仮定、還元には、最後のプログラムの成功表示とは別の点検が必要です。</li>
+    <li><strong>共通する誤りの原因。</strong> 二つの実装でも、主張文・データ・solver・ライブラリ・接続用コード・幾何検査を共有する場合があります。共有した部分を示します。証明書のない計数、厳密な上界のない浮動小数点の収束は、限界として明記します。</li>
+    <li><strong>対象範囲。</strong> 渡された記録を全部調べても、可能な対象が全部渡されたことを証明したことにはなりません。CIの標本の検査は以前の全件検査を置き換えず、保存された全件検査の記録は新しい再実行ではありません。</li>
+    <li><strong>査読と新しさ。</strong> AIの読解は人間の専門家の査読ではありません。ここで挙げた実例も、それぞれが述べた文献調査を越える優先権を確定しません。専門家による評価がなお必要な場合があります。検査を再実行できる形にしても、別の研究者にその評価を提供する義務は生じません。</li>
+  </ul>
+  <p>役に立つ引継ぎは、範囲を絞った主張と、短くたどれる根拠、残ることの正直な説明です。未解決点があるなら、良い判定をもう一つ付けるのでなく、主張を狭めたり止めたりする理由にもなります。</p>
+
+  <h2 id="credits">道具と先行する仕事への謝意</h2>
+  <p>リンクした公開版の版は<a href="#versions">下の表</a>にあります。謝意はここに一度まとめ、挙げるのは、リンクした公開版が実際に使っている道具だけです。</p>
+  <ul>
+    <li><strong>Lean 4とMathlib：</strong> Leonardo de Moura、Sebastian Ullrich、Leanの開発者とmathlib Community。形式証明の実例で使う証明支援系と数学のライブラリです。<a href="https://doi.org/10.1007/978-3-030-79876-5_37">Lean 4の論文</a>、<a href="https://doi.org/10.1145/3372885.3373824">Mathlibの論文</a>。</li>
+    <li><strong>Comparatorと外部検査器：</strong> Lean/Comparatorの開発者と、lean4lean・nanoda・con-leche・con-ronの著者。主張と依存の比較、別実装での検査を支えています。<a href="https://github.com/leanprover/comparator">Comparator</a>、<a href="https://github.com/digama0/lean4lean">lean4lean</a>、<a href="https://github.com/ammkrn/nanoda_lib">nanoda</a>、<a href="https://github.com/leanprover/con-leche">con-leche</a>、<a href="https://github.com/leanprover/con-ron">con-ron</a>。</li>
+    <li><strong>厳密な代数と数値のソフトウェア：</strong> Python・NumPy・SciPy・SymPyの開発者の仕事を、公開された計算の実例で使っています。<a href="https://www.python.org/">Python</a>、<a href="https://numpy.org/">NumPy</a>、<a href="https://scipy.org/">SciPy</a>、<a href="https://www.sympy.org/">SymPy</a>。</li>
+  </ul>
+  <p>各論文が引用する数学の問いと先行結果が、その研究の出発点です。その著者の方々と道具の開発者に感謝し、その方々が切り開いてきた分野に、この小さな仕事がわずかでも新しいものを付け加えられたら幸いです。この謝意は、その方々が点検したり推薦したりしたという意味ではありません。</p>
+  <p><strong>手順の参考文献。</strong> 4節の一般的な手順が挙げる次の道具は、リンクしたどの公開版も使っていません。その方法を選ぶ読者のための参考で、ここでの結果の根拠ではありません。Boolean式の証明書：<a href="https://github.com/marijnheule/drat-trim">DRAT-trim</a>（Nathan Wetzler、Marijn Heule、Warren Hunt）、<a href="https://github.com/arminbiere/cadical">CaDiCaL</a>（Armin Biereと開発者）。厳密算術：<a href="https://arxiv.org/abs/1611.02831v1">Arb</a>（Fredrik Johansson、現在はFLINTの一部）、<a href="https://www.mpfr.org/mpfr-current/mpfr.html">GNU MPFR</a>。包絡には、数学の誤差の議論全体が別に必要です。</p>
+
+  <h2 id="versions">実例で使う固定した版</h2>
+  <p>上のリンクは、次の公開済みの commit を指しています（2026年10月23日に確認）。再現のために固定したもので、その後の版があることもあります。</p>
+  <table>
+    <tr><td><a href="https://github.com/tkmt-lab/a3-gsw-classification">a3-gsw-classification</a></td><td><a href="https://github.com/tkmt-lab/a3-gsw-classification/releases/tag/v1.1.0">v1.1.0</a></td><td><code>58124b20fa4a3b19aaa62e734c2036210f7bdcf8</code></td></tr>
+    <tr><td><a href="https://github.com/tkmt-lab/bell-facet-certificates">bell-facet-certificates</a></td><td><a href="https://github.com/tkmt-lab/bell-facet-certificates/releases/tag/v1.0.0">v1.0.0</a></td><td><code>cd1e141455cf3f5fe05a739782271201cdefe7e8</code></td></tr>
+    <tr><td><a href="https://github.com/tkmt-lab/hawking-dispersive-offset">hawking-dispersive-offset</a></td><td><a href="https://github.com/tkmt-lab/hawking-dispersive-offset/releases/tag/v1.0.0">v1.0.0</a></td><td><code>00f229f7afd38ebd67be3daa27f89dcb78436aaf</code></td></tr>
+    <tr><td><a href="https://github.com/tkmt-lab/behavioral-sir-identifiability">behavioral-sir-identifiability</a></td><td><a href="https://github.com/tkmt-lab/behavioral-sir-identifiability/releases/tag/v1.0.0">v1.0.0</a></td><td><code>6691a76801a522592712e41993b6f4353decee88</code></td></tr>
+  </table>
+
+  <h2>連絡</h2>
+  <p>このページや成果の誤り：<a href="mailto:research@tatsuhikotakimoto.com">research@tatsuhikotakimoto.com</a>、または該当するリポジトリの issue へ。このページの文章のライセンスは <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> です。</p>
+</main>
+</body>
+</html>
