@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Catalog of results — tkmt-lab</title>
+<meta name="description" content="A machine-readable catalog of every published tkmt-lab result: claims, kinds of evidence, Lean declarations, commands to re-check them, DOIs and what is not claimed.">
+<link rel="alternate" type="application/json" href="catalog.json" title="Catalog of results (JSON)">
+<link rel="alternate" type="text/plain" href="llms.txt" title="Index for AI readers">
+<link rel="alternate" hreflang="ja" href="https://tkmt-lab.github.io/ja/catalog.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<style>
+  :root { --fg:#1d1d1f; --muted:#5f6368; --line:#e3e3e3; --bg:#ffffff; --link:#1a5fb4; --code-bg:#f5f5f7; }
+  @media (prefers-color-scheme: dark) { :root { --fg:#e8e8e8; --muted:#a0a0a0; --line:#333; --bg:#141414; --link:#8ab4f8; --code-bg:#1f1f1f; } }
+  body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width:720px; margin:0 auto; padding:48px 16px 64px; }
+  h1 { font-size:1.6rem; margin:0 0 4px; }
+  h2 { font-size:1.1rem; margin:40px 0 8px; border-bottom:1px solid var(--line); padding-bottom:4px; }
+  p, li { color:var(--fg); }
+  .muted { color:var(--muted); }
+  a { color:var(--link); }
+  ul, ol { padding-left:1.2rem; }
+  table { border-collapse:collapse; width:100%; font-size:.95rem; }
+  td { border-top:1px solid var(--line); padding:6px 4px; vertical-align:top; }
+  td:first-child { white-space:nowrap; padding-right:12px; }
+  code { font:.9em ui-monospace, SFMono-Regular, Menlo, monospace; }
+  pre { background:var(--code-bg); border-radius:6px; padding:10px 12px; overflow-x:auto; font-size:.85rem; line-height:1.5; }
+</style>
+</head>
+<body>
+<main>
+  <p class="muted"><a href="./">tkmt-lab</a> · English · <a href="ja/catalog.html">日本語</a></p>
+  <h1>Catalog of results</h1>
+  <p class="muted">One machine-readable file for every published result of the lab</p>
+
+  <p><a href="catalog.json"><code>/catalog.json</code></a> lists every published work of tkmt-lab and every claim in it. For each claim it says what kind of evidence stands behind it, where the Lean statement and proof are, how to re-check it, and what it does not claim. It is written mainly for AI agents that want to find, read and verify the results, and it is equally usable by people.</p>
+  <p>The catalog adds no facts of its own. It is built by a script from the lab's release record and from each repository's <code>claims.json</code>, <code>AGENTS.md</code>, <code>README.md</code>, <code>CITATION.cff</code> and <code>.zenodo.json</code>, at the published state of each repository. Where those files do not give a field, the field is left out rather than filled in. The catalog is rebuilt after each release. The repositories remain the authority: if the catalog and a repository disagree, the repository is right, and we would be grateful to hear about it.</p>
+
+  <h2>How an AI agent should use it</h2>
+  <ol>
+    <li>Fetch <a href="catalog.json"><code>catalog.json</code></a> (format: <a href="catalog.schema.json"><code>catalog.schema.json</code></a>, JSON Schema 2020-12). Pick a work and a claim. Claim ids are stable: <code>&lt;owner&gt;/&lt;repository&gt;#&lt;id in claims.json&gt;</code>, for example <code>tkmt-lab/a3-gsw-classification#thm:classification</code>.</li>
+    <li>Open the repository's <code>AGENTS.md</code> (<code>entry_points.agents_md</code>) and then its <code>claims.json</code>, at the release tag given in <code>release.tag</code>.</li>
+    <li>Run the commands in <code>verification</code> from the stated working directory, and compare with <code>expected_output</code> where it is given. For Lean results, re-running the build is better than trusting saved logs.</li>
+    <li>When you describe a claim, stay within its <code>scope</code>, <code>not_claimed</code> and the work's <code>scope_flags</code>. None of the results has had human peer review unless a field says so.</li>
+  </ol>
+
+  <h2>What is in the file</h2>
+  <table>
+    <tr><td><code>lab</code></td><td>Name, homepage, owner and contact, as in <a href="llms.txt">llms.txt</a>.</td></tr>
+    <tr><td><code>works[]</code></td><td>One entry per published work. <code>id</code> is the GitHub repository (<code>tkmt-lab/…</code>); <code>title</code> is the article title as the repository asks to cite it (<code>title_tex</code> gives the TeX form).</td></tr>
+    <tr><td><code>release</code></td><td>Current release tag, date and commit, the DOI of that version and the concept DOI for all versions, from the lab's release record.</td></tr>
+    <tr><td><code>paper_pdf</code>, <code>repo_url</code></td><td>The article PDF at the release tag, and the repository.</td></tr>
+    <tr><td><code>verification[]</code></td><td>Commands copied verbatim from the repository's README or AGENTS.md, with the file and section they come from, the working directory and, where documented, the expected output.</td></tr>
+    <tr><td><code>scope</code>, <code>not_claimed</code>, <code>scope_flags</code></td><td>What the release covers and what it does not claim. <code>scope_flags</code> is the <code>scope</code> object of <code>claims.json</code>, copied as is. Each text carries its language and source file.</td></tr>
+    <tr><td><code>claims[]</code></td><td>Every claim of <code>claims.json</code>: <code>id</code>, <code>statement</code>, the repository's own <code>status</code>, <code>evidence[]</code> and <code>evidence_kinds</code>, <code>lean_declarations</code>, <code>scope</code>, <code>not_claimed</code> (open obligations), <code>depends_on</code>, a per-claim <code>reproduce</code> command where the repository gives one, and the paths of the evidence files.</td></tr>
+  </table>
+
+  <h2>Kinds of evidence</h2>
+  <p>Each evidence item names its <code>kind</code> and its <code>basis</code>, the field of <code>claims.json</code> it was read from, so the mapping can be checked.</p>
+  <table>
+    <tr><td><code>lean-proof</code></td><td>A Lean 4 declaration checked by the Lean kernel. Gives the declaration name, the source file, the axioms it uses and its type.</td></tr>
+    <tr><td><code>comparator</code></td><td>The Comparator tool checked that the proof proves exactly a statement file written in advance by a different agent; <code>kernels</code> independent kernels accepted it. Gives the statement file and, where linked, the Comparator record.</td></tr>
+    <tr><td><code>independent-implementation</code></td><td>Separately written code, or a separate team's derivation of a finite result, that reached the same result.</td></tr>
+    <tr><td><code>prose-proof</code></td><td>A proof written in prose. Not machine-checked unless a <code>lean-proof</code> item is also present. <code>independent: true</code> marks a second proof by a separate team.</td></tr>
+    <tr><td><code>ai-review</code></td><td>Read and partly recomputed by AI readers not involved in writing it. Not human peer review.</td></tr>
+    <tr><td><code>finite-computation</code></td><td>Exact computation over a stated finite range or list.</td></tr>
+    <tr><td><code>numerical-evidence</code></td><td>Floating-point computation. It supports a claim but does not prove it.</td></tr>
+    <tr><td><code>formal-derivation</code></td><td>A formal (for example asymptotic) calculation under stated assumptions. Not a proof.</td></tr>
+  </table>
+
+  <h2>Example</h2>
+  <p>An abridged claim entry:</p>
+<pre>{
+  "id": "tkmt-lab/a3-gsw-classification#thm:classification",
+  "status": "lean-proved",
+  "human_review": false,
+  "lean_declarations": ["ClaudeMain.main_full"],
+  "evidence": [
+    { "kind": "lean-proof", "basis": "lean",
+      "declaration": "ClaudeMain.main_full",
+      "source_file": "packet/formal/Formal/ClaudeMainFull.lean",
+      "axioms": ["propext", "Classical.choice", "Quot.sound"],
+      "statement_file": "packet/formal/Formal/ComparatorChallengeMain.lean" },
+    { "kind": "comparator", "basis": "README.md",
+      "declaration": "ClaudeMain.main_full",
+      "statement_declaration": "ClaudeChallenge.main", "kernels": 6, … }
+  ],
+  "evidence_kinds": ["comparator", "lean-proof", "prose-proof"],
+  "not_claimed": ["Human peer review of the proof.", …]
+}</pre>
+
+  <h2>Limits</h2>
+  <p>The catalog only gathers what the repositories already state; it does not check the mathematics. Some repositories record less per claim than others (for example, a claim without a statement text in <code>claims.json</code>), and the catalog then leaves the field out. Some release notes in the lab's record are in Japanese; such texts are marked <code>"lang": "ja"</code>.</p>
+
+  <h2>Contact</h2>
+  <p>Errors in the catalog or in a result: <a href="mailto:research@tatsuhikotakimoto.com">research@tatsuhikotakimoto.com</a>, or an issue in the relevant repository. The text of this page is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>
+</main>
+</body>
+</html>

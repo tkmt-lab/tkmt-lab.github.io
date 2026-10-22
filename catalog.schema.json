@@ -1,0 +1,197 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tkmt-lab.github.io/catalog.schema.json",
+  "title": "tkmt-lab catalog of published results",
+  "description": "One entry per published work of tkmt-lab, with every claim from the work's claims.json, the kinds of evidence behind it, how to re-check it, and what it does not claim. All facts are copied from docs/releases.json and the repositories' own files; a field that the sources do not give is omitted.",
+  "type": "object",
+  "required": ["version", "generated_at", "lab", "evidence_kinds", "works"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {"type": "string"},
+    "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+$", "description": "Version of this catalog format."},
+    "generated_at": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}"},
+    "sources": {"type": "object", "additionalProperties": {"type": "string"}},
+    "lab": {
+      "type": "object",
+      "required": ["name", "homepage"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {"const": "tkmt-lab"},
+        "owner": {"type": "string"},
+        "homepage": {"type": "string", "pattern": "^https://"},
+        "llms_txt": {"type": "string", "pattern": "^https://"},
+        "description": {"type": "string"},
+        "contact": {
+          "type": "object",
+          "required": ["text"],
+          "additionalProperties": false,
+          "properties": {
+            "text": {"type": "string"},
+            "email": {"type": "string", "pattern": "^[^@\\s]+@[^@\\s]+$"}
+          }
+        }
+      }
+    },
+    "how_to_use": {"type": "array", "items": {"type": "string"}},
+    "evidence_kinds": {
+      "type": "object",
+      "description": "Meaning of each evidence kind used in claims[].evidence[].kind.",
+      "additionalProperties": {"type": "string"}
+    },
+    "works": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/work"}}
+  },
+  "$defs": {
+    "text": {
+      "type": "object",
+      "required": ["text", "lang", "source"],
+      "additionalProperties": false,
+      "properties": {
+        "text": {"type": "string", "minLength": 1},
+        "lang": {"enum": ["en", "ja"]},
+        "source": {"type": "string", "description": "File the text is copied from."}
+      }
+    },
+    "link": {
+      "type": "object",
+      "required": ["path", "url"],
+      "additionalProperties": false,
+      "properties": {
+        "path": {"type": "string", "description": "Path inside the repository."},
+        "url": {"type": "string", "pattern": "^https://"},
+        "raw_url": {"type": "string", "pattern": "^https://"}
+      }
+    },
+    "doi": {"type": "string", "pattern": "^10\\.[0-9]+/\\S+$"},
+    "work": {
+      "type": "object",
+      "required": ["id", "release", "repo_url", "entry_points", "verification", "claims"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {"type": "string", "pattern": "^tkmt-lab/[a-z0-9-]+$", "description": "Stable work id: GitHub owner/name."},
+        "title": {"type": "string", "description": "Article title as given in CITATION.cff preferred-citation."},
+        "title_tex": {"type": "string", "description": "The \\title argument of the article's TeX source, verbatim."},
+        "paper_version": {"type": "string"},
+        "packet_version": {"type": "string", "description": "Version field of claims.json."},
+        "authors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name"],
+            "additionalProperties": false,
+            "properties": {"name": {"type": "string"}, "affiliation": {"type": "string"}}
+          }
+        },
+        "summary": {"type": "string", "description": "One-paragraph summary from the homepage llms.txt."},
+        "release": {
+          "type": "object",
+          "required": ["tag", "commit", "doi_status"],
+          "additionalProperties": false,
+          "properties": {
+            "tag": {"type": "string"},
+            "date": {"type": "string"},
+            "commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+            "github_release": {"type": "string", "pattern": "^https://"},
+            "version_doi": {"$ref": "#/$defs/doi"},
+            "concept_doi": {"$ref": "#/$defs/doi"},
+            "doi_status": {"enum": ["minted", "pending", "stuck"]},
+            "ci_at_release": {"type": "string"}
+          }
+        },
+        "repo_url": {"type": "string", "pattern": "^https://github\\.com/"},
+        "paper_pdf": {"$ref": "#/$defs/link"},
+        "paper_source": {"$ref": "#/$defs/link"},
+        "entry_points": {
+          "type": "object",
+          "required": ["agents_md", "claims_json"],
+          "additionalProperties": false,
+          "properties": {
+            "agents_md": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/link"}},
+            "claims_json": {"$ref": "#/$defs/link"},
+            "readme": {"$ref": "#/$defs/link"},
+            "citation_cff": {"$ref": "#/$defs/link"}
+          }
+        },
+        "scope": {"type": "array", "items": {"$ref": "#/$defs/text"}},
+        "not_claimed": {"type": "array", "items": {"$ref": "#/$defs/text"}},
+        "scope_flags": {
+          "type": "object",
+          "description": "The 'scope' object of claims.json, verbatim (true = covered, false = not covered/not claimed).",
+          "additionalProperties": {"type": ["boolean", "string", "integer", "array"]}
+        },
+        "status_semantics": {"type": "string"},
+        "evidence_type_meaning": {"type": "object", "additionalProperties": {"type": "string"}},
+        "verification": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/command"}},
+        "claims": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/claim"}}
+      }
+    },
+    "command": {
+      "type": "object",
+      "required": ["source", "working_directory", "shell", "script"],
+      "additionalProperties": false,
+      "properties": {
+        "source": {"type": "string", "description": "File and section the script is copied from."},
+        "working_directory": {"type": "string", "description": "Relative to the repository root."},
+        "shell": {"enum": ["sh", "bash"]},
+        "script": {"type": "string", "minLength": 1, "description": "Verbatim code block from the source."},
+        "expected_output": {"type": "string"}
+      }
+    },
+    "claim": {
+      "type": "object",
+      "required": ["id", "local_id", "evidence", "evidence_kinds"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {"type": "string", "pattern": "^tkmt-lab/[a-z0-9-]+#\\S+$", "description": "Stable claim id: work id + '#' + id in claims.json."},
+        "local_id": {"type": "string"},
+        "paper_label": {"type": "string"},
+        "kind": {"type": "string"},
+        "statement": {"type": "string", "description": "statement_plain or statement from claims.json, verbatim."},
+        "statement_latex": {"type": "string"},
+        "status": {"type": "string", "description": "Repository status label, verbatim."},
+        "human_review": {"type": "boolean"},
+        "lean_declarations": {"type": "array", "items": {"type": "string"}},
+        "evidence": {"type": "array", "items": {"$ref": "#/$defs/evidence"}, "uniqueItems": true},
+        "evidence_kinds": {"type": "array", "items": {"$ref": "#/$defs/kind"}, "uniqueItems": true},
+        "scope": {"type": "string"},
+        "not_claimed": {"type": "array", "items": {"type": "string"}, "description": "remaining_obligations from claims.json."},
+        "depends_on": {"type": "array", "items": {"type": "string"}},
+        "depends_on_published_results": {"type": "array"},
+        "reproduce": {"type": "string"},
+        "numbers": {"type": "string"},
+        "independent_verification": {"type": "string", "description": "independent_verification from claims.json when it is not already an evidence item."},
+        "evidence_files": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Repository paths of the claim's evidence files; their SHA-256 hashes are in claims.json."
+        }
+      }
+    },
+    "kind": {"enum": ["lean-proof", "comparator", "independent-implementation", "ai-review", "finite-computation", "numerical-evidence", "prose-proof", "formal-derivation"]},
+    "evidence": {
+      "type": "object",
+      "required": ["kind", "basis"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {"$ref": "#/$defs/kind"},
+        "basis": {"type": "string", "description": "The claims.json field (and value) this item is read from."},
+        "meaning": {"type": "string"},
+        "independent": {"type": "boolean"},
+        "detail": {"type": "string"},
+        "declaration": {"type": "string"},
+        "source_file": {"type": "string"},
+        "axioms": {"type": "array", "items": {"type": "string"}},
+        "type_signature": {"type": "string"},
+        "verification_kind": {"type": "string"},
+        "statement_file": {"type": "string"},
+        "statement_declaration": {"type": "string"},
+        "kernels": {"type": "integer"},
+        "record": {"type": "string"},
+        "receipt_scope": {"type": "string"}
+      },
+      "allOf": [
+        {"if": {"properties": {"kind": {"const": "lean-proof"}}}, "then": {"required": ["declaration", "axioms"]}},
+        {"if": {"properties": {"kind": {"const": "comparator"}}}, "then": {"required": ["declaration", "statement_file", "kernels"]}}
+      ]
+    }
+  }
+}

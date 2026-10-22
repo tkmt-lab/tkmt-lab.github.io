@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>成果の目録 — tkmt-lab</title>
+<meta name="description" content="tkmt-lab が公開したすべての成果の、機械で読める目録。主張、証拠の種類、Lean の定理名、確かめるコマンド、DOI、主張しないことをまとめています。">
+<link rel="alternate" type="application/json" href="../catalog.json" title="Catalog of results (JSON)">
+<link rel="alternate" hreflang="en" href="https://tkmt-lab.github.io/catalog.html">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<style>
+  :root { --fg:#1d1d1f; --muted:#5f6368; --line:#e3e3e3; --bg:#ffffff; --link:#1a5fb4; --code-bg:#f5f5f7; }
+  @media (prefers-color-scheme: dark) { :root { --fg:#e8e8e8; --muted:#a0a0a0; --line:#333; --bg:#141414; --link:#8ab4f8; --code-bg:#1f1f1f; } }
+  body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.8 system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", sans-serif; }
+  main { max-width:720px; margin:0 auto; padding:48px 16px 64px; }
+  h1 { font-size:1.6rem; margin:0 0 4px; }
+  h2 { font-size:1.1rem; margin:40px 0 8px; border-bottom:1px solid var(--line); padding-bottom:4px; }
+  p, li { color:var(--fg); }
+  .muted { color:var(--muted); }
+  a { color:var(--link); }
+  ul, ol { padding-left:1.2rem; }
+  table { border-collapse:collapse; width:100%; font-size:.95rem; }
+  td { border-top:1px solid var(--line); padding:6px 4px; vertical-align:top; }
+  td:first-child { white-space:nowrap; padding-right:12px; }
+  code { font:.9em ui-monospace, SFMono-Regular, Menlo, monospace; }
+</style>
+</head>
+<body>
+<main>
+  <p class="muted"><a href="./">tkmt-lab</a> · <a href="../catalog.html">English</a> · 日本語</p>
+  <h1>成果の目録</h1>
+  <p class="muted">研究室が公開したすべての成果を、機械で読める一つのファイルに</p>
+
+  <p><a href="../catalog.json"><code>/catalog.json</code></a> は、tkmt-lab が公開したすべての研究と、その中のすべての主張の一覧です。主張ごとに、どんな種類の証拠があるか、Lean の主張文と証明がどこにあるか、どうすれば確かめ直せるか、何を主張していないかを書いています。主な読み手は、成果を見つけ、読み、確かめようとする AI エージェントです。人が読んでも使えます。</p>
+  <p>目録は新しい事実を足しません。研究室の公開の記録と、各リポジトリの <code>claims.json</code>・<code>AGENTS.md</code>・<code>README.md</code>・<code>CITATION.cff</code>・<code>.zenodo.json</code> から、公開されている状態のものを道具で集めて作ります。元のファイルにない項目は、補わずに省きます。公開のたびに作り直します。正はあくまで各リポジトリです。目録とリポジトリが食い違っていたら、リポジトリが正しく、知らせていただけるとありがたいです。</p>
+
+  <h2>AI エージェントの使い方</h2>
+  <ol>
+    <li><a href="../catalog.json"><code>catalog.json</code></a> を読みます（形式は <a href="../catalog.schema.json"><code>catalog.schema.json</code></a>、JSON Schema 2020-12）。研究と主張を選びます。主張の番号は変わりません。形は <code>&lt;owner&gt;/&lt;repository&gt;#&lt;claims.json の id&gt;</code> で、例えば <code>tkmt-lab/a3-gsw-classification#thm:classification</code> です。</li>
+    <li>そのリポジトリの <code>AGENTS.md</code>（<code>entry_points.agents_md</code>）を読み、次に <code>claims.json</code> を読みます。<code>release.tag</code> の版のものを使います。</li>
+    <li><code>verification</code> のコマンドを、書かれた作業ディレクトリで実行します。<code>expected_output</code> があれば出力と比べます。Lean の結果は、保存された記録を信じるより、ビルドをやり直すほうが確かです。</li>
+    <li>主張を説明するときは、その <code>scope</code>・<code>not_claimed</code> と、研究の <code>scope_flags</code> の範囲を出ないでください。項目に書かれていない限り、人間の査読は受けていません。</li>
+  </ol>
+
+  <h2>ファイルの中身</h2>
+  <table>
+    <tr><td><code>lab</code></td><td>研究室の名前、ホームページ、主宰者、連絡先（<a href="../llms.txt">llms.txt</a> と同じ）。</td></tr>
+    <tr><td><code>works[]</code></td><td>公開した研究ごとに一つ。<code>id</code> は GitHub のリポジトリ名（<code>tkmt-lab/…</code>）。<code>title</code> はリポジトリが引用に使うよう求めている論文の題（<code>title_tex</code> は TeX の形）。</td></tr>
+    <tr><td><code>release</code></td><td>いまの版のタグ、日付、commit、その版の DOI と全版の DOI。研究室の公開の記録から。</td></tr>
+    <tr><td><code>paper_pdf</code>, <code>repo_url</code></td><td>その版の論文の PDF と、リポジトリ。</td></tr>
+    <tr><td><code>verification[]</code></td><td>リポジトリの README か AGENTS.md に書かれたコマンドを、そのまま写したもの。出典のファイルと節、作業ディレクトリ、書かれていれば期待される出力つき。</td></tr>
+    <tr><td><code>scope</code>, <code>not_claimed</code>, <code>scope_flags</code></td><td>その版が示すことと、主張しないこと。<code>scope_flags</code> は <code>claims.json</code> の <code>scope</code> をそのまま写したもの。文章には言語と出典のファイルを付けています。</td></tr>
+    <tr><td><code>claims[]</code></td><td><code>claims.json</code> のすべての主張。<code>id</code>、<code>statement</code>、リポジトリ自身の <code>status</code>、<code>evidence[]</code> と <code>evidence_kinds</code>、<code>lean_declarations</code>、<code>scope</code>、<code>not_claimed</code>（残っている課題）、<code>depends_on</code>、リポジトリが書いていれば主張ごとの <code>reproduce</code>、証拠のファイルの場所。</td></tr>
+  </table>
+
+  <h2>証拠の種類</h2>
+  <p>証拠の一つ一つに、種類（<code>kind</code>）と、どの <code>claims.json</code> の項目から読んだか（<code>basis</code>）を書いています。対応が正しいかを確かめられるようにするためです。</p>
+  <table>
+    <tr><td><code>lean-proof</code></td><td>Lean 4 の検査系が確かめた定理。定理名、ファイル、使っている公理、型を書きます。</td></tr>
+    <tr><td><code>comparator</code></td><td>証明が、別の者が先に書いておいた主張文のファイルとちょうど同じことを証明していることを、Comparator という道具で確かめたもの。<code>kernels</code> 個の独立な検査器が受け入れました。主張文のファイルと、リンクがあれば Comparator の記録を書きます。</td></tr>
+    <tr><td><code>independent-implementation</code></td><td>別に書いたプログラム、または有限の結果についての別のチームの導出が、同じ結果に達したもの。</td></tr>
+    <tr><td><code>prose-proof</code></td><td>文章による証明。<code>lean-proof</code> が一緒になければ、機械では確かめていません。<code>independent: true</code> は別のチームによるもう一つの証明です。</td></tr>
+    <tr><td><code>ai-review</code></td><td>書くことに関わらなかった AI が読み、一部を計算し直したもの。人間の査読ではありません。</td></tr>
+    <tr><td><code>finite-computation</code></td><td>決まった有限の範囲やリストについての、厳密な計算。</td></tr>
+    <tr><td><code>numerical-evidence</code></td><td>浮動小数点による数値計算。主張を支えますが、証明ではありません。</td></tr>
+    <tr><td><code>formal-derivation</code></td><td>書かれた仮定のもとでの形式的な（例えば漸近の）計算。証明ではありません。</td></tr>
+  </table>
+
+  <h2>限界</h2>
+  <p>目録は、リポジトリにすでに書かれていることを集めるだけで、数学そのものは確かめません。主張ごとに書いてあることが少ないリポジトリもあり（例えば <code>claims.json</code> に主張の文がないもの）、そのときは項目を省きます。研究室の公開の記録には日本語の文もあり、その文には <code>"lang": "ja"</code> を付けています。</p>
+
+  <h2>連絡</h2>
+  <p>目録や成果の誤り：<a href="mailto:research@tatsuhikotakimoto.com">research@tatsuhikotakimoto.com</a>、または該当するリポジトリの issue へ。このページの文章のライセンスは <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> です。</p>
+</main>
+</body>
+</html>
