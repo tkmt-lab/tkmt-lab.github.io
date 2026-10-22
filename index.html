@@ -586,6 +586,15 @@
     <p class="note">This is finite evidence about two fixed published lists, not a solution of Gill's question; completeness of the lists and optimal quantum values are not claimed. The full certificates for the larger list are attached to the release. The repository's CI re-checks the smaller lists completely, and samples of the larger one, with both verifiers. There is no Lean proof and no human peer review.</p>
   </div>
 
+  <div class="work">
+    <div class="num">Paper 4 · 2026</div>
+    <div class="t">Low-frequency offset of a dispersive analogue Hawking temperature</div>
+    <div class="tag">How much does dispersion shift the Hawking temperature of a sonic horizon? A local formula, tested against predictions written down in advance.</div>
+    <p class="plain">A fluid flowing faster than sound has a "sonic horizon" that, like a black hole, should emit thermal sound waves at a Hawking temperature set by the flow's slope at the horizon. In real media short waves travel faster than long ones (dispersion), and the temperature shifts. For a one-dimensional flow with quartic dispersion and a single horizon, we give the leading shift of the zero-frequency temperature as the dispersion scale grows: it falls like 1/Λ², with a coefficient written in the first few derivatives of the flow at the horizon. The formula comes from a formal asymptotic calculation; it matches full scattering calculations, predictions recorded before the calculation for new flows, and a separately written scattering code.</p>
+    <div class="links"><a href="https://github.com/tkmt-lab/hawking-dispersive-offset/blob/main/paper-hawking-b0-v1.2-en.pdf">Paper (PDF)</a> · <a href="https://github.com/tkmt-lab/hawking-dispersive-offset">Repository</a> · <a href="https://doi.org/10.5281/zenodo.23553202">doi:10.5281/zenodo.23553202</a> · <a href="https://github.com/tkmt-lab/hawking-dispersive-offset/blob/main/claims.json">claims.json</a> · <a href="https://github.com/tkmt-lab/hawking-dispersive-offset/actions">Reproduction</a></div>
+    <p class="note">The calculation rests on three stated assumptions that are not proved, and there is no remainder bound, so the formula is supported by numerical evidence rather than proved. There is no Lean proof and no human peer review.</p>
+  </div>
+
   <h2>How the work is checked</h2>
   <p>Each release keeps different kinds of evidence apart, and says which applies to each claim:</p>
   <table>
@@ -606,6 +615,7 @@
     <li>J. E. Graver, whose catalogue of highly symmetric fullerenes gives the families we study, and K. Kutnar and D. Marušič, whose work on cyclic edge-connectivity of fullerenes we rely on.</li>
     <li>J. R. Büchi, C. C. Elgot and B. A. Trakhtenbrot, whose theorem connecting logic on words with finite automata is the last step of the periodicity proof.</li>
     <li>R. Gill, who asked whether every nontrivial Bell facet can be violated quantum mechanically; C. Staufenbiel, whose sampled facet lists and tools we certify; and S. Lörwald and G. Reinelt, the authors of the polyhedral software PANDA on which those tools are built.</li>
+    <li>W. G. Unruh, whose sonic analogue of a black hole started the field, and the authors who developed Hawking radiation with dispersion — among them S. Corley and T. Jacobson, W. G. Unruh and R. Schützhold, J. Macher, A. Coutant, S. Finazzi and R. Parentani, U. Leonhardt and S. Robertson, Y. Himemoto and T. Tanaka, A. Moreno-Ruiz and D. Bermudez, A. Coutant and S. Weinfurtner, and F. Del Porro, S. Liberati and M. Schneider, whose effective-horizon result is our point of comparison.</li>
     <li>The developers of Lean 4 and mathlib, and of the Comparator tool and the independent proof kernels used to check our proofs.</li>
   </ul>
   <p>I am grateful to them, and I hope this work adds something new to the field they opened. The papers cite these and other sources in full.</p>
