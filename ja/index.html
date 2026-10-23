@@ -26,11 +26,11 @@
   :root { --fig-yes:#2a9d8f; --fig-no:#e76f51; --fig-np:#d9d9d9; --fg:#1d1d1f; --muted:#5f6368; --line:#e3e3e3; --bg:#ffffff; --link:#1a5fb4; }
   @media (prefers-color-scheme: dark) { :root { --fig-yes:#3fb8a9; --fig-no:#f08a6c; --fig-np:#444; --fg:#e8e8e8; --muted:#a0a0a0; --line:#333; --bg:#141414; --link:#8ab4f8; } }
   body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.8 system-ui, -apple-system, "Hiragino Sans", "Segoe UI", sans-serif; }
-  main { max-width:720px; margin:0 auto; padding:48px 16px 64px; }
+  main { max-width:720px; margin:0 auto; padding:32px 16px 64px; }
   h1 { font-size:1.6rem; margin:0 0 4px; }
-  .motto { font-size:1.15rem; font-weight:600; line-height:1.7; margin:20px 0; padding-left:14px; border-left:3px solid var(--link); }
+  .motto { font-size:.9rem; line-height:1.6; color:var(--muted); margin:0; }
   .pagenote { font-size:0.85rem; color:var(--muted); }
-  .hero { display:block; width:100%; height:auto; border-radius:10px; margin:0 0 20px; }
+  .hero { display:block; flex:none; width:144px; height:auto; border-radius:8px; margin:0; }
   h2 { font-size:1.1rem; margin:40px 0 8px; border-bottom:1px solid var(--line); padding-bottom:4px; }
   p, li { color:var(--fg); }
   .muted { color:var(--muted); }
@@ -39,7 +39,6 @@
   .work { margin:28px 0 36px; padding:2px 0 2px 16px; border-left:3px solid var(--fig-yes); }
   .work .num { font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-bottom:2px; }
   .work .t { font-size:1.2rem; line-height:1.4; font-weight:650; margin:0 0 8px; }
-  .work .tag { font-size:1.02rem; color:var(--fg); font-style:italic; margin:-2px 0 10px; }
   :lang(ja) .work .tag { font-style:normal; font-weight:500; }
   .work .links { font-size:.95rem; margin:10px 0 4px; }
   .work .note { font-size:.9rem; color:var(--muted); margin:4px 0 0; }
@@ -48,23 +47,82 @@
   figcaption { color:var(--muted); font-size:.9rem; margin-top:4px; }
   .plain { margin:6px 0 10px; }
   td { border-top:1px solid var(--line); padding:6px 4px; vertical-align:top; }
+  .masthead { display:flex; align-items:center; gap:20px; }
+  .byline { margin:4px 0 0; font-size:.9rem; line-height:1.5; text-wrap:balance; }
+  .byline > span { display:block; }
+  .site-links { margin:16px 0 20px; font-size:.88rem; }
+  .axis { font-size:1.18rem; line-height:1.65; font-weight:550; margin:0 0 14px; }
+  .work-index { margin:28px 0 36px; }
+  .work-index h2 { margin-top:0; }
+  .work-index h3 { margin:16px 0 4px; font-size:.82rem; font-weight:650; color:var(--muted); }
+  .index-list { list-style:none; padding:0; margin:0; }
+  .index-list a { display:grid; grid-template-columns:3rem minmax(0,1fr); gap:8px; align-items:baseline; padding:8px 0; text-decoration:none; line-height:1.45; }
+  .index-list a:hover, .index-list a:focus-visible { text-decoration:underline; }
+  .index-num { font-size:.8rem; color:var(--muted); }
+  .work { scroll-margin-top:24px; }
+  .work-summary { margin:14px 0 16px; padding:10px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .work-summary > div { display:grid; grid-template-columns:6rem minmax(0,1fr); gap:12px; margin:6px 0; }
+  .work-summary dt { font-size:.84rem; font-weight:650; color:var(--muted); line-height:1.9; }
+  .work-summary dd { margin:0; }
+  a:focus-visible { outline:2px solid var(--link); outline-offset:4px; border-radius:2px; }
+  @media (max-width:480px) {
+    main { padding-top:24px; }
+    .masthead { gap:14px; }
+    .hero { width:112px; }
+    .byline { font-size:.8rem; }
+    .axis { font-size:1.08rem; }
+    .work { padding-left:12px; }
+    .work-summary > div { display:block; margin:10px 0; }
+    .work-summary dt { display:inline; margin-right:8px; }
+    .work-summary dd { display:inline; }
+  }
 </style>
 </head>
 <body>
 <main>
-  <img class="hero" src="../assets/og-1200x630.png" width="1200" height="630" alt="暗い背景に、帯で編んだ青く光る五角形の tkmt-lab のロゴと、文字 tkmt-lab">
-  <p class="muted"><a href="../">English</a> · 日本語 · <a href="https://x.com/tkmt_lab" rel="me">X：@tkmt_lab（英語）</a></p>
-  <h1>tkmt-lab</h1>
-  <p class="muted">滝本竜彦（Tatsuhiko Takimoto）の研究室 · AI のチームで数学と科学を研究しています</p>
-  <p class="motto">信頼できる研究を地道に。<br>これまでの研究者の仕事への敬意をもって、社会に貢献する。</p>
+  <header>
+    <div class="masthead">
+      <img class="hero" src="../assets/og-1200x630.png" width="1200" height="630" alt="暗い背景に、帯で編んだ青く光る五角形の tkmt-lab のロゴと、文字 tkmt-lab">
+      <div>
+        <h1>tkmt-lab</h1>
+        <p class="byline muted"><span>滝本竜彦（Tatsuhiko Takimoto）の研究室</span><span>AI のチームで数学と科学を研究しています</span></p>
+      </div>
+    </div>
+    <p class="site-links muted"><a href="../">English</a> · 日本語 · <a href="https://x.com/tkmt_lab" rel="me">X：@tkmt_lab（英語）</a></p>
+    <p class="axis">具体的な数学・科学の問いに取り組み、証明書・Lean の証明・独立な再計算など、第三者が確かめられる形で成果を残します。</p>
+    <p class="motto">信頼できる研究を地道に。<br>これまでの研究者の仕事への敬意をもって、社会に貢献する。</p>
+  </header>
+
+  <nav class="work-index" aria-labelledby="work-index-title">
+    <h2 id="work-index-title">研究の一覧</h2>
+    <h3>論文</h3>
+    <ul class="index-list">
+      <li><a href="#a3-gsw-classification"><span class="index-num">1</span><span>どのフラーレンに、五角形どうしを結ぶ直線のパスがあるか。</span></a></li>
+      <li><a href="#gsw-ray-periodicity"><span class="index-num">2</span><span>フラーレンの族で、パスの有無はいつ周期的になるか。</span></a></li>
+      <li><a href="#bell-facet-certificates"><span class="index-num">3</span><span>二つの固定したリストの非自明な Bell 不等式を、二量子ビットで破れるか。</span></a></li>
+      <li><a href="#hawking-dispersive-offset"><span class="index-num">4</span><span>分散は、音の地平線の Hawking 温度をどれだけ変えるか。</span></a></li>
+      <li><a href="#behavioral-sir-identifiability"><span class="index-num">5</span><span>感染者数の曲線から、行動を含む SIR モデルのパラメータが分かるか。</span></a></li>
+      <li><a href="#heesch-certificates"><span class="index-num">6</span><span>選んだ形の Heesch 数に、確かめられる証拠を付けられるか。</span></a></li>
+      <li><a href="#minimal-terms-quadratic-mass-action"><span class="index-num">7</span><span>化学反応の式で、九つの直線の型を何項で実現できるか。</span></a></li>
+    </ul>
+    <h3>データと道具</h3>
+    <ul class="index-list">
+      <li><a href="#periodic-net-wl-tests"><span class="index-num">テスト</span><span>二つの結晶のネットの違いに、1-WL はいつ気づくか。</span></a></li>
+      <li><a href="#lean-statements"><span class="index-num">Lean</span><span>Lean の定理は何を述べ、証明はどこにあるか。</span></a></li>
+    </ul>
+  </nav>
 
   <p class="pagenote">このページは日本語の要約です。正確な主張と、何をどこまで確かめたかは、<a href="../">英語のページ</a>と各リポジトリに書いています。</p>
 
   <h2>研究</h2>
-  <div class="work">
+  <div class="work" id="a3-gsw-classification">
     <div class="num">論文 1 · 2026</div>
-    <div class="t">十二面体から作るフラーレンでの、経路の二段の分類</div>
-    <div class="tag">ねじれたサッカーボール形の炭素のかごに、五角形から五角形へのまっすぐな道はあるか。その法則の発見と Lean での証明。</div>
+    <h3 class="t">十二面体から作るフラーレンでの、経路の二段の分類</h3>
+    <dl class="work-summary">
+      <div><dt>問い</dt><dd>GC(k,l)[C20]（k &gt; l &gt; 0）のかごで、五角形どうしを結ぶ直線のパスはいつあるか。</dd></div>
+      <div><dt>分かったこと</dt><dd>余りによる規則で分類できる。拡大コピーでないかごのうち、パスがない最小のものは7,980原子。</dd></div>
+      <div><dt>証拠</dt><dd>Lean 4 の証明と、先に書いた主張文との Comparator による照合。</dd></div>
+    </dl>
     <p class="plain">フラーレンは、五角形と六角形でできた、サッカーボールのようなかご形の炭素の分子です（C60 がいちばん有名です）。ここで調べた「経路」は、ある五角形から別の五角形まで、六角形がまっすぐ一列に並んだ道のことで、かごの形を組み替える「一般化 Stone–Wales 変形」が働く場所です。十二面体から作る、ねじれたかごの無限の族 GC(k,l)[C20]（k &gt; l &gt; 0）について、どのかごにこの経路があるかを決める、割り算の余りを使った簡単な法則を見つけ、証明しました。小さいかごを単に拡大しただけではないかごの中で、経路のない最初のかごは、炭素原子 7,980 個です。</p>
     <figure><svg viewBox="0 -14 402 462" role="img" aria-label="経路あり / 経路なし" style="width:100%;max-width:440px;height:auto;display:block">
 <rect x="46" y="358" width="11" height="11" fill="var(--fig-yes)"/>
@@ -517,10 +575,14 @@
     <div class="links"><a href="https://github.com/tkmt-lab/a3-gsw-classification/blob/main/paper/paper-A3-en.pdf">論文（PDF、英語）</a> · <a href="https://github.com/tkmt-lab/a3-gsw-classification">リポジトリ</a> · <a href="https://doi.org/10.5281/zenodo.23491202">doi:10.5281/zenodo.23491202</a></div>
     <p class="note">この問いは A. Bille、V. Buchstaber、E. Spodarev がフラーレンの未解決問題の一覧で定義したものです。この分類は Lean 4 で証明され、計算機が証明の全段階を確かめています。</p>
   </div>
-  <div class="work">
+  <div class="work" id="gsw-ray-periodicity">
     <div class="num">論文 2 · 2026</div>
-    <div class="t">形を大きくしていくと、答えはいずれくり返す</div>
-    <div class="tag">フラーレンの族まるごとに当てはまる法則はあるのか？　その一般定理の発見と証明。</div>
+    <h3 class="t">形を大きくしていくと、答えはいずれくり返す</h3>
+    <dl class="work-summary">
+      <div><dt>問い</dt><dd>線形に成長するフラーレンの族で、直線のパスの有無は周期的になるか。</dd></div>
+      <div><dt>分かったこと</dt><dd>凸な格子の面に分けられる族では、十分先から周期的になる。Graver の目録の11族に適用。</dd></div>
+      <div><dt>証拠</dt><dd>形式版を Lean 4 で証明。一般の幾何学的な条件から形式版への橋渡しは、文章の補題による。</dd></div>
+    </dl>
     <p class="plain">論文1は一つの族について答えを出しました。この論文では、<strong>一般の定理</strong>を証明しました。決まった数の平らな格子の面を貼り合わせ、その大きさが一定の割合で大きくなっていくフラーレンの族なら、どれでも、かごを大きくしていくと「経路はあるか」の答えが、いずれ決まった周期でくり返します。Graver の目録の11の族に一度に当てはまり、一つの定理で無限に多くのかごが分かります。定理の形式版は Lean で証明されています。証明は周期があることを示しますが、一般には周期そのものを計算しません。族 K3 と C1 については、規則がはっきり分かっています。</p>
     <figure><svg viewBox="0 0 416 64" role="img" aria-label="K3(5,s)" style="width:100%;max-width:440px;height:auto;display:block">
 <rect x="8" y="6" width="9" height="22" fill="var(--fig-no)"/>
@@ -579,10 +641,14 @@
     <div class="links"><a href="https://github.com/tkmt-lab/gsw-ray-periodicity/blob/main/paper/paper-lines-en.pdf">論文（PDF、英語）</a> · <a href="https://github.com/tkmt-lab/gsw-ray-periodicity">リポジトリ</a> · <a href="https://doi.org/10.5281/zenodo.23491204">doi:10.5281/zenodo.23491204</a></div>
     <p class="note">この定理の形式版は Lean 4 で証明されています。ただし、論文の図形から形式版へ移す一段は、Lean ではなく文章による証明です。J. E. Graver の目録にある族 K3 と C1 については、その一段も含めて、すべて Lean で証明されています。族 O2 についても、直線上の結果と、二つのパラメータがどちらも2以上なら経路がないことを、族 D14 についても直線上の結果を、族 E10 についても分類と直線上の結果を、同じく Lean で証明しました。族 D12 についても、閉じた分類と直線上の結果を Lean で証明しました。前に計算機援用で示した二つの証明も、補助の証拠として残しています。</p>
   </div>
-  <div class="work">
+  <div class="work" id="bell-facet-certificates">
     <div class="num">論文 3 · 2026</div>
-    <div class="t">公開された二つの Bell 不等式の面のリストへの、有理数の 2 量子ビットの証明書</div>
-    <div class="tag">430 万個の Bell 不等式の一つ一つを、2 量子ビットで破れるか。それぞれに厳密な証明書を付け、二度確かめました。</div>
+    <h3 class="t">公開された二つの Bell 不等式の面のリストへの、有理数の 2 量子ビットの証明書</h3>
+    <dl class="work-summary">
+      <div><dt>問い</dt><dd>二つの固定した公開リストの非自明な Bell 不等式を、二量子ビットで破れるか。</dd></div>
+      <div><dt>分かったこと</dt><dd>49,358行と4,327,233行のリストの非自明な全行に、有理数で書いた二量子ビットの証拠を得た。</dd></div>
+      <div><dt>証拠</dt><dd>別々に書いた二つの厳密な検査器が、全行の面の判定と必要な量子の証拠を確認。</dd></div>
+    </dl>
     <p class="plain">Bell 不等式は、二者の実験を古典的に説明するなら必ず守られる限界で、量子力学はその一部を破ります。R. Gill は「自明でない面の不等式は、どれも量子の相関で破れるか」と問いました。C. Staufenbiel は、多面体の標本抽出で見つけた不等式の大きなリストを公開しています。そのうち二つのリスト（測定の設定が 4 と 5 の 49,358 個、4 と 6 の 4,327,233 個）のすべての行について、面であることを確かめました。各リストに一つずつある自明な正値性の面を除くすべての行に、それを破る 2 量子ビットの状態と測定を、有理数で書いて付けました。別々に書いた二つの厳密な検査器が、すべての行を受け入れています。</p>
     <figure><svg viewBox="0 0 424 148" role="img" aria-label="保存した破れの大きさの分布、(4,5,2,2) のリスト" style="width:100%;max-width:440px;height:auto;display:block">
 <rect x="17" y="111" width="8" height="1" fill="var(--fig-yes)"/>
@@ -639,10 +705,14 @@
     <p class="note">固定した二つの公開リストについての有限の証拠で、Gill の問いを解いたものではありません。リストが完全であることや、量子での最大の値は主張していません。Lean の証明はなく、人間の査読もまだです。</p>
   </div>
 
-  <div class="work">
+  <div class="work" id="hawking-dispersive-offset">
     <div class="num">論文 4 · 2026</div>
-    <div class="t">定常な 4 乗の超光速分散のもとでの Hawking 散乱における、有限の分散による温度の補正</div>
-    <div class="tag">分散は、音の地平線の Hawking 温度をどれだけずらすか。局所的な公式を出し、前もって書き留めた予測で確かめました。</div>
+    <h3 class="t">定常な 4 乗の超光速分散のもとでの Hawking 散乱における、有限の分散による温度の補正</h3>
+    <dl class="work-summary">
+      <div><dt>問い</dt><dd>四次の分散は、音の地平線の零周波数の Hawking 温度をどれだけ変えるか。</dd></div>
+      <div><dt>分かったこと</dt><dd>本文の一次元・単一地平線のモデルで、主なずれを表す 1/Λ² の係数を局所的な式で求めた。</dd></div>
+      <div><dt>証拠</dt><dd>形式的な漸近計算と、別実装を含む散乱の数値計算。誤差の上界の証明はない。</dd></div>
+    </dl>
     <p class="plain">音より速く流れる流体には「音の地平線」があり、ブラックホールと同じように、地平線での流れの傾きで決まる Hawking 温度で熱的な音波を出すと考えられています。実際の媒質では短い波ほど速く進み（分散）、温度がずれます。4 乗の分散をもつ一次元の流れで地平線が一つの場合に、周波数ゼロでの温度のずれの主な項を、分散の尺度 Λ が大きいときについて求めました。ずれは 1/Λ² で小さくなり、その係数は地平線での流れの数階の微分で書けます。公式は形式的な漸近計算から出したもので、完全な散乱の計算、新しい流れについて計算の前に書き留めた予測、別に書いた散乱のコードのいずれとも合っています。</p>
     <figure><svg viewBox="0 0 420 156" role="img" aria-label="流れ B3 と B4 の、1/Λ² に対する Λ²[T(0)/T_H − 1]" style="width:100%;max-width:440px;height:auto;display:block">
 <text x="20" y="14" font-size="11" fill="var(--fg)">流れ B3</text>
@@ -677,10 +747,14 @@
     <p class="note">計算は、証明していない三つの仮定の上にあり、残りの項の評価もありません。公式は証明ではなく、数値の証拠で支えられています。Lean の証明はなく、人間の査読もまだです。</p>
   </div>
 
-  <div class="work">
+  <div class="work" id="behavioral-sir-identifiability">
     <div class="num">論文 5 · 2026</div>
-    <div class="t">2 以上のすべての整数の飽和指数 k での、行動変容 SIR モデルの大域的な識別可能性</div>
-    <div class="tag">感染が多いと人が接触を減らすとき、感染者数の曲線だけからモデルのパラメータが分かるか。2 以上のどの整数 k でも分かることを証明しました。</div>
+    <h3 class="t">2 以上のすべての整数の飽和指数 k での、行動変容 SIR モデルの大域的な識別可能性</h3>
+    <dl class="work-summary">
+      <div><dt>問い</dt><dd>完全な感染者数の曲線と総人口から、行動を含む SIR モデルのパラメータが分かるか。</dd></div>
+      <div><dt>分かったこと</dt><dd>固定した整数 k ≥ 2 のすべてで、一般的な値なら、三つの速さと見えない感受性者・回復者の数が決まる。</dd></div>
+      <div><dt>証拠</dt><dd>文章の証明、二つの AI の読み手による一部の再計算、k = 1〜12 の厳密な数式処理。</dd></div>
+    </dl>
     <p class="plain">この感染症のモデルでは、感染の速さが (1 + αI)^k で割られ、感染者が多いほど人が接触を減らします。B. Pant、O. Saucedo、G. Pogudin は、k = 1 では感染者数 I(t) を完全に知ってもパラメータが決まらないことを示し、k ≥ 2 なら決まると予想しました。2 以上のどの整数 k についても、一般の値では、感染者数の曲線と総人口から、三つの速さと、見えない感受性者・回復者の数が決まることを証明しました。証明は、入出力の方程式を閉じた形で求め、モデルに隠れた保存量がないことを示したうえで、A. Ovchinnikov、G. Pogudin、P. Thompson の結果を使います。</p>
     <figure><svg viewBox="0 0 412 154" role="img" aria-label="二組のパラメータでの感染者数 I(t)、k = 1 と k = 2" style="width:100%;max-width:440px;height:auto;display:block">
 <text x="16" y="13" font-size="11" fill="var(--fg)">k = 1: 曲線は一本</text>
@@ -702,10 +776,14 @@
     <p class="note">証明は文章によるもので、二つの AI の読み手が読み、一部を計算し直しました。k = 1〜12 は厳密な数式処理でも確かめています。整数でない k、未知の k、誤差のあるデータは扱っていません。Lean の証明はなく、人間の査読もまだです。</p>
   </div>
 
-  <div class="work">
+  <div class="work" id="heesch-certificates">
     <div class="num">論文 6 · 2026</div>
-    <div class="t">小さなポリフォームの Heesch 数と最大のコロナ：証明書と、Lean で検証した SAT 符号化</div>
-    <div class="tag">平面を敷きつめられない形を、同じ形の写しで何重まで囲めるか。Kaplan の表から選んだ形のすべての値に、だれでも確かめられる証拠を付けました。</div>
+    <h3 class="t">小さなポリフォームの Heesch 数と最大のコロナ：証明書と、Lean で検証した SAT 符号化</h3>
+    <dl class="work-summary">
+      <div><dt>問い</dt><dd>Kaplan の表から選んだ形の Heesch 数に、確かめられる証拠を付けられるか。</dd></div>
+      <div><dt>分かったこと</dt><dd>対象の3,964個の形で、値はすべて Kaplan のものと一致。</dd></div>
+      <div><dt>証拠</dt><dd>囲み方と充足不能の証明の検査、および SAT 符号化の健全性の Lean 証明。</dd></div>
+    </dl>
     <p class="plain">平面をすき間なく敷きつめられない形でも、同じ形の写しで周りを何重かに囲める（この層をコロナと呼びます）ことがあります。囲める層の数が Heesch 数です。C. S. Kaplan は、SAT ソルバーを使って、数千個の小さなポリオミノ・ポリヘックス・ポリアモンドについてこの数を求めました。どこにも穴を許さない Hc と、いちばん外の層だけ穴を許す Hh の二通りです。そのうち決めておいた 3,964 個の形について、すべての値に、だれでも確かめられる証拠を付けました。下からの値には実際の囲み方（全部で 6,574 個、二つの幾何の検査器が確認）を、上からの値には充足不能の証明（5,019 個、drat-trim が確認）を付けています。さらに、正方形・六角形・三角形の格子で、SAT への符号化が正しいこと、つまり式が充足不能なら本当にその囲み方がないことを、Lean で証明しました。値はすべて Kaplan のものと一致します。ほかに、22 個の形の最大の囲み方の数を、別々に書いた二つのプログラムで数え、Hh = 4 のポリオミノを範囲を限って探した記録（見つからず）も載せています。</p>
     <figure><svg viewBox="0 0 412 450" role="img" aria-label="17-omino #43 と、それを囲む三重の層" style="width:100%;max-width:440px;height:auto;display:block">
 <path d="M200 234h36v12h-36zM188 222h48v12h-48zM188 210h48v12h-48zM212 198h36v12h-36zM224 186h36v12h-36z" fill="var(--fig-no)"/>
@@ -728,8 +806,12 @@
 
   <div class="work" id="minimal-terms-quadratic-mass-action">
     <div class="num">論文 7 · 2026</div>
-    <div class="t">Term-minimal realizations of nine line-type configurations in quadratic mass-action systems</div>
-    <div class="tag">二つの物質の濃度変化を表す式で、同じ型を作るには最低いくつの項が必要か。</div>
+    <h3 class="t">Term-minimal realizations of nine line-type configurations in quadratic mass-action systems</h3>
+    <dl class="work-summary">
+      <div><dt>問い</dt><dd>二種類の物質の二次の質量作用系で、九つの不変直線の型を最低何項で実現できるか。</dd></div>
+      <div><dt>分かったこと</dt><dd>七型は8項、二型は6項が最少。</dd></div>
+      <div><dt>証拠</dt><dd>厳密な係数の例と、少ない項数を除く文章の証明。定義と数学的な準備を共有した別検証も一致。</dd></div>
+    </dl>
     <p class="plain">平衡点の近くで、濃度の流れがその上にとどまる直線を「不変直線」と呼び、その型の組み合わせを九通り考えます。七型では二つの式を合わせて8項、二型では6項が最少でした。その項数で実現する厳密な係数の例をすべて作り、それより少なくできないことも証明しました。元論文にある最も少ない例と比べると、五型で項数が減っています。同じ単項式が両方の式に出る場合は、それぞれ一項と数えます。</p>
     <figure><svg viewBox="0 0 420 398" role="img" aria-label="九つの不変直線の型ごとの項数。元論文の実例は9,8,10,8,9,9,8,6,8項、証明した最少値は8,8,8,8,8,8,8,6,6項。" style="width:100%;max-width:440px;height:auto;display:block">
 <rect x="8" y="7" width="16" height="10" fill="var(--fig-no)"/>
@@ -801,10 +883,14 @@
 
   <h2>データと道具</h2>
   <p>論文ではありませんが、確かめたうえで公開したデータと道具です。それぞれにリポジトリと DOI があり、主張することと主張しないことを書いています。</p>
-  <div class="work">
+  <div class="work" id="periodic-net-wl-tests">
     <div class="num">データと道具 · 2026</div>
-    <div class="t">周期的なネットの根つき識別テスト（RCSR、1-WL）</div>
-    <div class="tag">結晶のネットを、選んだ頂点からどこまで見れば二つの違いが分かるか。1-WL の色の細分は、それよりどれだけ遠くまで見ないと気づかないか。</div>
+    <h3 class="t">周期的なネットの根つき識別テスト（RCSR、1-WL）</h3>
+    <dl class="work-summary">
+      <div><dt>問い</dt><dd>選んだ根つき結晶ネットの組を見分けるのに、1-WL はどれだけ遠くまで見る必要があるか。</dd></div>
+      <div><dt>分かったこと</dt><dd>選んだ99件のうち97件で r_WL &gt; r_min。差の最大は4。</dd></div>
+      <div><dt>証拠</dt><dd>全件を生成とは別の検査器で確認。中心の6件は別実装でも再計算。</dd></div>
+    </dl>
     <p class="plain">結晶のネットは、結晶の中で原子や部品がどうつながっているかを表す周期的なグラフで、RCSR というデータベースに集められています。テストの一件は、二つのネットと、それぞれで選んだ根の頂点の組です。半径 r の球とは、根から辺を r 本以内でたどれる頂点と、そのあいだのすべての辺のことです。各テストには二つの半径を記録しています。r_min は二つの球が同型でなくなる最小の r、r_WL は、1-WL の色の細分（colour refinement）を色が変わらなくなるまで続けたとき、二つの球を見分ける最小の r です。テストは 99 件あります。そのうち 97 件では r_WL が r_min より大きく、球はもう違うのに、色の細分にはまだその違いが見えていません。差がいちばん大きいのは tsa V1 と tsg V3 の 4 です（r_min = 4、r_WL = 8）。各テストについて、生成のプログラムとは別に書いた検査のプログラムがグラフを作り直し、半径 r_min − 1 で根を保つ完全な同型写像があることと、半径 r_min で同型でないことの証明書を確かめます。中心の 6 件は、別に書いた実装でも同じ値になりました。</p>
     <p class="plain">グラフの同型判定の手法や、メッセージパッシングの表現力を、RCSR のネットから作ったグラフで試す人のためのテストです。入力は頂点・辺・根だけのグラフです。原子の種類・座標・距離・角度も使う手法は入力が違うので、このテストからは何も言えません。</p>
     <figure><svg viewBox="0 0 420 410" role="img" aria-label="r_min と r_WL の組ごとのテストの数" style="width:100%;max-width:440px;height:auto;display:block">
@@ -876,8 +962,12 @@
 
   <div class="work" id="lean-statements">
     <div class="num">データと道具 · 2026</div>
-    <div class="t">公開論文の Lean 主張文集</div>
-    <div class="tag">定理は、どの条件のもとで何を述べていて、その証明はどこにあるか。</div>
+    <h3 class="t">公開論文の Lean 主張文集</h3>
+    <dl class="work-summary">
+      <div><dt>問い</dt><dd>公開済みの Lean の定理は何を述べ、証明はどこにあるか。</dd></div>
+      <div><dt>分かったこと</dt><dd>3リポジトリから18の主張文を9ファイルに収録。固定 commit の証明にリンク。</dd></div>
+      <div><dt>証拠</dt><dd>主張文の型と属性を照合。証明本体は <code>by sorry</code> で、証明の検査はしない。</dd></div>
+    </dl>
     <p class="plain">Lean では、数学の主張を、使う定義や仮定を明示して書きます。この主張文集は、フラーレンのグラフの一般化 Stone–Wales パスと、Heesch 数の証明書を扱う、公開済みの三つのリポジトリから主張文を集めたものです。定理の仮定を読みたい人やプログラム、一つの主張文を別の Lean プロジェクトに取り込みたい人、証明を探したい人のために作りました。各主張文には、固定した公開 commit の証明へのリンクがあります。</p>
     <table aria-label="主張文集の内容">
       <tbody><tr><td>Lean のファイル</td><td>9</td></tr><tr><td>定理の主張文</td><td>18</td></tr><tr><td>元のリポジトリ</td><td>3</td></tr></tbody>
