@@ -1,9 +1,9 @@
 {
   "$schema": "https://tkmt-lab.github.io/catalog.schema.json",
   "version": "1.0",
-  "generated_at": "2026-10-23T14:50:25+09:00",
+  "generated_at": "2026-10-23T17:01:47+09:00",
   "sources": {
-    "releases": "docs/releases.json (lab research repository, updated 2026-10-23T14:43:54+09:00)",
+    "releases": "docs/releases.json (lab research repository, updated 2026-10-23T17:01:43+09:00)",
     "repositories": "claims.json, AGENTS.md, README.md, CITATION.cff, .zenodo.json at each repository's published main branch"
   },
   "lab": {
@@ -2635,70 +2635,70 @@
       "id": "tkmt-lab/gsw-ray-periodicity",
       "title": "Eventual periodicity of linear generalized Stone-Wales paths in affine fullerene families with convex lattice-face decompositions",
       "title_tex": "Eventual periodicity of linear generalized Stone--Wales paths in affine fullerene families with convex lattice-face decompositions",
-      "paper_version": "6.2",
-      "packet_version": "1.9.0",
+      "paper_version": "6.3",
+      "packet_version": "1.10.0",
       "authors": [
         {
           "name": "Tatsuhiko Takimoto",
           "affiliation": "Independent researcher"
         }
       ],
-      "summary": "for fullerene families built from a fixed number of convex lattice faces with affine coordinates, existence of a literal gSW path is eventually periodic along every integer affine ray. Main theorem proved in Lean 4 (standard axioms only) for a specification with weaker hypotheses than the paper, checked with Comparator; a prose lemma connects the paper's geometric hypotheses to it. For Graver's family K3(r,s) (two caps of four triangles of side r joined by three hexagons with sides r, r, s, r, r, s) the result on every ray in r, s ≥ 1 and the closed classification (for r, s ≥ 2: a path exists iff s ≡ ±1 mod r) are Lean-proved with no prose step; the same holds for Graver's family C1 (for a, b ≥ 1: a path exists iff b = 1), for Graver's family O2 the ray result and absence of paths for t, d ≥ 2 are Lean-proved with no prose step, and so are the ray result for Graver's family D14 and the classification (r ≥ 2) and ray result for Graver's family E10. For Graver's family D12 a closed classification (for positive r, s: a path exists iff r | s−1, r | s+1 or |r−3s| = 1) is proved by two independent computer-assisted routes, not in Lean. Lean also covers the family arithmetic.",
+      "summary": "for fullerene families built from a fixed number of convex lattice faces with affine coordinates, existence of a literal gSW path is eventually periodic along every integer affine ray. Main theorem proved in Lean 4 (standard axioms only) for a specification with weaker hypotheses than the paper, checked with Comparator; a prose lemma connects the paper's geometric hypotheses to it. For Graver's family K3(r,s) (two caps of four triangles of side r joined by three hexagons with sides r, r, s, r, r, s) the result on every ray in r, s ≥ 1 and the closed classification (for r, s ≥ 2: a path exists iff s ≡ ±1 mod r) are Lean-proved with no prose step; the same holds for Graver's family C1 (for a, b ≥ 1: a path exists iff b = 1), for Graver's family O2 the ray result and absence of paths for t, d ≥ 2 are Lean-proved with no prose step, and so are the ray result for Graver's family D14 and the classification (r ≥ 2) and ray result for Graver's family E10. For Graver's family D12 the closed classification (for positive r, s: a path exists iff r | s−1, r | s+1 or |r−3s| = 1) and the ray result are Lean-proved (v1.10.0); two earlier computer-assisted proofs are kept as additional evidence. Lean also covers the family arithmetic.",
       "release": {
-        "tag": "v1.9.1",
-        "date": "2026-10-22",
-        "commit": "8a53918db58fa6949ce0f868aa8dcb89be3345d5",
-        "github_release": "https://github.com/tkmt-lab/gsw-ray-periodicity/releases/tag/v1.9.1",
-        "version_doi": "10.5281/zenodo.23540600",
+        "tag": "v1.10.0",
+        "date": "2026-10-23",
+        "commit": "8eea5994bfebdcca4865528bd7524af4064f9c16",
+        "github_release": "https://github.com/tkmt-lab/gsw-ray-periodicity/releases/tag/v1.10.0",
+        "version_doi": "10.5281/zenodo.23589703",
         "concept_doi": "10.5281/zenodo.23491204",
         "doi_status": "minted"
       },
       "repo_url": "https://github.com/tkmt-lab/gsw-ray-periodicity",
       "paper_pdf": {
         "path": "paper/paper-lines-en.pdf",
-        "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/v1.9.1/paper/paper-lines-en.pdf",
-        "raw_url": "https://raw.githubusercontent.com/tkmt-lab/gsw-ray-periodicity/v1.9.1/paper/paper-lines-en.pdf"
+        "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/v1.10.0/paper/paper-lines-en.pdf",
+        "raw_url": "https://raw.githubusercontent.com/tkmt-lab/gsw-ray-periodicity/v1.10.0/paper/paper-lines-en.pdf"
       },
       "paper_source": {
-        "path": "packet/paper-lines-v6.2-en.tex",
-        "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/v1.9.1/packet/paper-lines-v6.2-en.tex"
+        "path": "packet/paper-lines-v6.3-en.tex",
+        "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/v1.10.0/packet/paper-lines-v6.3-en.tex"
       },
       "entry_points": {
         "agents_md": [
           {
             "path": "AGENTS.md",
-            "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/v1.9.1/AGENTS.md"
+            "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/v1.10.0/AGENTS.md"
           },
           {
             "path": "packet/AGENTS.md",
-            "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/v1.9.1/packet/AGENTS.md"
+            "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/v1.10.0/packet/AGENTS.md"
           }
         ],
         "claims_json": {
           "path": "packet/claims.json",
-          "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/v1.9.1/packet/claims.json",
-          "raw_url": "https://raw.githubusercontent.com/tkmt-lab/gsw-ray-periodicity/v1.9.1/packet/claims.json"
+          "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/v1.10.0/packet/claims.json",
+          "raw_url": "https://raw.githubusercontent.com/tkmt-lab/gsw-ray-periodicity/v1.10.0/packet/claims.json"
         },
         "readme": {
           "path": "README.md",
-          "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/v1.9.1/README.md"
+          "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/v1.10.0/README.md"
         },
         "citation_cff": {
           "path": "CITATION.cff",
-          "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/v1.9.1/CITATION.cff"
+          "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/v1.10.0/CITATION.cff"
         }
       },
       "scope": [
         {
-          "text": "Same content as v1.9.0: paper 2 v6.2 and packet 1.9.0, adding a closed classification of Graver's family D12 (a literal path exists iff r | s-1, r | s+1 or |r-3s| = 1), proved by two independent prose/computer-assisted routes.",
-          "lang": "en",
+          "text": "v1.9.1 の内容に、§12 の D12 の族の閉じた分類（r, s ≥ 1 で経路があるのは r | s−1、r | s+1、|r−3s| = 1 のとき）と全正の光線の周期性を Lean で証明したものを加えた版（論文 v6.3、一式 1.10.0、CI は 27 宣言、Comparator は 6 回の kernel）。Dorofeev の公開の検証パッケージを関連研究として加えた。",
+          "lang": "ja",
           "source": "docs/releases.json"
         }
       ],
       "not_claimed": [
         {
-          "text": "The D12 classification is not proved in Lean; no human peer review; novelty not established.",
-          "lang": "en",
+          "text": "論文の幾何の仮定から形式版の仮定への段は Lean ではなく散文の補題。D12 の Lean の証明は前の二つの散文・計算機援用の証明を知ったうえで書いたもので、三つ目の独立な導出ではない。人の査読は受けていない。",
+          "lang": "ja",
           "source": "docs/releases.json"
         }
       ],
@@ -2762,7 +2762,12 @@
         "e10_r1_geometric_model_hypotheses_formalized": true,
         "e10_r1_closed_classification_formalized": false,
         "e10_named_catalogue_correspondence_formalized": false,
-        "e10_statement_correspondence": "prior-specification-independent-AI-reader-finite-comparison"
+        "e10_statement_correspondence": "prior-specification-independent-AI-reader-finite-comparison",
+        "d12_graph_classification_received": true,
+        "d12_literal_ray_without_prose_bridge_received": true,
+        "d12_named_catalogue_correspondence_formalized": false,
+        "d12_lean_derivation_independent_of_prose_routes": false,
+        "d12_statement_correspondence": "prior-specification-independent-AI-reader-finite-comparison"
       },
       "status_semantics": "The status lean-result-received means exact source and a fixed reported kernel acceptance were received, not newly elaborated. Arithmetic predicates, graph sufficiency, conditional kernels and general prose theorems have distinct scopes. depends_on is expository, not a Lean proof-term dependency graph.",
       "verification": [
@@ -2770,7 +2775,7 @@
           "source": "README.md#Re-checking the Lean results",
           "working_directory": ".",
           "shell": "bash",
-          "script": "cd packet/formal\nlake exe cache get\nlake build Formal.Claude2FamilyRays Formal.Claude2FamilyExamples Formal.Claude2K3Sufficient Formal.ClaudeCorRays \\\n  Formal.Claude3ComparatorSolution Formal.Claude3Residue Formal.Claude4K3ComparatorSolution \\\n  Formal.Claude4C1ComparatorSolution Formal.Claude5O2ComparatorSolution Formal.Claude5D14ComparatorSolution \\\n  Formal.Claude5E10ComparatorSolution\nlake env lean ../../ci/Axioms.lean      # prints the axioms of 23 entry-point declarations\nlake env lean ../../ci/AxiomsD14.lean   # and of the 2 D14 declarations (separate file: the O2 and D14 proofs\n                                        # both define a helper tactic named peq, so one file cannot import both)"
+          "script": "cd packet/formal\nlake exe cache get\nlake build Formal.Claude2FamilyRays Formal.Claude2FamilyExamples Formal.Claude2K3Sufficient Formal.ClaudeCorRays \\\n  Formal.Claude3ComparatorSolution Formal.Claude3Residue Formal.Claude4K3ComparatorSolution \\\n  Formal.Claude4C1ComparatorSolution Formal.Claude5O2ComparatorSolution Formal.Claude5D14ComparatorSolution \\\n  Formal.Claude5E10ComparatorSolution Formal.Claude7D12ComparatorSolution\nlake env lean ../../ci/Axioms.lean      # prints the axioms of 25 entry-point declarations\nlake env lean ../../ci/AxiomsD14.lean   # and of the 2 D14 declarations (separate file: the O2 and D14 proofs\n                                        # both define a helper tactic named peq, so one file cannot import both)"
         },
         {
           "source": "packet/AGENTS.md",
@@ -3013,7 +3018,8 @@
             "ClaudeChallengeC1.main",
             "ClaudeChallengeO2.main",
             "ClaudeChallengeD14.main",
-            "ClaudeChallengeE10.main"
+            "ClaudeChallengeE10.main",
+            "ClaudeChallengeD12.main"
           ],
           "evidence": [
             {
@@ -3136,6 +3142,19 @@
               "kernels": 6,
               "record": "packet/evidence/e10/comparator-e10.md.original.log",
               "receipt_scope": "paranoid-comparator-two-targets"
+            },
+            {
+              "kind": "lean-proof",
+              "basis": "lean",
+              "declaration": "ClaudeChallengeD12.main",
+              "source_file": "packet/formal/Formal/Claude7D12ComparatorSolution.lean",
+              "axioms": [
+                "propext",
+                "Classical.choice",
+                "Quot.sound"
+              ],
+              "type_signature": "theorem main (r₀ s₀ a b : ℕ) (hr : 1 ≤ r₀) (hs : 1 ≤ s₀) :\n    ∃ n₀ P : ℕ, 0 < P ∧ ∀ n : ℕ, n₀ ≤ n →\n      (PathExists (r₀ + a * n) (s₀ + b * n) ↔\n        PathExists (r₀ + a * (n + P)) (s₀ + b * (n + P)))",
+              "verification_kind": "coordinator-reported-kernel-output"
             }
           ],
           "evidence_kinds": [
@@ -3143,7 +3162,7 @@
             "lean-proof",
             "prose-proof"
           ],
-          "scope": "Exactly eleven families. K3, C1, O2, D14 and E10 actual-path ray results have received Lean proofs without the general prose bridge. Positive natural starts and nonnegative natural slopes; E10 includes r=1 via formal Theorem1a with Valid and TrianglesInCharts proved on the E10 model. No r=1 closed classification is asserted. Other family scopes unchanged; eventually positive integer rays are reindexed in exposition.",
+          "scope": "Exactly eleven families. K3, C1, O2, D12, D14 and E10 actual-path ray results have received Lean proofs without the general prose bridge. Positive natural starts and nonnegative natural slopes; E10 includes r=1 via formal Theorem1a with Valid and TrianglesInCharts proved on the E10 model; D12 via its Lean classification and ray arithmetic. No r=1 E10 closed classification is asserted. Other family scopes unchanged; eventually positive integer rays are reindexed in exposition.",
           "not_claimed": [
             "Human proof peer review and novelty comparison."
           ],
@@ -3161,7 +3180,8 @@
             "packet/evidence/c1/comparator-c1.md.original.log",
             "packet/evidence/o2/comparator-o2.md.original.log",
             "packet/evidence/d14/comparator-d14.md.original.log",
-            "packet/evidence/e10/comparator-e10.md.original.log"
+            "packet/evidence/e10/comparator-e10.md.original.log",
+            "packet/evidence/d12/comparator-paranoid.txt.original.log"
           ]
         },
         {
@@ -3477,7 +3497,7 @@
           "local_id": "prop:partial",
           "paper_label": "prop:partial",
           "kind": "partial-results",
-          "statement": "O2 absence only t,d>=2; D14 absence for r,s>=2 has a received auxiliary Lean lemma; D1 absence drafts retain their own limits; E10 r=1 sufficient branches and finite minimality are not a general iff; no new D12 classification is included.",
+          "statement": "O2 absence only t,d>=2; D14 absence for r,s>=2 has a received auxiliary Lean lemma; D1 absence drafts retain their own limits; E10 r=1 sufficient branches and finite minimality are not a general iff; the D12 classification is the separate claim thm:d12-classification (Lean-proved).",
           "status": "mixed-prose-and-formal-results",
           "human_review": false,
           "lean_declarations": [
@@ -4388,36 +4408,52 @@
           "paper_label": "thm:d12-classification",
           "kind": "theorem",
           "statement": "For all positive r,s, D12(r,s) has a literal path iff r|(s-1) or r|(s+1) or |r-3s|=1. Equivalently r=1; r=2 and s odd; or r>=3 with that criterion.",
-          "status": "two-separately-derived-universal-proof-routes-received",
+          "status": "lean-result-received",
           "human_review": false,
+          "lean_declarations": [
+            "ClaudeChallengeD12.classification"
+          ],
           "evidence": [
             {
-              "kind": "prose-proof",
-              "basis": "status=two-separately-derived-universal-proof-routes-received"
+              "kind": "lean-proof",
+              "basis": "lean",
+              "declaration": "ClaudeChallengeD12.classification",
+              "source_file": "packet/formal/Formal/Claude7D12ComparatorSolution.lean",
+              "axioms": [
+                "propext",
+                "Classical.choice",
+                "Quot.sound"
+              ],
+              "type_signature": "theorem classification (r s : ℕ) (hr : 1 ≤ r) (hs : 1 ≤ s) :\n    PathExists r s ↔\n      ((r : ℤ) ∣ (s : ℤ) - 1 ∨ (r : ℤ) ∣ (s : ℤ) + 1 ∨ |(r : ℤ) - 3 * (s : ℤ)| = 1)",
+              "verification_kind": "coordinator-reported-kernel-output"
             }
           ],
           "evidence_kinds": [
-            "prose-proof"
+            "lean-proof"
           ],
-          "scope": "Positive integers r,s. Two alternative universal prose/computer-assisted proof routes, exactly as in D12 draft v2; neither is Lean.",
+          "scope": "Positive integers r,s. Lean graph iff on the explicit quotient model (ClaudeChallengeD12.classification), with the coordinator six-kernel paranoid Comparator receipt shared with ClaudeChallengeD12.main. The two earlier prose/computer-assisted routes are retained as additional proofs. The Lean proof was written after reading the route-A report and the article section, so it is not an independent derivation.",
           "not_claimed": [
             "Alternative proof routes with distinct code/prose dependencies; not one combined premise list.",
             "Both require prose model correspondence; route A has six executor obligations; route B uses explicit strips, rational certificates, external connectivity for necessity, arbitrary-length induction and global simplicity.",
             "RouteB derivation did not read A construction/proof/code, but independence-014 precludes strict blind outcome isolation.",
             "The new coordinator summary gives 18/19 submitted source hashes identical; only the documented monitoring helper differs. Historical T0250 has three source differences attributed by RouteB to summary-output argument handling, directly unconfirmed because the old bytes are unavailable. Own replay remained stopped at the unchanged memory guard.",
-            "No human proof review or Lean proof.",
             "Within literature searched only; priority not established.",
-            "IPR subclass and zero parameters outside this claim."
+            "IPR subclass and zero parameters outside this claim.",
+            "Routes A/B use the forced-continuation rule (prop:forced) with external cyclic edge-connectivity; the Lean proof uses neither and proves the two-common-neighbour property on the model.",
+            "No human proof review.",
+            "Lean statement concerns the explicit quotient model: Graver catalogue correspondence and the Definition 1(a) source wording retain the statement-reader caveats.",
+            "Lean proof not independent of routes A/B: written after reading the route-A report and the article section."
           ],
           "depends_on": [
             "tkmt-lab/gsw-ray-periodicity#def:literal",
-            "tkmt-lab/gsw-ray-periodicity#prop:forced",
             "tkmt-lab/gsw-ray-periodicity#prop:family-decompositions"
           ],
           "evidence_files": [
             "packet/d12/proof-notes.tex",
             "packet/d12/derivatives.json",
-            "packet/d12/VERIFICATION-RECORD.md"
+            "packet/d12/VERIFICATION-RECORD.md",
+            "packet/evidence/d12/comparator-paranoid.txt.original.log",
+            "packet/d12-manifest.json"
           ]
         }
       ]
