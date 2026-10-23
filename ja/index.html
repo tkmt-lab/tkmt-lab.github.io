@@ -76,13 +76,54 @@
     .work-summary dt { display:inline; margin-right:8px; }
     .work-summary dd { display:inline; }
   }
+
+  /* Short banner: preserve the complete original mark and its lettering. */
+  .masthead { display:block; }
+  .hero-banner { height:190px; width:100%; margin:0 0 18px; overflow:hidden; background:#060c19; border-radius:6px; }
+  .hero { width:auto; max-width:100%; height:100%; margin:0 auto; border-radius:0; object-fit:contain; object-position:center; mask-image:linear-gradient(to right,transparent,#000 7%,#000 93%,transparent); }
+  .byline > span { display:inline; }
+  .byline > span + span::before { content:" · "; }
+  .site-links { margin:10px 0 20px; }
+  .work-index { --index-bg:color-mix(in srgb,var(--fg) 2%,var(--bg)); --index-hover:color-mix(in srgb,var(--fg) 5%,var(--bg)); }
+  .work-index h2 { border-bottom:0; padding-bottom:0; margin-bottom:18px; }
+  .work-index h3 { margin:20px 0 10px; font-size:.75rem; font-weight:650; letter-spacing:.06em; }
+  .index-list { list-style:none; padding:0; margin:0; }
+  .index-list a { color:var(--fg); text-decoration:none; }
+  .index-list a:hover, .index-list a:focus-visible { text-decoration:none; }
+  .index-question { font-size:1rem; font-weight:500; line-height:1.5; }
+  .index-field, .index-meta { color:var(--muted); font-size:.75rem; line-height:1.5; font-weight:400; }
+  .index-arrow { font-size:1rem; color:var(--muted); font-weight:400; }
+  .index-list a:focus-visible { outline:2px solid var(--link); outline-offset:4px; }
+  @media (max-width:480px) {
+    .hero-banner { height:120px; margin-bottom:16px; }
+    .byline > span { display:block; }
+    .byline > span + span::before { content:none; }
+    .work-index h2 { margin-bottom:16px; }
+    .index-question { font-size:.98rem; }
+  }
+
+  /* B: numbered rows, restrained dividers and a field at the right. */
+  .index-list li { border-top:1px solid var(--line); }
+  .index-list li:last-child { border-bottom:1px solid var(--line); }
+  .index-list a { display:grid; grid-template-columns:2rem minmax(0,1fr) 7.2rem 1rem; gap:12px; align-items:start; padding:17px 8px; border-radius:3px; }
+  .index-num { padding-top:3px; font:400 .75rem/1.6 ui-monospace,SFMono-Regular,Consolas,monospace; color:var(--muted); }
+  .index-field { text-align:right; padding-top:3px; }
+  .index-arrow { text-align:right; }
+  .index-list a:hover { background:var(--index-hover); }
+  .index-list a:hover .index-question { text-decoration:underline; text-underline-offset:3px; }
+  @media (max-width:480px) {
+    .index-list a { grid-template-columns:1.6rem minmax(0,1fr) 1rem; column-gap:10px; row-gap:5px; padding:14px 4px; }
+    .index-num { grid-row:1 / 3; }
+    .index-field { grid-column:2; grid-row:2; text-align:left; padding-top:0; }
+    .index-arrow { grid-column:3; grid-row:1; }
+  }
 </style>
 </head>
 <body>
 <main>
   <header>
     <div class="masthead">
-      <img class="hero" src="../assets/og-1200x630.png" width="1200" height="630" alt="暗い背景に、帯で編んだ青く光る五角形の tkmt-lab のロゴと、文字 tkmt-lab">
+      <div class="hero-banner"><img class="hero" src="../assets/og-1200x630.png" width="1200" height="630" alt="暗い背景に、帯で編んだ青く光る五角形の tkmt-lab のロゴと、文字 tkmt-lab"></div>
       <div>
         <h1>tkmt-lab</h1>
         <p class="byline muted"><span>滝本竜彦（Tatsuhiko Takimoto）の研究室</span><span>AI のチームで数学と科学を研究しています</span></p>
@@ -97,18 +138,18 @@
     <h2 id="work-index-title">研究の一覧</h2>
     <h3>論文</h3>
     <ul class="index-list">
-      <li><a href="#a3-gsw-classification"><span class="index-num">1</span><span>どのフラーレンに、五角形どうしを結ぶ直線のパスがあるか。</span></a></li>
-      <li><a href="#gsw-ray-periodicity"><span class="index-num">2</span><span>どの条件のフラーレン族で、パスの有無が十分先から周期的になるか。</span></a></li>
-      <li><a href="#bell-facet-certificates"><span class="index-num">3</span><span>二つの固定したリストの非自明な Bell 不等式を、二量子ビットで破れるか。</span></a></li>
-      <li><a href="#hawking-dispersive-offset"><span class="index-num">4</span><span>分散は、音の地平線の Hawking 温度をどれだけ変えるか。</span></a></li>
-      <li><a href="#behavioral-sir-identifiability"><span class="index-num">5</span><span>感染者数の曲線から、行動を含む SIR モデルのパラメータが分かるか。</span></a></li>
-      <li><a href="#heesch-certificates"><span class="index-num">6</span><span>選んだ形の囲める層の数（Heesch 数）を、証拠で確かめられるか。</span></a></li>
-      <li><a href="#minimal-terms-quadratic-mass-action"><span class="index-num">7</span><span>化学反応の式で、九つの直線の型を何項で実現できるか。</span></a></li>
+      <li><a href="#a3-gsw-classification"><span class="index-num" aria-hidden="true">01</span><span class="index-question">どのフラーレンに、五角形どうしを結ぶ直線のパスがあるか。</span><span class="index-field">組合せ</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
+      <li><a href="#gsw-ray-periodicity"><span class="index-num" aria-hidden="true">02</span><span class="index-question">どの条件のフラーレン族で、パスの有無が十分先から周期的になるか。</span><span class="index-field">組合せ</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
+      <li><a href="#bell-facet-certificates"><span class="index-num" aria-hidden="true">03</span><span class="index-question">二つの固定したリストの非自明な Bell 不等式を、二量子ビットで破れるか。</span><span class="index-field">量子</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
+      <li><a href="#hawking-dispersive-offset"><span class="index-num" aria-hidden="true">04</span><span class="index-question">分散は、音の地平線の Hawking 温度をどれだけ変えるか。</span><span class="index-field">物理</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
+      <li><a href="#behavioral-sir-identifiability"><span class="index-num" aria-hidden="true">05</span><span class="index-question">感染者数の曲線から、行動を含む SIR モデルのパラメータが分かるか。</span><span class="index-field">疫学</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
+      <li><a href="#heesch-certificates"><span class="index-num" aria-hidden="true">06</span><span class="index-question">選んだ形の囲める層の数（Heesch 数）を、証拠で確かめられるか。</span><span class="index-field">敷き詰め</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
+      <li><a href="#minimal-terms-quadratic-mass-action"><span class="index-num" aria-hidden="true">07</span><span class="index-question">化学反応の式で、九つの直線の型を何項で実現できるか。</span><span class="index-field">化学</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
     </ul>
     <h3>データと道具</h3>
     <ul class="index-list">
-      <li><a href="#periodic-net-wl-tests"><span class="index-num">テスト</span><span>選んだ結晶ネットの違いを、色分けによる比較（1-WL）はどこまで見ると見分けるか。</span></a></li>
-      <li><a href="#lean-statements"><span class="index-num">Lean</span><span>Lean の定理は何を述べ、証明はどこにあるか。</span></a></li>
+      <li><a href="#periodic-net-wl-tests"><span class="index-num" aria-hidden="true">08</span><span class="index-question">選んだ結晶ネットの違いを、色分けによる比較（1-WL）はどこまで見ると見分けるか。</span><span class="index-field">結晶ネット</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
+      <li><a href="#lean-statements"><span class="index-num" aria-hidden="true">09</span><span class="index-question">Lean の定理は何を述べ、証明はどこにあるか。</span><span class="index-field">Lean</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
     </ul>
   </nav>
 
