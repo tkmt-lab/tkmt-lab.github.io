@@ -69,6 +69,7 @@
       "properties": {
         "id": {"type": "string", "pattern": "^tkmt-lab/[a-z0-9-]+$", "description": "Stable work id: GitHub owner/name."},
         "work_type": {"enum": ["data-tool"], "description": "Present only for a work that is not a paper: 'data-tool' is a checked data set or tool released without a paper (Data & tools on the homepage). Absent means a paper."},
+        "statement_only": {"const": true, "description": "This work contains theorem statements with placeholder bodies; building it does not establish their truth."},
         "title": {"type": "string", "description": "Article title as given in CITATION.cff preferred-citation; for a data-tool work, the CITATION.cff title of the release."},
         "title_tex": {"type": "string", "description": "The \\title argument of the article's TeX source, verbatim."},
         "paper_version": {"type": "string"},
@@ -148,6 +149,12 @@
         "kind": {"type": "string"},
         "statement": {"type": "string", "description": "statement_plain or statement from claims.json, verbatim."},
         "statement_latex": {"type": "string"},
+        "statement_lean": {"type": "string", "minLength": 1, "description": "Lean statement copied verbatim from claims.json; its body is recorded separately."},
+        "statement_body": {"const": "by sorry (intentional statement placeholder)"},
+        "statement_location": {"$ref": "#/$defs/link"},
+        "source_reference": {"$ref": "#/$defs/statement_source"},
+        "public_proof_reference": {"$ref": "#/$defs/proof_reference"},
+        "correspondence": {"$ref": "#/$defs/correspondence"},
         "status": {"type": "string", "description": "Repository status label, verbatim."},
         "human_review": {"type": "boolean"},
         "lean_declarations": {"type": "array", "items": {"type": "string"}},
@@ -167,7 +174,36 @@
         }
       }
     },
-    "kind": {"enum": ["lean-proof", "comparator", "independent-implementation", "ai-review", "finite-computation", "numerical-evidence", "prose-proof", "formal-derivation"]},
+    "statement_source": {
+      "type": "object", "additionalProperties": false,
+      "required": ["repository", "commit", "url", "sha256"],
+      "properties": {
+        "repository": {"type": "string"},
+        "commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+        "url": {"type": "string", "pattern": "^https://github\\.com/.+/blob/[0-9a-f]{40}/"},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    },
+    "proof_reference": {
+      "type": "object", "additionalProperties": false,
+      "required": ["kind", "declaration", "url", "file_sha256", "executed_by_this_package"],
+      "properties": {
+        "kind": {"const": "lean4"}, "declaration": {"type": "string"},
+        "url": {"type": "string", "pattern": "^https://github\\.com/.+/blob/[0-9a-f]{40}/"},
+        "file_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "executed_by_this_package": {"const": false}
+      }
+    },
+    "correspondence": {
+      "type": "object", "additionalProperties": false,
+      "required": ["type_equal", "lean_expr_repr_sha256", "evidence"],
+      "properties": {
+        "type_equal": {"const": true},
+        "lean_expr_repr_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "evidence": {"type": "string"}
+      }
+    },
+    "kind": {"enum": ["lean-proof", "comparator", "independent-implementation", "ai-review", "finite-computation", "numerical-evidence", "prose-proof", "formal-derivation", "statement-correspondence"]},
     "evidence": {
       "type": "object",
       "required": ["kind", "basis"],

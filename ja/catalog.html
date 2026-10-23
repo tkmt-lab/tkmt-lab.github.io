@@ -56,6 +56,7 @@
   </table>
 
   <h2>証拠の種類</h2>
+  <p>主張文集には <code>statement_only: true</code> を付けます。<code>statement_lean</code> は定理の型、<code>statement_body</code> は意図した <code>by sorry</code> の仮置きです。元の主張文と証明の URL は参照として分けています。<code>public_proof_reference.executed_by_this_package: false</code> は、この主張文集ではその証明を実行しないという意味です。ビルドが通っても、主張の真偽は確かめられません。</p>
   <p>証拠の一つ一つに、種類（<code>kind</code>）と、どの <code>claims.json</code> の項目から読んだか（<code>basis</code>）を書いています。対応が正しいかを確かめられるようにするためです。</p>
   <table>
     <tr><td><code>lean-proof</code></td><td>Lean 4 の検査系が確かめた定理。定理名、ファイル、使っている公理、型を書きます。</td></tr>
@@ -66,6 +67,7 @@
     <tr><td><code>finite-computation</code></td><td>決まった有限の範囲やリストについての、厳密な計算。</td></tr>
     <tr><td><code>numerical-evidence</code></td><td>浮動小数点による数値計算。主張を支えますが、証明ではありません。</td></tr>
     <tr><td><code>formal-derivation</code></td><td>書かれた仮定のもとでの形式的な（例えば漸近の）計算。証明ではありません。</td></tr>
+    <tr><td><code>statement-correspondence</code></td><td>元と収録版の定理の型が一致したという保存済みの検査記録。主張の真偽もリンク先の証明も確かめません。目録を作るときは記録とファイルのハッシュを照合し、Lean は実行しません。</td></tr>
   </table>
 
   <h2>限界</h2>

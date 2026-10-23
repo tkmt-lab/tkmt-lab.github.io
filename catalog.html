@@ -58,6 +58,7 @@
   </table>
 
   <h2>Kinds of evidence</h2>
+  <p>A statement collection has <code>statement_only: true</code>. Its <code>statement_lean</code> gives the theorem's type and <code>statement_body</code> records the intentional <code>by sorry</code> placeholder. The source and proof URLs are separate references; <code>public_proof_reference.executed_by_this_package: false</code> means the collection does not run that proof. A successful build does not establish the statement's truth.</p>
   <p>Each evidence item names its <code>kind</code> and its <code>basis</code>, the field of <code>claims.json</code> it was read from, so the mapping can be checked.</p>
   <table>
     <tr><td><code>lean-proof</code></td><td>A Lean 4 declaration checked by the Lean kernel. Gives the declaration name, the source file, the axioms it uses and its type.</td></tr>
@@ -68,6 +69,7 @@
     <tr><td><code>finite-computation</code></td><td>Exact computation over a stated finite range or list.</td></tr>
     <tr><td><code>numerical-evidence</code></td><td>Floating-point computation. It supports a claim but does not prove it.</td></tr>
     <tr><td><code>formal-derivation</code></td><td>A formal (for example asymptotic) calculation under stated assumptions. Not a proof.</td></tr>
+    <tr><td><code>statement-correspondence</code></td><td>A saved check records that the original and local theorem types are equal. It does not establish mathematical truth or check the linked proof. The catalog checks the record and source hashes, without running Lean.</td></tr>
   </table>
 
   <h2>Example</h2>

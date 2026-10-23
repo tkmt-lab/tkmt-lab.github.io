@@ -1,9 +1,9 @@
 {
   "$schema": "https://tkmt-lab.github.io/catalog.schema.json",
-  "version": "1.0",
-  "generated_at": "2026-10-23T17:01:47+09:00",
+  "version": "1.1",
+  "generated_at": "2026-10-23T20:26:38+09:00",
   "sources": {
-    "releases": "docs/releases.json (lab research repository, updated 2026-10-23T17:01:43+09:00)",
+    "releases": "docs/releases.json (lab research repository, updated 2026-10-23T20:14:19+09:00)",
     "repositories": "claims.json, AGENTS.md, README.md, CITATION.cff, .zenodo.json at each repository's published main branch"
   },
   "lab": {
@@ -31,7 +31,8 @@
     "finite-computation": "Exact computation over a stated finite range or list.",
     "numerical-evidence": "Floating-point computation; supports but does not prove the claim.",
     "prose-proof": "A proof written in prose; not machine-checked unless a lean-proof item is also present.",
-    "formal-derivation": "A formal (e.g. asymptotic) calculation under stated assumptions; not a proof."
+    "formal-derivation": "A formal (e.g. asymptotic) calculation under stated assumptions; not a proof.",
+    "statement-correspondence": "A recorded comparison found equal original and local theorem types. The local theorem body is by sorry and the linked proof is not executed; this is not evidence of the statement's truth."
   },
   "works": [
     {
@@ -6258,6 +6259,964 @@
           "evidence_files": [
             "README.md"
           ]
+        }
+      ]
+    },
+    {
+      "id": "tkmt-lab/lean-statements",
+      "work_type": "data-tool",
+      "statement_only": true,
+      "title": "Lean statements from published papers",
+      "packet_version": "1.0.0",
+      "authors": [
+        {
+          "name": "Tatsuhiko Takimoto",
+          "affiliation": "Independent researcher"
+        }
+      ],
+      "summary": "9 Lean files containing 18 theorem statements from 3 published repositories (a3-gsw-classification, gsw-ray-periodicity and heesch-certificates). For readers and programs that want to inspect assumptions, import one statement or find its proof. Definitions, namespaces, hypotheses and types are preserved; every theorem body is intentionally by sorry. Each formal_proof attribute links to a proof at a fixed public commit; research solved marks status. Recorded checks compare the original and local theorem types and inspect metadata. Building this package does not establish mathematical truth or execute the linked proofs. Files with repeated namespaces must be used separately. Not an official part of formal-conjectures and not contributed to it; compatibility with its Lean version and full linter suite is unverified. No new proof or human expert review.",
+      "release": {
+        "tag": "v1.0.0",
+        "date": "2026-10-23",
+        "commit": "b3647ee21a1fd572e8a500f2288921116dbb098d",
+        "github_release": "https://github.com/tkmt-lab/lean-statements/releases/tag/v1.0.0",
+        "version_doi": "10.5281/zenodo.23594152",
+        "concept_doi": "10.5281/zenodo.23594151",
+        "doi_status": "minted"
+      },
+      "repo_url": "https://github.com/tkmt-lab/lean-statements",
+      "entry_points": {
+        "agents_md": [
+          {
+            "path": "AGENTS.md",
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/AGENTS.md"
+          }
+        ],
+        "claims_json": {
+          "path": "claims.json",
+          "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/claims.json",
+          "raw_url": "https://raw.githubusercontent.com/tkmt-lab/lean-statements/v1.0.0/claims.json"
+        },
+        "readme": {
+          "path": "README.md",
+          "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/README.md"
+        },
+        "citation_cff": {
+          "path": "CITATION.cff",
+          "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/CITATION.cff"
+        }
+      },
+      "scope": [
+        {
+          "text": "18 Lean theorem statements (statements only) from three published repositories, each linked to its public proof at a fixed commit",
+          "lang": "en",
+          "source": "docs/releases.json"
+        }
+      ],
+      "not_claimed": [
+        {
+          "text": "Truth of the statements is not checked by building them; not part of formal-conjectures; nothing submitted",
+          "lang": "en",
+          "source": "docs/releases.json"
+        },
+        {
+          "text": "Elaborating sorry statements proves their truth.",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "This package reruns or contains the linked mathematical proofs.",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "This package is an official part of formal-conjectures or has been contributed to it.",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "The package provides an independent new proof or human expert review.",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "Compatibility with upstream Lean 4.33.1 or its full linter suite.",
+          "lang": "en",
+          "source": "claims.json"
+        }
+      ],
+      "verification": [
+        {
+          "source": "README.md#Build a checkout",
+          "working_directory": ".",
+          "shell": "sh",
+          "script": "python3 -B tools/check.py --static-only\npython3 -B tools/check_claims.py\nlake exe cache get\nlake build"
+        },
+        {
+          "source": "README.md#Build a checkout",
+          "working_directory": ".",
+          "shell": "sh",
+          "script": "python3 -B tools/build.py --evidence .build/build-check"
+        },
+        {
+          "source": "README.md#Check correspondence with the source",
+          "working_directory": ".",
+          "shell": "sh",
+          "script": "python3 -B tools/check.py --problem D12 --evidence .build/d12-check"
+        },
+        {
+          "source": "README.md#Check correspondence with the source",
+          "working_directory": ".",
+          "shell": "sh",
+          "script": "python3 -B tools/check.py --lean-memory-mib 4096 --rss-limit-mib 4608"
+        }
+      ],
+      "claims": [
+        {
+          "id": "tkmt-lab/lean-statements#A3.main",
+          "local_id": "A3.main",
+          "kind": "published-lean-statement",
+          "statement_lean": "theorem main (k l : ℕ) (hl : 0 < l) (hlk : l < k) :\n    (∃ n p, LiteralPath (gcGraph k l) n p) ↔ criterion k l",
+          "statement_body": "by sorry (intentional statement placeholder)",
+          "statement_location": {
+            "path": "FormalConjectures/Paper/A3.lean",
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/FormalConjectures/Paper/A3.lean#L175"
+          },
+          "lean_declarations": [
+            "ClaudeChallenge.main"
+          ],
+          "source_reference": {
+            "repository": "tkmt-lab/a3-gsw-classification",
+            "commit": "58124b20fa4a3b19aaa62e734c2036210f7bdcf8",
+            "url": "https://github.com/tkmt-lab/a3-gsw-classification/blob/58124b20fa4a3b19aaa62e734c2036210f7bdcf8/packet/formal/Formal/ComparatorChallengeMain.lean",
+            "sha256": "a8743de53d570cb0b1a3e4c92ea4d3456b509f6e7caadd61774e16fd41c0f1fc"
+          },
+          "public_proof_reference": {
+            "kind": "lean4",
+            "declaration": "ClaudeChallenge.main",
+            "url": "https://github.com/tkmt-lab/a3-gsw-classification/blob/58124b20fa4a3b19aaa62e734c2036210f7bdcf8/packet/formal/Formal/ComparatorSolutionMain.lean#L7",
+            "file_sha256": "0e9ff49c891f172001e092c93dc172e5a2f814455a28718727b484409df64851",
+            "executed_by_this_package": false
+          },
+          "correspondence": {
+            "type_equal": true,
+            "lean_expr_repr_sha256": "74fd43df5999ec5052583b46eab251c6fb24f817bf7002b51609ebdfee4d992f",
+            "evidence": "checks/statement-correspondence.json"
+          },
+          "evidence": [
+            {
+              "kind": "statement-correspondence",
+              "basis": "correspondence",
+              "declaration": "ClaudeChallenge.main",
+              "statement_file": "FormalConjectures/Paper/A3.lean",
+              "record": "checks/statement-correspondence.json",
+              "detail": "Recorded equality of original and local theorem types. The local body is by sorry; the linked proof was not executed by this package. This is not evidence of mathematical truth."
+            }
+          ],
+          "evidence_kinds": [
+            "statement-correspondence"
+          ],
+          "scope": "Full A3 classification for 0 < l < k; literal Definition 1(a), not a classification of all fullerenes.",
+          "reproduce": "python3 -B tools/check.py --problem A3"
+        },
+        {
+          "id": "tkmt-lab/lean-statements#AffineRays.main",
+          "local_id": "AffineRays.main",
+          "kind": "published-lean-statement",
+          "statement_lean": "theorem main (S : Sig) (t₁ : ℕ) (hval : ∀ t, t₁ ≤ t → Valid S t ∧ TrianglesInCharts S t) :\n    ∃ t₀ P : ℕ, 0 < P ∧ ∀ t, t₀ ≤ t → (PathExists S t ↔ PathExists S (t + P))",
+          "statement_body": "by sorry (intentional statement placeholder)",
+          "statement_location": {
+            "path": "FormalConjectures/Paper/AffineRays.lean",
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/FormalConjectures/Paper/AffineRays.lean#L215"
+          },
+          "lean_declarations": [
+            "ClaudeChallenge2.main"
+          ],
+          "source_reference": {
+            "repository": "tkmt-lab/gsw-ray-periodicity",
+            "commit": "8a53918db58fa6949ce0f868aa8dcb89be3345d5",
+            "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/8a53918db58fa6949ce0f868aa8dcb89be3345d5/statement/Challenge2.lean",
+            "sha256": "d2800a5c4560ce94b5f94faada54003063bcb3e38b599d32e035d23ab264a66d"
+          },
+          "public_proof_reference": {
+            "kind": "lean4",
+            "declaration": "ClaudeChallenge2.main",
+            "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/8a53918db58fa6949ce0f868aa8dcb89be3345d5/packet/formal/Formal/Claude3ComparatorSolution.lean#L10",
+            "file_sha256": "4061d1ed401eb044faf68d8f881783935f540823998d8711ed2ac88f6ed984f9",
+            "executed_by_this_package": false
+          },
+          "correspondence": {
+            "type_equal": true,
+            "lean_expr_repr_sha256": "efdfae0d29d5b804762eaa57531ac95635f99adfc5aee94739a4a69bf4051d0c",
+            "evidence": "checks/statement-correspondence.json"
+          },
+          "evidence": [
+            {
+              "kind": "statement-correspondence",
+              "basis": "correspondence",
+              "declaration": "ClaudeChallenge2.main",
+              "statement_file": "FormalConjectures/Paper/AffineRays.lean",
+              "record": "checks/statement-correspondence.json",
+              "detail": "Recorded equality of original and local theorem types. The local body is by sorry; the linked proof was not executed by this package. This is not evidence of mathematical truth."
+            }
+          ],
+          "evidence_kinds": [
+            "statement-correspondence"
+          ],
+          "scope": "Specification-level eventual periodicity under Valid and TrianglesInCharts. The bridge from the paper geometric hypotheses is prose, not a Lean theorem.",
+          "reproduce": "python3 -B tools/check.py --problem AffineRays"
+        },
+        {
+          "id": "tkmt-lab/lean-statements#K3.main",
+          "local_id": "K3.main",
+          "kind": "published-lean-statement",
+          "statement_lean": "theorem main (r₀ s₀ a b : ℕ) (hr : 1 ≤ r₀) (hs : 1 ≤ s₀) :\n    ∃ t₀ P : ℕ, 0 < P ∧ ∀ t : ℕ, t₀ ≤ t →\n      (PathExists (r₀ + a * t) (s₀ + b * t) ↔\n        PathExists (r₀ + a * (t + P)) (s₀ + b * (t + P)))",
+          "statement_body": "by sorry (intentional statement placeholder)",
+          "statement_location": {
+            "path": "FormalConjectures/Paper/K3.lean",
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/FormalConjectures/Paper/K3.lean#L212"
+          },
+          "lean_declarations": [
+            "ClaudeChallengeK3.main"
+          ],
+          "source_reference": {
+            "repository": "tkmt-lab/gsw-ray-periodicity",
+            "commit": "8a53918db58fa6949ce0f868aa8dcb89be3345d5",
+            "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/8a53918db58fa6949ce0f868aa8dcb89be3345d5/statement/ChallengeK3.lean",
+            "sha256": "80fcf97e49d64935643d9d6a70b1d82b7eed9668559eed0ad9b0b529eb8055d8"
+          },
+          "public_proof_reference": {
+            "kind": "lean4",
+            "declaration": "ClaudeChallengeK3.main",
+            "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/8a53918db58fa6949ce0f868aa8dcb89be3345d5/packet/formal/Formal/Claude4K3ComparatorSolution.lean#L23",
+            "file_sha256": "18271691603a3eee39a92aa0a2ceabf300058b527397c705b54257228bd8e689",
+            "executed_by_this_package": false
+          },
+          "correspondence": {
+            "type_equal": true,
+            "lean_expr_repr_sha256": "ae2509325e3a3a83f2f284a123e8ad85e316a3f28dd24f89623ff909a9a5c40a",
+            "evidence": "checks/statement-correspondence.json"
+          },
+          "evidence": [
+            {
+              "kind": "statement-correspondence",
+              "basis": "correspondence",
+              "declaration": "ClaudeChallengeK3.main",
+              "statement_file": "FormalConjectures/Paper/K3.lean",
+              "record": "checks/statement-correspondence.json",
+              "detail": "Recorded equality of original and local theorem types. The local body is by sorry; the linked proof was not executed by this package. This is not evidence of mathematical truth."
+            }
+          ],
+          "evidence_kinds": [
+            "statement-correspondence"
+          ],
+          "scope": "Eventual periodicity of PathExists on every natural affine ray with both starting parameters >= 1 and nonnegative slopes, including constant rays and rays with a parameter fixed at 1. No K3 classification is asserted by this declaration.",
+          "reproduce": "python3 -B tools/check.py --problem K3"
+        },
+        {
+          "id": "tkmt-lab/lean-statements#C1.classification",
+          "local_id": "C1.classification",
+          "kind": "published-lean-statement",
+          "statement_lean": "theorem classification (r s : ℕ) (hr : 1 ≤ r) (hs : 1 ≤ s) : PathExists r s ↔ s = 1",
+          "statement_body": "by sorry (intentional statement placeholder)",
+          "statement_location": {
+            "path": "FormalConjectures/Paper/C1.lean",
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/FormalConjectures/Paper/C1.lean#L198"
+          },
+          "lean_declarations": [
+            "ClaudeChallengeC1.classification"
+          ],
+          "source_reference": {
+            "repository": "tkmt-lab/gsw-ray-periodicity",
+            "commit": "8a53918db58fa6949ce0f868aa8dcb89be3345d5",
+            "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/8a53918db58fa6949ce0f868aa8dcb89be3345d5/statement/ChallengeC1.lean",
+            "sha256": "3130ba4ea41f9bba0e1c213d47c089497b936d0eba22ae15a1c445bfc109e956"
+          },
+          "public_proof_reference": {
+            "kind": "lean4",
+            "declaration": "ClaudeChallengeC1.classification",
+            "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/8a53918db58fa6949ce0f868aa8dcb89be3345d5/packet/formal/Formal/Claude4C1ComparatorSolution.lean#L24",
+            "file_sha256": "581e36bb721f298fb6c3a7c297c3337595353bf026be740ac6bc3f79d4c3a05f",
+            "executed_by_this_package": false
+          },
+          "correspondence": {
+            "type_equal": true,
+            "lean_expr_repr_sha256": "a98429f54619a0b5b753b6b5141a8642cfe70e347cd57262a7cb0c1e6d58fddd",
+            "evidence": "checks/statement-correspondence.json"
+          },
+          "evidence": [
+            {
+              "kind": "statement-correspondence",
+              "basis": "correspondence",
+              "declaration": "ClaudeChallengeC1.classification",
+              "statement_file": "FormalConjectures/Paper/C1.lean",
+              "record": "checks/statement-correspondence.json",
+              "detail": "Recorded equality of original and local theorem types. The local body is by sorry; the linked proof was not executed by this package. This is not evidence of mathematical truth."
+            }
+          ],
+          "evidence_kinds": [
+            "statement-correspondence"
+          ],
+          "scope": "For natural r,s >= 1, PathExists r s holds if and only if s = 1. The IPR clause is outside this statement.",
+          "reproduce": "python3 -B tools/check.py --problem C1"
+        },
+        {
+          "id": "tkmt-lab/lean-statements#C1.main",
+          "local_id": "C1.main",
+          "kind": "published-lean-statement",
+          "statement_lean": "theorem main (r₀ s₀ a b : ℕ) (hr : 1 ≤ r₀) (hs : 1 ≤ s₀) :\n    ∃ t₀ P : ℕ, 0 < P ∧ ∀ t : ℕ, t₀ ≤ t →\n      (PathExists (r₀ + a * t) (s₀ + b * t) ↔\n        PathExists (r₀ + a * (t + P)) (s₀ + b * (t + P)))",
+          "statement_body": "by sorry (intentional statement placeholder)",
+          "statement_location": {
+            "path": "FormalConjectures/Paper/C1.lean",
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/FormalConjectures/Paper/C1.lean#L205"
+          },
+          "lean_declarations": [
+            "ClaudeChallengeC1.main"
+          ],
+          "source_reference": {
+            "repository": "tkmt-lab/gsw-ray-periodicity",
+            "commit": "8a53918db58fa6949ce0f868aa8dcb89be3345d5",
+            "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/8a53918db58fa6949ce0f868aa8dcb89be3345d5/statement/ChallengeC1.lean",
+            "sha256": "3130ba4ea41f9bba0e1c213d47c089497b936d0eba22ae15a1c445bfc109e956"
+          },
+          "public_proof_reference": {
+            "kind": "lean4",
+            "declaration": "ClaudeChallengeC1.main",
+            "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/8a53918db58fa6949ce0f868aa8dcb89be3345d5/packet/formal/Formal/Claude4C1ComparatorSolution.lean#L29",
+            "file_sha256": "581e36bb721f298fb6c3a7c297c3337595353bf026be740ac6bc3f79d4c3a05f",
+            "executed_by_this_package": false
+          },
+          "correspondence": {
+            "type_equal": true,
+            "lean_expr_repr_sha256": "312e45cf79801d2c6489c79563cc6cc71f32f0eb9580ceed00297c3deb9ad520",
+            "evidence": "checks/statement-correspondence.json"
+          },
+          "evidence": [
+            {
+              "kind": "statement-correspondence",
+              "basis": "correspondence",
+              "declaration": "ClaudeChallengeC1.main",
+              "statement_file": "FormalConjectures/Paper/C1.lean",
+              "record": "checks/statement-correspondence.json",
+              "detail": "Recorded equality of original and local theorem types. The local body is by sorry; the linked proof was not executed by this package. This is not evidence of mathematical truth."
+            }
+          ],
+          "evidence_kinds": [
+            "statement-correspondence"
+          ],
+          "scope": "Eventual periodicity of PathExists on every natural affine ray with r0,s0 >= 1 and nonnegative slopes, including constant rays. This declaration is a ray result, not the separate C1 classification.",
+          "reproduce": "python3 -B tools/check.py --problem C1"
+        },
+        {
+          "id": "tkmt-lab/lean-statements#O2.classification",
+          "local_id": "O2.classification",
+          "kind": "published-lean-statement",
+          "statement_lean": "theorem classification (t d : ℕ) (ht : 2 ≤ t) (hd : 2 ≤ d) : ¬ PathExists t d",
+          "statement_body": "by sorry (intentional statement placeholder)",
+          "statement_location": {
+            "path": "FormalConjectures/Paper/O2.lean",
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/FormalConjectures/Paper/O2.lean#L210"
+          },
+          "lean_declarations": [
+            "ClaudeChallengeO2.classification"
+          ],
+          "source_reference": {
+            "repository": "tkmt-lab/gsw-ray-periodicity",
+            "commit": "8a53918db58fa6949ce0f868aa8dcb89be3345d5",
+            "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/8a53918db58fa6949ce0f868aa8dcb89be3345d5/statement/ChallengeO2.lean",
+            "sha256": "b85926f8d62ee63d539f0e55f0ee5f74179eeb223a23f596adcf8bce6f0764e1"
+          },
+          "public_proof_reference": {
+            "kind": "lean4",
+            "declaration": "ClaudeChallengeO2.classification",
+            "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/8a53918db58fa6949ce0f868aa8dcb89be3345d5/packet/formal/Formal/Claude5O2ComparatorSolution.lean#L27",
+            "file_sha256": "2303378bac2bb6953cad83fdec59d24a8569d96199ac6c230eee691d59aa9818",
+            "executed_by_this_package": false
+          },
+          "correspondence": {
+            "type_equal": true,
+            "lean_expr_repr_sha256": "fb7137ed5d0febcca1004187134e5be5807ce2a137e5bdac265269805271938b",
+            "evidence": "checks/statement-correspondence.json"
+          },
+          "evidence": [
+            {
+              "kind": "statement-correspondence",
+              "basis": "correspondence",
+              "declaration": "ClaudeChallengeO2.classification",
+              "statement_file": "FormalConjectures/Paper/O2.lean",
+              "record": "checks/statement-correspondence.json",
+              "detail": "Recorded equality of original and local theorem types. The local body is by sorry; the linked proof was not executed by this package. This is not evidence of mathematical truth."
+            }
+          ],
+          "evidence_kinds": [
+            "statement-correspondence"
+          ],
+          "scope": "For natural t,d >= 2, PathExists t d does not hold. No extra existence cases are asserted.",
+          "reproduce": "python3 -B tools/check.py --problem O2"
+        },
+        {
+          "id": "tkmt-lab/lean-statements#O2.main",
+          "local_id": "O2.main",
+          "kind": "published-lean-statement",
+          "statement_lean": "theorem main (t₀ d₀ a b : ℕ) (ht : 1 ≤ t₀) (hd : 1 ≤ d₀) :\n    ∃ n₀ P : ℕ, 0 < P ∧ ∀ n : ℕ, n₀ ≤ n →\n      (PathExists (t₀ + a * n) (d₀ + b * n) ↔\n        PathExists (t₀ + a * (n + P)) (d₀ + b * (n + P)))",
+          "statement_body": "by sorry (intentional statement placeholder)",
+          "statement_location": {
+            "path": "FormalConjectures/Paper/O2.lean",
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/FormalConjectures/Paper/O2.lean#L217"
+          },
+          "lean_declarations": [
+            "ClaudeChallengeO2.main"
+          ],
+          "source_reference": {
+            "repository": "tkmt-lab/gsw-ray-periodicity",
+            "commit": "8a53918db58fa6949ce0f868aa8dcb89be3345d5",
+            "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/8a53918db58fa6949ce0f868aa8dcb89be3345d5/statement/ChallengeO2.lean",
+            "sha256": "b85926f8d62ee63d539f0e55f0ee5f74179eeb223a23f596adcf8bce6f0764e1"
+          },
+          "public_proof_reference": {
+            "kind": "lean4",
+            "declaration": "ClaudeChallengeO2.main",
+            "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/8a53918db58fa6949ce0f868aa8dcb89be3345d5/packet/formal/Formal/Claude5O2ComparatorSolution.lean#L32",
+            "file_sha256": "2303378bac2bb6953cad83fdec59d24a8569d96199ac6c230eee691d59aa9818",
+            "executed_by_this_package": false
+          },
+          "correspondence": {
+            "type_equal": true,
+            "lean_expr_repr_sha256": "b34cd3796fb6b9e7de907a2cad7a69a62efda2d673f27bd8fce6df821051be55",
+            "evidence": "checks/statement-correspondence.json"
+          },
+          "evidence": [
+            {
+              "kind": "statement-correspondence",
+              "basis": "correspondence",
+              "declaration": "ClaudeChallengeO2.main",
+              "statement_file": "FormalConjectures/Paper/O2.lean",
+              "record": "checks/statement-correspondence.json",
+              "detail": "Recorded equality of original and local theorem types. The local body is by sorry; the linked proof was not executed by this package. This is not evidence of mathematical truth."
+            }
+          ],
+          "evidence_kinds": [
+            "statement-correspondence"
+          ],
+          "scope": "Eventual periodicity of PathExists on every natural affine ray with t0,d0 >= 1 and nonnegative slopes, including constant rays and parameter-one boundaries.",
+          "reproduce": "python3 -B tools/check.py --problem O2"
+        },
+        {
+          "id": "tkmt-lab/lean-statements#D14.main",
+          "local_id": "D14.main",
+          "kind": "published-lean-statement",
+          "statement_lean": "theorem main (r₀ s₀ a b : ℕ) (hr : 1 ≤ r₀) (hs : 1 ≤ s₀) :\n    ∃ n₀ P : ℕ, 0 < P ∧ ∀ n : ℕ, n₀ ≤ n →\n      (PathExists (r₀ + a * n) (s₀ + b * n) ↔\n        PathExists (r₀ + a * (n + P)) (s₀ + b * (n + P)))",
+          "statement_body": "by sorry (intentional statement placeholder)",
+          "statement_location": {
+            "path": "FormalConjectures/Paper/D14.lean",
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/FormalConjectures/Paper/D14.lean#L210"
+          },
+          "lean_declarations": [
+            "ClaudeChallengeD14.main"
+          ],
+          "source_reference": {
+            "repository": "tkmt-lab/gsw-ray-periodicity",
+            "commit": "8a53918db58fa6949ce0f868aa8dcb89be3345d5",
+            "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/8a53918db58fa6949ce0f868aa8dcb89be3345d5/statement/ChallengeD14.lean",
+            "sha256": "d7ee8c0b82dfee819cdbd1f539236df457c4db0a8101fcbc2690515b7714c55a"
+          },
+          "public_proof_reference": {
+            "kind": "lean4",
+            "declaration": "ClaudeChallengeD14.main",
+            "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/8a53918db58fa6949ce0f868aa8dcb89be3345d5/packet/formal/Formal/Claude5D14ComparatorSolution.lean#L29",
+            "file_sha256": "dd0122dec1a182b525fa655826470b46b23f06fde7a621928c0e706f23f69c83",
+            "executed_by_this_package": false
+          },
+          "correspondence": {
+            "type_equal": true,
+            "lean_expr_repr_sha256": "7f3039ef0c760cdc42dc6a22dc3a80d7e6671fe5b8aefb0582b1e18fa2217481",
+            "evidence": "checks/statement-correspondence.json"
+          },
+          "evidence": [
+            {
+              "kind": "statement-correspondence",
+              "basis": "correspondence",
+              "declaration": "ClaudeChallengeD14.main",
+              "statement_file": "FormalConjectures/Paper/D14.lean",
+              "record": "checks/statement-correspondence.json",
+              "detail": "Recorded equality of original and local theorem types. The local body is by sorry; the linked proof was not executed by this package. This is not evidence of mathematical truth."
+            }
+          ],
+          "evidence_kinds": [
+            "statement-correspondence"
+          ],
+          "scope": "Eventual periodicity of PathExists on every natural affine ray with positive starting parameters and nonnegative slopes. The supporting no-path lemma is not a separate challenge statement here.",
+          "reproduce": "python3 -B tools/check.py --problem D14"
+        },
+        {
+          "id": "tkmt-lab/lean-statements#E10.classification",
+          "local_id": "E10.classification",
+          "kind": "published-lean-statement",
+          "statement_lean": "theorem classification (p r s : ℕ) (hp : 1 ≤ p) (hr : 2 ≤ r) (hs : 1 ≤ s) :\n    PathExists p r s ↔\n      ∃ d : ℤ, (d = 0 ∨ d = r ∨ d = r + s) ∧\n        ((p : ℤ) ≡ d + 1 [ZMOD 2 * r + s] ∨ (p : ℤ) ≡ d - 1 [ZMOD 2 * r + s])",
+          "statement_body": "by sorry (intentional statement placeholder)",
+          "statement_location": {
+            "path": "FormalConjectures/Paper/E10.lean",
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/FormalConjectures/Paper/E10.lean#L254"
+          },
+          "lean_declarations": [
+            "ClaudeChallengeE10.classification"
+          ],
+          "source_reference": {
+            "repository": "tkmt-lab/gsw-ray-periodicity",
+            "commit": "8a53918db58fa6949ce0f868aa8dcb89be3345d5",
+            "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/8a53918db58fa6949ce0f868aa8dcb89be3345d5/statement/ChallengeE10.lean",
+            "sha256": "d057a0882ce28b4a9321674bdc21bf56ec767a1fd07ceff01551602d231b25d0"
+          },
+          "public_proof_reference": {
+            "kind": "lean4",
+            "declaration": "ClaudeChallengeE10.classification",
+            "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/8a53918db58fa6949ce0f868aa8dcb89be3345d5/packet/formal/Formal/Claude5E10ComparatorSolution.lean#L31",
+            "file_sha256": "a1fef612cbb2d1e1b06f1102e09b46dc8dfa112c6e78cd0031a3af202907bc2d",
+            "executed_by_this_package": false
+          },
+          "correspondence": {
+            "type_equal": true,
+            "lean_expr_repr_sha256": "290949d2de486313fd3f8a37419372fbcec9e0234e23defac9110788db1f6b28",
+            "evidence": "checks/statement-correspondence.json"
+          },
+          "evidence": [
+            {
+              "kind": "statement-correspondence",
+              "basis": "correspondence",
+              "declaration": "ClaudeChallengeE10.classification",
+              "statement_file": "FormalConjectures/Paper/E10.lean",
+              "record": "checks/statement-correspondence.json",
+              "detail": "Recorded equality of original and local theorem types. The local body is by sorry; the linked proof was not executed by this package. This is not evidence of mathematical truth."
+            }
+          ],
+          "evidence_kinds": [
+            "statement-correspondence"
+          ],
+          "scope": "For natural p,s >= 1 and r >= 2, PathExists p r s holds if and only if p is congruent to d+1 or d-1 modulo 2*r+s for some integer d in {0,r,r+s}. No closed classification for r = 1 is asserted.",
+          "reproduce": "python3 -B tools/check.py --problem E10"
+        },
+        {
+          "id": "tkmt-lab/lean-statements#E10.main",
+          "local_id": "E10.main",
+          "kind": "published-lean-statement",
+          "statement_lean": "theorem main (p₀ r₀ s₀ a b c : ℕ) (hp : 1 ≤ p₀) (hr : 1 ≤ r₀) (hs : 1 ≤ s₀) :\n    ∃ n₀ P : ℕ, 0 < P ∧ ∀ n : ℕ, n₀ ≤ n →\n      (PathExists (p₀ + a * n) (r₀ + b * n) (s₀ + c * n) ↔\n        PathExists (p₀ + a * (n + P)) (r₀ + b * (n + P)) (s₀ + c * (n + P)))",
+          "statement_body": "by sorry (intentional statement placeholder)",
+          "statement_location": {
+            "path": "FormalConjectures/Paper/E10.lean",
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/FormalConjectures/Paper/E10.lean#L264"
+          },
+          "lean_declarations": [
+            "ClaudeChallengeE10.main"
+          ],
+          "source_reference": {
+            "repository": "tkmt-lab/gsw-ray-periodicity",
+            "commit": "8a53918db58fa6949ce0f868aa8dcb89be3345d5",
+            "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/8a53918db58fa6949ce0f868aa8dcb89be3345d5/statement/ChallengeE10.lean",
+            "sha256": "d057a0882ce28b4a9321674bdc21bf56ec767a1fd07ceff01551602d231b25d0"
+          },
+          "public_proof_reference": {
+            "kind": "lean4",
+            "declaration": "ClaudeChallengeE10.main",
+            "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/8a53918db58fa6949ce0f868aa8dcb89be3345d5/packet/formal/Formal/Claude5E10ComparatorSolution.lean#L40",
+            "file_sha256": "a1fef612cbb2d1e1b06f1102e09b46dc8dfa112c6e78cd0031a3af202907bc2d",
+            "executed_by_this_package": false
+          },
+          "correspondence": {
+            "type_equal": true,
+            "lean_expr_repr_sha256": "71cd35e54012aea597a5d66d45c1b270d9bd2472805d30d256f13c9bf4b5570f",
+            "evidence": "checks/statement-correspondence.json"
+          },
+          "evidence": [
+            {
+              "kind": "statement-correspondence",
+              "basis": "correspondence",
+              "declaration": "ClaudeChallengeE10.main",
+              "statement_file": "FormalConjectures/Paper/E10.lean",
+              "record": "checks/statement-correspondence.json",
+              "detail": "Recorded equality of original and local theorem types. The local body is by sorry; the linked proof was not executed by this package. This is not evidence of mathematical truth."
+            }
+          ],
+          "evidence_kinds": [
+            "statement-correspondence"
+          ],
+          "scope": "Eventual periodicity of PathExists on every natural affine ray in (p,r,s), with p0,r0,s0 >= 1 and nonnegative slopes. Includes r = 1 boundary rays and constant rays.",
+          "reproduce": "python3 -B tools/check.py --problem E10"
+        },
+        {
+          "id": "tkmt-lab/lean-statements#Heesch.hh_sound_square",
+          "local_id": "Heesch.hh_sound_square",
+          "kind": "published-lean-statement",
+          "statement_lean": "theorem hh_sound_square (ord : Cell → List ℤ → List ℤ) (hord : ∀ c g, (ord c g).Perm g)\n    (S : List Cell) (K : ℕ) (hK : 1 ≤ K) (blocks : List HoleBlock)\n    (hblocks : ∀ b ∈ blocks, b.Valid squareGrid (K - 1))\n    (hunsat : ¬ Satisfiable (cnfOrd squareGrid ord S K blocks)) :\n    ¬ ∃ tiles : Tiles, IsCoronaHh squareGrid S.toFinset K tiles",
+          "statement_body": "by sorry (intentional statement placeholder)",
+          "statement_location": {
+            "path": "FormalConjectures/Paper/Heesch.lean",
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/FormalConjectures/Paper/Heesch.lean#L568"
+          },
+          "lean_declarations": [
+            "Heesch.hh_sound_square"
+          ],
+          "source_reference": {
+            "repository": "tkmt-lab/heesch-certificates",
+            "commit": "271bc8ce223a1fd641494352eb31f350e3d8bf37",
+            "url": "https://github.com/tkmt-lab/heesch-certificates/blob/271bc8ce223a1fd641494352eb31f350e3d8bf37/formal/Heesch/Challenge.lean",
+            "sha256": "3a637f3260f784d00f7a332eb10351563bd4605b2e03458836b8a67781780d73"
+          },
+          "public_proof_reference": {
+            "kind": "lean4",
+            "declaration": "Heesch.hh_sound_square",
+            "url": "https://github.com/tkmt-lab/heesch-certificates/blob/271bc8ce223a1fd641494352eb31f350e3d8bf37/formal/Heesch/Solution.lean#L21",
+            "file_sha256": "6815e14f3ab821a4745c36ef9fe3957735382217610ed69bd9b2eb394e01dc17",
+            "executed_by_this_package": false
+          },
+          "correspondence": {
+            "type_equal": true,
+            "lean_expr_repr_sha256": "656a5907b5eaf7e13fa6873ebcd176fcde9b90d765145bb5e34c74c768be37e6",
+            "evidence": "checks/statement-correspondence.json"
+          },
+          "evidence": [
+            {
+              "kind": "statement-correspondence",
+              "basis": "correspondence",
+              "declaration": "Heesch.hh_sound_square",
+              "statement_file": "FormalConjectures/Paper/Heesch.lean",
+              "record": "checks/statement-correspondence.json",
+              "detail": "Recorded equality of original and local theorem types. The local body is by sorry; the linked proof was not executed by this package. This is not evidence of mathematical truth."
+            }
+          ],
+          "evidence_kinds": [
+            "statement-correspondence"
+          ],
+          "scope": "On the square grid (squareGrid), for any cell list S, K >= 1, counter-input ordering ord that preserves each input list up to permutation, and hole blocks valid for squareGrid at K-1, unsatisfiability of cnfOrd squareGrid ord S K blocks implies that S.toFinset has no K-layer corona in the Hh sense. Unsatisfiability is a hypothesis; no numerical Heesch value or certificate execution is asserted.",
+          "reproduce": "python3 -B tools/check.py --problem Heesch"
+        },
+        {
+          "id": "tkmt-lab/lean-statements#Heesch.hc_sound_square",
+          "local_id": "Heesch.hc_sound_square",
+          "kind": "published-lean-statement",
+          "statement_lean": "theorem hc_sound_square (ord : Cell → List ℤ → List ℤ) (hord : ∀ c g, (ord c g).Perm g)\n    (S : List Cell) (K : ℕ) (hK : 1 ≤ K) (blocks : List HoleBlock)\n    (hblocks : ∀ b ∈ blocks, b.Valid squareGrid K)\n    (hunsat : ¬ Satisfiable (cnfOrd squareGrid ord S K blocks)) :\n    ¬ ∃ tiles : Tiles, IsCoronaHc squareGrid S.toFinset K tiles",
+          "statement_body": "by sorry (intentional statement placeholder)",
+          "statement_location": {
+            "path": "FormalConjectures/Paper/Heesch.lean",
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/FormalConjectures/Paper/Heesch.lean#L578"
+          },
+          "lean_declarations": [
+            "Heesch.hc_sound_square"
+          ],
+          "source_reference": {
+            "repository": "tkmt-lab/heesch-certificates",
+            "commit": "271bc8ce223a1fd641494352eb31f350e3d8bf37",
+            "url": "https://github.com/tkmt-lab/heesch-certificates/blob/271bc8ce223a1fd641494352eb31f350e3d8bf37/formal/Heesch/Challenge.lean",
+            "sha256": "3a637f3260f784d00f7a332eb10351563bd4605b2e03458836b8a67781780d73"
+          },
+          "public_proof_reference": {
+            "kind": "lean4",
+            "declaration": "Heesch.hc_sound_square",
+            "url": "https://github.com/tkmt-lab/heesch-certificates/blob/271bc8ce223a1fd641494352eb31f350e3d8bf37/formal/Heesch/Solution.lean#L29",
+            "file_sha256": "6815e14f3ab821a4745c36ef9fe3957735382217610ed69bd9b2eb394e01dc17",
+            "executed_by_this_package": false
+          },
+          "correspondence": {
+            "type_equal": true,
+            "lean_expr_repr_sha256": "dcb12975f92b38276c941e5a7fd28268cf5e33f623b7576fa2b7612b4e0cce03",
+            "evidence": "checks/statement-correspondence.json"
+          },
+          "evidence": [
+            {
+              "kind": "statement-correspondence",
+              "basis": "correspondence",
+              "declaration": "Heesch.hc_sound_square",
+              "statement_file": "FormalConjectures/Paper/Heesch.lean",
+              "record": "checks/statement-correspondence.json",
+              "detail": "Recorded equality of original and local theorem types. The local body is by sorry; the linked proof was not executed by this package. This is not evidence of mathematical truth."
+            }
+          ],
+          "evidence_kinds": [
+            "statement-correspondence"
+          ],
+          "scope": "On the square grid (squareGrid), for any cell list S, K >= 1, counter-input ordering ord that preserves each input list up to permutation, and hole blocks valid for squareGrid at K, unsatisfiability of cnfOrd squareGrid ord S K blocks implies that S.toFinset has no K-layer corona in the Hc sense. Unsatisfiability is a hypothesis; no numerical Heesch value or certificate execution is asserted.",
+          "reproduce": "python3 -B tools/check.py --problem Heesch"
+        },
+        {
+          "id": "tkmt-lab/lean-statements#Heesch.hh_sound_hex",
+          "local_id": "Heesch.hh_sound_hex",
+          "kind": "published-lean-statement",
+          "statement_lean": "theorem hh_sound_hex (ord : Cell → List ℤ → List ℤ) (hord : ∀ c g, (ord c g).Perm g)\n    (S : List Cell) (K : ℕ) (hK : 1 ≤ K) (blocks : List HoleBlock)\n    (hblocks : ∀ b ∈ blocks, b.Valid hexGrid (K - 1))\n    (hunsat : ¬ Satisfiable (cnfOrd hexGrid ord S K blocks)) :\n    ¬ ∃ tiles : Tiles, IsCoronaHh hexGrid S.toFinset K tiles",
+          "statement_body": "by sorry (intentional statement placeholder)",
+          "statement_location": {
+            "path": "FormalConjectures/Paper/Heesch.lean",
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/FormalConjectures/Paper/Heesch.lean#L588"
+          },
+          "lean_declarations": [
+            "Heesch.hh_sound_hex"
+          ],
+          "source_reference": {
+            "repository": "tkmt-lab/heesch-certificates",
+            "commit": "271bc8ce223a1fd641494352eb31f350e3d8bf37",
+            "url": "https://github.com/tkmt-lab/heesch-certificates/blob/271bc8ce223a1fd641494352eb31f350e3d8bf37/formal/Heesch/Challenge.lean",
+            "sha256": "3a637f3260f784d00f7a332eb10351563bd4605b2e03458836b8a67781780d73"
+          },
+          "public_proof_reference": {
+            "kind": "lean4",
+            "declaration": "Heesch.hh_sound_hex",
+            "url": "https://github.com/tkmt-lab/heesch-certificates/blob/271bc8ce223a1fd641494352eb31f350e3d8bf37/formal/Heesch/Solution.lean#L37",
+            "file_sha256": "6815e14f3ab821a4745c36ef9fe3957735382217610ed69bd9b2eb394e01dc17",
+            "executed_by_this_package": false
+          },
+          "correspondence": {
+            "type_equal": true,
+            "lean_expr_repr_sha256": "f34d288b1ef4642b68200c563dac8d6ccacc31975c503227f6a0a12020ff0a18",
+            "evidence": "checks/statement-correspondence.json"
+          },
+          "evidence": [
+            {
+              "kind": "statement-correspondence",
+              "basis": "correspondence",
+              "declaration": "Heesch.hh_sound_hex",
+              "statement_file": "FormalConjectures/Paper/Heesch.lean",
+              "record": "checks/statement-correspondence.json",
+              "detail": "Recorded equality of original and local theorem types. The local body is by sorry; the linked proof was not executed by this package. This is not evidence of mathematical truth."
+            }
+          ],
+          "evidence_kinds": [
+            "statement-correspondence"
+          ],
+          "scope": "On the hexagon grid (hexGrid), for any cell list S, K >= 1, counter-input ordering ord that preserves each input list up to permutation, and hole blocks valid for hexGrid at K-1, unsatisfiability of cnfOrd hexGrid ord S K blocks implies that S.toFinset has no K-layer corona in the Hh sense. Unsatisfiability is a hypothesis; no numerical Heesch value or certificate execution is asserted.",
+          "reproduce": "python3 -B tools/check.py --problem Heesch"
+        },
+        {
+          "id": "tkmt-lab/lean-statements#Heesch.hc_sound_hex",
+          "local_id": "Heesch.hc_sound_hex",
+          "kind": "published-lean-statement",
+          "statement_lean": "theorem hc_sound_hex (ord : Cell → List ℤ → List ℤ) (hord : ∀ c g, (ord c g).Perm g)\n    (S : List Cell) (K : ℕ) (hK : 1 ≤ K) (blocks : List HoleBlock)\n    (hblocks : ∀ b ∈ blocks, b.Valid hexGrid K)\n    (hunsat : ¬ Satisfiable (cnfOrd hexGrid ord S K blocks)) :\n    ¬ ∃ tiles : Tiles, IsCoronaHc hexGrid S.toFinset K tiles",
+          "statement_body": "by sorry (intentional statement placeholder)",
+          "statement_location": {
+            "path": "FormalConjectures/Paper/Heesch.lean",
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/FormalConjectures/Paper/Heesch.lean#L598"
+          },
+          "lean_declarations": [
+            "Heesch.hc_sound_hex"
+          ],
+          "source_reference": {
+            "repository": "tkmt-lab/heesch-certificates",
+            "commit": "271bc8ce223a1fd641494352eb31f350e3d8bf37",
+            "url": "https://github.com/tkmt-lab/heesch-certificates/blob/271bc8ce223a1fd641494352eb31f350e3d8bf37/formal/Heesch/Challenge.lean",
+            "sha256": "3a637f3260f784d00f7a332eb10351563bd4605b2e03458836b8a67781780d73"
+          },
+          "public_proof_reference": {
+            "kind": "lean4",
+            "declaration": "Heesch.hc_sound_hex",
+            "url": "https://github.com/tkmt-lab/heesch-certificates/blob/271bc8ce223a1fd641494352eb31f350e3d8bf37/formal/Heesch/Solution.lean#L45",
+            "file_sha256": "6815e14f3ab821a4745c36ef9fe3957735382217610ed69bd9b2eb394e01dc17",
+            "executed_by_this_package": false
+          },
+          "correspondence": {
+            "type_equal": true,
+            "lean_expr_repr_sha256": "bab6eeaa7c040095633eb4cad020bd152bf676d0855a761efe1751bc0a093347",
+            "evidence": "checks/statement-correspondence.json"
+          },
+          "evidence": [
+            {
+              "kind": "statement-correspondence",
+              "basis": "correspondence",
+              "declaration": "Heesch.hc_sound_hex",
+              "statement_file": "FormalConjectures/Paper/Heesch.lean",
+              "record": "checks/statement-correspondence.json",
+              "detail": "Recorded equality of original and local theorem types. The local body is by sorry; the linked proof was not executed by this package. This is not evidence of mathematical truth."
+            }
+          ],
+          "evidence_kinds": [
+            "statement-correspondence"
+          ],
+          "scope": "On the hexagon grid (hexGrid), for any cell list S, K >= 1, counter-input ordering ord that preserves each input list up to permutation, and hole blocks valid for hexGrid at K, unsatisfiability of cnfOrd hexGrid ord S K blocks implies that S.toFinset has no K-layer corona in the Hc sense. Unsatisfiability is a hypothesis; no numerical Heesch value or certificate execution is asserted.",
+          "reproduce": "python3 -B tools/check.py --problem Heesch"
+        },
+        {
+          "id": "tkmt-lab/lean-statements#Heesch.hh_sound_tri",
+          "local_id": "Heesch.hh_sound_tri",
+          "kind": "published-lean-statement",
+          "statement_lean": "theorem hh_sound_tri (ord : Cell → List ℤ → List ℤ) (hord : ∀ c g, (ord c g).Perm g)\n    (S : List Cell) (K : ℕ) (hK : 1 ≤ K) (blocks : List HoleBlock)\n    (hblocks : ∀ b ∈ blocks, b.Valid triGrid (K - 1))\n    (hunsat : ¬ Satisfiable (cnfOrd triGrid ord S K blocks)) :\n    ¬ ∃ tiles : Tiles, IsCoronaHh triGrid S.toFinset K tiles",
+          "statement_body": "by sorry (intentional statement placeholder)",
+          "statement_location": {
+            "path": "FormalConjectures/Paper/Heesch.lean",
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/FormalConjectures/Paper/Heesch.lean#L608"
+          },
+          "lean_declarations": [
+            "Heesch.hh_sound_tri"
+          ],
+          "source_reference": {
+            "repository": "tkmt-lab/heesch-certificates",
+            "commit": "271bc8ce223a1fd641494352eb31f350e3d8bf37",
+            "url": "https://github.com/tkmt-lab/heesch-certificates/blob/271bc8ce223a1fd641494352eb31f350e3d8bf37/formal/Heesch/Challenge.lean",
+            "sha256": "3a637f3260f784d00f7a332eb10351563bd4605b2e03458836b8a67781780d73"
+          },
+          "public_proof_reference": {
+            "kind": "lean4",
+            "declaration": "Heesch.hh_sound_tri",
+            "url": "https://github.com/tkmt-lab/heesch-certificates/blob/271bc8ce223a1fd641494352eb31f350e3d8bf37/formal/Heesch/Solution.lean#L53",
+            "file_sha256": "6815e14f3ab821a4745c36ef9fe3957735382217610ed69bd9b2eb394e01dc17",
+            "executed_by_this_package": false
+          },
+          "correspondence": {
+            "type_equal": true,
+            "lean_expr_repr_sha256": "7bcc7e68a42f49e2df52e0b742d9424e1850c931e5ae915bd07289ca6dfc79e4",
+            "evidence": "checks/statement-correspondence.json"
+          },
+          "evidence": [
+            {
+              "kind": "statement-correspondence",
+              "basis": "correspondence",
+              "declaration": "Heesch.hh_sound_tri",
+              "statement_file": "FormalConjectures/Paper/Heesch.lean",
+              "record": "checks/statement-correspondence.json",
+              "detail": "Recorded equality of original and local theorem types. The local body is by sorry; the linked proof was not executed by this package. This is not evidence of mathematical truth."
+            }
+          ],
+          "evidence_kinds": [
+            "statement-correspondence"
+          ],
+          "scope": "On the triangle grid (triGrid), for any cell list S, K >= 1, counter-input ordering ord that preserves each input list up to permutation, and hole blocks valid for triGrid at K-1, unsatisfiability of cnfOrd triGrid ord S K blocks implies that S.toFinset has no K-layer corona in the Hh sense. Unsatisfiability is a hypothesis; no numerical Heesch value or certificate execution is asserted.",
+          "reproduce": "python3 -B tools/check.py --problem Heesch"
+        },
+        {
+          "id": "tkmt-lab/lean-statements#Heesch.hc_sound_tri",
+          "local_id": "Heesch.hc_sound_tri",
+          "kind": "published-lean-statement",
+          "statement_lean": "theorem hc_sound_tri (ord : Cell → List ℤ → List ℤ) (hord : ∀ c g, (ord c g).Perm g)\n    (S : List Cell) (K : ℕ) (hK : 1 ≤ K) (blocks : List HoleBlock)\n    (hblocks : ∀ b ∈ blocks, b.Valid triGrid K)\n    (hunsat : ¬ Satisfiable (cnfOrd triGrid ord S K blocks)) :\n    ¬ ∃ tiles : Tiles, IsCoronaHc triGrid S.toFinset K tiles",
+          "statement_body": "by sorry (intentional statement placeholder)",
+          "statement_location": {
+            "path": "FormalConjectures/Paper/Heesch.lean",
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/FormalConjectures/Paper/Heesch.lean#L618"
+          },
+          "lean_declarations": [
+            "Heesch.hc_sound_tri"
+          ],
+          "source_reference": {
+            "repository": "tkmt-lab/heesch-certificates",
+            "commit": "271bc8ce223a1fd641494352eb31f350e3d8bf37",
+            "url": "https://github.com/tkmt-lab/heesch-certificates/blob/271bc8ce223a1fd641494352eb31f350e3d8bf37/formal/Heesch/Challenge.lean",
+            "sha256": "3a637f3260f784d00f7a332eb10351563bd4605b2e03458836b8a67781780d73"
+          },
+          "public_proof_reference": {
+            "kind": "lean4",
+            "declaration": "Heesch.hc_sound_tri",
+            "url": "https://github.com/tkmt-lab/heesch-certificates/blob/271bc8ce223a1fd641494352eb31f350e3d8bf37/formal/Heesch/Solution.lean#L61",
+            "file_sha256": "6815e14f3ab821a4745c36ef9fe3957735382217610ed69bd9b2eb394e01dc17",
+            "executed_by_this_package": false
+          },
+          "correspondence": {
+            "type_equal": true,
+            "lean_expr_repr_sha256": "8b68874aea4643be875d44258f3cfb4d00501234a9a451d0bbbc66d5d2512f83",
+            "evidence": "checks/statement-correspondence.json"
+          },
+          "evidence": [
+            {
+              "kind": "statement-correspondence",
+              "basis": "correspondence",
+              "declaration": "Heesch.hc_sound_tri",
+              "statement_file": "FormalConjectures/Paper/Heesch.lean",
+              "record": "checks/statement-correspondence.json",
+              "detail": "Recorded equality of original and local theorem types. The local body is by sorry; the linked proof was not executed by this package. This is not evidence of mathematical truth."
+            }
+          ],
+          "evidence_kinds": [
+            "statement-correspondence"
+          ],
+          "scope": "On the triangle grid (triGrid), for any cell list S, K >= 1, counter-input ordering ord that preserves each input list up to permutation, and hole blocks valid for triGrid at K, unsatisfiability of cnfOrd triGrid ord S K blocks implies that S.toFinset has no K-layer corona in the Hc sense. Unsatisfiability is a hypothesis; no numerical Heesch value or certificate execution is asserted.",
+          "reproduce": "python3 -B tools/check.py --problem Heesch"
+        },
+        {
+          "id": "tkmt-lab/lean-statements#D12.classification",
+          "local_id": "D12.classification",
+          "kind": "published-lean-statement",
+          "statement_lean": "theorem classification (r s : ℕ) (hr : 1 ≤ r) (hs : 1 ≤ s) :\n    PathExists r s ↔\n      ((r : ℤ) ∣ (s : ℤ) - 1 ∨ (r : ℤ) ∣ (s : ℤ) + 1 ∨ |(r : ℤ) - 3 * (s : ℤ)| = 1)",
+          "statement_body": "by sorry (intentional statement placeholder)",
+          "statement_location": {
+            "path": "FormalConjectures/Paper/D12.lean",
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/FormalConjectures/Paper/D12.lean#L212"
+          },
+          "lean_declarations": [
+            "ClaudeChallengeD12.classification"
+          ],
+          "source_reference": {
+            "repository": "tkmt-lab/gsw-ray-periodicity",
+            "commit": "8eea5994bfebdcca4865528bd7524af4064f9c16",
+            "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/8eea5994bfebdcca4865528bd7524af4064f9c16/statement/ChallengeD12.lean",
+            "sha256": "9e47ed9a4012fa8823c6c3bf4d04004aa7e5137642eaaa4a77cdff59ab1d7e77"
+          },
+          "public_proof_reference": {
+            "kind": "lean4",
+            "declaration": "ClaudeChallengeD12.classification",
+            "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/8eea5994bfebdcca4865528bd7524af4064f9c16/packet/formal/Formal/Claude7D12ComparatorSolution.lean#L32",
+            "file_sha256": "fc7ea28b3f5d934eeb4e9f5e2a17e4152a19aceff38ba4b023c7496c977a6bbf",
+            "executed_by_this_package": false
+          },
+          "correspondence": {
+            "type_equal": true,
+            "lean_expr_repr_sha256": "1f238a5f03c50ec27c10b9b8cdc384d5468719230061edec1d9cb72c235ba23a",
+            "evidence": "checks/statement-correspondence.json"
+          },
+          "evidence": [
+            {
+              "kind": "statement-correspondence",
+              "basis": "correspondence",
+              "declaration": "ClaudeChallengeD12.classification",
+              "statement_file": "FormalConjectures/Paper/D12.lean",
+              "record": "checks/statement-correspondence.json",
+              "detail": "Recorded equality of original and local theorem types. The local body is by sorry; the linked proof was not executed by this package. This is not evidence of mathematical truth."
+            }
+          ],
+          "evidence_kinds": [
+            "statement-correspondence"
+          ],
+          "scope": "For natural r,s >= 1, PathExists r s holds if and only if, after casting to integers, r divides s-1, r divides s+1, or abs(r-3*s) = 1. This declaration does not state the separate ray result; the explicit quotient-model definitions are retained.",
+          "reproduce": "python3 -B tools/check.py --problem D12"
+        },
+        {
+          "id": "tkmt-lab/lean-statements#D12.main",
+          "local_id": "D12.main",
+          "kind": "published-lean-statement",
+          "statement_lean": "theorem main (r₀ s₀ a b : ℕ) (hr : 1 ≤ r₀) (hs : 1 ≤ s₀) :\n    ∃ n₀ P : ℕ, 0 < P ∧ ∀ n : ℕ, n₀ ≤ n →\n      (PathExists (r₀ + a * n) (s₀ + b * n) ↔\n        PathExists (r₀ + a * (n + P)) (s₀ + b * (n + P)))",
+          "statement_body": "by sorry (intentional statement placeholder)",
+          "statement_location": {
+            "path": "FormalConjectures/Paper/D12.lean",
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/FormalConjectures/Paper/D12.lean#L221"
+          },
+          "lean_declarations": [
+            "ClaudeChallengeD12.main"
+          ],
+          "source_reference": {
+            "repository": "tkmt-lab/gsw-ray-periodicity",
+            "commit": "8eea5994bfebdcca4865528bd7524af4064f9c16",
+            "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/8eea5994bfebdcca4865528bd7524af4064f9c16/statement/ChallengeD12.lean",
+            "sha256": "9e47ed9a4012fa8823c6c3bf4d04004aa7e5137642eaaa4a77cdff59ab1d7e77"
+          },
+          "public_proof_reference": {
+            "kind": "lean4",
+            "declaration": "ClaudeChallengeD12.main",
+            "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/8eea5994bfebdcca4865528bd7524af4064f9c16/packet/formal/Formal/Claude7D12ComparatorSolution.lean#L39",
+            "file_sha256": "fc7ea28b3f5d934eeb4e9f5e2a17e4152a19aceff38ba4b023c7496c977a6bbf",
+            "executed_by_this_package": false
+          },
+          "correspondence": {
+            "type_equal": true,
+            "lean_expr_repr_sha256": "48edb1aeb0784bf5e1b541f167947a25e59376bcff3a2020500dcb5b19be1108",
+            "evidence": "checks/statement-correspondence.json"
+          },
+          "evidence": [
+            {
+              "kind": "statement-correspondence",
+              "basis": "correspondence",
+              "declaration": "ClaudeChallengeD12.main",
+              "statement_file": "FormalConjectures/Paper/D12.lean",
+              "record": "checks/statement-correspondence.json",
+              "detail": "Recorded equality of original and local theorem types. The local body is by sorry; the linked proof was not executed by this package. This is not evidence of mathematical truth."
+            }
+          ],
+          "evidence_kinds": [
+            "statement-correspondence"
+          ],
+          "scope": "Eventual periodicity of PathExists along every natural affine ray (r0+a*n,s0+b*n), with r0,s0 >= 1 and a,b >= 0. A positive period is asserted after some threshold; parameter-one boundaries and constant rays are included. This declaration does not state the separate closed classification.",
+          "reproduce": "python3 -B tools/check.py --problem D12"
         }
       ]
     }

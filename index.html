@@ -799,6 +799,18 @@
     <p class="note">No RCSR data is included, because no licence or redistribution terms were found at the pinned version: the code downloads the RCSR file from a fixed commit and checks its SHA-256. Only the six core cases were checked by a separate implementation. The 99 cases are a selection, not a maximum over RCSR. Nothing is claimed about graph neural networks in general, a radius is not a number of layers, and no priority is claimed. There is no human expert review and no formal proof.</p>
   </div>
 
+  <div class="work" id="lean-statements">
+    <div class="num">Data and tool · 2026</div>
+    <div class="t">Lean statements from published papers</div>
+    <div class="tag">What exactly does each theorem say, and where is its proof?</div>
+    <p class="plain">Lean writes a mathematical claim with its definitions and assumptions made explicit. This collection brings together statements from three published repositories on generalized Stone–Wales paths in fullerene graphs and on Heesch number certificates. It is for people and programs that want to inspect a theorem's assumptions, take one statement into another Lean project, or find its proof. Each statement links to a proof at a fixed public commit.</p>
+    <table aria-label="Contents of the statement collection">
+      <tbody><tr><td>Lean files</td><td>9</td></tr><tr><td>Theorem statements</td><td>18</td></tr><tr><td>Source repositories</td><td>3</td></tr></tbody>
+    </table>
+    <div class="links"><a href="https://github.com/tkmt-lab/lean-statements">Repository</a> · <a href="https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/claims.json">Statements and scopes</a> · <a href="https://doi.org/10.5281/zenodo.23594152">doi:10.5281/zenodo.23594152</a></div>
+    <p class="note">Every theorem body is an intentional <code>by sorry</code> placeholder. The checks compare the statement types with their sources and inspect the metadata. Building the collection does not establish the statements' truth or check the linked proofs. Several files reuse namespaces, so choose one rather than importing them together. This is not an official part of formal-conjectures and has not been contributed to it. Compatibility with its Lean version and full linter suite has not been checked.</p>
+  </div>
+
   <h2>How the work is checked</h2>
   <p>Each release keeps different kinds of evidence apart, and says which applies to each claim:</p>
   <table>
@@ -825,6 +837,7 @@
     <li>B. Pant, O. Saucedo and G. Pogudin, who posed the identifiability question for the behavioral SIR model and its conjecture; A. Ovchinnikov, G. Pogudin and P. Thompson, and H. Hong, A. Ovchinnikov, G. Pogudin and C. Yap, whose differential-algebra results on identifiability carry our proof.</li>
     <li>H. Heesch, who posed the problem; C. S. Kaplan, whose study of the Heesch numbers of unmarked polyforms, with its SAT formulation over all layers, its dataset and the heesch-sat software, gives the question, the definitions of Hc and Hh, the shapes and every reference value of the Heesch work; C. Mann's survey, C. Mann and B. C. Thomas's computations for edge-marked polyforms, and the constructions of A. Fontaine and B. Bašić; the Heesch challenge of Layr-Labs/Eigen and its contributors, which first attached checkable certificates to Heesch numbers; N. Wetzler, M. Heule and W. Hunt's drat-trim, A. Biere's CaDiCaL and Lingeling, G. Audemard and L. Simon's Glucose, A. Ignatiev, A. Morgado and J. Marques-Silva's PySAT, and C. Sinz's sequential counter; and the verified SAT encodings of C. Codel, J. Avigad and M. Heule and the empty-hexagon verification of B. Subercaseaux and colleagues, whose approach the formalization follows.</li>
     <li>M. O'Keeffe, M. A. Peskov, S. J. Ramsden and O. M. Yaghi, whose Reticular Chemistry Structure Resource (RCSR) is the source of every net, vertex orbit and coordinate in the identification tests, and the researchers who first described each net; V. A. Blatov and D. M. Proserpio, who compared nets by the graphs of growing coordination shells and measured the largest shell up to which they agree (r_min is a measurement of this kind); S. N. Pozdnyakov and M. Ceriotti, who gave pairs of point clouds, including periodic ones, that distance-based WL tests and graph neural networks cannot tell apart (their setting has distances; the tests here have only graph structure); and O. Delgado-Friedrichs, whose Gavrog space-group table the code reads.</li>
+    <li>For the statement collection: the <a href="https://github.com/google-deepmind/formal-conjectures/tree/9833012f66a47cdd3a6f3eca9cb4b84e0f18a003">Formal Conjectures Authors</a>, whose file format and category, subject and proof-link attributes it uses.</li>
     <li>The developers of Lean 4 and mathlib, and of the Comparator tool and the independent proof kernels used to check our proofs.</li>
   </ul>
   <p>I am grateful to them, and I hope this work adds something new to the field they opened. The papers and repositories cite these and other sources in full.</p>
