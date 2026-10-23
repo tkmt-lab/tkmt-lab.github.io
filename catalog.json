@@ -1,9 +1,9 @@
 {
   "$schema": "https://tkmt-lab.github.io/catalog.schema.json",
   "version": "1.1",
-  "generated_at": "2026-10-23T20:26:38+09:00",
+  "generated_at": "2026-10-24T04:15:47+09:00",
   "sources": {
-    "releases": "docs/releases.json (lab research repository, updated 2026-10-23T20:14:19+09:00)",
+    "releases": "docs/releases.json (lab research repository, updated 2026-10-24T04:05:33+09:00)",
     "repositories": "claims.json, AGENTS.md, README.md, CITATION.cff, .zenodo.json at each repository's published main branch"
   },
   "lab": {
@@ -11,7 +11,7 @@
     "homepage": "https://tkmt-lab.github.io/",
     "llms_txt": "https://tkmt-lab.github.io/llms.txt",
     "owner": "Tatsuhiko Takimoto",
-    "description": "Independent research in mathematics and science with AI teams. The first results are on fullerene graphs; later work covers Bell inequalities, analogue Hawking radiation, epidemic-model identifiability and Heesch numbers of polyforms. Each paper is released with a Lean 4 formalization where available, verification data, and a machine-readable claim list stating what has and has not been checked. Checked data sets and tools released without a paper are listed under Data & tools.",
+    "description": "Independent research in mathematics and science with AI teams. The first results are on fullerene graphs; later work covers Bell inequalities, analogue Hawking radiation, epidemic-model identifiability, Heesch numbers of polyforms and term-minimal chemical rate equations. Each paper is released with a Lean 4 formalization where available, verification data, and a machine-readable claim list stating what has and has not been checked. Checked data sets and tools released without a paper are listed under Data & tools.",
     "contact": {
       "text": "research@tatsuhikotakimoto.com, or GitHub issues in the relevant repository.",
       "email": "research@tatsuhikotakimoto.com"
@@ -6007,6 +6007,246 @@
           "reproduce": "read the article (Sections 3, 4, 9)",
           "evidence_files": [
             "paper-heesch-certificates-v2.1-en.tex"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tkmt-lab/minimal-terms-quadratic-mass-action",
+      "title": "Term-minimal realizations of nine line-type configurations in quadratic mass-action systems",
+      "title_tex": "Term-minimal realizations of nine line-type configurations\\protect\\\\in quadratic mass-action systems",
+      "paper_version": "draft v1",
+      "packet_version": "1.0.0",
+      "authors": [
+        {
+          "name": "Tatsuhiko Takimoto",
+          "affiliation": "Independent researcher"
+        }
+      ],
+      "summary": "Paper 7. For nine invariant-line-type multisets in two-species quadratic mass-action systems, the minimum nonzero component-term counts are 8,8,8,8,8,8,8,6,6. Exact examples attain the bounds and a proof over real nonnegative parameters excludes fewer terms. Five counts improve on the best examples in the source paper; four prior attained bounds are proved optimal in this domain. Reactant molecularity at most two, unrestricted products, a positive equilibrium with zero Jacobian, and nonzero homogeneous resultant; terms are counted in concentration coordinates, separately in each component. A separate verification agrees but shared the specification and mathematical preparation. No minimum reaction count, historical-domain equivalence, priority, Lean proof or human peer review is claimed.",
+      "release": {
+        "tag": "v1.0.0",
+        "date": "2026-10-24",
+        "commit": "dfb36e121ec0b014e495abd07f870ea76503fbc4",
+        "github_release": "https://github.com/tkmt-lab/minimal-terms-quadratic-mass-action/releases/tag/v1.0.0",
+        "version_doi": "10.5281/zenodo.23602991",
+        "concept_doi": "10.5281/zenodo.23602990",
+        "doi_status": "minted"
+      },
+      "repo_url": "https://github.com/tkmt-lab/minimal-terms-quadratic-mass-action",
+      "paper_pdf": {
+        "path": "paper/paper-v1.pdf",
+        "url": "https://github.com/tkmt-lab/minimal-terms-quadratic-mass-action/blob/v1.0.0/paper/paper-v1.pdf",
+        "raw_url": "https://raw.githubusercontent.com/tkmt-lab/minimal-terms-quadratic-mass-action/v1.0.0/paper/paper-v1.pdf"
+      },
+      "paper_source": {
+        "path": "paper/paper-v1.tex",
+        "url": "https://github.com/tkmt-lab/minimal-terms-quadratic-mass-action/blob/v1.0.0/paper/paper-v1.tex"
+      },
+      "entry_points": {
+        "agents_md": [
+          {
+            "path": "AGENTS.md",
+            "url": "https://github.com/tkmt-lab/minimal-terms-quadratic-mass-action/blob/v1.0.0/AGENTS.md"
+          }
+        ],
+        "claims_json": {
+          "path": "claims.json",
+          "url": "https://github.com/tkmt-lab/minimal-terms-quadratic-mass-action/blob/v1.0.0/claims.json",
+          "raw_url": "https://raw.githubusercontent.com/tkmt-lab/minimal-terms-quadratic-mass-action/v1.0.0/claims.json"
+        },
+        "readme": {
+          "path": "README.md",
+          "url": "https://github.com/tkmt-lab/minimal-terms-quadratic-mass-action/blob/v1.0.0/README.md"
+        },
+        "citation_cff": {
+          "path": "CITATION.cff",
+          "url": "https://github.com/tkmt-lab/minimal-terms-quadratic-mass-action/blob/v1.0.0/CITATION.cff"
+        }
+      },
+      "scope": [
+        {
+          "text": "Minimal numbers of nonzero terms (8 for seven, 6 for two) for the nine line-type configurations of Yeung–Erban, with examples, lower-bound certificates and checkers; independent recomputation agrees",
+          "lang": "en",
+          "source": "docs/releases.json"
+        }
+      ],
+      "not_claimed": [
+        {
+          "text": "Minimal number of reactions, full correspondence with Newton/Lyagina, priority, human review",
+          "lang": "en",
+          "source": "docs/releases.json"
+        },
+        {
+          "text": "Minimum number of reactions",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "A result for zero resultant, zero components or boundary equilibria",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "Equivalence to the entire historical Lyagina or Newton classification domains",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "Nine distinct classes under arbitrary topological equivalence",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "A complete priority search or a first-result claim",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "Human peer review or proof-assistant assurance",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "A general-purpose classifier for arbitrary cubic slope polynomials",
+          "lang": "en",
+          "source": "claims.json"
+        }
+      ],
+      "scope_flags": {
+        "species": 2,
+        "reactant_molecularity_max": 2,
+        "product_molecularity": "unrestricted",
+        "coefficients": "real",
+        "equilibrium": "positive, scaled to (1,1)",
+        "jacobian": "entirely zero",
+        "resultant_nonzero": true,
+        "quantity": "nonzero concentration-coordinate monomials counted separately in each component",
+        "reaction_minimum": false,
+        "historical_domain_equivalence": false,
+        "priority_claimed": false,
+        "formal_proof_assistant": false,
+        "human_peer_review": false
+      },
+      "verification": [
+        {
+          "source": "README.md#Run the checks",
+          "working_directory": ".",
+          "shell": "sh",
+          "script": "python3 -B checkers/verify.py --output work/verification.json\npython3 -B tools/regenerate.py --check"
+        }
+      ],
+      "claims": [
+        {
+          "id": "tkmt-lab/minimal-terms-quadratic-mass-action#nine-minima",
+          "local_id": "nine-minima",
+          "kind": "prose",
+          "statement": "The nine listed minima hold over all admissible real nonnegative parameters in the stated domain.",
+          "evidence": [
+            {
+              "kind": "prose-proof",
+              "basis": "kind=prose"
+            }
+          ],
+          "evidence_kinds": [
+            "prose-proof"
+          ],
+          "scope": "The proof combines attained exact witnesses, support exhaustion and inequalities for three positive-parameter families; it is not a proof-assistant formalization.",
+          "evidence_files": [
+            "paper/paper-v1.tex",
+            "paper/paper-v1.pdf",
+            "certificates/index.json",
+            "certificates/lower-bound.json"
+          ]
+        },
+        {
+          "id": "tkmt-lab/minimal-terms-quadratic-mass-action#nine-attained-witnesses",
+          "local_id": "nine-attained-witnesses",
+          "kind": "exact-computation",
+          "statement": "Nine rational witnesses attain the listed counts, have nonzero resultant and realize the stated line-type multisets.",
+          "evidence": [
+            {
+              "kind": "finite-computation",
+              "basis": "kind=exact-computation"
+            }
+          ],
+          "evidence_kinds": [
+            "finite-computation"
+          ],
+          "scope": "The reaction lists prove realizability; their reaction counts are not claimed minimal.",
+          "reproduce": "python3 -B checkers/verify.py",
+          "evidence_files": [
+            "certificates/index.json",
+            "checkers/exact_check.py",
+            "checkers/independent_fraction.py",
+            "checkers/verify.py"
+          ]
+        },
+        {
+          "id": "tkmt-lab/minimal-terms-quadratic-mass-action#lower-bound-supports",
+          "local_id": "lower-bound-supports",
+          "kind": "exact-computation",
+          "statement": "All 49 supports with both components nonzero are counted. Exactly eight have fewer than eight terms; three are excluded by zero resultant and five reduce to three positive-parameter families.",
+          "evidence": [
+            {
+              "kind": "finite-computation",
+              "basis": "kind=exact-computation"
+            }
+          ],
+          "evidence_kinds": [
+            "finite-computation"
+          ],
+          "scope": "Symbolic identities are checked. The real-parameter inequalities and species-swap reasoning are in the displayed mathematical proof.",
+          "reproduce": "python3 -B checkers/verify.py",
+          "evidence_files": [
+            "certificates/lower-bound.json",
+            "checkers/face_proof.py",
+            "checkers/independent_fraction.py",
+            "paper/paper-v1.tex"
+          ]
+        },
+        {
+          "id": "tkmt-lab/minimal-terms-quadratic-mass-action#separate-verification",
+          "local_id": "separate-verification",
+          "kind": "independent-implementation",
+          "statement": "A separate verification, with its own witnesses and support derivation, obtained the same nine minima; its standard-library checker is included and rerun.",
+          "evidence": [
+            {
+              "kind": "independent-implementation",
+              "basis": "kind=independent-implementation"
+            }
+          ],
+          "evidence_kinds": [
+            "independent-implementation"
+          ],
+          "scope": "The specification, parameter cone, counting rule, line-type tests and published examples were shared. The research results, proof and code were originally withheld. Packaging is subsequent integration, not a new independent derivation; the earlier SymPy run is not rerun by this package.",
+          "reproduce": "python3 -B checkers/verify.py",
+          "evidence_files": [
+            "certificates/independent-witnesses.json",
+            "checkers/independent_fraction.py",
+            "VERIFICATION-RECORD.md"
+          ]
+        },
+        {
+          "id": "tkmt-lab/minimal-terms-quadratic-mass-action#comparison-with-pinned-source",
+          "local_id": "comparison-with-pinned-source",
+          "kind": "exact-computation",
+          "statement": "Five counts decrease and four prior attained counts are proved optimal relative to Yeung and Erban arXiv:2610.06130v1 Table 1 and its Section 4 six-term example.",
+          "evidence": [
+            {
+              "kind": "finite-computation",
+              "basis": "kind=exact-computation"
+            }
+          ],
+          "evidence_kinds": [
+            "finite-computation"
+          ],
+          "scope": "Types are computed from explicit coefficients. This is a bounded comparison, not a worldwide priority result.",
+          "reproduce": "python3 -B checkers/verify.py",
+          "evidence_files": [
+            "certificates/independent-witnesses.json",
+            "paper/paper-v1.tex",
+            "README.md"
           ]
         }
       ]

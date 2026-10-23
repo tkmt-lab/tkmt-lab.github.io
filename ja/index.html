@@ -726,6 +726,79 @@
     <p class="note">充足不能の証明は、Lean の外で drat-trim が確かめたものです。確かめた式のファイルと Lean の符号化が一致することも、Lean の証明ではなく、記録した有限の計算によります。いちばん外の層の数え上げには証明書がなく、探索は Hh = 4 のポリオミノがないことを示すものではありません。対象は挙げた形だけです。最初の結果だとは主張しません。人間の査読もまだです。証明のファイル（25 GB）は付けていませんが、式は 1 バイトも違わずに作り直せ、CI が一部を確かめ直します。</p>
   </div>
 
+  <div class="work" id="minimal-terms-quadratic-mass-action">
+    <div class="num">論文 7 · 2026</div>
+    <div class="t">Term-minimal realizations of nine line-type configurations in quadratic mass-action systems</div>
+    <div class="tag">二つの物質の濃度変化を表す式で、同じ型を作るには最低いくつの項が必要か。</div>
+    <p class="plain">平衡点の近くで、濃度の流れがその上にとどまる直線を「不変直線」と呼び、その型の組み合わせを九通り考えます。七型では二つの式を合わせて8項、二型では6項が最少でした。その項数で実現する厳密な係数の例をすべて作り、それより少なくできないことも証明しました。元論文にある最も少ない例と比べると、五型で項数が減っています。同じ単項式が両方の式に出る場合は、それぞれ一項と数えます。</p>
+    <figure><svg viewBox="0 0 420 398" role="img" aria-label="九つの不変直線の型ごとの項数。元論文の実例は9,8,10,8,9,9,8,6,8項、証明した最少値は8,8,8,8,8,8,8,6,6項。" style="width:100%;max-width:440px;height:auto;display:block">
+<rect x="8" y="7" width="16" height="10" fill="var(--fig-no)"/>
+<text x="30" y="17" font-size="12" fill="var(--fg)">元論文の実例</text>
+<rect x="209" y="7" width="16" height="10" fill="var(--fig-yes)"/>
+<text x="231" y="17" font-size="12" fill="var(--fg)">証明した最少値</text>
+<line x1="145" y1="45" x2="145" y2="365" stroke="var(--line)"/>
+<text x="145" y="39" font-size="11" fill="var(--muted)" text-anchor="middle">0</text>
+<line x1="191" y1="45" x2="191" y2="365" stroke="var(--line)"/>
+<text x="191" y="39" font-size="11" fill="var(--muted)" text-anchor="middle">2</text>
+<line x1="237" y1="45" x2="237" y2="365" stroke="var(--line)"/>
+<text x="237" y="39" font-size="11" fill="var(--muted)" text-anchor="middle">4</text>
+<line x1="283" y1="45" x2="283" y2="365" stroke="var(--line)"/>
+<text x="283" y="39" font-size="11" fill="var(--muted)" text-anchor="middle">6</text>
+<line x1="329" y1="45" x2="329" y2="365" stroke="var(--line)"/>
+<text x="329" y="39" font-size="11" fill="var(--muted)" text-anchor="middle">8</text>
+<line x1="375" y1="45" x2="375" y2="365" stroke="var(--line)"/>
+<text x="375" y="39" font-size="11" fill="var(--muted)" text-anchor="middle">10</text>
+<text x="4" y="84" font-size="12" fill="var(--fg)">H</text>
+<rect x="145" y="68" width="207" height="10" fill="var(--fig-no)"/>
+<text x="357" y="77" font-size="11" fill="var(--fg)">9</text>
+<rect x="145" y="81" width="184" height="10" fill="var(--fig-yes)"/>
+<text x="334" y="90" font-size="11" fill="var(--fg)">8</text>
+<text x="4" y="118" font-size="12" fill="var(--fg)">P2H</text>
+<rect x="145" y="102" width="184" height="10" fill="var(--fig-no)"/>
+<text x="334" y="111" font-size="11" fill="var(--fg)">8</text>
+<rect x="145" y="115" width="184" height="10" fill="var(--fig-yes)"/>
+<text x="334" y="124" font-size="11" fill="var(--fg)">8</text>
+<text x="4" y="152" font-size="12" fill="var(--fg)">D,H</text>
+<rect x="145" y="136" width="230" height="10" fill="var(--fig-no)"/>
+<text x="380" y="145" font-size="11" fill="var(--fg)">10</text>
+<rect x="145" y="149" width="184" height="10" fill="var(--fig-yes)"/>
+<text x="334" y="158" font-size="11" fill="var(--fg)">8</text>
+<text x="4" y="186" font-size="12" fill="var(--fg)">D,P2H</text>
+<rect x="145" y="170" width="184" height="10" fill="var(--fig-no)"/>
+<text x="334" y="179" font-size="11" fill="var(--fg)">8</text>
+<rect x="145" y="183" width="184" height="10" fill="var(--fig-yes)"/>
+<text x="334" y="192" font-size="11" fill="var(--fg)">8</text>
+<text x="4" y="220" font-size="12" fill="var(--fg)">P1,P2,H</text>
+<rect x="145" y="204" width="207" height="10" fill="var(--fig-no)"/>
+<text x="357" y="213" font-size="11" fill="var(--fg)">9</text>
+<rect x="145" y="217" width="184" height="10" fill="var(--fig-yes)"/>
+<text x="334" y="226" font-size="11" fill="var(--fg)">8</text>
+<text x="4" y="254" font-size="12" fill="var(--fg)">P1,H,H</text>
+<rect x="145" y="238" width="207" height="10" fill="var(--fig-no)"/>
+<text x="357" y="247" font-size="11" fill="var(--fg)">9</text>
+<rect x="145" y="251" width="184" height="10" fill="var(--fig-yes)"/>
+<text x="334" y="260" font-size="11" fill="var(--fg)">8</text>
+<text x="4" y="288" font-size="12" fill="var(--fg)">P1,P2,P2H</text>
+<rect x="145" y="272" width="184" height="10" fill="var(--fig-no)"/>
+<text x="334" y="281" font-size="11" fill="var(--fg)">8</text>
+<rect x="145" y="285" width="184" height="10" fill="var(--fig-yes)"/>
+<text x="334" y="294" font-size="11" fill="var(--fg)">8</text>
+<text x="4" y="322" font-size="12" fill="var(--fg)">P1,H,P2H</text>
+<rect x="145" y="306" width="138" height="10" fill="var(--fig-no)"/>
+<text x="288" y="315" font-size="11" fill="var(--fg)">6</text>
+<rect x="145" y="319" width="138" height="10" fill="var(--fig-yes)"/>
+<text x="288" y="328" font-size="11" fill="var(--fg)">6</text>
+<text x="4" y="356" font-size="12" fill="var(--fg)">P1,P2H,P2H</text>
+<rect x="145" y="340" width="184" height="10" fill="var(--fig-no)"/>
+<text x="334" y="349" font-size="11" fill="var(--fg)">8</text>
+<rect x="145" y="353" width="138" height="10" fill="var(--fig-yes)"/>
+<text x="288" y="362" font-size="11" fill="var(--fg)">6</text>
+<text x="260" y="389" font-size="12" fill="var(--muted)" text-anchor="middle">二つの式の項の総数</text>
+</svg><figcaption>元論文の表1と第4節の6項例の最少項数と、証明した九型の最少値の比較で、数えるのは反応本数ではなく二つの方程式の項です。</figcaption></figure>
+    <div class="links"><a href="https://github.com/tkmt-lab/minimal-terms-quadratic-mass-action/blob/v1.0.0/paper/paper-v1.pdf">論文PDF</a> · <a href="https://github.com/tkmt-lab/minimal-terms-quadratic-mass-action">リポジトリ</a> · <a href="https://doi.org/10.5281/zenodo.23602991">doi:10.5281/zenodo.23602991</a> · <a href="https://github.com/tkmt-lab/minimal-terms-quadratic-mass-action/blob/v1.0.0/claims.json">主張と範囲</a> · <a href="https://github.com/tkmt-lab/minimal-terms-quadratic-mass-action/actions">検査（CI）</a></div>
+    <p class="note">対象は二種類の物質の質量作用系で、反応物は二分子以下、生成物の分子数には上限を置きません。正の平衡点でJacobian全体が零となり、平衡を原点に移した二次式の斉次resultantが非零であることを要求します。零の成分や共通因子を持つ式は対象外です。濃度座標での項数を数え、反応の本数の最少化は扱いません。定義と数学的な準備を共有した別検証も同じ最少値を得ました。Leanの証明・人間の査読・優先権は主張せず、歴史的原典の分類領域との全文照合は未了です。</p>
+  </div>
+
   <h2>データと道具</h2>
   <p>論文ではありませんが、確かめたうえで公開したデータと道具です。それぞれにリポジトリと DOI があり、主張することと主張しないことを書いています。</p>
   <div class="work">
@@ -828,7 +901,7 @@
   <p>AI（OpenAI の Codex と Anthropic の Claude Code）が、探索、独立な検証、文献の調査、形式化を、別々のチームとして担っています。私（滝本竜彦）が方向を決め、判断し、公開するものとその限界の書き方に責任を持ちます。AI は著者に入れていません。</p>
 
   <h2>元になった研究への感謝</h2>
-  <p>これらの結果は、この分野を切り開いてきた研究者の方々の仕事の上にあります。問いは、A. Bille、V. Buchstaber、E. Spodarev による未解決問題の一覧から生まれました。調べた形は、M. Goldberg と H. S. M. Coxeter の名を冠した構成と、それを広げた M. Dutour Sikirić と M. Deza の仕事、そして J. E. Graver の目録によるものです。K. Kutnar と D. Marušič によるフラーレンの辺連結性の研究、J. R. Büchi、C. C. Elgot、B. A. Trakhtenbrot による論理と有限オートマトンを結ぶ定理、Lean 4 と mathlib、Comparator と独立な検査器を作った方々の仕事も使わせていただきました。Bell 不等式の仕事は、R. Gill の問いと、C. Staufenbiel が公開した面のリストと道具、その土台になった S. Lörwald と G. Reinelt の PANDA の上にあります。分散のある Hawking 放射の仕事は、W. G. Unruh の音のブラックホールの考えと、S. Corley と T. Jacobson、W. G. Unruh と R. Schützhold、J. Macher、A. Coutant、S. Finazzi、R. Parentani、U. Leonhardt と S. Robertson、Y. Himemoto と T. Tanaka、A. Moreno-Ruiz と D. Bermudez、A. Coutant と S. Weinfurtner、そして比べる相手とした有効地平線の結果を出した F. Del Porro、S. Liberati、M. Schneider の仕事の上にあります。感染症のモデルの仕事は、B. Pant、O. Saucedo、G. Pogudin の問いと予想、そして識別可能性の微分代数の結果を築いた A. Ovchinnikov、G. Pogudin、P. Thompson と、H. Hong、A. Ovchinnikov、G. Pogudin、C. Yap の仕事の上にあります。Heesch 数の仕事は、H. Heesch の問題と、C. S. Kaplan の研究（すべての層をまとめた SAT による定式化、データ、heesch-sat のソフトウェア）の上にあります。問い、Hc と Hh の定義、調べた形、比べた値は、すべてそこから来ています。C. Mann の解説と、C. Mann と B. C. Thomas による辺に印のあるポリフォームの計算、A. Fontaine と B. Bašić の構成、Heesch 数に初めて確かめられる証明書を付けた Layr-Labs/Eigen の Heesch challenge とその参加者の方々、N. Wetzler、M. Heule、W. Hunt の drat-trim、A. Biere の CaDiCaL と Lingeling、G. Audemard と L. Simon の Glucose、A. Ignatiev、A. Morgado、J. Marques-Silva の PySAT、C. Sinz の逐次カウンタ、そして形式化の手本にした C. Codel、J. Avigad、M. Heule の検証された SAT 符号化と、B. Subercaseaux らによる空の六角形の数の検証の仕事も使わせていただきました。結晶のネットの識別テストは、M. O'Keeffe、M. A. Peskov、S. J. Ramsden、O. M. Yaghi の RCSR（Reticular Chemistry Structure Resource）と、それぞれのネットを最初に記述した研究者の方々の仕事の上にあります。使ったネット、頂点の軌道、座標は、すべてそこから来ています。成長する配位殻をグラフとして比べ、どの殻まで一致するかを測る考えは V. A. Blatov と D. M. Proserpio によるもので、r_min はこの種の測定です。周期的なものを含む点群で、距離を使う WL やグラフニューラルネットワークが見分けられない組は、S. N. Pozdnyakov と M. Ceriotti が示しました（そちらは距離を使い、こちらはグラフの形だけを使います）。プログラムが読む空間群の表は、O. Delgado-Friedrichs の Gavrog のものです。主張文集では、<a href="https://github.com/google-deepmind/formal-conjectures/tree/9833012f66a47cdd3a6f3eca9cb4b84e0f18a003">Formal Conjectures Authors</a> によるファイルの形式と、分類・分野・証明へのリンクを記す属性を使わせていただきました。心から感謝します。この小さな仕事が、この分野にわずかでも新しいものを付け加えられたなら幸いです。</p>
+  <p>これらの結果は、この分野を切り開いてきた研究者の方々の仕事の上にあります。問いは、A. Bille、V. Buchstaber、E. Spodarev による未解決問題の一覧から生まれました。調べた形は、M. Goldberg と H. S. M. Coxeter の名を冠した構成と、それを広げた M. Dutour Sikirić と M. Deza の仕事、そして J. E. Graver の目録によるものです。K. Kutnar と D. Marušič によるフラーレンの辺連結性の研究、J. R. Büchi、C. C. Elgot、B. A. Trakhtenbrot による論理と有限オートマトンを結ぶ定理、Lean 4 と mathlib、Comparator と独立な検査器を作った方々の仕事も使わせていただきました。Bell 不等式の仕事は、R. Gill の問いと、C. Staufenbiel が公開した面のリストと道具、その土台になった S. Lörwald と G. Reinelt の PANDA の上にあります。分散のある Hawking 放射の仕事は、W. G. Unruh の音のブラックホールの考えと、S. Corley と T. Jacobson、W. G. Unruh と R. Schützhold、J. Macher、A. Coutant、S. Finazzi、R. Parentani、U. Leonhardt と S. Robertson、Y. Himemoto と T. Tanaka、A. Moreno-Ruiz と D. Bermudez、A. Coutant と S. Weinfurtner、そして比べる相手とした有効地平線の結果を出した F. Del Porro、S. Liberati、M. Schneider の仕事の上にあります。感染症のモデルの仕事は、B. Pant、O. Saucedo、G. Pogudin の問いと予想、そして識別可能性の微分代数の結果を築いた A. Ovchinnikov、G. Pogudin、P. Thompson と、H. Hong、A. Ovchinnikov、G. Pogudin、C. Yap の仕事の上にあります。Heesch 数の仕事は、H. Heesch の問題と、C. S. Kaplan の研究（すべての層をまとめた SAT による定式化、データ、heesch-sat のソフトウェア）の上にあります。問い、Hc と Hh の定義、調べた形、比べた値は、すべてそこから来ています。C. Mann の解説と、C. Mann と B. C. Thomas による辺に印のあるポリフォームの計算、A. Fontaine と B. Bašić の構成、Heesch 数に初めて確かめられる証明書を付けた Layr-Labs/Eigen の Heesch challenge とその参加者の方々、N. Wetzler、M. Heule、W. Hunt の drat-trim、A. Biere の CaDiCaL と Lingeling、G. Audemard と L. Simon の Glucose、A. Ignatiev、A. Morgado、J. Marques-Silva の PySAT、C. Sinz の逐次カウンタ、そして形式化の手本にした C. Codel、J. Avigad、M. Heule の検証された SAT 符号化と、B. Subercaseaux らによる空の六角形の数の検証の仕事も使わせていただきました。結晶のネットの識別テストは、M. O'Keeffe、M. A. Peskov、S. J. Ramsden、O. M. Yaghi の RCSR（Reticular Chemistry Structure Resource）と、それぞれのネットを最初に記述した研究者の方々の仕事の上にあります。使ったネット、頂点の軌道、座標は、すべてそこから来ています。成長する配位殻をグラフとして比べ、どの殻まで一致するかを測る考えは V. A. Blatov と D. M. Proserpio によるもので、r_min はこの種の測定です。周期的なものを含む点群で、距離を使う WL やグラフニューラルネットワークが見分けられない組は、S. N. Pozdnyakov と M. Ceriotti が示しました（そちらは距離を使い、こちらはグラフの形だけを使います）。プログラムが読む空間群の表は、O. Delgado-Friedrichs の Gavrog のものです。主張文集では、<a href="https://github.com/google-deepmind/formal-conjectures/tree/9833012f66a47cdd3a6f3eca9cb4b84e0f18a003">Formal Conjectures Authors</a> によるファイルの形式と、分類・分野・証明へのリンクを記す属性を使わせていただきました。二次の質量作用系の項数の仕事は、<a href="https://arxiv.org/abs/2610.06130v1">N. Yeung と R. Erban</a> による分類と、項数をどこまで減らせるかという問いを出発点としています。幾何の枠組みは、<a href="https://www.mathnet.ru/eng/rm6840">L. S. Lyagina</a> と <a href="https://doi.org/10.1137/1020007">T. A. Newton</a> による分類と不変直線の記述に基づいています。心から感謝します。この小さな仕事が、この分野にわずかでも新しいものを付け加えられたなら幸いです。</p>
   <p class="muted">出典は各論文と各リポジトリにすべて挙げています。</p>
 
   <h2>もう一つの仕事</h2>

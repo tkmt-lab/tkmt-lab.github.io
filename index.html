@@ -724,6 +724,79 @@
     <p class="note">The unsatisfiability proofs are checked by drat-trim, outside Lean, and the match between the checked formula files and the Lean encoding is a recorded finite computation, not a Lean proof. The outer-layer corona counts have no proof certificate, and the search does not show that no polyomino has Hh = 4. Only the listed shapes are covered. No priority is claimed, and there is no human peer review. The proofs (25 GB) are not attached; the formulas regenerate byte for byte, and the CI re-checks a sample.</p>
   </div>
 
+  <div class="work" id="minimal-terms-quadratic-mass-action">
+    <div class="num">Paper 7 · 2026</div>
+    <div class="t">Term-minimal realizations of nine line-type configurations in quadratic mass-action systems</div>
+    <div class="tag">How few terms can two chemical rate equations use while retaining each of nine geometric configurations?</div>
+    <p class="plain">I studied nine configurations of invariant lines: straight directions preserved by the concentration flow near an equilibrium. Seven configurations need at least eight nonzero terms in the two equations, and two need at least six. Exact examples attain all nine bounds, and a proof rules out fewer terms. Compared with the best examples in the source paper, five counts decrease. A term is counted separately in each equation, even when the same monomial appears in both.</p>
+    <figure><svg viewBox="0 0 420 398" role="img" aria-label="Nine line-type multisets: source examples have 9,8,10,8,9,9,8,6,8 component terms; the proved minima are 8,8,8,8,8,8,8,6,6." style="width:100%;max-width:440px;height:auto;display:block">
+<rect x="8" y="7" width="16" height="10" fill="var(--fig-no)"/>
+<text x="30" y="17" font-size="12" fill="var(--fg)">Source examples</text>
+<rect x="209" y="7" width="16" height="10" fill="var(--fig-yes)"/>
+<text x="231" y="17" font-size="12" fill="var(--fg)">Proved minimum</text>
+<line x1="145" y1="45" x2="145" y2="365" stroke="var(--line)"/>
+<text x="145" y="39" font-size="11" fill="var(--muted)" text-anchor="middle">0</text>
+<line x1="191" y1="45" x2="191" y2="365" stroke="var(--line)"/>
+<text x="191" y="39" font-size="11" fill="var(--muted)" text-anchor="middle">2</text>
+<line x1="237" y1="45" x2="237" y2="365" stroke="var(--line)"/>
+<text x="237" y="39" font-size="11" fill="var(--muted)" text-anchor="middle">4</text>
+<line x1="283" y1="45" x2="283" y2="365" stroke="var(--line)"/>
+<text x="283" y="39" font-size="11" fill="var(--muted)" text-anchor="middle">6</text>
+<line x1="329" y1="45" x2="329" y2="365" stroke="var(--line)"/>
+<text x="329" y="39" font-size="11" fill="var(--muted)" text-anchor="middle">8</text>
+<line x1="375" y1="45" x2="375" y2="365" stroke="var(--line)"/>
+<text x="375" y="39" font-size="11" fill="var(--muted)" text-anchor="middle">10</text>
+<text x="4" y="84" font-size="12" fill="var(--fg)">H</text>
+<rect x="145" y="68" width="207" height="10" fill="var(--fig-no)"/>
+<text x="357" y="77" font-size="11" fill="var(--fg)">9</text>
+<rect x="145" y="81" width="184" height="10" fill="var(--fig-yes)"/>
+<text x="334" y="90" font-size="11" fill="var(--fg)">8</text>
+<text x="4" y="118" font-size="12" fill="var(--fg)">P2H</text>
+<rect x="145" y="102" width="184" height="10" fill="var(--fig-no)"/>
+<text x="334" y="111" font-size="11" fill="var(--fg)">8</text>
+<rect x="145" y="115" width="184" height="10" fill="var(--fig-yes)"/>
+<text x="334" y="124" font-size="11" fill="var(--fg)">8</text>
+<text x="4" y="152" font-size="12" fill="var(--fg)">D,H</text>
+<rect x="145" y="136" width="230" height="10" fill="var(--fig-no)"/>
+<text x="380" y="145" font-size="11" fill="var(--fg)">10</text>
+<rect x="145" y="149" width="184" height="10" fill="var(--fig-yes)"/>
+<text x="334" y="158" font-size="11" fill="var(--fg)">8</text>
+<text x="4" y="186" font-size="12" fill="var(--fg)">D,P2H</text>
+<rect x="145" y="170" width="184" height="10" fill="var(--fig-no)"/>
+<text x="334" y="179" font-size="11" fill="var(--fg)">8</text>
+<rect x="145" y="183" width="184" height="10" fill="var(--fig-yes)"/>
+<text x="334" y="192" font-size="11" fill="var(--fg)">8</text>
+<text x="4" y="220" font-size="12" fill="var(--fg)">P1,P2,H</text>
+<rect x="145" y="204" width="207" height="10" fill="var(--fig-no)"/>
+<text x="357" y="213" font-size="11" fill="var(--fg)">9</text>
+<rect x="145" y="217" width="184" height="10" fill="var(--fig-yes)"/>
+<text x="334" y="226" font-size="11" fill="var(--fg)">8</text>
+<text x="4" y="254" font-size="12" fill="var(--fg)">P1,H,H</text>
+<rect x="145" y="238" width="207" height="10" fill="var(--fig-no)"/>
+<text x="357" y="247" font-size="11" fill="var(--fg)">9</text>
+<rect x="145" y="251" width="184" height="10" fill="var(--fig-yes)"/>
+<text x="334" y="260" font-size="11" fill="var(--fg)">8</text>
+<text x="4" y="288" font-size="12" fill="var(--fg)">P1,P2,P2H</text>
+<rect x="145" y="272" width="184" height="10" fill="var(--fig-no)"/>
+<text x="334" y="281" font-size="11" fill="var(--fg)">8</text>
+<rect x="145" y="285" width="184" height="10" fill="var(--fig-yes)"/>
+<text x="334" y="294" font-size="11" fill="var(--fg)">8</text>
+<text x="4" y="322" font-size="12" fill="var(--fg)">P1,H,P2H</text>
+<rect x="145" y="306" width="138" height="10" fill="var(--fig-no)"/>
+<text x="288" y="315" font-size="11" fill="var(--fg)">6</text>
+<rect x="145" y="319" width="138" height="10" fill="var(--fig-yes)"/>
+<text x="288" y="328" font-size="11" fill="var(--fg)">6</text>
+<text x="4" y="356" font-size="12" fill="var(--fg)">P1,P2H,P2H</text>
+<rect x="145" y="340" width="184" height="10" fill="var(--fig-no)"/>
+<text x="334" y="349" font-size="11" fill="var(--fg)">8</text>
+<rect x="145" y="353" width="138" height="10" fill="var(--fig-yes)"/>
+<text x="288" y="362" font-size="11" fill="var(--fg)">6</text>
+<text x="260" y="389" font-size="12" fill="var(--muted)" text-anchor="middle">Component terms</text>
+</svg><figcaption>Best source examples (Table 1 and the Section 4 six-term example) beside the proved minima for all nine line-type multisets, counting terms in the two equations rather than reactions.</figcaption></figure>
+    <div class="links"><a href="https://github.com/tkmt-lab/minimal-terms-quadratic-mass-action/blob/v1.0.0/paper/paper-v1.pdf">Paper (PDF)</a> · <a href="https://github.com/tkmt-lab/minimal-terms-quadratic-mass-action">Repository</a> · <a href="https://doi.org/10.5281/zenodo.23602991">doi:10.5281/zenodo.23602991</a> · <a href="https://github.com/tkmt-lab/minimal-terms-quadratic-mass-action/blob/v1.0.0/claims.json">Claims and scope</a> · <a href="https://github.com/tkmt-lab/minimal-terms-quadratic-mass-action/actions">Checks (CI)</a></div>
+    <p class="note">The result concerns two species, reactant molecularity at most two, unrestricted products, and a positive equilibrium whose entire Jacobian is zero. The shifted quadratic components must have nonzero homogeneous resultant, excluding zero components and common factors. Counts use concentration coordinates; the number of reactions is not minimized. A separate verification agreed with the minima while sharing the definitions and mathematical preparation. No Lean proof, human peer review or priority is claimed. Full-text comparison of the historical classification domains remains incomplete.</p>
+  </div>
+
   <h2>Data &amp; tools</h2>
   <p>Checked data sets and tools that are not papers, each released with a repository, a DOI and a list of what is and is not claimed.</p>
   <div class="work">
@@ -838,6 +911,7 @@
     <li>H. Heesch, who posed the problem; C. S. Kaplan, whose study of the Heesch numbers of unmarked polyforms, with its SAT formulation over all layers, its dataset and the heesch-sat software, gives the question, the definitions of Hc and Hh, the shapes and every reference value of the Heesch work; C. Mann's survey, C. Mann and B. C. Thomas's computations for edge-marked polyforms, and the constructions of A. Fontaine and B. Bašić; the Heesch challenge of Layr-Labs/Eigen and its contributors, which first attached checkable certificates to Heesch numbers; N. Wetzler, M. Heule and W. Hunt's drat-trim, A. Biere's CaDiCaL and Lingeling, G. Audemard and L. Simon's Glucose, A. Ignatiev, A. Morgado and J. Marques-Silva's PySAT, and C. Sinz's sequential counter; and the verified SAT encodings of C. Codel, J. Avigad and M. Heule and the empty-hexagon verification of B. Subercaseaux and colleagues, whose approach the formalization follows.</li>
     <li>M. O'Keeffe, M. A. Peskov, S. J. Ramsden and O. M. Yaghi, whose Reticular Chemistry Structure Resource (RCSR) is the source of every net, vertex orbit and coordinate in the identification tests, and the researchers who first described each net; V. A. Blatov and D. M. Proserpio, who compared nets by the graphs of growing coordination shells and measured the largest shell up to which they agree (r_min is a measurement of this kind); S. N. Pozdnyakov and M. Ceriotti, who gave pairs of point clouds, including periodic ones, that distance-based WL tests and graph neural networks cannot tell apart (their setting has distances; the tests here have only graph structure); and O. Delgado-Friedrichs, whose Gavrog space-group table the code reads.</li>
     <li>For the statement collection: the <a href="https://github.com/google-deepmind/formal-conjectures/tree/9833012f66a47cdd3a6f3eca9cb4b84e0f18a003">Formal Conjectures Authors</a>, whose file format and category, subject and proof-link attributes it uses.</li>
+    <li><a href="https://arxiv.org/abs/2610.06130v1">N. Yeung and R. Erban</a>, whose classification and question about reducing the number of terms led to the quadratic mass-action work; <a href="https://www.mathnet.ru/eng/rm6840">L. S. Lyagina</a> and <a href="https://doi.org/10.1137/1020007">T. A. Newton</a>, whose classifications and invariant-line descriptions provide its geometric framework.</li>
     <li>The developers of Lean 4 and mathlib, and of the Comparator tool and the independent proof kernels used to check our proofs.</li>
   </ul>
   <p>I am grateful to them, and I hope this work adds something new to the field they opened. The papers and repositories cite these and other sources in full.</p>
