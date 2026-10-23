@@ -1,9 +1,9 @@
 {
   "$schema": "https://tkmt-lab.github.io/catalog.schema.json",
   "version": "1.0",
-  "generated_at": "2026-10-23T02:17:59+09:00",
+  "generated_at": "2026-10-23T14:50:25+09:00",
   "sources": {
-    "releases": "docs/releases.json (lab research repository, updated 2026-10-23T02:12:19+09:00)",
+    "releases": "docs/releases.json (lab research repository, updated 2026-10-23T14:43:54+09:00)",
     "repositories": "claims.json, AGENTS.md, README.md, CITATION.cff, .zenodo.json at each repository's published main branch"
   },
   "lab": {
@@ -11,7 +11,7 @@
     "homepage": "https://tkmt-lab.github.io/",
     "llms_txt": "https://tkmt-lab.github.io/llms.txt",
     "owner": "Tatsuhiko Takimoto",
-    "description": "Independent research in mathematics and science with AI teams. The first results are on fullerene graphs; later work covers Bell inequalities, analogue Hawking radiation, epidemic-model identifiability and Heesch numbers of polyforms. Each result is released with a paper, a Lean 4 formalization where available, verification data, and a machine-readable claim list stating what has and has not been checked.",
+    "description": "Independent research in mathematics and science with AI teams. The first results are on fullerene graphs; later work covers Bell inequalities, analogue Hawking radiation, epidemic-model identifiability and Heesch numbers of polyforms. Each paper is released with a Lean 4 formalization where available, verification data, and a machine-readable claim list stating what has and has not been checked. Checked data sets and tools released without a paper are listed under Data & tools.",
     "contact": {
       "text": "research@tatsuhikotakimoto.com, or GitHub issues in the relevant repository.",
       "email": "research@tatsuhikotakimoto.com"
@@ -5970,6 +5970,257 @@
           "reproduce": "read the article (Sections 3, 4, 9)",
           "evidence_files": [
             "paper-heesch-certificates-v2.1-en.tex"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tkmt-lab/periodic-net-wl-tests",
+      "work_type": "data-tool",
+      "title": "Rooted periodic-net identification tests (RCSR, 1-WL)",
+      "packet_version": "1.0.0",
+      "summary": "99 test cases built from a pinned RCSR-content commit, each a pair of nets with a root vertex in each. Each case records r_min, the smallest radius at which the two rooted balls (all vertices within r edges of the root and the edges between them) are not isomorphic, and r_WL, the smallest radius at which stable 1-WL colour refinement, with initial colours (distance from root, degree in ball), separates them. In 97 cases r_WL > r_min; the largest gap is 4 (tsa V1 / tsg V3: r_min = 4, r_WL = 8). A checker separate from the generator verifies a complete root-preserving isomorphism at r_min − 1 and a non-isomorphism certificate at r_min; the 6 core cases were also computed by a separately written implementation, the other 93 only by this package's checker. Bare graphs only: nothing is claimed about methods that use species, coordinates, distances or angles, about GNNs in general, about radii as numbers of layers, or about a maximum over RCSR (the cases are a selection). No RCSR data is redistributed; the code downloads it and checks its SHA-256. No paper, priority, human review or formal proof.",
+      "release": {
+        "tag": "v1.0.0",
+        "date": "2026-10-23",
+        "commit": "e427857923563e55a9fdb8ba06cb6a5bb953cd85",
+        "github_release": "https://github.com/tkmt-lab/periodic-net-wl-tests/releases/tag/v1.0.0",
+        "version_doi": "10.5281/zenodo.23587478",
+        "concept_doi": "10.5281/zenodo.23587477",
+        "doi_status": "minted"
+      },
+      "repo_url": "https://github.com/tkmt-lab/periodic-net-wl-tests",
+      "entry_points": {
+        "agents_md": [
+          {
+            "path": "AGENTS.md",
+            "url": "https://github.com/tkmt-lab/periodic-net-wl-tests/blob/v1.0.0/AGENTS.md"
+          }
+        ],
+        "claims_json": {
+          "path": "claims.json",
+          "url": "https://github.com/tkmt-lab/periodic-net-wl-tests/blob/v1.0.0/claims.json",
+          "raw_url": "https://raw.githubusercontent.com/tkmt-lab/periodic-net-wl-tests/v1.0.0/claims.json"
+        },
+        "readme": {
+          "path": "README.md",
+          "url": "https://github.com/tkmt-lab/periodic-net-wl-tests/blob/v1.0.0/README.md"
+        },
+        "citation_cff": {
+          "path": "CITATION.cff",
+          "url": "https://github.com/tkmt-lab/periodic-net-wl-tests/blob/v1.0.0/CITATION.cff"
+        }
+      },
+      "scope": [
+        {
+          "text": "99 rooted test cases from a pinned RCSR version: r_min and stable 1-WL radius with evidence; bare graphs; RCSR data fetched by the user",
+          "lang": "en",
+          "source": "docs/releases.json"
+        }
+      ],
+      "not_claimed": [
+        {
+          "text": "Methods using species/coordinates/distances, GNNs in general, a database-wide maximum, priority",
+          "lang": "en",
+          "source": "docs/releases.json"
+        },
+        {
+          "text": "anything about graph neural networks in general; no model was trained or tested",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "that a ball radius, or r_WL - r_min, is a number of GNN layers",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "anything about models that use species, coordinates, distances, angles or periodic labels",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "a maximum of r_min, r_WL or r_WL - r_min over the RCSR database; the 99 cases are a selection",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "that the graphs are the structures intended by the RCSR authors, beyond the stated source models",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "that nets whose balls agree up to some radius are the same net",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "a new isomorphism algorithm, a new concept, or priority",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "independent checking of the 93 non-core cases",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "a complete search for earlier tables of this kind (the Blatov-Proserpio 2009 supplementary files, the ToposPro TTD collections and the later literature were not checked in full)",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "human expert review",
+          "lang": "en",
+          "source": "claims.json"
+        }
+      ],
+      "scope_flags": {
+        "human_expert_review": false,
+        "formal_proof": false,
+        "independent_check_beyond_core": false,
+        "statement_about_gnns_in_general": false,
+        "radius_equals_gnn_layers": false,
+        "models_with_species_or_geometry": false,
+        "database_wide_maximum": false,
+        "intended_rcsr_geometry": false,
+        "rcsr_data_redistributed": false,
+        "priority_claimed": false
+      },
+      "verification": [
+        {
+          "source": "README.md#Quick start",
+          "working_directory": ".",
+          "shell": "sh",
+          "script": "python3 -B suite.py run --work work/core --scope core   # 6 cases, about 1 s plus the 4.5 MB download\npython3 -B suite.py run --work work/main --scope main   # 76 cases, about 20 s\npython3 -B selftest.py --verified-work work/core --out work/selftest   # 15 tests, about 25 s"
+        }
+      ],
+      "claims": [
+        {
+          "id": "tkmt-lab/periodic-net-wl-tests#core-values-independent",
+          "local_id": "core-values-independent",
+          "kind": "independent-implementation",
+          "statement": "For the six core cases of expected.json, a separately written implementation (Gemmi 0.7.5, NetworkX 3.7, Python standard library) computed the same r_min and r_WL from the same pinned 3dall.txt, and for fly V1 / ylf V1 the same trace(A^10) of the radius-4 balls (closed walks of length 10 summed over all vertices of the ball: 2,816,008 and 2,816,168).",
+          "evidence": [
+            {
+              "kind": "independent-implementation",
+              "basis": "kind=independent-implementation"
+            }
+          ],
+          "evidence_kinds": [
+            "independent-implementation"
+          ],
+          "scope": "the independent team shared the definitions, the input and a description of the coordinate handling, but not the code or results; it built tsa/tsg without the ARC file",
+          "reproduce": "python3 -B suite.py run --work work/core --scope core (this package; the independent code is not included)",
+          "numbers": {
+            "scope": "core"
+          },
+          "evidence_files": [
+            "expected.json",
+            "VERIFICATION-RECORD.md"
+          ]
+        },
+        {
+          "id": "tkmt-lab/periodic-net-wl-tests#main-values",
+          "local_id": "main-values",
+          "kind": "finite-computation",
+          "statement": "For each case in scope main, on the graphs built from the pinned 3dall.txt under the stated source models: the rooted balls of radius r_min - 1 are isomorphic (complete root-preserving map checked), the balls of radius r_min are not (certificate checked), and stable 1-WL with initial colours (distance from root, degree in ball) first separates the balls at radius r_WL (recomputed at every radius from 1 to r_WL).",
+          "evidence": [
+            {
+              "kind": "finite-computation",
+              "basis": "kind=finite-computation"
+            }
+          ],
+          "evidence_kinds": [
+            "finite-computation"
+          ],
+          "scope": "outside the six core cases, checked only by this package; the checker does not import the generator but shares source_io.py (input handling, record parser, source-model definitions) with it and was written by the same team",
+          "reproduce": "python3 -B suite.py run --work work/main --scope main",
+          "numbers": {
+            "scope": "main",
+            "r_WL_greater_than_r_min": 74
+          },
+          "evidence_files": [
+            "expected.json",
+            "suite.py",
+            "verify_run.py",
+            "source_check.py",
+            "core_check.py",
+            "finite_check.py"
+          ]
+        },
+        {
+          "id": "tkmt-lab/periodic-net-wl-tests#all-values",
+          "local_id": "all-values",
+          "kind": "finite-computation",
+          "statement": "The same statement as main-values holds for all 99 cases of expected.json when the optional RCSRnets.arc is supplied for nets whose coordinates do not give a graph under the source models. In 97 cases r_WL > r_min; the largest difference r_WL - r_min among the 99 is 4 (tsa V1 / tsg V3, r_min = 4, r_WL = 8).",
+          "evidence": [
+            {
+              "kind": "finite-computation",
+              "basis": "kind=finite-computation"
+            }
+          ],
+          "evidence_kinds": [
+            "finite-computation"
+          ],
+          "scope": "graphs from the ARC file are matched to the 3dall.txt record by net name and weighted 10-shell coordination sequences; an RCSR orbit is a root only if its 10-shell sequence is unique in the record, and the root is the first ARC vertex with that sequence, which is assumed, not proved, to lie in that orbit; 10 of the 99 cases used such a graph in our runs; this scope is not run in CI",
+          "reproduce": "python3 -B suite.py run --work work/all --scope all --with-arc",
+          "numbers": {
+            "scope": "all",
+            "r_WL_greater_than_r_min": 97,
+            "largest_difference": 4
+          },
+          "evidence_files": [
+            "expected.json",
+            "suite.py",
+            "verify_run.py",
+            "source_check.py",
+            "core_check.py",
+            "finite_check.py"
+          ]
+        },
+        {
+          "id": "tkmt-lab/periodic-net-wl-tests#checker-rejects-corruption",
+          "local_id": "checker-rejects-corruption",
+          "kind": "finite-computation",
+          "statement": "selftest.py runs 15 tests against a verified core work folder. Twelve are rejection tests: corrupted input bytes, graph, isomorphism, walk count, WL sequence, schema and expected values, a removed certificate, a missing branch of a refutation tree (on two small hand-made graphs), a time limit, a simulated memory error, and a report path that would overwrite the input are each rejected with the documented exit code. Three runs must pass: a re-check of the core folder, a run without network from a local file, and a run of scope main from a copy of only the manifest files.",
+          "evidence": [
+            {
+              "kind": "finite-computation",
+              "basis": "kind=finite-computation"
+            }
+          ],
+          "evidence_kinds": [
+            "finite-computation"
+          ],
+          "scope": "tests written by the same team as the checker; they find faults in the code, they do not establish independence",
+          "reproduce": "python3 -B selftest.py --verified-work work/core --out work/selftest",
+          "numbers": {
+            "scope": "core",
+            "tests": 15
+          },
+          "evidence_files": [
+            "selftest.py",
+            "manifest.json"
+          ]
+        },
+        {
+          "id": "tkmt-lab/periodic-net-wl-tests#wl-initial-colours",
+          "local_id": "wl-initial-colours",
+          "kind": "prose",
+          "statement": "On a rooted ball, 1-WL started from (distance from root, degree in ball) and 1-WL started with only the root coloured reach the same stable partition, so the independent check (root only) and this package measure the same r_WL.",
+          "evidence": [
+            {
+              "kind": "prose-proof",
+              "basis": "kind=prose"
+            }
+          ],
+          "evidence_kinds": [
+            "prose-proof"
+          ],
+          "reproduce": "not machine-checked; the independent team also ran both initialisations for ben/cat, tsa/tsg and acl/nih and found the same results",
+          "evidence_files": [
+            "README.md"
           ]
         }
       ]

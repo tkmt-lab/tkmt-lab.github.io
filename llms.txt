@@ -1,6 +1,6 @@
 # tkmt-lab — research lab of Tatsuhiko Takimoto
 
-> Independent research in mathematics and science with AI teams. The first results are on fullerene graphs; later work covers Bell inequalities, analogue Hawking radiation, epidemic-model identifiability and Heesch numbers of polyforms. Each result is released with a paper, a Lean 4 formalization where available, verification data, and a machine-readable claim list stating what has and has not been checked.
+> Independent research in mathematics and science with AI teams. The first results are on fullerene graphs; later work covers Bell inequalities, analogue Hawking radiation, epidemic-model identifiability and Heesch numbers of polyforms. Each paper is released with a Lean 4 formalization where available, verification data, and a machine-readable claim list stating what has and has not been checked. Checked data sets and tools released without a paper are listed under Data & tools.
 
 ## Works
 
@@ -13,6 +13,10 @@
 - [Global identifiability of a behavioral SIR model](https://github.com/tkmt-lab/behavioral-sir-identifiability): for S' = −βSI/(1+αI)^k, I' = βSI/(1+αI)^k − γI, R' = γI with a fixed known integer k ≥ 2, observed through I(t) with known total population, α, β, γ and S(0), I(0), R(0) are generically globally identifiable — the integer-exponent case of Conjecture 2 of Pant, Saucedo and Pogudin. Prose proof read by two AI reviewers, with exact computer-algebra checks for k = 1..12; no Lean proof or human peer review; non-integer or unknown k and noisy data not covered. Start with AGENTS.md; claims in claims.json. Current release: tag v1.0.0; Zenodo doi:10.5281/zenodo.23553806 (all versions).
 - [Heesch number certificates](https://github.com/tkmt-lab/heesch-certificates): for a fixed selection of 3,964 polyominoes, polyhexes and polyiamonds from C. S. Kaplan's tables, every Heesch number (hole-free Hc and outer-holes Hh) equals Kaplan's value and comes with checkable evidence: 6,574 corona witnesses accepted by two geometric checkers (lower bounds) and 5,019 unsatisfiability proofs accepted by drat-trim (upper bounds). Soundness of the SAT encoding on the square, hexagonal and triangular grids is proved in Lean 4 (standard axioms only; Comparator, six kernel runs); the checked CNFs equal the Lean encoding up to renaming by a recorded finite comparison. Also: maximal-corona counts for 22 shapes by two separately written implementations, and a restricted search of 3,442 polyominoes with 20-28 cells that found no finite Hh = 4. The DRAT proofs are checked outside Lean; outer-layer counts have no certificate; the search is not exhaustive; only the listed shapes are covered; no priority or human peer review is claimed. Start with AGENTS.md; claims in claims.json. Current release: tag v1.0.0; Zenodo doi:10.5281/zenodo.23572882 (all versions).
 
+## Data & tools
+
+- [Rooted periodic-net identification tests (RCSR, 1-WL)](https://github.com/tkmt-lab/periodic-net-wl-tests): 99 test cases built from a pinned RCSR-content commit, each a pair of nets with a root vertex in each. Each case records r_min, the smallest radius at which the two rooted balls (all vertices within r edges of the root and the edges between them) are not isomorphic, and r_WL, the smallest radius at which stable 1-WL colour refinement, with initial colours (distance from root, degree in ball), separates them. In 97 cases r_WL > r_min; the largest gap is 4 (tsa V1 / tsg V3: r_min = 4, r_WL = 8). A checker separate from the generator verifies a complete root-preserving isomorphism at r_min − 1 and a non-isomorphism certificate at r_min; the 6 core cases were also computed by a separately written implementation, the other 93 only by this package's checker. Bare graphs only: nothing is claimed about methods that use species, coordinates, distances or angles, about GNNs in general, about radii as numbers of layers, or about a maximum over RCSR (the cases are a selection). No RCSR data is redistributed; the code downloads it and checks its SHA-256. No paper, priority, human review or formal proof. Start with AGENTS.md; claims in claims.json. Current release: tag v1.0.0; Zenodo doi:10.5281/zenodo.23587477 (all versions).
+
 ## Built on
 
 - The question: linear generalized Stone–Wales paths as defined by A. Bille, V. Buchstaber and E. Spodarev ("Some open mathematical problems on fullerenes", 2024/2025).
@@ -23,8 +27,9 @@
 - For the Hawking work: the dispersive analogue-gravity literature, in particular S. Corley and T. Jacobson; W. G. Unruh and R. Schützhold; J. Macher, A. Coutant, S. Finazzi and R. Parentani; U. Leonhardt and S. Robertson; and F. Del Porro, S. Liberati and M. Schneider's effective-horizon result.
 - For the epidemic-model work: B. Pant, O. Saucedo and G. Pogudin's question and conjecture; A. Ovchinnikov, G. Pogudin and P. Thompson, and H. Hong, A. Ovchinnikov, G. Pogudin and C. Yap on differential-algebraic identifiability.
 - For the Heesch work: H. Heesch's problem; C. S. Kaplan's Heesch numbers of unmarked polyforms, its SAT formulation, dataset and heesch-sat software; C. Mann's survey and C. Mann and B. C. Thomas's computations; A. Fontaine's and B. Bašić's constructions; the Layr-Labs/Eigen Heesch challenge; drat-trim, CaDiCaL, Lingeling, Glucose, PySAT and C. Sinz's sequential counter; C. Codel, J. Avigad and M. Heule's verified SAT encodings.
+- For the periodic-net tests: the RCSR database (M. O'Keeffe, M. A. Peskov, S. J. Ramsden and O. M. Yaghi) and the researchers who first described each net; V. A. Blatov and D. M. Proserpio on comparing nets by growing coordination shells; S. N. Pozdnyakov and M. Ceriotti on WL counterexamples for point clouds; O. Delgado-Friedrichs's Gavrog space-group table.
 - Lean 4, mathlib, Comparator and independent Lean kernels.
-- Full citations are in each paper.
+- Full citations are in each paper or repository.
 
 ## Other work
 

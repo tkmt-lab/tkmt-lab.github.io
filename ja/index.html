@@ -726,6 +726,81 @@
     <p class="note">充足不能の証明は、Lean の外で drat-trim が確かめたものです。確かめた式のファイルと Lean の符号化が一致することも、Lean の証明ではなく、記録した有限の計算によります。いちばん外の層の数え上げには証明書がなく、探索は Hh = 4 のポリオミノがないことを示すものではありません。対象は挙げた形だけです。最初の結果だとは主張しません。人間の査読もまだです。証明のファイル（25 GB）は付けていませんが、式は 1 バイトも違わずに作り直せ、CI が一部を確かめ直します。</p>
   </div>
 
+  <h2>データと道具</h2>
+  <p>論文ではありませんが、確かめたうえで公開したデータと道具です。それぞれにリポジトリと DOI があり、主張することと主張しないことを書いています。</p>
+  <div class="work">
+    <div class="num">データと道具 · 2026</div>
+    <div class="t">周期的なネットの根つき識別テスト（RCSR、1-WL）</div>
+    <div class="tag">結晶のネットを、選んだ頂点からどこまで見れば二つの違いが分かるか。1-WL の色の細分は、それよりどれだけ遠くまで見ないと気づかないか。</div>
+    <p class="plain">結晶のネットは、結晶の中で原子や部品がどうつながっているかを表す周期的なグラフで、RCSR というデータベースに集められています。テストの一件は、二つのネットと、それぞれで選んだ根の頂点の組です。半径 r の球とは、根から辺を r 本以内でたどれる頂点と、そのあいだのすべての辺のことです。各テストには二つの半径を記録しています。r_min は二つの球が同型でなくなる最小の r、r_WL は、1-WL の色の細分（colour refinement）を色が変わらなくなるまで続けたとき、二つの球を見分ける最小の r です。テストは 99 件あります。そのうち 97 件では r_WL が r_min より大きく、球はもう違うのに、色の細分にはまだその違いが見えていません。差がいちばん大きいのは tsa V1 と tsg V3 の 4 です（r_min = 4、r_WL = 8）。各テストについて、生成のプログラムとは別に書いた検査のプログラムがグラフを作り直し、半径 r_min − 1 で根を保つ完全な同型写像があることと、半径 r_min で同型でないことの証明書を確かめます。中心の 6 件は、別に書いた実装でも同じ値になりました。</p>
+    <p class="plain">グラフの同型判定の手法や、メッセージパッシングの表現力を、RCSR のネットから作ったグラフで試す人のためのテストです。入力は頂点・辺・根だけのグラフです。原子の種類・座標・距離・角度も使う手法は入力が違うので、このテストからは何も言えません。</p>
+    <figure><svg viewBox="0 0 420 410" role="img" aria-label="r_min と r_WL の組ごとのテストの数" style="width:100%;max-width:440px;height:auto;display:block">
+<line x1="64" y1="14" x2="64" y2="350" stroke="var(--line)" stroke-width="1"/>
+<line x1="112" y1="14" x2="112" y2="350" stroke="var(--line)" stroke-width="1"/>
+<line x1="160" y1="14" x2="160" y2="350" stroke="var(--line)" stroke-width="1"/>
+<line x1="208" y1="14" x2="208" y2="350" stroke="var(--line)" stroke-width="1"/>
+<line x1="256" y1="14" x2="256" y2="350" stroke="var(--line)" stroke-width="1"/>
+<line x1="304" y1="14" x2="304" y2="350" stroke="var(--line)" stroke-width="1"/>
+<line x1="64" y1="350" x2="304" y2="350" stroke="var(--line)" stroke-width="1"/>
+<line x1="64" y1="302" x2="304" y2="302" stroke="var(--line)" stroke-width="1"/>
+<line x1="64" y1="254" x2="304" y2="254" stroke="var(--line)" stroke-width="1"/>
+<line x1="64" y1="206" x2="304" y2="206" stroke="var(--line)" stroke-width="1"/>
+<line x1="64" y1="158" x2="304" y2="158" stroke="var(--line)" stroke-width="1"/>
+<line x1="64" y1="110" x2="304" y2="110" stroke="var(--line)" stroke-width="1"/>
+<line x1="64" y1="62" x2="304" y2="62" stroke="var(--line)" stroke-width="1"/>
+<line x1="64" y1="14" x2="304" y2="14" stroke="var(--line)" stroke-width="1"/>
+<line x1="112" y1="350" x2="304" y2="158" stroke="var(--muted)" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="308" y="170" font-size="10" fill="var(--muted)">差なし</text>
+<circle cx="88" cy="326" r="7.2" fill="var(--fig-yes)" fill-opacity="0.45"/>
+<text x="97.2" y="320.8" font-size="10" fill="var(--fg)">2</text>
+<circle cx="136" cy="326" r="6" fill="var(--fig-np)"/>
+<text x="144" y="322" font-size="10" fill="var(--fg)">1</text>
+<circle cx="136" cy="278" r="12.4" fill="var(--fig-yes)" fill-opacity="0.45"/>
+<text x="136" y="282" font-size="11" fill="var(--fg)" text-anchor="middle">10</text>
+<circle cx="136" cy="230" r="11.4" fill="var(--fig-yes)" fill-opacity="0.45"/>
+<text x="136" y="234" font-size="11" fill="var(--fg)" text-anchor="middle">8</text>
+<circle cx="136" cy="182" r="7.2" fill="var(--fig-yes)" fill-opacity="0.45"/>
+<text x="145.2" y="176.8" font-size="10" fill="var(--fg)">2</text>
+<circle cx="184" cy="230" r="11.9" fill="var(--fig-yes)" fill-opacity="0.45"/>
+<text x="184" y="234" font-size="11" fill="var(--fg)" text-anchor="middle">9</text>
+<circle cx="184" cy="182" r="10.2" fill="var(--fig-yes)" fill-opacity="0.45"/>
+<text x="184" y="186" font-size="11" fill="var(--fg)" text-anchor="middle">6</text>
+<circle cx="184" cy="134" r="6" fill="var(--fig-yes)" fill-opacity="0.45"/>
+<text x="192" y="130" font-size="10" fill="var(--fg)">1</text>
+<circle cx="232" cy="230" r="6" fill="var(--fig-np)"/>
+<text x="240" y="226" font-size="10" fill="var(--fg)">1</text>
+<circle cx="232" cy="182" r="12.8" fill="var(--fig-yes)" fill-opacity="0.45"/>
+<text x="232" y="186" font-size="11" fill="var(--fg)" text-anchor="middle">11</text>
+<circle cx="232" cy="134" r="21" fill="var(--fig-yes)" fill-opacity="0.45"/>
+<text x="232" y="138" font-size="11" fill="var(--fg)" text-anchor="middle">37</text>
+<circle cx="232" cy="86" r="6" fill="var(--fig-yes)" fill-opacity="0.45"/>
+<text x="240" y="82" font-size="10" fill="var(--fg)">1</text>
+<circle cx="232" cy="38" r="6" fill="var(--fig-no)"/>
+<circle cx="280" cy="134" r="11.4" fill="var(--fig-yes)" fill-opacity="0.45"/>
+<text x="280" y="138" font-size="11" fill="var(--fg)" text-anchor="middle">8</text>
+<circle cx="280" cy="86" r="6" fill="var(--fig-yes)" fill-opacity="0.45"/>
+<text x="288" y="82" font-size="10" fill="var(--fg)">1</text>
+<text x="244" y="42" font-size="11" fill="var(--fg)">tsa V1 / tsg V3</text>
+<text x="88" y="364" font-size="10" fill="var(--muted)" text-anchor="middle">1</text>
+<text x="136" y="364" font-size="10" fill="var(--muted)" text-anchor="middle">2</text>
+<text x="184" y="364" font-size="10" fill="var(--muted)" text-anchor="middle">3</text>
+<text x="232" y="364" font-size="10" fill="var(--muted)" text-anchor="middle">4</text>
+<text x="280" y="364" font-size="10" fill="var(--muted)" text-anchor="middle">5</text>
+<text x="56" y="330" font-size="10" fill="var(--muted)" text-anchor="end">2</text>
+<text x="56" y="282" font-size="10" fill="var(--muted)" text-anchor="end">3</text>
+<text x="56" y="234" font-size="10" fill="var(--muted)" text-anchor="end">4</text>
+<text x="56" y="186" font-size="10" fill="var(--muted)" text-anchor="end">5</text>
+<text x="56" y="138" font-size="10" fill="var(--muted)" text-anchor="end">6</text>
+<text x="56" y="90" font-size="10" fill="var(--muted)" text-anchor="end">7</text>
+<text x="56" y="42" font-size="10" fill="var(--muted)" text-anchor="end">8</text>
+<text x="184" y="382" font-size="11" fill="var(--fg)" text-anchor="middle"><tspan font-style="italic">r</tspan><tspan font-size="8" dy="3">min</tspan><tspan dy="-3">（球が初めて違う半径）</tspan></text>
+<text transform="translate(16 182) rotate(-90)" font-size="11" fill="var(--fg)" text-anchor="middle"><tspan font-style="italic">r</tspan><tspan font-size="8" dy="3">WL</tspan><tspan dy="-3">（1-WL が初めて見分ける半径）</tspan></text>
+<text x="64" y="402" font-size="10" fill="var(--muted)">円の面積 = テストの数</text>
+</svg><figcaption>99 件のテストを r_min と r_WL の組で数えたもので、円の面積がテストの数です。r_WL = r_min の対角線上にあるのは 2 件（灰色）だけで、差がいちばん大きいのは tsa V1 / tsg V3（オレンジ、r_min = 4、r_WL = 8）です。</figcaption></figure>
+    <div class="links"><a href="https://github.com/tkmt-lab/periodic-net-wl-tests">リポジトリ</a> · <a href="https://doi.org/10.5281/zenodo.23587477">doi:10.5281/zenodo.23587477</a></div>
+    <p class="note">固定した版の RCSR にライセンスや再配布の条件が見つからなかったので、RCSR のデータは同梱していません。プログラムが固定した commit から RCSR のファイルを取得し、SHA-256 を確かめます。別の実装で確かめたのは中心の 6 件だけです。99 件は選んだもので、RCSR 全体での最大値ではありません。グラフニューラルネットワーク一般については何も主張せず、半径は層の数ではありません。最初の結果だとは主張しません。人間の専門家による点検も、形式証明もありません。</p>
+  </div>
+
   <h2>どう確かめているか</h2>
   <ul>
     <li><b>形式証明</b>：Lean 4 という証明の検査系が、証明の全段階を機械で確かめます。その証明が、別の者が先に書いておいた主張文と同じことの証明であることも、Comparator という道具で確かめています。</li>
@@ -741,8 +816,8 @@
   <p>AI（OpenAI の Codex と Anthropic の Claude Code）が、探索、独立な検証、文献の調査、形式化を、別々のチームとして担っています。私（滝本竜彦）が方向を決め、判断し、公開するものとその限界の書き方に責任を持ちます。AI は著者に入れていません。</p>
 
   <h2>元になった研究への感謝</h2>
-  <p>これらの結果は、この分野を切り開いてきた研究者の方々の仕事の上にあります。問いは、A. Bille、V. Buchstaber、E. Spodarev による未解決問題の一覧から生まれました。調べた形は、M. Goldberg と H. S. M. Coxeter の名を冠した構成と、それを広げた M. Dutour Sikirić と M. Deza の仕事、そして J. E. Graver の目録によるものです。K. Kutnar と D. Marušič によるフラーレンの辺連結性の研究、J. R. Büchi、C. C. Elgot、B. A. Trakhtenbrot による論理と有限オートマトンを結ぶ定理、Lean 4 と mathlib、Comparator と独立な検査器を作った方々の仕事も使わせていただきました。Bell 不等式の仕事は、R. Gill の問いと、C. Staufenbiel が公開した面のリストと道具、その土台になった S. Lörwald と G. Reinelt の PANDA の上にあります。分散のある Hawking 放射の仕事は、W. G. Unruh の音のブラックホールの考えと、S. Corley と T. Jacobson、W. G. Unruh と R. Schützhold、J. Macher、A. Coutant、S. Finazzi、R. Parentani、U. Leonhardt と S. Robertson、Y. Himemoto と T. Tanaka、A. Moreno-Ruiz と D. Bermudez、A. Coutant と S. Weinfurtner、そして比べる相手とした有効地平線の結果を出した F. Del Porro、S. Liberati、M. Schneider の仕事の上にあります。感染症のモデルの仕事は、B. Pant、O. Saucedo、G. Pogudin の問いと予想、そして識別可能性の微分代数の結果を築いた A. Ovchinnikov、G. Pogudin、P. Thompson と、H. Hong、A. Ovchinnikov、G. Pogudin、C. Yap の仕事の上にあります。Heesch 数の仕事は、H. Heesch の問題と、C. S. Kaplan の研究（すべての層をまとめた SAT による定式化、データ、heesch-sat のソフトウェア）の上にあります。問い、Hc と Hh の定義、調べた形、比べた値は、すべてそこから来ています。C. Mann の解説と、C. Mann と B. C. Thomas による辺に印のあるポリフォームの計算、A. Fontaine と B. Bašić の構成、Heesch 数に初めて確かめられる証明書を付けた Layr-Labs/Eigen の Heesch challenge とその参加者の方々、N. Wetzler、M. Heule、W. Hunt の drat-trim、A. Biere の CaDiCaL と Lingeling、G. Audemard と L. Simon の Glucose、A. Ignatiev、A. Morgado、J. Marques-Silva の PySAT、C. Sinz の逐次カウンタ、そして形式化の手本にした C. Codel、J. Avigad、M. Heule の検証された SAT 符号化と、B. Subercaseaux らによる空の六角形の数の検証の仕事も使わせていただきました。心から感謝します。この小さな仕事が、この分野にわずかでも新しいものを付け加えられたなら幸いです。</p>
-  <p class="muted">出典は各論文にすべて挙げています。</p>
+  <p>これらの結果は、この分野を切り開いてきた研究者の方々の仕事の上にあります。問いは、A. Bille、V. Buchstaber、E. Spodarev による未解決問題の一覧から生まれました。調べた形は、M. Goldberg と H. S. M. Coxeter の名を冠した構成と、それを広げた M. Dutour Sikirić と M. Deza の仕事、そして J. E. Graver の目録によるものです。K. Kutnar と D. Marušič によるフラーレンの辺連結性の研究、J. R. Büchi、C. C. Elgot、B. A. Trakhtenbrot による論理と有限オートマトンを結ぶ定理、Lean 4 と mathlib、Comparator と独立な検査器を作った方々の仕事も使わせていただきました。Bell 不等式の仕事は、R. Gill の問いと、C. Staufenbiel が公開した面のリストと道具、その土台になった S. Lörwald と G. Reinelt の PANDA の上にあります。分散のある Hawking 放射の仕事は、W. G. Unruh の音のブラックホールの考えと、S. Corley と T. Jacobson、W. G. Unruh と R. Schützhold、J. Macher、A. Coutant、S. Finazzi、R. Parentani、U. Leonhardt と S. Robertson、Y. Himemoto と T. Tanaka、A. Moreno-Ruiz と D. Bermudez、A. Coutant と S. Weinfurtner、そして比べる相手とした有効地平線の結果を出した F. Del Porro、S. Liberati、M. Schneider の仕事の上にあります。感染症のモデルの仕事は、B. Pant、O. Saucedo、G. Pogudin の問いと予想、そして識別可能性の微分代数の結果を築いた A. Ovchinnikov、G. Pogudin、P. Thompson と、H. Hong、A. Ovchinnikov、G. Pogudin、C. Yap の仕事の上にあります。Heesch 数の仕事は、H. Heesch の問題と、C. S. Kaplan の研究（すべての層をまとめた SAT による定式化、データ、heesch-sat のソフトウェア）の上にあります。問い、Hc と Hh の定義、調べた形、比べた値は、すべてそこから来ています。C. Mann の解説と、C. Mann と B. C. Thomas による辺に印のあるポリフォームの計算、A. Fontaine と B. Bašić の構成、Heesch 数に初めて確かめられる証明書を付けた Layr-Labs/Eigen の Heesch challenge とその参加者の方々、N. Wetzler、M. Heule、W. Hunt の drat-trim、A. Biere の CaDiCaL と Lingeling、G. Audemard と L. Simon の Glucose、A. Ignatiev、A. Morgado、J. Marques-Silva の PySAT、C. Sinz の逐次カウンタ、そして形式化の手本にした C. Codel、J. Avigad、M. Heule の検証された SAT 符号化と、B. Subercaseaux らによる空の六角形の数の検証の仕事も使わせていただきました。結晶のネットの識別テストは、M. O'Keeffe、M. A. Peskov、S. J. Ramsden、O. M. Yaghi の RCSR（Reticular Chemistry Structure Resource）と、それぞれのネットを最初に記述した研究者の方々の仕事の上にあります。使ったネット、頂点の軌道、座標は、すべてそこから来ています。成長する配位殻をグラフとして比べ、どの殻まで一致するかを測る考えは V. A. Blatov と D. M. Proserpio によるもので、r_min はこの種の測定です。周期的なものを含む点群で、距離を使う WL やグラフニューラルネットワークが見分けられない組は、S. N. Pozdnyakov と M. Ceriotti が示しました（そちらは距離を使い、こちらはグラフの形だけを使います）。プログラムが読む空間群の表は、O. Delgado-Friedrichs の Gavrog のものです。心から感謝します。この小さな仕事が、この分野にわずかでも新しいものを付け加えられたなら幸いです。</p>
+  <p class="muted">出典は各論文と各リポジトリにすべて挙げています。</p>
 
   <h2>もう一つの仕事</h2>
   <p>小説家：<a href="https://tatsuhikotakimoto.com/">滝本竜彦</a></p>

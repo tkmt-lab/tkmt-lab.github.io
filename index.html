@@ -724,6 +724,81 @@
     <p class="note">The unsatisfiability proofs are checked by drat-trim, outside Lean, and the match between the checked formula files and the Lean encoding is a recorded finite computation, not a Lean proof. The outer-layer corona counts have no proof certificate, and the search does not show that no polyomino has Hh = 4. Only the listed shapes are covered. No priority is claimed, and there is no human peer review. The proofs (25 GB) are not attached; the formulas regenerate byte for byte, and the CI re-checks a sample.</p>
   </div>
 
+  <h2>Data &amp; tools</h2>
+  <p>Checked data sets and tools that are not papers, each released with a repository, a DOI and a list of what is and is not claimed.</p>
+  <div class="work">
+    <div class="num">Data and tool · 2026</div>
+    <div class="t">Rooted periodic-net identification tests (RCSR, 1-WL)</div>
+    <div class="tag">How far from a chosen vertex must you look before two crystal nets differ, and how much further must 1-WL colour refinement look before it notices?</div>
+    <p class="plain">Crystal nets are periodic graphs that describe how the atoms or building units of a crystal are linked; the RCSR database collects them. Each test case is a pair of nets with a chosen root vertex in each. For a radius r, the ball is every vertex within r edges of the root, with all edges between them. Each case records two radii: r_min, the smallest r at which the two balls are not isomorphic, and r_WL, the smallest r at which 1-WL colour refinement, run until the colours stop changing, tells them apart. There are 99 cases. In 97 of them r_WL is larger than r_min: the balls already differ, but colour refinement does not yet see it. The largest gap is 4, for tsa V1 / tsg V3 (r_min = 4, r_WL = 8). For each case, a checker written separately from the generator rebuilds the graphs and checks a complete root-preserving isomorphism at r_min − 1 and a certificate of non-isomorphism at r_min. The six core cases were also computed by a separately written implementation, with the same values.</p>
+    <p class="plain">The tests are for people who test graph-isomorphism heuristics or the expressive power of message passing on graphs built from RCSR nets. The input is the bare graph: vertices, edges and a root. Methods that also use atomic species, coordinates, distances or angles receive different input, and these tests say nothing about them.</p>
+    <figure><svg viewBox="0 0 420 410" role="img" aria-label="Number of test cases for each pair of r_min and r_WL" style="width:100%;max-width:440px;height:auto;display:block">
+<line x1="64" y1="14" x2="64" y2="350" stroke="var(--line)" stroke-width="1"/>
+<line x1="112" y1="14" x2="112" y2="350" stroke="var(--line)" stroke-width="1"/>
+<line x1="160" y1="14" x2="160" y2="350" stroke="var(--line)" stroke-width="1"/>
+<line x1="208" y1="14" x2="208" y2="350" stroke="var(--line)" stroke-width="1"/>
+<line x1="256" y1="14" x2="256" y2="350" stroke="var(--line)" stroke-width="1"/>
+<line x1="304" y1="14" x2="304" y2="350" stroke="var(--line)" stroke-width="1"/>
+<line x1="64" y1="350" x2="304" y2="350" stroke="var(--line)" stroke-width="1"/>
+<line x1="64" y1="302" x2="304" y2="302" stroke="var(--line)" stroke-width="1"/>
+<line x1="64" y1="254" x2="304" y2="254" stroke="var(--line)" stroke-width="1"/>
+<line x1="64" y1="206" x2="304" y2="206" stroke="var(--line)" stroke-width="1"/>
+<line x1="64" y1="158" x2="304" y2="158" stroke="var(--line)" stroke-width="1"/>
+<line x1="64" y1="110" x2="304" y2="110" stroke="var(--line)" stroke-width="1"/>
+<line x1="64" y1="62" x2="304" y2="62" stroke="var(--line)" stroke-width="1"/>
+<line x1="64" y1="14" x2="304" y2="14" stroke="var(--line)" stroke-width="1"/>
+<line x1="112" y1="350" x2="304" y2="158" stroke="var(--muted)" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="308" y="170" font-size="10" fill="var(--muted)">no gap</text>
+<circle cx="88" cy="326" r="7.2" fill="var(--fig-yes)" fill-opacity="0.45"/>
+<text x="97.2" y="320.8" font-size="10" fill="var(--fg)">2</text>
+<circle cx="136" cy="326" r="6" fill="var(--fig-np)"/>
+<text x="144" y="322" font-size="10" fill="var(--fg)">1</text>
+<circle cx="136" cy="278" r="12.4" fill="var(--fig-yes)" fill-opacity="0.45"/>
+<text x="136" y="282" font-size="11" fill="var(--fg)" text-anchor="middle">10</text>
+<circle cx="136" cy="230" r="11.4" fill="var(--fig-yes)" fill-opacity="0.45"/>
+<text x="136" y="234" font-size="11" fill="var(--fg)" text-anchor="middle">8</text>
+<circle cx="136" cy="182" r="7.2" fill="var(--fig-yes)" fill-opacity="0.45"/>
+<text x="145.2" y="176.8" font-size="10" fill="var(--fg)">2</text>
+<circle cx="184" cy="230" r="11.9" fill="var(--fig-yes)" fill-opacity="0.45"/>
+<text x="184" y="234" font-size="11" fill="var(--fg)" text-anchor="middle">9</text>
+<circle cx="184" cy="182" r="10.2" fill="var(--fig-yes)" fill-opacity="0.45"/>
+<text x="184" y="186" font-size="11" fill="var(--fg)" text-anchor="middle">6</text>
+<circle cx="184" cy="134" r="6" fill="var(--fig-yes)" fill-opacity="0.45"/>
+<text x="192" y="130" font-size="10" fill="var(--fg)">1</text>
+<circle cx="232" cy="230" r="6" fill="var(--fig-np)"/>
+<text x="240" y="226" font-size="10" fill="var(--fg)">1</text>
+<circle cx="232" cy="182" r="12.8" fill="var(--fig-yes)" fill-opacity="0.45"/>
+<text x="232" y="186" font-size="11" fill="var(--fg)" text-anchor="middle">11</text>
+<circle cx="232" cy="134" r="21" fill="var(--fig-yes)" fill-opacity="0.45"/>
+<text x="232" y="138" font-size="11" fill="var(--fg)" text-anchor="middle">37</text>
+<circle cx="232" cy="86" r="6" fill="var(--fig-yes)" fill-opacity="0.45"/>
+<text x="240" y="82" font-size="10" fill="var(--fg)">1</text>
+<circle cx="232" cy="38" r="6" fill="var(--fig-no)"/>
+<circle cx="280" cy="134" r="11.4" fill="var(--fig-yes)" fill-opacity="0.45"/>
+<text x="280" y="138" font-size="11" fill="var(--fg)" text-anchor="middle">8</text>
+<circle cx="280" cy="86" r="6" fill="var(--fig-yes)" fill-opacity="0.45"/>
+<text x="288" y="82" font-size="10" fill="var(--fg)">1</text>
+<text x="244" y="42" font-size="11" fill="var(--fg)">tsa V1 / tsg V3</text>
+<text x="88" y="364" font-size="10" fill="var(--muted)" text-anchor="middle">1</text>
+<text x="136" y="364" font-size="10" fill="var(--muted)" text-anchor="middle">2</text>
+<text x="184" y="364" font-size="10" fill="var(--muted)" text-anchor="middle">3</text>
+<text x="232" y="364" font-size="10" fill="var(--muted)" text-anchor="middle">4</text>
+<text x="280" y="364" font-size="10" fill="var(--muted)" text-anchor="middle">5</text>
+<text x="56" y="330" font-size="10" fill="var(--muted)" text-anchor="end">2</text>
+<text x="56" y="282" font-size="10" fill="var(--muted)" text-anchor="end">3</text>
+<text x="56" y="234" font-size="10" fill="var(--muted)" text-anchor="end">4</text>
+<text x="56" y="186" font-size="10" fill="var(--muted)" text-anchor="end">5</text>
+<text x="56" y="138" font-size="10" fill="var(--muted)" text-anchor="end">6</text>
+<text x="56" y="90" font-size="10" fill="var(--muted)" text-anchor="end">7</text>
+<text x="56" y="42" font-size="10" fill="var(--muted)" text-anchor="end">8</text>
+<text x="184" y="382" font-size="11" fill="var(--fg)" text-anchor="middle"><tspan font-style="italic">r</tspan><tspan font-size="8" dy="3">min</tspan><tspan dy="-3"> (first radius where the balls differ)</tspan></text>
+<text transform="translate(16 182) rotate(-90)" font-size="11" fill="var(--fg)" text-anchor="middle"><tspan font-style="italic">r</tspan><tspan font-size="8" dy="3">WL</tspan><tspan dy="-3"> (first radius where 1-WL sees it)</tspan></text>
+<text x="64" y="402" font-size="10" fill="var(--muted)">circle area = number of cases</text>
+</svg><figcaption>The 99 cases by r_min and r_WL, with circle area proportional to the number of cases: 2 cases (grey) lie on the diagonal r_WL = r_min, and the largest gap is tsa V1 / tsg V3 (orange), with r_min = 4 and r_WL = 8.</figcaption></figure>
+    <div class="links"><a href="https://github.com/tkmt-lab/periodic-net-wl-tests">Repository</a> · <a href="https://doi.org/10.5281/zenodo.23587477">doi:10.5281/zenodo.23587477</a> · <a href="https://github.com/tkmt-lab/periodic-net-wl-tests/blob/main/claims.json">claims.json</a> · <a href="https://github.com/tkmt-lab/periodic-net-wl-tests/actions">Checks (CI)</a></div>
+    <p class="note">No RCSR data is included, because no licence or redistribution terms were found at the pinned version: the code downloads the RCSR file from a fixed commit and checks its SHA-256. Only the six core cases were checked by a separate implementation. The 99 cases are a selection, not a maximum over RCSR. Nothing is claimed about graph neural networks in general, a radius is not a number of layers, and no priority is claimed. There is no human expert review and no formal proof.</p>
+  </div>
+
   <h2>How the work is checked</h2>
   <p>Each release keeps different kinds of evidence apart, and says which applies to each claim:</p>
   <table>
@@ -749,9 +824,10 @@
     <li>W. G. Unruh, whose sonic analogue of a black hole started the field, and the authors who developed Hawking radiation with dispersion — among them S. Corley and T. Jacobson, W. G. Unruh and R. Schützhold, J. Macher, A. Coutant, S. Finazzi and R. Parentani, U. Leonhardt and S. Robertson, Y. Himemoto and T. Tanaka, A. Moreno-Ruiz and D. Bermudez, A. Coutant and S. Weinfurtner, and F. Del Porro, S. Liberati and M. Schneider, whose effective-horizon result is our point of comparison.</li>
     <li>B. Pant, O. Saucedo and G. Pogudin, who posed the identifiability question for the behavioral SIR model and its conjecture; A. Ovchinnikov, G. Pogudin and P. Thompson, and H. Hong, A. Ovchinnikov, G. Pogudin and C. Yap, whose differential-algebra results on identifiability carry our proof.</li>
     <li>H. Heesch, who posed the problem; C. S. Kaplan, whose study of the Heesch numbers of unmarked polyforms, with its SAT formulation over all layers, its dataset and the heesch-sat software, gives the question, the definitions of Hc and Hh, the shapes and every reference value of the Heesch work; C. Mann's survey, C. Mann and B. C. Thomas's computations for edge-marked polyforms, and the constructions of A. Fontaine and B. Bašić; the Heesch challenge of Layr-Labs/Eigen and its contributors, which first attached checkable certificates to Heesch numbers; N. Wetzler, M. Heule and W. Hunt's drat-trim, A. Biere's CaDiCaL and Lingeling, G. Audemard and L. Simon's Glucose, A. Ignatiev, A. Morgado and J. Marques-Silva's PySAT, and C. Sinz's sequential counter; and the verified SAT encodings of C. Codel, J. Avigad and M. Heule and the empty-hexagon verification of B. Subercaseaux and colleagues, whose approach the formalization follows.</li>
+    <li>M. O'Keeffe, M. A. Peskov, S. J. Ramsden and O. M. Yaghi, whose Reticular Chemistry Structure Resource (RCSR) is the source of every net, vertex orbit and coordinate in the identification tests, and the researchers who first described each net; V. A. Blatov and D. M. Proserpio, who compared nets by the graphs of growing coordination shells and measured the largest shell up to which they agree (r_min is a measurement of this kind); S. N. Pozdnyakov and M. Ceriotti, who gave pairs of point clouds, including periodic ones, that distance-based WL tests and graph neural networks cannot tell apart (their setting has distances; the tests here have only graph structure); and O. Delgado-Friedrichs, whose Gavrog space-group table the code reads.</li>
     <li>The developers of Lean 4 and mathlib, and of the Comparator tool and the independent proof kernels used to check our proofs.</li>
   </ul>
-  <p>I am grateful to them, and I hope this work adds something new to the field they opened. The papers cite these and other sources in full.</p>
+  <p>I am grateful to them, and I hope this work adds something new to the field they opened. The papers and repositories cite these and other sources in full.</p>
 
   <h2>For AI readers</h2>
   <p>A plain-text index is at <a href="llms.txt">llms.txt</a>. Each repository has an <code>AGENTS.md</code> and a machine-readable <code>claims.json</code>.</p>

@@ -68,7 +68,8 @@
       "additionalProperties": false,
       "properties": {
         "id": {"type": "string", "pattern": "^tkmt-lab/[a-z0-9-]+$", "description": "Stable work id: GitHub owner/name."},
-        "title": {"type": "string", "description": "Article title as given in CITATION.cff preferred-citation."},
+        "work_type": {"enum": ["data-tool"], "description": "Present only for a work that is not a paper: 'data-tool' is a checked data set or tool released without a paper (Data & tools on the homepage). Absent means a paper."},
+        "title": {"type": "string", "description": "Article title as given in CITATION.cff preferred-citation; for a data-tool work, the CITATION.cff title of the release."},
         "title_tex": {"type": "string", "description": "The \\title argument of the article's TeX source, verbatim."},
         "paper_version": {"type": "string"},
         "packet_version": {"type": "string", "description": "Version field of claims.json."},
