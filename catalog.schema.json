@@ -117,9 +117,10 @@
         "not_claimed": {"type": "array", "items": {"$ref": "#/$defs/text"}},
         "scope_flags": {
           "type": "object",
-          "description": "The 'scope' object of claims.json, verbatim (true = covered, false = not covered/not claimed).",
+          "description": "Source scope object verbatim: keys may describe coverage, evidence provenance or a historical execution phase; false is not a global verdict. Consult source status_semantics and documentation; do not infer an undocumented phase.",
           "additionalProperties": {"type": ["boolean", "string", "integer", "array"]}
         },
+        "source_revision": {"type": "object", "required": ["ref", "commit", "matches_release"], "additionalProperties": false, "properties": {"ref": {"const": "origin/main"}, "commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"}, "matches_release": {"const": true}}},
         "status_semantics": {"type": "string"},
         "evidence_type_meaning": {"type": "object", "additionalProperties": {"type": "string"}},
         "verification": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/command"}},
@@ -135,7 +136,9 @@
         "working_directory": {"type": "string", "description": "Relative to the repository root."},
         "shell": {"enum": ["sh", "bash"]},
         "script": {"type": "string", "minLength": 1, "description": "Verbatim code block from the source."},
-        "expected_output": {"type": "string"}
+        "expected_output": {"type": "string"},
+        "expected_output_status": {"enum": ["documented-example", "not-documented-in-extracted-section"], "description": "Whether this extraction contains a documented stdout example; absence is not a successful replay."},
+        "acceptance_notes": {"type": "string", "description": "Verbatim success criteria from the same source section. A contract is not a fresh execution receipt; respect any command-specific qualification in the text."}
       }
     },
     "claim": {

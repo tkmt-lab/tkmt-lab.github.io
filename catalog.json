@@ -1,10 +1,10 @@
 {
   "$schema": "https://tkmt-lab.github.io/catalog.schema.json",
-  "version": "1.1",
-  "generated_at": "2026-10-24T04:15:47+09:00",
+  "version": "1.2",
+  "generated_at": "2026-10-24T20:41:14+09:00",
   "sources": {
     "releases": "docs/releases.json (lab research repository, updated 2026-10-24T04:05:33+09:00)",
-    "repositories": "claims.json, AGENTS.md, README.md, CITATION.cff, .zenodo.json at each repository's published main branch"
+    "repositories": "claims.json, AGENTS.md, README.md, CITATION.cff, .zenodo.json at each repository's published origin/main, required to equal its release commit; exact inputs in work.source_revision"
   },
   "lab": {
     "name": "tkmt-lab",
@@ -37,6 +37,11 @@
   "works": [
     {
       "id": "tkmt-lab/a3-gsw-classification",
+      "source_revision": {
+        "ref": "origin/main",
+        "commit": "58124b20fa4a3b19aaa62e734c2036210f7bdcf8",
+        "matches_release": true
+      },
       "title": "A two-stage classification of linear generalized Stone-Wales paths in Goldberg-Coxeter images of the dodecahedron",
       "title_tex": "A two-stage classification of linear generalized Stone--Wales paths in Goldberg--Coxeter images of the dodecahedron",
       "paper_version": "9.0",
@@ -117,13 +122,15 @@
           "source": "README.md#Re-checking the Lean proof",
           "working_directory": ".",
           "shell": "bash",
-          "script": "cd packet/formal\nlake exe cache get          # download the prebuilt mathlib\nlake build                  # build the formalization\nlake env lean Formal/A3ReleaseCheck.lean   # print axioms; fails on any non-standard axiom"
+          "script": "cd packet/formal\nlake exe cache get          # download the prebuilt mathlib\nlake build                  # build the formalization\nlake env lean Formal/A3ReleaseCheck.lean   # print axioms; fails on any non-standard axiom",
+          "expected_output_status": "not-documented-in-extracted-section"
         },
         {
           "source": "packet/AGENTS.md",
           "working_directory": "packet",
           "shell": "sh",
-          "script": "python3 -B check_closure.py\npython3 -B check_claims.py\npython3 -B check_paper.py\npython3 -B check_certificates.py"
+          "script": "python3 -B check_closure.py\npython3 -B check_claims.py\npython3 -B check_paper.py\npython3 -B check_certificates.py",
+          "expected_output_status": "not-documented-in-extracted-section"
         }
       ],
       "claims": [
@@ -2634,6 +2641,11 @@
     },
     {
       "id": "tkmt-lab/gsw-ray-periodicity",
+      "source_revision": {
+        "ref": "origin/main",
+        "commit": "8eea5994bfebdcca4865528bd7524af4064f9c16",
+        "matches_release": true
+      },
       "title": "Eventual periodicity of linear generalized Stone-Wales paths in affine fullerene families with convex lattice-face decompositions",
       "title_tex": "Eventual periodicity of linear generalized Stone--Wales paths in affine fullerene families with convex lattice-face decompositions",
       "paper_version": "6.3",
@@ -2776,13 +2788,15 @@
           "source": "README.md#Re-checking the Lean results",
           "working_directory": ".",
           "shell": "bash",
-          "script": "cd packet/formal\nlake exe cache get\nlake build Formal.Claude2FamilyRays Formal.Claude2FamilyExamples Formal.Claude2K3Sufficient Formal.ClaudeCorRays \\\n  Formal.Claude3ComparatorSolution Formal.Claude3Residue Formal.Claude4K3ComparatorSolution \\\n  Formal.Claude4C1ComparatorSolution Formal.Claude5O2ComparatorSolution Formal.Claude5D14ComparatorSolution \\\n  Formal.Claude5E10ComparatorSolution Formal.Claude7D12ComparatorSolution\nlake env lean ../../ci/Axioms.lean      # prints the axioms of 25 entry-point declarations\nlake env lean ../../ci/AxiomsD14.lean   # and of the 2 D14 declarations (separate file: the O2 and D14 proofs\n                                        # both define a helper tactic named peq, so one file cannot import both)"
+          "script": "cd packet/formal\nlake exe cache get\nlake build Formal.Claude2FamilyRays Formal.Claude2FamilyExamples Formal.Claude2K3Sufficient Formal.ClaudeCorRays \\\n  Formal.Claude3ComparatorSolution Formal.Claude3Residue Formal.Claude4K3ComparatorSolution \\\n  Formal.Claude4C1ComparatorSolution Formal.Claude5O2ComparatorSolution Formal.Claude5D14ComparatorSolution \\\n  Formal.Claude5E10ComparatorSolution Formal.Claude7D12ComparatorSolution\nlake env lean ../../ci/Axioms.lean      # prints the axioms of 25 entry-point declarations\nlake env lean ../../ci/AxiomsD14.lean   # and of the 2 D14 declarations (separate file: the O2 and D14 proofs\n                                        # both define a helper tactic named peq, so one file cannot import both)",
+          "expected_output_status": "not-documented-in-extracted-section"
         },
         {
           "source": "packet/AGENTS.md",
           "working_directory": "packet",
           "shell": "sh",
-          "script": "python3 -B check_closure.py\npython3 -B check_claims.py\npython3 -B check_paper.py\npython3 -B check_sources.py"
+          "script": "python3 -B check_closure.py\npython3 -B check_claims.py\npython3 -B check_paper.py\npython3 -B check_sources.py",
+          "expected_output_status": "not-documented-in-extracted-section"
         }
       ],
       "claims": [
@@ -4461,6 +4475,11 @@
     },
     {
       "id": "tkmt-lab/bell-facet-certificates",
+      "source_revision": {
+        "ref": "origin/main",
+        "commit": "cd1e141455cf3f5fe05a739782271201cdefe7e8",
+        "matches_release": true
+      },
       "title": "Rational two-qubit certificates for two published Bell-facet lists",
       "title_tex": "Rational two-qubit certificates for two published Bell-facet lists",
       "paper_version": "1.0",
@@ -4546,13 +4565,15 @@
           "working_directory": ".",
           "shell": "sh",
           "script": "python3 -B fetch_inputs.py --directory inputs\nmkdir -p verification-output\ngzip -dc certificates/4522.jsonl.gz | sed -n '981p' > verification-output/4522-index-980.jsonl\npython3 -B verify.py --engine independent --scenario 4522 --data inputs/4522_ncutoff100_finished.out.xz --certificates verification-output/4522-index-980.jsonl --range 980:981\npython3 -B verify.py --engine matrix --scenario 4522 --data inputs/4522_ncutoff100_finished.out.xz --certificates verification-output/4522-index-980.jsonl --range 980:981",
-          "expected_output": "{\"bell\": 1, \"checked\": 1, \"engine\": \"independent\", \"exact_values_sha256\": \"24a817b05f9c7c0e76a64e472780717241063f701bb643653b49aaf54eaa165b\", \"positivity\": 0, \"ranges\": [[980, 981]], \"scenario\": \"4522\", \"seconds\": ..., \"source_sha256\": \"1cb3ace462e6cfce0030418db759610583e452109ea45e87f308ca16423a9efa\", \"status\": \"PASS\"}\n{\"bell\": 1, \"checked\": 1, \"engine\": \"matrix\", \"exact_values_sha256\": \"24a817b05f9c7c0e76a64e472780717241063f701bb643653b49aaf54eaa165b\", \"positivity\": 0, \"ranges\": [[980, 981]], \"scenario\": \"4522\", \"seconds\": ..., \"source_sha256\": \"1cb3ace462e6cfce0030418db759610583e452109ea45e87f308ca16423a9efa\", \"status\": \"PASS\"}"
+          "expected_output": "{\"bell\": 1, \"checked\": 1, \"engine\": \"independent\", \"exact_values_sha256\": \"24a817b05f9c7c0e76a64e472780717241063f701bb643653b49aaf54eaa165b\", \"positivity\": 0, \"ranges\": [[980, 981]], \"scenario\": \"4522\", \"seconds\": ..., \"source_sha256\": \"1cb3ace462e6cfce0030418db759610583e452109ea45e87f308ca16423a9efa\", \"status\": \"PASS\"}\n{\"bell\": 1, \"checked\": 1, \"engine\": \"matrix\", \"exact_values_sha256\": \"24a817b05f9c7c0e76a64e472780717241063f701bb643653b49aaf54eaa165b\", \"positivity\": 0, \"ranges\": [[980, 981]], \"scenario\": \"4522\", \"seconds\": ..., \"source_sha256\": \"1cb3ace462e6cfce0030418db759610583e452109ea45e87f308ca16423a9efa\", \"status\": \"PASS\"}",
+          "expected_output_status": "documented-example"
         },
         {
           "source": "README.md#Check the evidence",
           "working_directory": ".",
           "shell": "sh",
-          "script": "python3 -B check_packet.py\npython3 -B fetch_inputs.py --directory inputs\npython3 -B ci_check.py --inputs inputs --output verification-output --timeout 3000\npython3 -B negative_controls.py --inputs inputs --output verification-output/negative-controls.json"
+          "script": "python3 -B check_packet.py\npython3 -B fetch_inputs.py --directory inputs\npython3 -B ci_check.py --inputs inputs --output verification-output --timeout 3000\npython3 -B negative_controls.py --inputs inputs --output verification-output/negative-controls.json",
+          "expected_output_status": "not-documented-in-extracted-section"
         }
       ],
       "claims": [
@@ -4713,6 +4734,11 @@
     },
     {
       "id": "tkmt-lab/hawking-dispersive-offset",
+      "source_revision": {
+        "ref": "origin/main",
+        "commit": "00f229f7afd38ebd67be3daa27f89dcb78436aaf",
+        "matches_release": true
+      },
       "title": "Finite-dispersion temperature corrections in stationary quartic-superluminal Hawking scattering",
       "title_tex": "Finite-dispersion temperature corrections in stationary\\newline\nquartic-superluminal Hawking scattering",
       "paper_version": "1.2",
@@ -4801,14 +4827,16 @@
           "working_directory": ".",
           "shell": "sh",
           "script": "python3 -B reproduce.py",
-          "expected_output": "{\"status\": \"PASS\", \"seconds\": ..., \"steps\": [\"1-exact-local-expansion\", \"2-zero-frequency-formula\", \"3-scattering-spot-check\", \"4-analyses-on-stored-scans\", \"5-tables-and-figures\", \"6-independent-check\"]}"
+          "expected_output": "{\"status\": \"PASS\", \"seconds\": ..., \"steps\": [\"1-exact-local-expansion\", \"2-zero-frequency-formula\", \"3-scattering-spot-check\", \"4-analyses-on-stored-scans\", \"5-tables-and-figures\", \"6-independent-check\"]}",
+          "expected_output_status": "documented-example"
         },
         {
           "source": "README.md#Check in a minute",
           "working_directory": ".",
           "shell": "sh",
           "script": "python3 -B -c \"\nimport json, sys; sys.path[:0] = ['b0', 'src']\nimport check_steps as cs\nfrom zero_mode import zero_mode\np = json.load(open('b0/blind_predictions.json'))['blind_tcub']\nfor L in (20.0, 40.0, 80.0):\n    z = zero_mode(cs.PROFILES['blind_tcub'](), L)\n    print(f\\\"{L:4.0f}  {L**2*(z['T0_over_TH']-1):.7f}  {p['b0'] + p['b1']/L**2:.7f}\\\")\n\"",
-          "expected_output": "  20  1.1350693  1.1350356\n  40  1.1339624  1.1339602\n  80  1.1336915  1.1336914"
+          "expected_output": "  20  1.1350693  1.1350356\n  40  1.1339624  1.1339602\n  80  1.1336915  1.1336914",
+          "expected_output_status": "documented-example"
         }
       ],
       "claims": [
@@ -5100,6 +5128,11 @@
     },
     {
       "id": "tkmt-lab/behavioral-sir-identifiability",
+      "source_revision": {
+        "ref": "origin/main",
+        "commit": "6691a76801a522592712e41993b6f4353decee88",
+        "matches_release": true
+      },
       "title": "Global identifiability of a behavioral SIR model for every integer saturation exponent k >= 2",
       "title_tex": "Global identifiability of a behavioral SIR model\\newline\nfor every integer saturation exponent $k\\geq2$",
       "paper_version": "1.1",
@@ -5190,13 +5223,15 @@
           "working_directory": ".",
           "shell": "sh",
           "script": "python3 -B reproduce.py",
-          "expected_output": "{\"status\": \"PASS\", \"seconds\": ..., \"steps\": [\"1-exact-elimination-k1-12\", \"2-proof-algebra\", \"3-article-algebra\", \"4-supplement-s9\"]}"
+          "expected_output": "{\"status\": \"PASS\", \"seconds\": ..., \"steps\": [\"1-exact-elimination-k1-12\", \"2-proof-algebra\", \"3-article-algebra\", \"4-supplement-s9\"]}",
+          "expected_output_status": "documented-example"
         },
         {
           "source": "README.md#Check in a minute",
           "working_directory": ".",
           "shell": "sh",
-          "script": "python3 -B -c \"\nimport sympy as sp\na,b,g,y,v,w = sp.symbols('alpha beta gamma y v w'); k = 3; u = 1 + a*y\nP = sp.Poly(sp.expand(y*u**k*w - (1-(k-1)*a*y)*u**(k-1)*v**2 + (k*a*g*y**2*u**(k-1) + b*y**2)*v + b*g*y**3), y, v, w)\nc = dict(P.terms()); al = c[(2,0,1)]/k; ga = c[(3,1,0)]/(k*(k-1)*al**2); be = c[(2,1,0)] - k*al*ga\nprint(sp.simplify(al), sp.simplify(be), sp.simplify(ga))\n\""
+          "script": "python3 -B -c \"\nimport sympy as sp\na,b,g,y,v,w = sp.symbols('alpha beta gamma y v w'); k = 3; u = 1 + a*y\nP = sp.Poly(sp.expand(y*u**k*w - (1-(k-1)*a*y)*u**(k-1)*v**2 + (k*a*g*y**2*u**(k-1) + b*y**2)*v + b*g*y**3), y, v, w)\nc = dict(P.terms()); al = c[(2,0,1)]/k; ga = c[(3,1,0)]/(k*(k-1)*al**2); be = c[(2,1,0)] - k*al*ga\nprint(sp.simplify(al), sp.simplify(be), sp.simplify(ga))\n\"",
+          "expected_output_status": "not-documented-in-extracted-section"
         }
       ],
       "claims": [
@@ -5432,6 +5467,11 @@
     },
     {
       "id": "tkmt-lab/heesch-certificates",
+      "source_revision": {
+        "ref": "origin/main",
+        "commit": "271bc8ce223a1fd641494352eb31f350e3d8bf37",
+        "matches_release": true
+      },
       "title": "Heesch numbers and maximal coronas of small polyforms with certificates and a Lean-verified SAT encoding",
       "title_tex": "Heesch numbers and maximal coronas of small polyforms\\newline\nwith certificates and a Lean-verified SAT encoding",
       "paper_version": "2.1",
@@ -5513,13 +5553,15 @@
           "working_directory": ".",
           "shell": "sh",
           "script": "python3 -B check_packet.py              # file list, hashes, claims, records cross-checked, privacy (seconds)\npython3 -B checkers/check_all_witnesses.py   # both geometric checkers on all 6,574 witnesses (~10 s)",
-          "expected_output": "{\"status\": \"PASS\", \"shapes\": 3964, \"witnesses_first_checker\": 6574, \"witnesses_second_checker\": 6574, ...}"
+          "expected_output": "{\"status\": \"PASS\", \"shapes\": 3964, \"witnesses_first_checker\": 6574, \"witnesses_second_checker\": 6574, ...}",
+          "expected_output_status": "documented-example"
         },
         {
           "source": "README.md#Check in a minute",
           "working_directory": ".",
           "shell": "sh",
-          "script": "sh tools/build_drat_trim.sh                  # clones drat-trim at the pinned commit and compiles it\npython3 -B recheck_certificates.py --name omino_10omino_0up_0000_0"
+          "script": "sh tools/build_drat_trim.sh                  # clones drat-trim at the pinned commit and compiles it\npython3 -B recheck_certificates.py --name omino_10omino_0up_0000_0",
+          "expected_output_status": "not-documented-in-extracted-section"
         }
       ],
       "claims": [
@@ -6013,6 +6055,11 @@
     },
     {
       "id": "tkmt-lab/minimal-terms-quadratic-mass-action",
+      "source_revision": {
+        "ref": "origin/main",
+        "commit": "dfb36e121ec0b014e495abd07f870ea76503fbc4",
+        "matches_release": true
+      },
       "title": "Term-minimal realizations of nine line-type configurations in quadratic mass-action systems",
       "title_tex": "Term-minimal realizations of nine line-type configurations\\protect\\\\in quadratic mass-action systems",
       "paper_version": "draft v1",
@@ -6133,7 +6180,9 @@
           "source": "README.md#Run the checks",
           "working_directory": ".",
           "shell": "sh",
-          "script": "python3 -B checkers/verify.py --output work/verification.json\npython3 -B tools/regenerate.py --check"
+          "script": "python3 -B checkers/verify.py --output work/verification.json\npython3 -B tools/regenerate.py --check",
+          "expected_output_status": "not-documented-in-extracted-section",
+          "acceptance_notes": "Success means exit code 0 and a JSON summary with `\"status\": \"PASS\"`.\nThe detailed output records nine paper witnesses checked by both implementations,\nnine separately constructed witnesses plus eleven source and boundary controls,\ntwo excluded controls, the lower-bound calculations, and seventeen rejected\ncorruptions. Optimized Python (`-O` or `PYTHONOPTIMIZE`) is refused because the\ninherited checkers use assertions. The check process has a 120-second CPU limit."
         }
       ],
       "claims": [
@@ -6253,6 +6302,11 @@
     },
     {
       "id": "tkmt-lab/periodic-net-wl-tests",
+      "source_revision": {
+        "ref": "origin/main",
+        "commit": "e427857923563e55a9fdb8ba06cb6a5bb953cd85",
+        "matches_release": true
+      },
       "work_type": "data-tool",
       "title": "Rooted periodic-net identification tests (RCSR, 1-WL)",
       "packet_version": "1.0.0",
@@ -6369,7 +6423,9 @@
           "source": "README.md#Quick start",
           "working_directory": ".",
           "shell": "sh",
-          "script": "python3 -B suite.py run --work work/core --scope core   # 6 cases, about 1 s plus the 4.5 MB download\npython3 -B suite.py run --work work/main --scope main   # 76 cases, about 20 s\npython3 -B selftest.py --verified-work work/core --out work/selftest   # 15 tests, about 25 s"
+          "script": "python3 -B suite.py run --work work/core --scope core   # 6 cases, about 1 s plus the 4.5 MB download\npython3 -B suite.py run --work work/main --scope main   # 76 cases, about 20 s\npython3 -B selftest.py --verified-work work/core --out work/selftest   # 15 tests, about 25 s",
+          "expected_output_status": "not-documented-in-extracted-section",
+          "acceptance_notes": "Success is exit code 0 and a last line with `\"exit_code\": 0`; `work/core/verification.json` then has\n`\"status\": \"PASS\"` and `\"case_counts\": {\"PASS\": 6}`. Times were measured on an Apple-silicon laptop; peak memory\nstayed below 100 MB."
         }
       ],
       "claims": [
@@ -6504,6 +6560,11 @@
     },
     {
       "id": "tkmt-lab/lean-statements",
+      "source_revision": {
+        "ref": "origin/main",
+        "commit": "b3647ee21a1fd572e8a500f2288921116dbb098d",
+        "matches_release": true
+      },
       "work_type": "data-tool",
       "statement_only": true,
       "title": "Lean statements from published papers",
@@ -6590,25 +6651,29 @@
           "source": "README.md#Build a checkout",
           "working_directory": ".",
           "shell": "sh",
-          "script": "python3 -B tools/check.py --static-only\npython3 -B tools/check_claims.py\nlake exe cache get\nlake build"
+          "script": "python3 -B tools/check.py --static-only\npython3 -B tools/check_claims.py\nlake exe cache get\nlake build",
+          "expected_output_status": "not-documented-in-extracted-section"
         },
         {
           "source": "README.md#Build a checkout",
           "working_directory": ".",
           "shell": "sh",
-          "script": "python3 -B tools/build.py --evidence .build/build-check"
+          "script": "python3 -B tools/build.py --evidence .build/build-check",
+          "expected_output_status": "not-documented-in-extracted-section"
         },
         {
           "source": "README.md#Check correspondence with the source",
           "working_directory": ".",
           "shell": "sh",
-          "script": "python3 -B tools/check.py --problem D12 --evidence .build/d12-check"
+          "script": "python3 -B tools/check.py --problem D12 --evidence .build/d12-check",
+          "expected_output_status": "not-documented-in-extracted-section"
         },
         {
           "source": "README.md#Check correspondence with the source",
           "working_directory": ".",
           "shell": "sh",
-          "script": "python3 -B tools/check.py --lean-memory-mib 4096 --rss-limit-mib 4608"
+          "script": "python3 -B tools/check.py --lean-memory-mib 4096 --rss-limit-mib 4608",
+          "expected_output_status": "not-documented-in-extracted-section"
         }
       ],
       "claims": [
