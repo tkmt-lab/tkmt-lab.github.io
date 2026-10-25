@@ -152,6 +152,7 @@
     <ul class="index-list">
       <li><a href="#periodic-net-wl-tests"><span class="index-num" aria-hidden="true">08</span><span class="index-question">選んだ根つき結晶ネットを、色分けによる比較（1-WL）はどこまで調べると見分けられるか。</span><span class="index-field">結晶ネット</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
       <li><a href="#lean-statements"><span class="index-num" aria-hidden="true">09</span><span class="index-question">Lean の定理は何を述べ、証明はどこにあるか。</span><span class="index-field">Lean</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
+      <li><a href="#boolean-reduction-counterexamples"><span class="index-num" aria-hidden="true">10</span><span class="index-question">単純な安全の条件のもとで、ブールネットワークの変数を一つ消すとモチーフを避けるアトラクターが生まれるか。</span><span class="index-field">ブールネットワーク</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
     </ul>
   </nav>
 
@@ -1019,6 +1020,23 @@
     <p class="note">すべての証明本体を、意図して <code>by sorry</code> という未証明の仮置きにしています。検査は、元とこの主張文集の型が一致することと、属性の記録を確かめます。ビルドしても主張の真偽は確かめられず、リンク先の証明も検査しません。同じ名前空間を使うファイルがあるので、まとめて import せず一つを選んで使います。formal-conjectures の公式な一部ではなく、そこへの提出もしていません。その Lean の版と全リンターとの互換性は未確認です。</p>
   </div>
 
+  <div class="work" id="boolean-reduction-counterexamples">
+    <div class="num">データと道具 · 2026</div>
+    <h3 class="t">ブールネットワークの変数消去の反例集</h3>
+    <dl class="work-summary">
+      <div><dt>問い</dt><dd>単純に見える安全の条件を満たしても、変数を一つ消すとモチーフを避けるアトラクターが生まれることはあるか。</dd></div>
+      <div><dt>分かったこと</dt><dd>ある。非巡回の条件と、仲介・単調性の条件のそれぞれに反例があり、最小は4変数。反例は全部で三つ。</dd></div>
+      <div><dt>証拠</dt><dd>同梱の検査器が六つの例すべてを厳密に計算し直す。最小が4であることは、以前の全探索の記録による（再実行はしない）。</dd></div>
+    </dl>
+    <p class="plain">ブールネットワークは、遺伝子の働きをオン・オフのスイッチで表すモデルで、大きなモデルは変数を消して簡単にすることがよくあります。モチーフを避けるアトラクターは、よく使われる近道（最小のトラップ空間）では見つからない長期の振る舞いで、Pastva らはなぜそれがこれほど珍しいのかを問いました。この一式は、消す変数がフィードバックの輪の上になくても、また仲介・単調性の条件を満たしていても、変数を一つ消すとそれが生まれる小さなネットワークを三つ示します。座標を変えた写しと公開済みの対照二つを加えた六つの例を、簡約のソフトウェアの回帰試験の入力として使えます。</p>
+    <table aria-label="反例集の内容">
+      <caption>一式に含まれる例の数です。最小が4変数であることは、以前の全探索の保存記録によるもので、この一式は探索を再実行しません。</caption>
+      <tbody><tr><td>反例</td><td>3（E1、E2、E3）</td></tr><tr><td>対照と写し</td><td>3</td></tr><tr><td>最小の変数の数</td><td>4</td></tr></tbody>
+    </table>
+    <div class="links"><a href="https://github.com/tkmt-lab/boolean-reduction-counterexamples">リポジトリ</a> · <a href="https://github.com/tkmt-lab/boolean-reduction-counterexamples/blob/a782c11e0abf52e9808a50d1a91a9bfdf8c5428f/claims.json">主張と範囲の一覧</a> · <a href="https://doi.org/10.5281/zenodo.23636196">この版のDOI</a> · <a href="https://doi.org/10.5281/zenodo.23636195">全版の概念DOI</a> · 公開版 <a href="https://github.com/tkmt-lab/boolean-reduction-counterexamples/releases/tag/v1.0.0">v1.0.0</a> (<a href="https://github.com/tkmt-lab/boolean-reduction-counterexamples/commit/a782c11e0abf52e9808a50d1a91a9bfdf8c5428f"><code>a782c11e0abf</code></a>)</div>
+    <p class="note">変数の消去でこうしたアトラクターが生まれたり消えたりすること自体はすでに知られており、ここで選んだ例の新しさは確かめていません。二つの条件はこの研究で試した候補で、引用した著者の定理ではありません。安全の定理、辺の数の最小性、生物学的な主張はしていません。専門家による査読と形式的な証明はありません。</p>
+  </div>
+
   <h2>どう確かめているか</h2>
   <ul>
     <li><b>形式証明</b>：Lean 4 という証明の検査系が、証明の全段階を機械で確かめます。その証明が、別の者が先に書いておいた主張文と同じことの証明であることも、Comparator という道具で確かめています。論文から形式版へ移す段階で、Lean に含まれない部分も明記しています。</li>
@@ -1041,6 +1059,7 @@
   <p>Heesch 数の仕事は、H. Heesch の問題と、C. S. Kaplan の研究（すべての層をまとめた SAT による定式化、データ、heesch-sat のソフトウェア）の上にあります。問い、Hc と Hh の定義、調べた形、比べた値は、すべてそこから来ています。C. Mann の解説と、C. Mann と B. C. Thomas による辺に印のあるポリフォームの計算、A. Fontaine と B. Bašić の構成、Heesch 数に初めて確かめられる証明書を付けた Layr-Labs/Eigen の Heesch challenge とその参加者の方々、N. Wetzler、M. Heule、W. Hunt の drat-trim、A. Biere の CaDiCaL と Lingeling、G. Audemard と L. Simon の Glucose、A. Ignatiev、A. Morgado、J. Marques-Silva の PySAT、C. Sinz の逐次カウンタ、そして形式化の手本にした C. Codel、J. Avigad、M. Heule の検証された SAT 符号化と、B. Subercaseaux らによる空の六角形の数の検証の仕事も使わせていただきました。</p>
   <p>結晶のネットの識別テストは、M. O'Keeffe、M. A. Peskov、S. J. Ramsden、O. M. Yaghi の RCSR（Reticular Chemistry Structure Resource）と、それぞれのネットを最初に記述した研究者の方々の仕事の上にあります。使ったネット、頂点の軌道、座標は、すべてそこから来ています。成長する配位殻をグラフとして比べ、どの殻まで一致するかを測る考えは V. A. Blatov と D. M. Proserpio によるもので、r_min はこの種の測定です。周期的なものを含む点群で、距離を使う WL やグラフニューラルネットワークが見分けられない組は、S. N. Pozdnyakov と M. Ceriotti が示しました（そちらは距離を使い、こちらはグラフの形だけを使います）。プログラムが読む空間群の表は、O. Delgado-Friedrichs の Gavrog のものです。</p>
   <p>主張文集では、<a href="https://github.com/google-deepmind/formal-conjectures/tree/9833012f66a47cdd3a6f3eca9cb4b84e0f18a003">Formal Conjectures Authors</a> によるファイルの形式と、分類・分野・証明へのリンクを記す属性を使わせていただきました。</p>
+  <p>ブールネットワークの反例集は、モチーフを避けるアトラクターがなぜ珍しいのかを問い、対照に使った例 7・8 を示した S. Pastva、K. H. Park、O. Huvar、J. C. Rozum、R. Albert と、試した条件の元になった仲介の条件と射影の補題を示した E. Tonello と L. Paulevé の仕事に負っています。</p>
   <p>二次の質量作用系の項数の仕事は、<a href="https://arxiv.org/abs/2610.06130v1">N. Yeung と R. Erban</a> による分類と、項数をどこまで減らせるかという問いを出発点としています。幾何の枠組みは、<a href="https://www.mathnet.ru/eng/rm6840">L. S. Lyagina</a> と <a href="https://doi.org/10.1137/1020007">T. A. Newton</a> による分類と不変直線の記述に基づいています。</p>
   <p>心から感謝します。この小さな仕事が、この分野にわずかでも新しいものを付け加えられたなら幸いです。</p>
   <p class="muted">出典は各論文と各リポジトリにすべて挙げています。</p>

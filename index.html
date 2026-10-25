@@ -150,6 +150,7 @@
     <ul class="index-list">
       <li><a href="#periodic-net-wl-tests"><span class="index-num" aria-hidden="true">08</span><span class="index-question">How far must graph colour refinement (1-WL) look to distinguish selected rooted nets?</span><span class="index-field">Crystal nets</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
       <li><a href="#lean-statements"><span class="index-num" aria-hidden="true">09</span><span class="index-question">What do the Lean theorems say, and where are their proofs?</span><span class="index-field">Lean</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
+      <li><a href="#boolean-reduction-counterexamples"><span class="index-num" aria-hidden="true">10</span><span class="index-question">Can eliminating one Boolean-network variable create a motif-avoidant attractor under simple safety conditions?</span><span class="index-field">Boolean networks</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
     </ul>
   </nav>
 
@@ -1016,6 +1017,23 @@
     <p class="note">Every theorem body is an intentional <code>by sorry</code> placeholder. The checks compare the statement types with their sources and inspect the metadata. Building the collection does not establish the statements' truth or check the linked proofs. Several files reuse namespaces, so choose one rather than importing them together. This is not an official part of formal-conjectures and has not been contributed to it. Compatibility with its Lean version and full linter suite has not been checked.</p>
   </div>
 
+  <div class="work" id="boolean-reduction-counterexamples">
+    <div class="num">Data and tool · 2026</div>
+    <h3 class="t">Counterexamples for Boolean-network variable elimination</h3>
+    <dl class="work-summary">
+      <div><dt>Question</dt><dd>Can eliminating one variable create a motif-avoidant attractor even under simple-looking safety conditions?</dd></div>
+      <div><dt>Findings</dt><dd>Yes: three counterexamples, the smallest with four variables, for an acyclicity condition and a mediator-and-monotonicity condition.</dd></div>
+      <div><dt>Evidence</dt><dd>Exact recomputation of all six fixtures by the included checker; earlier enumeration records (not rerun) for the minimum of four.</dd></div>
+    </dl>
+    <p class="plain">Boolean networks model gene regulation with on/off switches, and large models are often simplified by eliminating variables. A motif-avoidant attractor is a kind of long-run behaviour that the usual shortcut (minimal trap spaces) misses; Pastva and colleagues asked why such attractors are so rare. This package gives three small networks in which eliminating one variable creates one, although the variable lies on no feedback loop or satisfies a mediator-and-monotonicity condition. With a transformed copy and two published controls, the six cases serve as regression inputs for reduction software.</p>
+    <table aria-label="Contents of the counterexample package">
+      <caption>Fixtures in the package. The minimum of four variables rests on saved records of earlier enumerations, which the package does not rerun.</caption>
+      <tbody><tr><td>Counterexamples</td><td>3 (E1, E2, E3)</td></tr><tr><td>Controls and copies</td><td>3</td></tr><tr><td>Minimum number of variables</td><td>4</td></tr></tbody>
+    </table>
+    <div class="links"><a href="https://github.com/tkmt-lab/boolean-reduction-counterexamples">Repository</a> · <a href="https://github.com/tkmt-lab/boolean-reduction-counterexamples/blob/a782c11e0abf52e9808a50d1a91a9bfdf8c5428f/claims.json">Claims and scopes</a> · <a href="https://doi.org/10.5281/zenodo.23636196">Version DOI</a> · <a href="https://doi.org/10.5281/zenodo.23636195">Concept DOI (all versions)</a> · Release <a href="https://github.com/tkmt-lab/boolean-reduction-counterexamples/releases/tag/v1.0.0">v1.0.0</a> (<a href="https://github.com/tkmt-lab/boolean-reduction-counterexamples/commit/a782c11e0abf52e9808a50d1a91a9bfdf8c5428f"><code>a782c11e0abf</code></a>)</div>
+    <p class="note">That elimination can create or remove such attractors is already known, and the novelty of these particular examples has not been established. The two conditions are exploratory candidates from this study, not theorems of the cited authors. No safety theorem, edge-minimality or biological claim is made. There is no human expert review and no formal proof.</p>
+  </div>
+
   <h2>How the work is checked</h2>
   <p>Each release keeps different kinds of evidence apart, and says which applies to each claim:</p>
   <table>
@@ -1044,6 +1062,7 @@
     <li>M. O'Keeffe, M. A. Peskov, S. J. Ramsden and O. M. Yaghi, whose Reticular Chemistry Structure Resource (RCSR) is the source of every net, vertex orbit and coordinate in the identification tests, and the researchers who first described each net; V. A. Blatov and D. M. Proserpio, who compared nets by the graphs of growing coordination shells and measured the largest shell up to which they agree (r_min is a measurement of this kind); S. N. Pozdnyakov and M. Ceriotti, who gave pairs of point clouds, including periodic ones, that distance-based WL tests and graph neural networks cannot tell apart (their setting has distances; the tests here have only graph structure); and O. Delgado-Friedrichs, whose Gavrog space-group table the code reads.</li>
     <li>For the statement collection: the <a href="https://github.com/google-deepmind/formal-conjectures/tree/9833012f66a47cdd3a6f3eca9cb4b84e0f18a003">Formal Conjectures Authors</a>, whose file format and category, subject and proof-link attributes it uses.</li>
     <li><a href="https://arxiv.org/abs/2610.06130v1">N. Yeung and R. Erban</a>, whose classification and question about reducing the number of terms led to the quadratic mass-action work; <a href="https://www.mathnet.ru/eng/rm6840">L. S. Lyagina</a> and <a href="https://doi.org/10.1137/1020007">T. A. Newton</a>, whose classifications and invariant-line descriptions provide its geometric framework.</li>
+    <li>For the Boolean-network counterexamples: S. Pastva, K. H. Park, O. Huvar, J. C. Rozum and R. Albert, who asked why motif-avoidant attractors are so rare and whose Examples 7 and 8 are the controls; and E. Tonello and L. Paulevé, whose mediator condition and projection lemma shaped the conditions tested.</li>
     <li>The developers of Lean 4 and mathlib, and of the Comparator tool and the independent proof kernels used to check our proofs.</li>
   </ul>
   <p>I am grateful to them, and I hope this work adds something new to the field they opened. The papers and repositories cite these and other sources in full.</p>

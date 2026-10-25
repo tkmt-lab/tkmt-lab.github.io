@@ -1,9 +1,9 @@
 {
   "$schema": "https://tkmt-lab.github.io/catalog.schema.json",
   "version": "1.2",
-  "generated_at": "2026-10-24T20:41:14+09:00",
+  "generated_at": "2026-10-25T16:18:09+09:00",
   "sources": {
-    "releases": "docs/releases.json (lab research repository, updated 2026-10-24T04:05:33+09:00)",
+    "releases": "docs/releases.json (lab research repository, updated 2026-10-25T16:16:04+09:00)",
     "repositories": "claims.json, AGENTS.md, README.md, CITATION.cff, .zenodo.json at each repository's published origin/main, required to equal its release commit; exact inputs in work.source_revision"
   },
   "lab": {
@@ -2656,7 +2656,7 @@
           "affiliation": "Independent researcher"
         }
       ],
-      "summary": "for fullerene families built from a fixed number of convex lattice faces with affine coordinates, existence of a literal gSW path is eventually periodic along every integer affine ray. Main theorem proved in Lean 4 (standard axioms only) for a specification with weaker hypotheses than the paper, checked with Comparator; a prose lemma connects the paper's geometric hypotheses to it. For Graver's family K3(r,s) (two caps of four triangles of side r joined by three hexagons with sides r, r, s, r, r, s) the result on every ray in r, s ≥ 1 and the closed classification (for r, s ≥ 2: a path exists iff s ≡ ±1 mod r) are Lean-proved with no prose step; the same holds for Graver's family C1 (for a, b ≥ 1: a path exists iff b = 1), for Graver's family O2 the ray result and absence of paths for t, d ≥ 2 are Lean-proved with no prose step, and so are the ray result for Graver's family D14 and the classification (r ≥ 2) and ray result for Graver's family E10. For Graver's family D12 the closed classification (for positive r, s: a path exists iff r | s−1, r | s+1 or |r−3s| = 1) and the ray result are Lean-proved (v1.10.0); two earlier computer-assisted proofs are kept as additional evidence. Lean also covers the family arithmetic.",
+      "summary": "for fullerene families built from a fixed number of convex lattice faces with affine coordinates, existence of a literal gSW path is eventually periodic along every integer affine ray. Main theorem proved in Lean 4 (standard axioms only) for a specification with weaker hypotheses than the paper, checked with Comparator; a prose lemma connects the paper's geometric hypotheses to it. For Graver's family K3(r,s) (two caps of four triangles of side r joined by three hexagons with sides r, r, s, r, r, s) the result on every ray in r, s ≥ 1 and the closed classification (for r, s ≥ 2: a path exists iff s ≡ ±1 mod r) are Lean-proved with no prose step; the same holds for Graver's family C1 (for a, b ≥ 1: a path exists iff b = 1), for Graver's family O2 the ray result and absence of paths for t, d ≥ 2 are Lean-proved with no prose step, and so are the ray result for Graver's family D14 and the classification (r ≥ 2) and ray result for Graver's family E10. For Graver's family D12 the closed classification (for positive r, s: a path exists iff r | s−1, r | s+1 or |r−3s| = 1) and the ray result are Lean-proved (v1.10.0); two earlier computer-assisted proofs are kept as additional evidence. The Lean proof was written with knowledge of those proofs and is not a third independent derivation; no human peer review is claimed. Lean also covers the family arithmetic.",
       "release": {
         "tag": "v1.10.0",
         "date": "2026-10-23",
@@ -6552,6 +6552,257 @@
             "prose-proof"
           ],
           "reproduce": "not machine-checked; the independent team also ran both initialisations for ben/cat, tsa/tsg and acl/nih and found the same results",
+          "evidence_files": [
+            "README.md"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tkmt-lab/boolean-reduction-counterexamples",
+      "source_revision": {
+        "ref": "origin/main",
+        "commit": "a782c11e0abf52e9808a50d1a91a9bfdf8c5428f",
+        "matches_release": true
+      },
+      "work_type": "data-tool",
+      "title": "Counterexamples for Boolean-network variable elimination",
+      "packet_version": "1.0.0",
+      "authors": [
+        {
+          "name": "Tatsuhiko Takimoto",
+          "affiliation": "Independent researcher"
+        }
+      ],
+      "summary": "regression inputs for implementations of asynchronous Boolean-network reduction. Three counterexamples (E1, E2, E3) in which eliminating one variable without an essential self-dependency creates a motif-avoidant attractor (MAA): E1 and E3 delete a variable on no directed cycle, and all three satisfy an exploratory mediator-and-monotonicity condition informed by Tonello–Paulevé (arXiv:2406.02304); plus a coordinate-transformed copy of E1 and Examples 7 and 8 of Pastva et al. (arXiv:2410.03976) as controls. Each case has formulas and fixed expected finite dynamics (transitions, attractors, trap spaces, MAAs); the Python checker (standard library) recomputes them exactly, and 16 self-tests include a second algorithm. Saved records of earlier exhaustive enumerations (also with a separate implementation, not blinded to n=3 counts) found no counterexample on 1–3 variables, giving minimum variable count four for each condition; the enumeration is not rerun. The general fact that elimination can create or remove MAAs is known; novelty of these examples is not established; the conditions are this study's exploratory candidates, not theorems of the cited authors. No safety theorem, edge-minimality, biological claim, priority, human review or formal proof.",
+      "release": {
+        "tag": "v1.0.0",
+        "date": "2026-10-25",
+        "commit": "a782c11e0abf52e9808a50d1a91a9bfdf8c5428f",
+        "github_release": "https://github.com/tkmt-lab/boolean-reduction-counterexamples/releases/tag/v1.0.0",
+        "version_doi": "10.5281/zenodo.23636196",
+        "concept_doi": "10.5281/zenodo.23636195",
+        "doi_status": "minted"
+      },
+      "repo_url": "https://github.com/tkmt-lab/boolean-reduction-counterexamples",
+      "entry_points": {
+        "agents_md": [
+          {
+            "path": "AGENTS.md",
+            "url": "https://github.com/tkmt-lab/boolean-reduction-counterexamples/blob/v1.0.0/AGENTS.md"
+          }
+        ],
+        "claims_json": {
+          "path": "claims.json",
+          "url": "https://github.com/tkmt-lab/boolean-reduction-counterexamples/blob/v1.0.0/claims.json",
+          "raw_url": "https://raw.githubusercontent.com/tkmt-lab/boolean-reduction-counterexamples/v1.0.0/claims.json"
+        },
+        "readme": {
+          "path": "README.md",
+          "url": "https://github.com/tkmt-lab/boolean-reduction-counterexamples/blob/v1.0.0/README.md"
+        },
+        "citation_cff": {
+          "path": "CITATION.cff",
+          "url": "https://github.com/tkmt-lab/boolean-reduction-counterexamples/blob/v1.0.0/CITATION.cff"
+        }
+      },
+      "scope": [
+        {
+          "text": "Three Boolean-network counterexamples (plus a transformed copy and two published controls) where eliminating a variable creates a motif-avoidant attractor despite acyclicity or a mediator/monotonicity condition, with expected dynamics and a checker; minimum four variables",
+          "lang": "en",
+          "source": "docs/releases.json"
+        }
+      ],
+      "not_claimed": [
+        {
+          "text": "Novelty of the selected examples, any safety theorem, edge-minimality, biological behaviour, priority, human review",
+          "lang": "en",
+          "source": "docs/releases.json"
+        },
+        {
+          "text": "novelty or priority of the examples",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "a new sufficient safety condition for elimination",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "biological behaviour",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "a general result for networks with n >= 5",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "edge minimality",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "minimality of E3",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "an exhaustive classification of counterexamples",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "that this package replays the earlier exhaustive enumeration or proves its coverage",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "a contradiction of Tonello-Pauleve Theorem 3.3",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "human expert review or formal proof",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "numerical blinding of the earlier independent implementation",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "endorsement by the cited authors",
+          "lang": "en",
+          "source": "claims.json"
+        }
+      ],
+      "verification": [
+        {
+          "source": "README.md#Run the checks",
+          "working_directory": ".",
+          "shell": "sh",
+          "script": "python3 -I -B check.py\npython3 -I -B selftest.py\npython3 -I -B check_packet.py",
+          "expected_output_status": "not-documented-in-extracted-section"
+        }
+      ],
+      "claims": [
+        {
+          "id": "tkmt-lab/boolean-reduction-counterexamples#finite-fixtures",
+          "local_id": "finite-fixtures",
+          "kind": "finite-computation",
+          "statement": "All six supplied fixtures match their fixed expected truth tables, transitions, attractors, trap spaces, minimal trap spaces, MAAs, interaction conditions, projected original MAAs, and D1/D2.",
+          "evidence": [
+            {
+              "kind": "finite-computation",
+              "basis": "kind=finite-computation"
+            }
+          ],
+          "evidence_kinds": [
+            "finite-computation"
+          ],
+          "reproduce": "python3 -I -B check.py",
+          "evidence_files": [
+            "networks.json",
+            "expected.json",
+            "check.py"
+          ]
+        },
+        {
+          "id": "tkmt-lab/boolean-reduction-counterexamples#counterexample-scope",
+          "local_id": "counterexample-scope",
+          "kind": "finite-computation",
+          "statement": "E1 and its transformed copy satisfy C1 and C2; E2 satisfies C2; E3 satisfies C1 and C2. Each has no original MAA and one reduced MAA after eliminating a.",
+          "evidence": [
+            {
+              "kind": "finite-computation",
+              "basis": "kind=finite-computation"
+            }
+          ],
+          "evidence_kinds": [
+            "finite-computation"
+          ],
+          "reproduce": "python3 -I -B check.py",
+          "evidence_files": [
+            "networks.json",
+            "expected.json"
+          ]
+        },
+        {
+          "id": "tkmt-lab/boolean-reduction-counterexamples#minimum-variable-count",
+          "local_id": "minimum-variable-count",
+          "kind": "earlier-computation",
+          "statement": "For C1 and for C2, the minimum original variable count of a D2 counterexample is four, according to the earlier exhaustive n <= 3 calculations together with E1 and E2.",
+          "evidence": [
+            {
+              "kind": "finite-computation",
+              "basis": "kind=earlier-computation"
+            }
+          ],
+          "evidence_kinds": [
+            "finite-computation"
+          ],
+          "scope": "Saved computation records, not a replayable enumeration certificate. Original enumeration code is not included. No edge-minimality or E3-minimality claim.",
+          "evidence_files": [
+            "evidence/n1-full.json",
+            "evidence/n2-full.json",
+            "evidence/n3-full.json",
+            "evidence/n1-second-enumeration.json",
+            "evidence/n2-second-enumeration.json",
+            "evidence/n3-second-enumeration.json",
+            "evidence/enumeration-audit.json"
+          ]
+        },
+        {
+          "id": "tkmt-lab/boolean-reduction-counterexamples#verification-independence",
+          "local_id": "verification-independence",
+          "kind": "earlier-computation",
+          "statement": "The earlier verifier used separately written algorithms for the examples and n <= 3 enumeration, but saw aggregate n=3 counts when extracting definitions.",
+          "evidence": [
+            {
+              "kind": "finite-computation",
+              "basis": "kind=earlier-computation"
+            }
+          ],
+          "evidence_kinds": [
+            "finite-computation"
+          ],
+          "scope": "This packaging follows both reports. The regression tests and fresh-reader wording review add no independent scientific verification.",
+          "evidence_files": [
+            "VERIFICATION-RECORD.md",
+            "provenance.json"
+          ]
+        },
+        {
+          "id": "tkmt-lab/boolean-reduction-counterexamples#regression-tests",
+          "local_id": "regression-tests",
+          "kind": "finite-computation",
+          "statement": "Sixteen tests include a second algorithm for all twelve original/reduced profiles and deliberate damage to expected values and formulas.",
+          "evidence": [
+            {
+              "kind": "finite-computation",
+              "basis": "kind=finite-computation"
+            }
+          ],
+          "evidence_kinds": [
+            "finite-computation"
+          ],
+          "scope": "Written after the results were known; not a blind review.",
+          "reproduce": "python3 -I -B selftest.py",
+          "evidence_files": [
+            "selftest.py"
+          ]
+        },
+        {
+          "id": "tkmt-lab/boolean-reduction-counterexamples#dagdown-scope",
+          "local_id": "dagdown-scope",
+          "kind": "scope",
+          "statement": "Requiring the deleted variable and every descendant to lie on no directed cycle is a post hoc condition close to known downstream-output pruning. No novelty or general theorem for it is claimed.",
+          "evidence": [],
+          "evidence_kinds": [],
           "evidence_files": [
             "README.md"
           ]
