@@ -25,7 +25,7 @@
 <link rel="alternate" hreflang="ja" href="https://tkmt-lab.github.io/ja/">
 <style>
   :root { --fig-yes:#2a9d8f; --fig-no:#e76f51; --fig-np:#d9d9d9; --fg:#1d1d1f; --muted:#5f6368; --line:#e3e3e3; --bg:#ffffff; --link:#1a5fb4; }
-  @media (prefers-color-scheme: dark) { :root { --fig-yes:#3fb8a9; --fig-no:#f08a6c; --fig-np:#444; --fg:#e8e8e8; --muted:#a0a0a0; --line:#333; --bg:#141414; --link:#8ab4f8; } }
+  @media (prefers-color-scheme: dark) { :root { --fig-yes:#3fb8a9; --fig-no:#f08a6c; --fig-np:#727272; --fg:#e8e8e8; --muted:#a0a0a0; --line:#333; --bg:#141414; --link:#8ab4f8; } }
   body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
   main { max-width:720px; margin:0 auto; padding:32px 16px 64px; }
   h1 { font-size:1.6rem; margin:0 0 4px; }
@@ -117,6 +117,9 @@
     .index-field { grid-column:2; grid-row:2; text-align:left; padding-top:0; }
     .index-arrow { grid-column:3; grid-row:1; }
   }
+
+  figure { max-width:100%; overflow-x:auto; }
+  @media (max-width:480px) { .work:not(#exception-networks-stability-certificates) figure svg { min-width:400px; } }
 </style>
 </head>
 <body>
@@ -150,6 +153,7 @@
     <ul class="index-list">
       <li><a href="#periodic-net-wl-tests"><span class="index-num" aria-hidden="true">08</span><span class="index-question">How far must graph colour refinement (1-WL) look to distinguish selected rooted nets?</span><span class="index-field">Crystal nets</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
       <li><a href="#boolean-reduction-counterexamples"><span class="index-num" aria-hidden="true">09</span><span class="index-question">Can eliminating one Boolean-network variable create a motif-avoidant attractor under simple safety conditions?</span><span class="index-field">Boolean networks</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
+      <li><a href="#exception-networks-stability-certificates"><span class="index-num" aria-hidden="true">10</span><span class="index-question">Exact test inputs for steady-state and stability calculations on two exceptional reaction networks</span><span class="index-field">Reaction networks</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
     </ul>
   </nav>
 
@@ -601,15 +605,15 @@
 <rect x="382" y="22" width="11" height="11" fill="var(--fig-yes)"/>
 <rect x="225" y="309" width="13" height="13" fill="none" stroke="var(--fg)" stroke-width="1.5"/>
 <line x1="232.0" y1="310" x2="172.0" y2="28" stroke="var(--fg)" stroke-width="1"/>
-<text x="170.0" y="25" font-size="11" fill="var(--fg)" text-anchor="middle">GC(17,5): 7,980 atoms</text>
+<text x="170.0" y="25" font-size="12" fill="var(--fg)" text-anchor="middle">GC(17,5): 7,980 atoms</text>
 <text x="214.0" y="404" font-size="12" fill="var(--muted)" text-anchor="middle">k →</text>
 <text x="10" y="44" font-size="12" fill="var(--muted)">l ↑</text>
 <rect x="8" y="422" width="11" height="11" fill="var(--fig-yes)"/>
-<text x="24" y="432" font-size="11" fill="var(--fg)">path exists</text>
+<text x="24" y="432" font-size="12" fill="var(--fg)">path exists</text>
 <rect x="118" y="422" width="11" height="11" fill="var(--fig-no)"/>
-<text x="134" y="432" font-size="11" fill="var(--fg)">no path</text>
+<text x="134" y="432" font-size="12" fill="var(--fg)">no path</text>
 <rect x="208" y="422" width="11" height="11" fill="var(--fig-np)"/>
-<text x="224" y="432" font-size="11" fill="var(--fg)">enlarged copy (no path)</text>
+<text x="224" y="432" font-size="12" fill="var(--fg)">enlarged copy (no path)</text>
 </svg><figcaption>Each square is one cage GC(k,l)[C20]. The colours follow the proved rule.</figcaption></figure>
     <div class="links"><a href="https://github.com/tkmt-lab/a3-gsw-classification/blob/58124b20fa4a3b19aaa62e734c2036210f7bdcf8/paper/paper-A3-en.pdf">Paper (PDF)</a> · <a href="https://github.com/tkmt-lab/a3-gsw-classification">Repository</a> · <a href="https://doi.org/10.5281/zenodo.23515012">Version DOI</a> · <a href="https://doi.org/10.5281/zenodo.23491202">Concept DOI (all versions)</a> · Release <a href="https://github.com/tkmt-lab/a3-gsw-classification/releases/tag/v1.1.0">v1.1.0</a> (<a href="https://github.com/tkmt-lab/a3-gsw-classification/commit/58124b20fa4a3b19aaa62e734c2036210f7bdcf8"><code>58124b20fa4a</code></a>) · <a href="https://github.com/tkmt-lab/a3-gsw-classification/blob/58124b20fa4a3b19aaa62e734c2036210f7bdcf8/packet/claims.json">claims.json</a> · <a href="https://github.com/tkmt-lab/a3-gsw-classification/actions">Build and axiom checks</a> · <a href="https://github.com/tkmt-lab/lean-statements/tree/b3647ee21a1fd572e8a500f2288921116dbb098d/FormalConjectures/Paper">Lean statements</a></div>
     <p class="note">The question is from the list of open problems on fullerenes by A. Bille, V. Buchstaber and E. Spodarev. The classification is proved in Lean 4 and checked with Comparator against a statement written in advance.</p>
@@ -628,54 +632,54 @@
 <rect x="18" y="6" width="9" height="22" fill="var(--fig-no)"/>
 <rect x="28" y="6" width="9" height="22" fill="var(--fig-yes)"/>
 <rect x="38" y="6" width="9" height="22" fill="var(--fig-no)"/>
-<text x="43.0" y="40" font-size="10" fill="var(--muted)" text-anchor="middle">5</text>
+<text x="43.0" y="40" font-size="12" fill="var(--muted)" text-anchor="middle">5</text>
 <rect x="48" y="6" width="9" height="22" fill="var(--fig-yes)"/>
 <rect x="58" y="6" width="9" height="22" fill="var(--fig-no)"/>
 <rect x="68" y="6" width="9" height="22" fill="var(--fig-no)"/>
 <rect x="78" y="6" width="9" height="22" fill="var(--fig-yes)"/>
 <rect x="88" y="6" width="9" height="22" fill="var(--fig-no)"/>
-<text x="93.0" y="40" font-size="10" fill="var(--muted)" text-anchor="middle">10</text>
+<text x="93.0" y="40" font-size="12" fill="var(--muted)" text-anchor="middle">10</text>
 <rect x="98" y="6" width="9" height="22" fill="var(--fig-yes)"/>
 <rect x="108" y="6" width="9" height="22" fill="var(--fig-no)"/>
 <rect x="118" y="6" width="9" height="22" fill="var(--fig-no)"/>
 <rect x="128" y="6" width="9" height="22" fill="var(--fig-yes)"/>
 <rect x="138" y="6" width="9" height="22" fill="var(--fig-no)"/>
-<text x="143.0" y="40" font-size="10" fill="var(--muted)" text-anchor="middle">15</text>
+<text x="143.0" y="40" font-size="12" fill="var(--muted)" text-anchor="middle">15</text>
 <rect x="148" y="6" width="9" height="22" fill="var(--fig-yes)"/>
 <rect x="158" y="6" width="9" height="22" fill="var(--fig-no)"/>
 <rect x="168" y="6" width="9" height="22" fill="var(--fig-no)"/>
 <rect x="178" y="6" width="9" height="22" fill="var(--fig-yes)"/>
 <rect x="188" y="6" width="9" height="22" fill="var(--fig-no)"/>
-<text x="193.0" y="40" font-size="10" fill="var(--muted)" text-anchor="middle">20</text>
+<text x="193.0" y="40" font-size="12" fill="var(--muted)" text-anchor="middle">20</text>
 <rect x="198" y="6" width="9" height="22" fill="var(--fig-yes)"/>
 <rect x="208" y="6" width="9" height="22" fill="var(--fig-no)"/>
 <rect x="218" y="6" width="9" height="22" fill="var(--fig-no)"/>
 <rect x="228" y="6" width="9" height="22" fill="var(--fig-yes)"/>
 <rect x="238" y="6" width="9" height="22" fill="var(--fig-no)"/>
-<text x="243.0" y="40" font-size="10" fill="var(--muted)" text-anchor="middle">25</text>
+<text x="243.0" y="40" font-size="12" fill="var(--muted)" text-anchor="middle">25</text>
 <rect x="248" y="6" width="9" height="22" fill="var(--fig-yes)"/>
 <rect x="258" y="6" width="9" height="22" fill="var(--fig-no)"/>
 <rect x="268" y="6" width="9" height="22" fill="var(--fig-no)"/>
 <rect x="278" y="6" width="9" height="22" fill="var(--fig-yes)"/>
 <rect x="288" y="6" width="9" height="22" fill="var(--fig-no)"/>
-<text x="293.0" y="40" font-size="10" fill="var(--muted)" text-anchor="middle">30</text>
+<text x="293.0" y="40" font-size="12" fill="var(--muted)" text-anchor="middle">30</text>
 <rect x="298" y="6" width="9" height="22" fill="var(--fig-yes)"/>
 <rect x="308" y="6" width="9" height="22" fill="var(--fig-no)"/>
 <rect x="318" y="6" width="9" height="22" fill="var(--fig-no)"/>
 <rect x="328" y="6" width="9" height="22" fill="var(--fig-yes)"/>
 <rect x="338" y="6" width="9" height="22" fill="var(--fig-no)"/>
-<text x="343.0" y="40" font-size="10" fill="var(--muted)" text-anchor="middle">35</text>
+<text x="343.0" y="40" font-size="12" fill="var(--muted)" text-anchor="middle">35</text>
 <rect x="348" y="6" width="9" height="22" fill="var(--fig-yes)"/>
 <rect x="358" y="6" width="9" height="22" fill="var(--fig-no)"/>
 <rect x="368" y="6" width="9" height="22" fill="var(--fig-no)"/>
 <rect x="378" y="6" width="9" height="22" fill="var(--fig-yes)"/>
 <rect x="388" y="6" width="9" height="22" fill="var(--fig-no)"/>
 <rect x="398" y="6" width="9" height="22" fill="var(--fig-yes)"/>
-<text x="408" y="40" font-size="11" fill="var(--muted)" text-anchor="end">s →</text>
+<text x="408" y="40" font-size="12" fill="var(--muted)" text-anchor="end">s →</text>
 <rect x="8" y="48" width="11" height="11" fill="var(--fig-yes)"/>
-<text x="24" y="58" font-size="11" fill="var(--fg)">path exists</text>
+<text x="24" y="58" font-size="12" fill="var(--fg)">path exists</text>
 <rect x="118" y="48" width="11" height="11" fill="var(--fig-no)"/>
-<text x="134" y="58" font-size="11" fill="var(--fg)">no path</text>
+<text x="134" y="58" font-size="12" fill="var(--fg)">no path</text>
 </svg><figcaption>Graver’s family K3(5,s) for s = 2 to 41: a path exists exactly when s leaves remainder 1 or 4 on division by 5, so the pattern repeats every 5 steps.</figcaption></figure>
     <div class="links"><a href="https://github.com/tkmt-lab/gsw-ray-periodicity/blob/8eea5994bfebdcca4865528bd7524af4064f9c16/paper/paper-lines-en.pdf">Paper (PDF)</a> · <a href="https://github.com/tkmt-lab/gsw-ray-periodicity">Repository</a> · <a href="https://doi.org/10.5281/zenodo.23589703">Version DOI</a> · <a href="https://doi.org/10.5281/zenodo.23491204">Concept DOI (all versions)</a> · Release <a href="https://github.com/tkmt-lab/gsw-ray-periodicity/releases/tag/v1.10.0">v1.10.0</a> (<a href="https://github.com/tkmt-lab/gsw-ray-periodicity/commit/8eea5994bfebdcca4865528bd7524af4064f9c16"><code>8eea5994bfeb</code></a>) · <a href="https://github.com/tkmt-lab/gsw-ray-periodicity/blob/8eea5994bfebdcca4865528bd7524af4064f9c16/packet/claims.json">claims.json</a> · <a href="https://github.com/tkmt-lab/gsw-ray-periodicity/actions">Build and axiom checks</a> · <a href="https://github.com/tkmt-lab/lean-statements/tree/b3647ee21a1fd572e8a500f2288921116dbb098d/FormalConjectures/Paper">Lean statements</a></div>
     <p class="note">Extends the same question to the families of J. E. Graver's catalogue, using the classical link between monadic second-order logic and finite automata. A formal version of the main theorem is proved in Lean 4; it has weaker hypotheses than the paper, and a short prose lemma in the paper, not checked by Lean, carries the paper's geometric hypotheses to it. For the families K3 and C1 the whole chain, including their closed classifications, is Lean-proved with no prose step; for O2 the same holds for the ray result and the absence of paths when both parameters are at least 2, for D14 for the ray result, and for E10 for its classification and the ray result. For the family D12 the closed classification and the ray result are also Lean-proved; two earlier computer-assisted proofs of the classification are kept as additional evidence. The D12 Lean proof was written with knowledge of those proofs, so it is not a third independent derivation.</p>
@@ -729,16 +733,16 @@
 <rect x="377" y="111" width="8" height="1" fill="var(--fig-yes)"/>
 <rect x="387" y="111" width="8" height="1" fill="var(--fig-yes)"/>
 <line x1="16" y1="112.5" x2="416" y2="112.5" stroke="var(--muted)" stroke-width="1"/>
-<text x="16" y="126" font-size="10" fill="var(--muted)" text-anchor="middle">0</text>
-<text x="116" y="126" font-size="10" fill="var(--muted)" text-anchor="middle">1</text>
-<text x="216" y="126" font-size="10" fill="var(--muted)" text-anchor="middle">2</text>
-<text x="316" y="126" font-size="10" fill="var(--muted)" text-anchor="middle">3</text>
-<text x="416" y="126" font-size="10" fill="var(--muted)" text-anchor="middle">4</text>
-<text x="416" y="142" font-size="11" fill="var(--muted)" text-anchor="end">violation −F(p) →</text>
-<text x="184" y="40" font-size="10" fill="var(--fg)">tallest bar: 5,188 rows</text>
+<text x="16" y="126" font-size="12" fill="var(--muted)" text-anchor="middle">0</text>
+<text x="116" y="126" font-size="12" fill="var(--muted)" text-anchor="middle">1</text>
+<text x="216" y="126" font-size="12" fill="var(--muted)" text-anchor="middle">2</text>
+<text x="316" y="126" font-size="12" fill="var(--muted)" text-anchor="middle">3</text>
+<text x="416" y="126" font-size="12" fill="var(--muted)" text-anchor="middle">4</text>
+<text x="416" y="142" font-size="12" fill="var(--muted)" text-anchor="end">violation −F(p) →</text>
+<text x="184" y="40" font-size="12" fill="var(--fg)">tallest bar: 5,188 rows</text>
 <line x1="21.6" y1="109" x2="21.6" y2="32" stroke="var(--fg)" stroke-width="1"/>
-<text x="19.6" y="14" font-size="10" fill="var(--fg)">smallest</text>
-<text x="19.6" y="26" font-size="10" fill="var(--fg)">0.056 (row 980)</text>
+<text x="19.6" y="14" font-size="12" fill="var(--fg)">smallest</text>
+<text x="19.6" y="26" font-size="12" fill="var(--fg)">0.056 (row 980)</text>
 </svg><figcaption>The (4,5,2,2) list: for each of its 49,357 rows other than the positivity row, the amount −F(p) by which the saved rational two-qubit witness breaks the inequality, counted in steps of 0.1. Every value is above zero; values are in the source scale of the list and are not the largest possible violations.</figcaption></figure>
     <div class="links"><a href="https://github.com/tkmt-lab/bell-facet-certificates/blob/cd1e141455cf3f5fe05a739782271201cdefe7e8/paper-bell-v1-en.pdf">Paper (PDF)</a> · <a href="https://github.com/tkmt-lab/bell-facet-certificates">Repository</a> · <a href="https://doi.org/10.5281/zenodo.23538697">Version DOI</a> · <a href="https://doi.org/10.5281/zenodo.23538696">Concept DOI (all versions)</a> · Release <a href="https://github.com/tkmt-lab/bell-facet-certificates/releases/tag/v1.0.0">v1.0.0</a> (<a href="https://github.com/tkmt-lab/bell-facet-certificates/commit/cd1e141455cf3f5fe05a739782271201cdefe7e8"><code>cd1e141455cf</code></a>) · <a href="https://github.com/tkmt-lab/bell-facet-certificates/blob/cd1e141455cf3f5fe05a739782271201cdefe7e8/claims.json">claims.json</a> · <a href="https://github.com/tkmt-lab/bell-facet-certificates/actions">Exact verification</a></div>
     <p class="note">This is finite evidence about two fixed published lists, not a solution of Gill's question; completeness of the lists and optimal quantum values are not claimed. The full certificates for the larger list are attached to the release. The repository's CI re-checks the smaller lists completely, and samples of the larger one, with both verifiers. There is no Lean proof and no human peer review.</p>
@@ -754,33 +758,33 @@
     </dl>
     <p class="plain">For the stated sonic-horizon model, a formal asymptotic calculation gives a local formula for the leading dispersive temperature shift. A sonic horizon is where a fluid outruns sound; the predicted thermal sound emission depends on the flow's slope, and the model lets short waves travel faster than long ones. For a one-dimensional flow with quartic dispersion and a single horizon, we give the leading shift of the zero-frequency temperature as the dispersion scale grows: it falls like 1/Λ², with a coefficient written in the first few derivatives of the flow at the horizon. The formula comes from a formal asymptotic calculation; it matches full scattering calculations, predictions recorded before the calculation for new flows, and a separately written scattering code.</p>
     <figure><svg viewBox="0 0 420 156" role="img" aria-label="Lambda squared times the temperature shift against 1/Lambda squared, flows B3 and B4" style="width:100%;max-width:440px;height:auto;display:block">
-<text x="20" y="14" font-size="11" fill="var(--fg)">flow B3</text>
+<text x="20" y="14" font-size="12" fill="var(--fg)">flow B3</text>
 <line x1="20" y1="120.5" x2="196" y2="120.5" stroke="var(--muted)" stroke-width="1"/>
 <line x1="20" y1="37.9" x2="196" y2="37.9" stroke="var(--fig-no)" stroke-width="1.5" stroke-dasharray="5 3"/>
 <path d="M20 32.9l5 5-5 5-5-5z" fill="var(--fig-no)"/>
-<text x="196" y="52.9" font-size="10" fill="var(--fg)" text-anchor="end">predicted b₀ = −0.607</text>
+<text x="196" y="52.9" font-size="12" fill="var(--fg)" text-anchor="end">predicted b₀ = −0.607</text>
 <polyline points="187.6,104.1 61.9,54.4 30.5,42 22.6,38.9" fill="none" stroke="var(--fig-yes)" stroke-width="1.5"/>
 <circle cx="187.6" cy="104.1" r="4" fill="var(--fig-yes)"/>
 <circle cx="61.9" cy="54.4" r="4" fill="var(--fig-yes)"/>
 <circle cx="30.5" cy="42" r="4" fill="var(--fig-yes)"/>
 <circle cx="22.6" cy="38.9" r="4" fill="var(--fig-yes)"/>
-<text x="187.6" y="134" font-size="10" fill="var(--muted)" text-anchor="middle">Λ=10</text>
-<text x="61.9" y="134" font-size="10" fill="var(--muted)" text-anchor="middle">20</text>
-<text x="20" y="134" font-size="10" fill="var(--muted)" text-anchor="middle">∞</text>
-<text x="234" y="14" font-size="11" fill="var(--fg)">flow B4</text>
+<text x="187.6" y="134" font-size="12" fill="var(--muted)" text-anchor="middle">Λ=10</text>
+<text x="61.9" y="134" font-size="12" fill="var(--muted)" text-anchor="middle">20</text>
+<text x="20" y="134" font-size="12" fill="var(--muted)" text-anchor="middle">∞</text>
+<text x="234" y="14" font-size="12" fill="var(--fg)">flow B4</text>
 <line x1="234" y1="120.5" x2="410" y2="120.5" stroke="var(--muted)" stroke-width="1"/>
 <line x1="234" y1="104.1" x2="410" y2="104.1" stroke="var(--fig-no)" stroke-width="1.5" stroke-dasharray="5 3"/>
 <path d="M234 99.1l5 5-5 5-5-5z" fill="var(--fig-no)"/>
-<text x="410" y="98.1" font-size="10" fill="var(--fg)" text-anchor="end">predicted b₀ = +1.134</text>
+<text x="410" y="98.1" font-size="12" fill="var(--fg)" text-anchor="end">predicted b₀ = +1.134</text>
 <polyline points="401.6,37.9 275.9,80.2 244.5,98.2 236.6,102.6" fill="none" stroke="var(--fig-yes)" stroke-width="1.5"/>
 <circle cx="401.6" cy="37.9" r="4" fill="var(--fig-yes)"/>
 <circle cx="275.9" cy="80.2" r="4" fill="var(--fig-yes)"/>
 <circle cx="244.5" cy="98.2" r="4" fill="var(--fig-yes)"/>
 <circle cx="236.6" cy="102.6" r="4" fill="var(--fig-yes)"/>
-<text x="401.6" y="134" font-size="10" fill="var(--muted)" text-anchor="middle">Λ=10</text>
-<text x="275.9" y="134" font-size="10" fill="var(--muted)" text-anchor="middle">20</text>
-<text x="234" y="134" font-size="10" fill="var(--muted)" text-anchor="middle">∞</text>
-<text x="418" y="150" font-size="11" fill="var(--muted)" text-anchor="end">1/Λ² →</text>
+<text x="401.6" y="134" font-size="12" fill="var(--muted)" text-anchor="middle">Λ=10</text>
+<text x="275.9" y="134" font-size="12" fill="var(--muted)" text-anchor="middle">20</text>
+<text x="234" y="134" font-size="12" fill="var(--muted)" text-anchor="middle">∞</text>
+<text x="418" y="150" font-size="12" fill="var(--muted)" text-anchor="end">1/Λ² →</text>
 </svg><figcaption>Flows B3 and B4, whose b₀ was predicted before any calculation: Λ²[T(0)/T_H − 1] from the full scattering calculation at Λ = 10, 20, 40, 80 (dots), plotted against 1/Λ². The four computed points approach the predicted b₀ (dashed line, diamond), providing numerical support for the prediction. Each panel has its own vertical scale.</figcaption></figure>
     <div class="links"><a href="https://github.com/tkmt-lab/hawking-dispersive-offset/blob/00f229f7afd38ebd67be3daa27f89dcb78436aaf/paper-hawking-b0-v1.2-en.pdf">Paper (PDF)</a> · <a href="https://github.com/tkmt-lab/hawking-dispersive-offset">Repository</a> · <a href="https://doi.org/10.5281/zenodo.23553203">Version DOI</a> · <a href="https://doi.org/10.5281/zenodo.23553202">Concept DOI (all versions)</a> · Release <a href="https://github.com/tkmt-lab/hawking-dispersive-offset/releases/tag/v1.0.0">v1.0.0</a> (<a href="https://github.com/tkmt-lab/hawking-dispersive-offset/commit/00f229f7afd38ebd67be3daa27f89dcb78436aaf"><code>00f229f7afd3</code></a>) · <a href="https://github.com/tkmt-lab/hawking-dispersive-offset/blob/00f229f7afd38ebd67be3daa27f89dcb78436aaf/claims.json">claims.json</a> · <a href="https://github.com/tkmt-lab/hawking-dispersive-offset/actions">Reproduction</a></div>
     <p class="note">The calculation rests on three stated assumptions that are not proved, and there is no remainder bound, so the formula is supported by numerical evidence rather than proved. There is no Lean proof and no human peer review.</p>
@@ -796,20 +800,20 @@
     </dl>
     <p class="plain">For every fixed integer k ≥ 2, a perfect infection curve I(t) and total population determine this behavioral SIR model's parameters and hidden population counts for generic values. The transmission rate is divided by (1 + αI)^k to model reduced contacts as infections rise; B. Pant, O. Saucedo and G. Pogudin showed non-identifiability at k = 1 and conjectured the extension proved here. We prove this for every fixed integer k ≥ 2: for generic values, the infection curve and the total population determine the three rates and the hidden numbers of susceptible and recovered people. The proof gives the input–output equation in closed form and shows that the model has no hidden conserved quantity, then uses results of A. Ovchinnikov, G. Pogudin and P. Thompson.</p>
     <figure><svg viewBox="0 0 412 154" role="img" aria-label="Infected count I(t) for two parameter sets, k = 1 and k = 2" style="width:100%;max-width:440px;height:auto;display:block">
-<text x="16" y="13" font-size="11" fill="var(--fg)">k = 1: one curve</text>
+<text x="16" y="13" font-size="12" fill="var(--fg)">k = 1: one curve</text>
 <line x1="16" y1="112.5" x2="196" y2="112.5" stroke="var(--muted)" stroke-width="1"/>
 <path d="M16 109.4 18.2 108.9 20.5 108.2 22.8 107.3 25 106.3 27.2 105.1 29.5 103.7 31.8 102 34 100.1 36.2 97.9 38.5 95.4 40.8 92.5 43 89.4 45.2 86 47.5 82.3 49.8 78.4 52 74.4 54.3 70.2 56.5 66 58.8 61.8 61 57.7 63.2 53.7 65.5 49.9 67.8 46.3 70 43 72.2 39.9 74.5 37.2 76.8 34.7 79 32.6 81.2 30.8 83.5 29.4 85.8 28.2 88 27.3 90.2 26.7 92.5 26.4 94.8 26.3 97 26.4 99.3 26.8 101.5 27.3 103.8 28 106 28.9 108.3 29.9 110.5 31.1 112.8 32.3 115 33.7 117.3 35.1 119.5 36.6 121.8 38.2 124 39.8 126.3 41.4 128.5 43.1 130.8 44.8 133 46.5 135.2 48.2 137.5 49.9 139.8 51.6 142 53.3 144.2 55 146.5 56.7 148.8 58.4 151 60 153.2 61.6 155.5 63.2 157.8 64.7 160 66.2 162.2 67.7 164.5 69.2 166.8 70.6 169 72 171.2 73.3 173.5 74.6 175.8 75.9 178 77.1 180.2 78.4 182.5 79.5 184.8 80.7 187 81.8 189.2 82.9 191.5 83.9 193.8 84.9 196 85.9 196 85.9" fill="none" stroke="var(--fig-yes)" stroke-width="3"/>
 <path d="M16 109.4 18.2 108.9 20.5 108.2 22.8 107.3 25 106.3 27.2 105.1 29.5 103.7 31.8 102 34 100.1 36.2 97.9 38.5 95.4 40.8 92.5 43 89.4 45.2 86 47.5 82.3 49.8 78.4 52 74.4 54.3 70.2 56.5 66 58.8 61.8 61 57.7 63.2 53.7 65.5 49.9 67.8 46.3 70 43 72.2 39.9 74.5 37.2 76.8 34.7 79 32.6 81.2 30.8 83.5 29.4 85.8 28.2 88 27.3 90.2 26.7 92.5 26.4 94.8 26.3 97 26.4 99.3 26.8 101.5 27.3 103.8 28 106 28.9 108.3 29.9 110.5 31.1 112.8 32.3 115 33.7 117.3 35.1 119.5 36.6 121.8 38.2 124 39.8 126.3 41.4 128.5 43.1 130.8 44.8 133 46.5 135.2 48.2 137.5 49.9 139.8 51.6 142 53.3 144.2 55 146.5 56.7 148.8 58.4 151 60 153.2 61.6 155.5 63.2 157.8 64.7 160 66.2 162.2 67.7 164.5 69.2 166.8 70.6 169 72 171.2 73.3 173.5 74.6 175.8 75.9 178 77.1 180.2 78.4 182.5 79.5 184.8 80.7 187 81.8 189.2 82.9 191.5 83.9 193.8 84.9 196 85.9 196 85.9" fill="none" stroke="var(--fig-no)" stroke-width="1.5" stroke-dasharray="5 3"/>
-<text x="196" y="126" font-size="10" fill="var(--muted)" text-anchor="end">time →</text>
-<text x="230" y="13" font-size="11" fill="var(--fg)">k = 2: two curves</text>
+<text x="196" y="126" font-size="12" fill="var(--muted)" text-anchor="end">time →</text>
+<text x="230" y="13" font-size="12" fill="var(--fg)">k = 2: two curves</text>
 <line x1="230" y1="112.5" x2="410" y2="112.5" stroke="var(--muted)" stroke-width="1"/>
 <path d="M230 109.4 232.2 108.9 234.5 108.2 236.8 107.4 239 106.5 241.2 105.5 243.5 104.3 245.8 102.9 248 101.3 250.2 99.6 252.5 97.8 254.8 95.8 257 93.7 259.2 91.5 261.5 89.3 263.8 87 266 84.7 268.2 82.5 270.5 80.4 272.8 78.3 275 76.3 277.2 74.5 279.5 72.8 281.8 71.2 284 69.8 286.2 68.5 288.5 67.4 290.8 66.4 293 65.5 295.2 64.8 297.5 64.2 299.8 63.6 302 63.2 304.2 62.9 306.5 62.7 308.8 62.6 311 62.5 313.2 62.5 315.5 62.6 317.8 62.7 320 62.9 322.2 63.1 324.5 63.4 326.8 63.7 329 64 331.2 64.4 333.5 64.8 335.8 65.2 338 65.7 340.2 66.1 342.5 66.6 344.8 67.1 347 67.6 349.2 68.1 351.5 68.7 353.8 69.2 356 69.7 358.2 70.3 360.5 70.8 362.8 71.4 365 71.9 367.2 72.5 369.5 73 371.8 73.6 374 74.1 376.2 74.7 378.5 75.2 380.8 75.8 383 76.3 385.2 76.9 387.5 77.4 389.8 77.9 392 78.5 394.2 79 396.5 79.5 398.8 80 401 80.5 403.2 81 405.5 81.6 407.8 82 410 82.5 410 82.5" fill="none" stroke="var(--fig-yes)" stroke-width="3"/>
 <path d="M230 109.4 232.2 108.9 234.5 108.2 236.8 107.4 239 106.5 241.2 105.4 243.5 104.2 245.8 102.8 248 101.1 250.2 99.3 252.5 97.3 254.8 95.1 257 92.8 259.2 90.3 261.5 87.7 263.8 85 266 82.3 268.2 79.6 270.5 76.8 272.8 74.1 275 71.5 277.2 68.9 279.5 66.5 281.8 64.2 284 62 286.2 60 288.5 58.1 290.8 56.4 293 54.8 295.2 53.4 297.5 52.2 299.8 51.1 302 50.1 304.2 49.3 306.5 48.6 308.8 48.1 311 47.7 313.2 47.4 315.5 47.2 317.8 47.1 320 47.1 322.2 47.2 324.5 47.4 326.8 47.7 329 48 331.2 48.5 333.5 48.9 335.8 49.5 338 50.1 340.2 50.8 342.5 51.5 344.8 52.2 347 53 349.2 53.8 351.5 54.6 353.8 55.5 356 56.4 358.2 57.3 360.5 58.2 362.8 59.2 365 60.1 367.2 61.1 369.5 62.1 371.8 63.1 374 64 376.2 65 378.5 66 380.8 67 383 68 385.2 68.9 387.5 69.9 389.8 70.9 392 71.8 394.2 72.8 396.5 73.7 398.8 74.6 401 75.6 403.2 76.5 405.5 77.3 407.8 78.2 410 79.1 410 79.1" fill="none" stroke="var(--fig-no)" stroke-width="1.5" stroke-dasharray="5 3"/>
-<text x="410" y="126" font-size="10" fill="var(--muted)" text-anchor="end">time →</text>
+<text x="410" y="126" font-size="12" fill="var(--muted)" text-anchor="end">time →</text>
 <line x1="16" y1="142" x2="36" y2="142" stroke="var(--fig-yes)" stroke-width="3"/>
-<text x="42" y="146" font-size="11" fill="var(--fg)">(α, β, γ) = (2, 3, 5)</text>
+<text x="42" y="146" font-size="12" fill="var(--fg)">(α, β, γ) = (2, 3, 5)</text>
 <line x1="200" y1="142" x2="220" y2="142" stroke="var(--fig-no)" stroke-width="1.5" stroke-dasharray="5 3"/>
-<text x="226" y="146" font-size="11" fill="var(--fg)">(2, 10, 3/2)</text>
+<text x="226" y="146" font-size="12" fill="var(--fg)">(2, 10, 3/2)</text>
 </svg><figcaption>Infected count I(t) for (α, β, γ) = (2, 3, 5) and (2, 10, 3/2), which are related by the k = 1 swap (β, γ) → (αγ, β/α); starting values are illustrative, with the same I(0), I′(0) and total population. For k = 1 the two curves are identical; for k = 2 they separate, so the curve tells the parameters apart.</figcaption></figure>
     <div class="links"><a href="https://github.com/tkmt-lab/behavioral-sir-identifiability/blob/6691a76801a522592712e41993b6f4353decee88/paper-behavioral-sir-v1.1-en.pdf">Paper (PDF)</a> · <a href="https://github.com/tkmt-lab/behavioral-sir-identifiability">Repository</a> · <a href="https://doi.org/10.5281/zenodo.23553807">Version DOI</a> · <a href="https://doi.org/10.5281/zenodo.23553806">Concept DOI (all versions)</a> · Release <a href="https://github.com/tkmt-lab/behavioral-sir-identifiability/releases/tag/v1.0.0">v1.0.0</a> (<a href="https://github.com/tkmt-lab/behavioral-sir-identifiability/commit/6691a76801a522592712e41993b6f4353decee88"><code>6691a76801a5</code></a>) · <a href="https://github.com/tkmt-lab/behavioral-sir-identifiability/blob/6691a76801a522592712e41993b6f4353decee88/claims.json">claims.json</a> · <a href="https://github.com/tkmt-lab/behavioral-sir-identifiability/actions">Exact checks</a></div>
     <p class="note">The proof is in prose; two AI reviewers read it and recomputed parts, and exact computer-algebra checks cover k = 1 to 12. Non-integer or unknown k and noisy data are not covered. There is no Lean proof and no human peer review.</p>
@@ -831,13 +835,13 @@
 <path d="M236 390h36v12h-36zM236 378h48v12h-48zM320 378h12v12h-12zM200 366h84v12h-84zM308 366h24v12h-24zM188 354h72v12h-72zM272 354h60v12h-60zM164 342h84v12h-84zM272 342h48v12h-48zM68 330h24v12h-24zM140 330h72v12h-72zM272 330h36v12h-36zM56 318h36v12h-36zM140 318h72v12h-72zM284 318h24v12h-24zM56 306h48v12h-48zM128 306h48v12h-48zM284 306h36v12h-36zM56 294h120v12h-120zM296 294h36v12h-36zM92 282h48v12h-48zM308 282h48v12h-48zM92 270h36v12h-36zM308 270h84v12h-84zM80 258h24v12h-24zM308 258h72v12h-72zM44 246h60v12h-60zM320 246h48v12h-48zM44 234h48v12h-48zM320 234h48v12h-48zM44 222h36v12h-36zM332 222h36v12h-36zM56 210h24v12h-24zM332 210h36v12h-36zM44 198h36v12h-36zM344 198h36v12h-36zM32 186h72v12h-72zM356 186h48v12h-48zM8 174h96v12h-96zM320 174h12v12h-12zM356 174h48v12h-48zM8 162h96v12h-96zM320 162h24v12h-24zM356 162h36v12h-36zM20 150h36v12h-36zM80 150h36v12h-36zM320 150h60v12h-60zM92 138h36v12h-36zM332 138h48v12h-48zM116 126h12v12h-12zM344 126h36v12h-36zM104 114h48v12h-48zM308 114h60v12h-60zM68 102h96v12h-96zM284 102h60v12h-60zM68 90h132v12h-132zM272 90h72v12h-72zM68 78h144v12h-144zM236 78h60v12h-60zM320 78h36v12h-36zM80 66h48v12h-48zM164 66h120v12h-120zM332 66h36v12h-36zM104 54h12v12h-12zM152 54h36v12h-36zM200 54h72v12h-72zM140 42h36v12h-36zM200 42h72v12h-72zM200 30h60v12h-60zM236 18h24v12h-24zM248 6h12v12h-12z" fill="var(--fig-yes)"/>
 <path d="M104 162h12M104 162v12M104 174v12M104 186v12M104 198h12M104 246h12M104 246v12M104 258v12M104 270h12M104 270v12M104 66v12M104 78v12M104 90h12M116 102h12M116 138h12M116 150h12M116 150v12M116 186h12M116 186v12M116 222h12M116 222v12M116 234h12M116 234v12M116 270h12M116 270v12M116 282v12M116 294v12M116 90v12M128 102v12M128 114v12M128 126h12M128 126v12M128 138v12M128 174h12M128 174v12M128 210h12M128 210v12M128 234h12M128 270v12M128 282h12M140 126h12M140 174h12M140 174v12M140 186v12M140 198v12M140 234h12M140 282v12M140 294h12M152 114h12M152 114v12M152 126v12M152 138h12M152 174h12M152 222h12M152 222v12M152 234v12M152 246v12M152 258h12M152 258v12M152 270h12M152 294h12M164 102h12M164 102v12M164 138h12M164 138v12M164 150v12M164 162v12M164 174h12M164 210h12M164 210v12M164 258h12M164 270v12M164 282h12M164 294h12M164 330h12M164 330v12M164 78v12M164 90v12M176 102h12M176 138v12M176 150h12M176 174v12M176 186h12M176 210h12M176 258h12M176 282v12M176 294v12M176 306v12M176 318h12M176 318v12M188 102h12M188 150v12M188 162h12M188 186v12M188 198v12M188 210h12M188 210v12M188 222v12M188 234h12M188 258v12M188 270h12M188 318h12M200 102v12M200 114v12M200 126h12M200 126v12M200 138h12M200 162h12M200 210h12M200 234v12M200 246h12M200 270v12M200 282h12M200 318h12M200 66h12M200 90h12M200 90v12M212 126h12M212 138v12M212 150h12M212 162h12M212 198h12M212 198v12M212 246h12M212 246v12M212 258v12M212 270v12M212 282h12M212 306h12M212 306v12M212 318v12M212 330v12M212 342h12M212 342v12M212 354h12M212 66v12M212 78h12M212 78v12M224 126h12M224 150v12M224 162v12M224 174v12M224 186h12M224 186v12M224 246h12M224 282v12M224 294h12M224 294v12M224 342h12M224 354v12M224 366h12M224 78h12M236 102h12M236 126v12M236 138h12M236 186h12M236 210h12M236 210v12M236 222v12M236 234v12M236 246h12M236 294h12M236 342h12M236 366v12M236 54h12M236 54v12M236 66v12M236 78v12M236 90h12M236 90v12M248 102v12M248 114h12M248 138v12M248 150h12M248 186h12M248 198h12M248 198v12M248 234h12M248 234v12M248 270h12M248 270v12M248 282h12M248 282v12M248 294v12M248 306v12M248 318h12M248 342v12M248 354h12M248 42h12M248 42v12M248 90h12M260 114v12M260 126v12M260 138v12M260 150h12M260 174h12M260 174v12M260 186v12M260 222h12M260 222v12M260 258h12M260 258v12M260 282h12M260 318v12M260 330h12M260 354v12M260 366h12M260 90h12M272 102h12M272 150h12M272 150v12M272 162v12M272 174h12M272 222h12M272 222v12M272 234v12M272 246v12M272 282h12M272 330h12M272 330v12M272 342v12M272 354v12M272 366h12M272 90v12M284 102v12M284 114h12M284 150h12M284 174v12M284 186h12M284 222h12M284 270h12M284 270v12M284 306h12M284 306v12M284 318h12M284 318v12M296 102v12M296 114h12M296 138h12M296 138v12M296 186h12M296 186v12M296 198v12M296 210v12M296 222h12M296 258h12M296 258v12M296 294h12M296 294v12M296 318h12M296 90v12M308 114v12M308 126h12M308 126v12M308 186h12M308 222v12M308 234h12M308 258h12M308 258v12M308 270v12M308 282v12M320 126h12M320 150h12M320 150v12M320 162v12M320 174v12M320 186h12M320 234h12M320 234v12M320 246v12M320 258h12M332 126h12M332 138h12M332 138v12M332 174h12M332 174v12M332 210h12M332 210v12M332 222h12M332 222v12M332 258h12M344 114v12M344 126v12M344 162h12M344 162v12M344 198h12M344 198v12M344 222h12M344 258v12M344 270h12M356 162h12M356 162v12M356 174v12M356 186v12M356 222h12M356 270v12M368 162h12M56 162v12M56 174v12M56 186h12M56 210h12M68 186v12M68 198h12M68 210h12M80 198h12M80 198v12M80 210v12M80 222v12M80 234h12M92 198h12M92 234v12M92 246h12M92 282h12" stroke="var(--bg)" stroke-width="2" fill="none"/>
 <rect x="8" y="414" width="11" height="11" fill="var(--fig-no)"/>
-<text x="24" y="424" font-size="11" fill="var(--fg)">the shape</text>
+<text x="24" y="424" font-size="12" fill="var(--fg)">the shape</text>
 <rect x="208" y="414" width="11" height="11" fill="var(--fig-yes)"/>
-<text x="224" y="424" font-size="11" fill="var(--fg)">layer 1 (6 copies)</text>
+<text x="224" y="424" font-size="12" fill="var(--fg)">layer 1 (6 copies)</text>
 <rect x="8" y="432" width="11" height="11" fill="var(--fig-np)"/>
-<text x="24" y="442" font-size="11" fill="var(--fg)">layer 2 (12 copies)</text>
+<text x="24" y="442" font-size="12" fill="var(--fg)">layer 2 (12 copies)</text>
 <rect x="208" y="432" width="11" height="11" fill="var(--fig-yes)"/>
-<text x="224" y="442" font-size="11" fill="var(--fg)">layer 3 (18 copies)</text>
+<text x="224" y="442" font-size="12" fill="var(--fg)">layer 3 (18 copies)</text>
 </svg><figcaption>Polyomino #43 of Kaplan's 17-cell file (orange) and the corona witness released for it: 36 copies of the shape in three complete layers, with no holes. This gives a lower bound of 3 for both Hc and Hh. Together with the upper-bound evidence described above, it establishes Hc = Hh = 3. The two inner layers are the same in all 28 maximal hole-free coronas that both counting programs found; only the outer layer varies.</figcaption></figure>
     <div class="links"><a href="https://github.com/tkmt-lab/heesch-certificates/blob/271bc8ce223a1fd641494352eb31f350e3d8bf37/paper-heesch-certificates-v2.1-en.pdf">Paper (PDF)</a> · <a href="https://github.com/tkmt-lab/heesch-certificates">Repository</a> · <a href="https://doi.org/10.5281/zenodo.23572883">Version DOI</a> · <a href="https://doi.org/10.5281/zenodo.23572882">Concept DOI (all versions)</a> · Release <a href="https://github.com/tkmt-lab/heesch-certificates/releases/tag/v1.0.0">v1.0.0</a> (<a href="https://github.com/tkmt-lab/heesch-certificates/commit/271bc8ce223a1fd641494352eb31f350e3d8bf37"><code>271bc8ce223a</code></a>) · <a href="https://github.com/tkmt-lab/heesch-certificates/blob/271bc8ce223a1fd641494352eb31f350e3d8bf37/claims.json">claims.json</a> · <a href="https://github.com/tkmt-lab/heesch-certificates/actions">Packet verification</a> · <a href="https://github.com/tkmt-lab/lean-statements/tree/b3647ee21a1fd572e8a500f2288921116dbb098d/FormalConjectures/Paper">Lean statements</a></div>
     <p class="note">The unsatisfiability proofs are checked by drat-trim, outside Lean, and the match between the checked formula files and the Lean encoding is a recorded finite computation, not a Lean proof. The outer-layer corona counts have no proof certificate, and the search does not show that no polyomino has Hh = 4. Only the listed shapes are covered. No priority is claimed, and there is no human peer review. The proofs (25 GB) are not attached; the formulas regenerate byte for byte, and the CI re-checks a sample.</p>
@@ -858,62 +862,62 @@
 <rect x="209" y="7" width="16" height="10" fill="var(--fig-yes)"/>
 <text x="231" y="17" font-size="12" fill="var(--fg)">Proved minimum</text>
 <line x1="145" y1="45" x2="145" y2="365" stroke="var(--line)"/>
-<text x="145" y="39" font-size="11" fill="var(--muted)" text-anchor="middle">0</text>
+<text x="145" y="39" font-size="12" fill="var(--muted)" text-anchor="middle">0</text>
 <line x1="191" y1="45" x2="191" y2="365" stroke="var(--line)"/>
-<text x="191" y="39" font-size="11" fill="var(--muted)" text-anchor="middle">2</text>
+<text x="191" y="39" font-size="12" fill="var(--muted)" text-anchor="middle">2</text>
 <line x1="237" y1="45" x2="237" y2="365" stroke="var(--line)"/>
-<text x="237" y="39" font-size="11" fill="var(--muted)" text-anchor="middle">4</text>
+<text x="237" y="39" font-size="12" fill="var(--muted)" text-anchor="middle">4</text>
 <line x1="283" y1="45" x2="283" y2="365" stroke="var(--line)"/>
-<text x="283" y="39" font-size="11" fill="var(--muted)" text-anchor="middle">6</text>
+<text x="283" y="39" font-size="12" fill="var(--muted)" text-anchor="middle">6</text>
 <line x1="329" y1="45" x2="329" y2="365" stroke="var(--line)"/>
-<text x="329" y="39" font-size="11" fill="var(--muted)" text-anchor="middle">8</text>
+<text x="329" y="39" font-size="12" fill="var(--muted)" text-anchor="middle">8</text>
 <line x1="375" y1="45" x2="375" y2="365" stroke="var(--line)"/>
-<text x="375" y="39" font-size="11" fill="var(--muted)" text-anchor="middle">10</text>
+<text x="375" y="39" font-size="12" fill="var(--muted)" text-anchor="middle">10</text>
 <text x="4" y="84" font-size="12" fill="var(--fg)">H</text>
 <rect x="145" y="68" width="207" height="10" fill="var(--fig-no)"/>
-<text x="357" y="77" font-size="11" fill="var(--fg)">9</text>
+<text x="357" y="77" font-size="12" fill="var(--fg)">9</text>
 <rect x="145" y="81" width="184" height="10" fill="var(--fig-yes)"/>
-<text x="334" y="90" font-size="11" fill="var(--fg)">8</text>
+<text x="334" y="90" font-size="12" fill="var(--fg)">8</text>
 <text x="4" y="118" font-size="12" fill="var(--fg)">P2H</text>
 <rect x="145" y="102" width="184" height="10" fill="var(--fig-no)"/>
-<text x="334" y="111" font-size="11" fill="var(--fg)">8</text>
+<text x="334" y="111" font-size="12" fill="var(--fg)">8</text>
 <rect x="145" y="115" width="184" height="10" fill="var(--fig-yes)"/>
-<text x="334" y="124" font-size="11" fill="var(--fg)">8</text>
+<text x="334" y="124" font-size="12" fill="var(--fg)">8</text>
 <text x="4" y="152" font-size="12" fill="var(--fg)">D,H</text>
 <rect x="145" y="136" width="230" height="10" fill="var(--fig-no)"/>
-<text x="380" y="145" font-size="11" fill="var(--fg)">10</text>
+<text x="380" y="145" font-size="12" fill="var(--fg)">10</text>
 <rect x="145" y="149" width="184" height="10" fill="var(--fig-yes)"/>
-<text x="334" y="158" font-size="11" fill="var(--fg)">8</text>
+<text x="334" y="158" font-size="12" fill="var(--fg)">8</text>
 <text x="4" y="186" font-size="12" fill="var(--fg)">D,P2H</text>
 <rect x="145" y="170" width="184" height="10" fill="var(--fig-no)"/>
-<text x="334" y="179" font-size="11" fill="var(--fg)">8</text>
+<text x="334" y="179" font-size="12" fill="var(--fg)">8</text>
 <rect x="145" y="183" width="184" height="10" fill="var(--fig-yes)"/>
-<text x="334" y="192" font-size="11" fill="var(--fg)">8</text>
+<text x="334" y="192" font-size="12" fill="var(--fg)">8</text>
 <text x="4" y="220" font-size="12" fill="var(--fg)">P1,P2,H</text>
 <rect x="145" y="204" width="207" height="10" fill="var(--fig-no)"/>
-<text x="357" y="213" font-size="11" fill="var(--fg)">9</text>
+<text x="357" y="213" font-size="12" fill="var(--fg)">9</text>
 <rect x="145" y="217" width="184" height="10" fill="var(--fig-yes)"/>
-<text x="334" y="226" font-size="11" fill="var(--fg)">8</text>
+<text x="334" y="226" font-size="12" fill="var(--fg)">8</text>
 <text x="4" y="254" font-size="12" fill="var(--fg)">P1,H,H</text>
 <rect x="145" y="238" width="207" height="10" fill="var(--fig-no)"/>
-<text x="357" y="247" font-size="11" fill="var(--fg)">9</text>
+<text x="357" y="247" font-size="12" fill="var(--fg)">9</text>
 <rect x="145" y="251" width="184" height="10" fill="var(--fig-yes)"/>
-<text x="334" y="260" font-size="11" fill="var(--fg)">8</text>
+<text x="334" y="260" font-size="12" fill="var(--fg)">8</text>
 <text x="4" y="288" font-size="12" fill="var(--fg)">P1,P2,P2H</text>
 <rect x="145" y="272" width="184" height="10" fill="var(--fig-no)"/>
-<text x="334" y="281" font-size="11" fill="var(--fg)">8</text>
+<text x="334" y="281" font-size="12" fill="var(--fg)">8</text>
 <rect x="145" y="285" width="184" height="10" fill="var(--fig-yes)"/>
-<text x="334" y="294" font-size="11" fill="var(--fg)">8</text>
+<text x="334" y="294" font-size="12" fill="var(--fg)">8</text>
 <text x="4" y="322" font-size="12" fill="var(--fg)">P1,H,P2H</text>
 <rect x="145" y="306" width="138" height="10" fill="var(--fig-no)"/>
-<text x="288" y="315" font-size="11" fill="var(--fg)">6</text>
+<text x="288" y="315" font-size="12" fill="var(--fg)">6</text>
 <rect x="145" y="319" width="138" height="10" fill="var(--fig-yes)"/>
-<text x="288" y="328" font-size="11" fill="var(--fg)">6</text>
+<text x="288" y="328" font-size="12" fill="var(--fg)">6</text>
 <text x="4" y="356" font-size="12" fill="var(--fg)">P1,P2H,P2H</text>
 <rect x="145" y="340" width="184" height="10" fill="var(--fig-no)"/>
-<text x="334" y="349" font-size="11" fill="var(--fg)">8</text>
+<text x="334" y="349" font-size="12" fill="var(--fg)">8</text>
 <rect x="145" y="353" width="138" height="10" fill="var(--fig-yes)"/>
-<text x="288" y="362" font-size="11" fill="var(--fg)">6</text>
+<text x="288" y="362" font-size="12" fill="var(--fg)">6</text>
 <text x="260" y="389" font-size="12" fill="var(--muted)" text-anchor="middle">Component terms</text>
 </svg><figcaption>Best source examples (Table 1 and the Section 4 six-term example) beside the proved minima for all nine line-type multisets, counting terms in the two equations rather than reactions.</figcaption></figure>
     <div class="links"><a href="https://github.com/tkmt-lab/minimal-terms-quadratic-mass-action/blob/dfb36e121ec0b014e495abd07f870ea76503fbc4/paper/paper-v1.pdf">Paper (PDF)</a> · <a href="https://github.com/tkmt-lab/minimal-terms-quadratic-mass-action">Repository</a> · <a href="https://doi.org/10.5281/zenodo.23602991">Version DOI</a> · <a href="https://doi.org/10.5281/zenodo.23602990">Concept DOI (all versions)</a> · Release <a href="https://github.com/tkmt-lab/minimal-terms-quadratic-mass-action/releases/tag/v1.0.0">v1.0.0</a> (<a href="https://github.com/tkmt-lab/minimal-terms-quadratic-mass-action/commit/dfb36e121ec0b014e495abd07f870ea76503fbc4"><code>dfb36e121ec0</code></a>) · <a href="https://github.com/tkmt-lab/minimal-terms-quadratic-mass-action/blob/dfb36e121ec0b014e495abd07f870ea76503fbc4/claims.json">Claims and scope</a> · <a href="https://github.com/tkmt-lab/minimal-terms-quadratic-mass-action/actions">Checks (CI)</a></div>
@@ -948,52 +952,52 @@
 <line x1="64" y1="62" x2="304" y2="62" stroke="var(--line)" stroke-width="1"/>
 <line x1="64" y1="14" x2="304" y2="14" stroke="var(--line)" stroke-width="1"/>
 <line x1="112" y1="350" x2="304" y2="158" stroke="var(--muted)" stroke-width="1" stroke-dasharray="4 3"/>
-<text x="308" y="170" font-size="10" fill="var(--muted)">no gap</text>
+<text x="308" y="170" font-size="12" fill="var(--muted)">no gap</text>
 <circle cx="88" cy="326" r="7.2" fill="var(--fig-yes)" fill-opacity="0.45"/>
-<text x="97.2" y="320.8" font-size="10" fill="var(--fg)">2</text>
+<text x="97.2" y="320.8" font-size="12" fill="var(--fg)">2</text>
 <circle cx="136" cy="326" r="6" fill="var(--fig-np)"/>
-<text x="144" y="322" font-size="10" fill="var(--fg)">1</text>
+<text x="148" y="345" font-size="12" fill="var(--fg)">1</text>
 <circle cx="136" cy="278" r="12.4" fill="var(--fig-yes)" fill-opacity="0.45"/>
-<text x="136" y="282" font-size="11" fill="var(--fg)" text-anchor="middle">10</text>
+<text x="136" y="282" font-size="12" fill="var(--fg)" text-anchor="middle">10</text>
 <circle cx="136" cy="230" r="11.4" fill="var(--fig-yes)" fill-opacity="0.45"/>
-<text x="136" y="234" font-size="11" fill="var(--fg)" text-anchor="middle">8</text>
+<text x="136" y="234" font-size="12" fill="var(--fg)" text-anchor="middle">8</text>
 <circle cx="136" cy="182" r="7.2" fill="var(--fig-yes)" fill-opacity="0.45"/>
-<text x="145.2" y="176.8" font-size="10" fill="var(--fg)">2</text>
+<text x="145.2" y="176.8" font-size="12" fill="var(--fg)">2</text>
 <circle cx="184" cy="230" r="11.9" fill="var(--fig-yes)" fill-opacity="0.45"/>
-<text x="184" y="234" font-size="11" fill="var(--fg)" text-anchor="middle">9</text>
+<text x="184" y="234" font-size="12" fill="var(--fg)" text-anchor="middle">9</text>
 <circle cx="184" cy="182" r="10.2" fill="var(--fig-yes)" fill-opacity="0.45"/>
-<text x="184" y="186" font-size="11" fill="var(--fg)" text-anchor="middle">6</text>
+<text x="184" y="186" font-size="12" fill="var(--fg)" text-anchor="middle">6</text>
 <circle cx="184" cy="134" r="6" fill="var(--fig-yes)" fill-opacity="0.45"/>
-<text x="192" y="130" font-size="10" fill="var(--fg)">1</text>
+<text x="192" y="130" font-size="12" fill="var(--fg)">1</text>
 <circle cx="232" cy="230" r="6" fill="var(--fig-np)"/>
-<text x="240" y="226" font-size="10" fill="var(--fg)">1</text>
+<text x="244" y="249" font-size="12" fill="var(--fg)">1</text>
 <circle cx="232" cy="182" r="12.8" fill="var(--fig-yes)" fill-opacity="0.45"/>
-<text x="232" y="186" font-size="11" fill="var(--fg)" text-anchor="middle">11</text>
+<text x="232" y="186" font-size="12" fill="var(--fg)" text-anchor="middle">11</text>
 <circle cx="232" cy="134" r="21" fill="var(--fig-yes)" fill-opacity="0.45"/>
-<text x="232" y="138" font-size="11" fill="var(--fg)" text-anchor="middle">37</text>
+<text x="232" y="138" font-size="12" fill="var(--fg)" text-anchor="middle">37</text>
 <circle cx="232" cy="86" r="6" fill="var(--fig-yes)" fill-opacity="0.45"/>
-<text x="240" y="82" font-size="10" fill="var(--fg)">1</text>
+<text x="240" y="82" font-size="12" fill="var(--fg)">1</text>
 <circle cx="232" cy="38" r="6" fill="var(--fig-no)"/>
 <circle cx="280" cy="134" r="11.4" fill="var(--fig-yes)" fill-opacity="0.45"/>
-<text x="280" y="138" font-size="11" fill="var(--fg)" text-anchor="middle">8</text>
+<text x="280" y="138" font-size="12" fill="var(--fg)" text-anchor="middle">8</text>
 <circle cx="280" cy="86" r="6" fill="var(--fig-yes)" fill-opacity="0.45"/>
-<text x="288" y="82" font-size="10" fill="var(--fg)">1</text>
-<text x="244" y="42" font-size="11" fill="var(--fg)">tsa V1 / tsg V3</text>
-<text x="88" y="364" font-size="10" fill="var(--muted)" text-anchor="middle">1</text>
-<text x="136" y="364" font-size="10" fill="var(--muted)" text-anchor="middle">2</text>
-<text x="184" y="364" font-size="10" fill="var(--muted)" text-anchor="middle">3</text>
-<text x="232" y="364" font-size="10" fill="var(--muted)" text-anchor="middle">4</text>
-<text x="280" y="364" font-size="10" fill="var(--muted)" text-anchor="middle">5</text>
-<text x="56" y="330" font-size="10" fill="var(--muted)" text-anchor="end">2</text>
-<text x="56" y="282" font-size="10" fill="var(--muted)" text-anchor="end">3</text>
-<text x="56" y="234" font-size="10" fill="var(--muted)" text-anchor="end">4</text>
-<text x="56" y="186" font-size="10" fill="var(--muted)" text-anchor="end">5</text>
-<text x="56" y="138" font-size="10" fill="var(--muted)" text-anchor="end">6</text>
-<text x="56" y="90" font-size="10" fill="var(--muted)" text-anchor="end">7</text>
-<text x="56" y="42" font-size="10" fill="var(--muted)" text-anchor="end">8</text>
-<text x="184" y="382" font-size="11" fill="var(--fg)" text-anchor="middle"><tspan font-style="italic">r</tspan><tspan font-size="8" dy="3">min</tspan><tspan dy="-3"> (first radius where the balls differ)</tspan></text>
-<text transform="translate(16 182) rotate(-90)" font-size="11" fill="var(--fg)" text-anchor="middle"><tspan font-style="italic">r</tspan><tspan font-size="8" dy="3">WL</tspan><tspan dy="-3"> (first radius where 1-WL sees it)</tspan></text>
-<text x="64" y="402" font-size="10" fill="var(--muted)">larger circles = more cases</text>
+<text x="288" y="82" font-size="12" fill="var(--fg)">1</text>
+<text x="244" y="42" font-size="12" fill="var(--fg)">tsa V1 / tsg V3</text>
+<text x="88" y="364" font-size="12" fill="var(--muted)" text-anchor="middle">1</text>
+<text x="136" y="364" font-size="12" fill="var(--muted)" text-anchor="middle">2</text>
+<text x="184" y="364" font-size="12" fill="var(--muted)" text-anchor="middle">3</text>
+<text x="232" y="364" font-size="12" fill="var(--muted)" text-anchor="middle">4</text>
+<text x="280" y="364" font-size="12" fill="var(--muted)" text-anchor="middle">5</text>
+<text x="56" y="330" font-size="12" fill="var(--muted)" text-anchor="end">2</text>
+<text x="56" y="282" font-size="12" fill="var(--muted)" text-anchor="end">3</text>
+<text x="56" y="234" font-size="12" fill="var(--muted)" text-anchor="end">4</text>
+<text x="56" y="186" font-size="12" fill="var(--muted)" text-anchor="end">5</text>
+<text x="56" y="138" font-size="12" fill="var(--muted)" text-anchor="end">6</text>
+<text x="56" y="90" font-size="12" fill="var(--muted)" text-anchor="end">7</text>
+<text x="56" y="42" font-size="12" fill="var(--muted)" text-anchor="end">8</text>
+<text x="184" y="382" font-size="12" fill="var(--fg)" text-anchor="middle"><tspan font-style="italic">r</tspan><tspan font-size="12" dy="3">min</tspan><tspan dy="-3"> (first radius where the balls differ)</tspan></text>
+<text transform="translate(16 182) rotate(-90)" font-size="12" fill="var(--fg)" text-anchor="middle"><tspan font-style="italic">r</tspan><tspan font-size="12" dy="3">WL</tspan><tspan dy="-3"> (first radius where 1-WL sees it)</tspan></text>
+<text x="64" y="402" font-size="12" fill="var(--muted)">larger circles = more cases</text>
 </svg><figcaption>The 99 cases by r_min and r_WL. Larger circles indicate more cases. 2 cases (grey) lie on the diagonal r_WL = r_min, and the largest gap is tsa V1 / tsg V3 (orange), with r_min = 4 and r_WL = 8.</figcaption></figure>
     <div class="links"><a href="https://github.com/tkmt-lab/periodic-net-wl-tests">Repository</a> · <a href="https://doi.org/10.5281/zenodo.23587478">Version DOI</a> · <a href="https://doi.org/10.5281/zenodo.23587477">Concept DOI (all versions)</a> · Release <a href="https://github.com/tkmt-lab/periodic-net-wl-tests/releases/tag/v1.0.0">v1.0.0</a> (<a href="https://github.com/tkmt-lab/periodic-net-wl-tests/commit/e427857923563e55a9fdb8ba06cb6a5bb953cd85"><code>e42785792356</code></a>) · <a href="https://github.com/tkmt-lab/periodic-net-wl-tests/blob/e427857923563e55a9fdb8ba06cb6a5bb953cd85/claims.json">claims.json</a> · <a href="https://github.com/tkmt-lab/periodic-net-wl-tests/actions">Checks (CI)</a></div>
     <p class="note">No RCSR data is included, because no licence or redistribution terms were found at the pinned version: the code downloads the RCSR file from a fixed commit and checks its SHA-256. Only the six core cases were checked by a separate implementation. The 99 cases are a selection, not a maximum over RCSR. Nothing is claimed about graph neural networks in general, a radius is not a number of layers, and no priority is claimed. There is no human expert review and no formal proof.</p>
@@ -1010,9 +1014,9 @@
     <p class="plain">This package provides Boolean-network counterexamples that can be used as regression inputs for asynchronous variable-elimination software. In these on/off models of gene regulation, a motif-avoidant attractor is long-run behaviour missed by the usual shortcut (minimal trap spaces); Pastva and colleagues asked why such attractors are so rare. This package gives three small networks in which eliminating one variable creates one, although the variable lies on no feedback loop or satisfies a mediator-and-monotonicity condition. With a transformed copy and two published controls, the six cases serve as regression inputs for reduction software.</p>
     <figure><svg viewBox="0 0 370 256" role="img" aria-label="State graph of example E1 after eliminating a: states bcd, arrows are asynchronous transitions; the attractor 000, 010, 100 lies outside the only minimal trap space d = 1" style="width:100%;max-width:440px;height:auto;display:block">
 <rect x="198" y="24" width="154" height="154" rx="10" fill="var(--fig-yes)" fill-opacity="0.12" stroke="var(--fig-yes)" stroke-dasharray="4 3"/>
-<text x="95" y="16" font-size="11" fill="var(--muted)" text-anchor="middle">d = 0</text>
-<text x="275" y="16" font-size="11" fill="var(--muted)" text-anchor="middle">d = 1</text>
-<text x="275" y="194" font-size="11" fill="var(--fig-yes)" text-anchor="middle">only minimal trap space</text>
+<text x="95" y="16" font-size="12" fill="var(--muted)" text-anchor="middle">d = 0</text>
+<text x="275" y="16" font-size="12" fill="var(--muted)" text-anchor="middle">d = 1</text>
+<text x="275" y="194" font-size="12" fill="var(--fig-yes)" text-anchor="middle">only minimal trap space</text>
 <defs><marker id="bool-arr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L8 4L0 8z" fill="var(--muted)"/></marker></defs>
 <line x1="45" y1="139" x2="45" y2="65" stroke="var(--muted)" stroke-width="1.2" marker-end="url(#bool-arr)"/>
 <line x1="57" y1="161" x2="131" y2="161" stroke="var(--muted)" stroke-width="1.2" marker-end="url(#bool-arr)"/>
@@ -1028,25 +1032,25 @@
 <line x1="237" y1="51" x2="311" y2="51" stroke="var(--muted)" stroke-width="1.2" marker-end="url(#bool-arr)"/>
 <line x1="215" y1="63" x2="215" y2="137" stroke="var(--muted)" stroke-width="1.2" marker-end="url(#bool-arr)"/>
 <circle cx="40" cy="156" r="17" fill="var(--fig-no)"/>
-<text x="40" y="160" font-size="11" fill="var(--fg)" text-anchor="middle">000</text>
+<text x="40" y="160" font-size="12" fill="var(--fg)" text-anchor="middle">000</text>
 <circle cx="330" cy="156" r="17" fill="var(--fig-yes)"/>
-<text x="330" y="160" font-size="11" fill="var(--fg)" text-anchor="middle">001</text>
+<text x="330" y="160" font-size="12" fill="var(--fg)" text-anchor="middle">001</text>
 <circle cx="40" cy="46" r="17" fill="var(--fig-no)"/>
-<text x="40" y="50" font-size="11" fill="var(--fg)" text-anchor="middle">010</text>
+<text x="40" y="50" font-size="12" fill="var(--fg)" text-anchor="middle">010</text>
 <circle cx="330" cy="46" r="17" fill="var(--fig-yes)"/>
-<text x="330" y="50" font-size="11" fill="var(--fg)" text-anchor="middle">011</text>
+<text x="330" y="50" font-size="12" fill="var(--fg)" text-anchor="middle">011</text>
 <circle cx="150" cy="156" r="17" fill="var(--fig-no)"/>
-<text x="150" y="160" font-size="11" fill="var(--fg)" text-anchor="middle">100</text>
+<text x="150" y="160" font-size="12" fill="var(--fg)" text-anchor="middle">100</text>
 <circle cx="220" cy="156" r="17" fill="var(--fig-yes)"/>
-<text x="220" y="160" font-size="11" fill="var(--fg)" text-anchor="middle">101</text>
+<text x="220" y="160" font-size="12" fill="var(--fg)" text-anchor="middle">101</text>
 <circle cx="150" cy="46" r="17" fill="var(--fig-np)"/>
-<text x="150" y="50" font-size="11" fill="var(--fg)" text-anchor="middle">110</text>
+<text x="150" y="50" font-size="12" fill="var(--fg)" text-anchor="middle">110</text>
 <circle cx="220" cy="46" r="17" fill="var(--fig-np)"/>
-<text x="220" y="50" font-size="11" fill="var(--fg)" text-anchor="middle">111</text>
+<text x="220" y="50" font-size="12" fill="var(--fg)" text-anchor="middle">111</text>
 <circle cx="40" cy="222" r="6" fill="var(--fig-no)"/>
-<text x="52" y="226" font-size="11" fill="var(--fg)">new motif-avoidant attractor</text>
+<text x="52" y="226" font-size="12" fill="var(--fg)">new motif-avoidant attractor</text>
 <circle cx="40" cy="242" r="6" fill="var(--fig-yes)"/>
-<text x="52" y="246" font-size="11" fill="var(--fg)">attractor inside the trap space</text>
+<text x="52" y="246" font-size="12" fill="var(--fg)">attractor inside the trap space</text>
 </svg><figcaption>Example E1 after eliminating a, with states written bcd. Before elimination every attractor lies in the minimal trap space d = 1; afterwards the attractor 000, 010, 100 (orange) stays at d = 0, outside the only minimal trap space (shaded), so it is motif-avoidant.</figcaption></figure>
     <table aria-label="Contents of the counterexample package">
       <caption>Fixtures in the package. The minimum of four variables rests on saved records of earlier enumerations, which the package does not rerun.</caption>
@@ -1054,6 +1058,38 @@
     </table>
     <div class="links"><a href="https://github.com/tkmt-lab/boolean-reduction-counterexamples">Repository</a> · <a href="https://github.com/tkmt-lab/boolean-reduction-counterexamples/blob/a782c11e0abf52e9808a50d1a91a9bfdf8c5428f/claims.json">Claims and scopes</a> · <a href="https://doi.org/10.5281/zenodo.23636196">Version DOI</a> · <a href="https://doi.org/10.5281/zenodo.23636195">Concept DOI (all versions)</a> · Release <a href="https://github.com/tkmt-lab/boolean-reduction-counterexamples/releases/tag/v1.0.0">v1.0.0</a> (<a href="https://github.com/tkmt-lab/boolean-reduction-counterexamples/commit/a782c11e0abf52e9808a50d1a91a9bfdf8c5428f"><code>a782c11e0abf</code></a>)</div>
     <p class="note">That elimination can create or remove such attractors is already known, and the novelty of these particular examples has not been established. The two conditions are exploratory candidates from this study, not theorems of the cited authors. No safety theorem, edge-minimality or biological claim is made. There is no human expert review and no formal proof.</p>
+  </div>
+
+  <div class="work" id="exception-networks-stability-certificates">
+    <div class="num">Data and tool · 2026</div>
+    <h3 class="t">Stability certificates for two exceptional reaction networks</h3>
+    <dl class="work-summary"><div><dt>Data and use</dt><dd>Exact root-isolation and stability certificates for two exceptional mass-action reaction networks, usable as test inputs for steady-state and stability calculations.</dd></div>
+      <div><dt>Saved result</dt><dd>Three fixed rate vectors, nine positive equilibria: each vector has three positive equilibria, exactly one exponentially stable.</dd></div>
+      <div><dt>Scope</dt><dd>For either network and all six rates strictly positive, the written derivations give at most three positive equilibria and at most one exponentially stable positive equilibrium.</dd></div></dl>
+    <p class="plain">The package includes the reaction table, two written derivations and two implementations that recompute rational intervals and Routh–Hurwitz signs. It can be used to compare calculations on these fixed fixtures.</p>
+    <figure><svg viewBox="0 0 360 222" role="img" aria-label="Saved equilibria for three rate vectors: the middle equilibrium in each row is exponentially stable" style="width:100%;max-width:440px;height:auto;display:block">
+<text x="14" y="22" font-size="14" fill="var(--fg)">Fixed rate vector</text>
+<text x="178" y="22" font-size="14" fill="var(--fg)">Increasing z →</text>
+<text x="14" y="63" font-size="14" fill="var(--fg)">A33449-1</text>
+<path d="M181 51l14 14m-14 0l14 -14" fill="none" stroke="var(--fig-no)" stroke-width="3"/>
+<circle cx="248" cy="58" r="8" fill="var(--fig-yes)"/>
+<path d="M301 51l14 14m-14 0l14 -14" fill="none" stroke="var(--fig-no)" stroke-width="3"/>
+<text x="14" y="105" font-size="14" fill="var(--fg)">A33449-2</text>
+<path d="M181 93l14 14m-14 0l14 -14" fill="none" stroke="var(--fig-no)" stroke-width="3"/>
+<circle cx="248" cy="100" r="8" fill="var(--fig-yes)"/>
+<path d="M301 93l14 14m-14 0l14 -14" fill="none" stroke="var(--fig-no)" stroke-width="3"/>
+<text x="14" y="147" font-size="14" fill="var(--fg)">B239089-1</text>
+<path d="M181 135l14 14m-14 0l14 -14" fill="none" stroke="var(--fig-no)" stroke-width="3"/>
+<circle cx="248" cy="142" r="8" fill="var(--fig-yes)"/>
+<path d="M301 135l14 14m-14 0l14 -14" fill="none" stroke="var(--fig-no)" stroke-width="3"/>
+<circle cx="22" cy="184" r="7" fill="var(--fig-yes)"/>
+<text x="38" y="189" font-size="13" fill="var(--fg)">Exponentially stable</text>
+<path d="M225 177l14 14m-14 0l14 -14" stroke="var(--fig-no)" stroke-width="3"/>
+<text x="247" y="189" font-size="13" fill="var(--fg)">Unstable</text>
+<text x="14" y="215" font-size="12" fill="var(--muted)">Spacing shows order, not concentration differences</text>
+</svg><figcaption>Stability order from all nine equilibria in the three released certificates: each input has three positive equilibria, exactly one exponentially stable.</figcaption></figure>
+    <div class="links"><a href="https://github.com/tkmt-lab/exception-networks-stability-certificates">Repository</a> · <a href="https://doi.org/10.5281/zenodo.23659209">Version DOI</a> · <a href="https://doi.org/10.5281/zenodo.23659208">Concept DOI (all versions)</a> · Release <a href="https://github.com/tkmt-lab/exception-networks-stability-certificates/releases/tag/v1.0.0">v1.0.0</a> (<a href="https://github.com/tkmt-lab/exception-networks-stability-certificates/commit/1981c553152bae7fe76f23704fda5c06fd354a7e"><code>1981c553152b</code></a>) · <a href="https://github.com/tkmt-lab/exception-networks-stability-certificates/blob/1981c553152bae7fe76f23704fda5c06fd354a7e/claims.json">claims.json</a> · <a href="https://github.com/tkmt-lab/exception-networks-stability-certificates/actions">Checks (CI)</a></div>
+    <p class="note">The all-positive-rate arguments are prose proofs, with symbolic identity checks; the three examples do not prove the general bounds by themselves. The second implementation did not see the first derivation or code before committing, but was told the expected conclusions and counts. This is not a general-purpose solver. No new classification, priority, human peer review or proof-assistant verification is claimed.</p>
   </div>
 
   <h2>How the work is checked</h2>
@@ -1087,6 +1123,7 @@
     <li><a href="https://arxiv.org/abs/2610.06130v1">N. Yeung and R. Erban</a>, whose classification and question about reducing the number of terms led to the quadratic mass-action work; <a href="https://www.mathnet.ru/eng/rm6840">L. S. Lyagina</a> and <a href="https://doi.org/10.1137/1020007">T. A. Newton</a>, whose classifications and invariant-line descriptions provide its geometric framework.</li>
     <li>For the Boolean-network counterexamples: S. Pastva, K. H. Park, O. Huvar, J. C. Rozum and R. Albert, who asked why motif-avoidant attractors are so rare and whose Examples 7 and 8 are the controls; and E. Tonello and L. Paulevé, whose mediator condition and projection lemma shaped the conditions tested.</li>
     <li>The developers of Lean 4 and mathlib, and of the Comparator tool and the independent proof kernels used to check our proofs.</li>
+    <li>Xiaoxian Tang and Jiandong Zhang, whose Example 4 supplied the two exceptional networks and whose Theorem 2 and Lemma 3 give the upper bound, the 375/373 classification and the stability result used here; Angélica Torres and Elisenda Feliu, whose determinant reduction and stability-alternation results the two explicit derivations specialize.</li>
   </ul>
   <p>I am grateful to them, and I hope this work adds something new to the field they opened. The papers and repositories cite these and other sources in full.</p>
 

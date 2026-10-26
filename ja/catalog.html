@@ -25,6 +25,13 @@
   td { border-top:1px solid var(--line); padding:6px 4px; vertical-align:top; }
   td:first-child { white-space:nowrap; padding-right:12px; }
   code { font:.9em ui-monospace, SFMono-Regular, Menlo, monospace; }
+  pre { background:var(--code-bg); border-radius:6px; padding:10px 12px; font-size:.85rem; line-height:1.5; }
+
+  table { table-layout:fixed; }
+  td, code { overflow-wrap:anywhere; word-break:normal; }
+  td:first-child { white-space:normal; width:32%; }
+  pre { max-width:100%; box-sizing:border-box; overflow-x:auto; white-space:pre; }
+  pre code { overflow-wrap:normal; }
 </style>
 </head>
 <body>
@@ -38,8 +45,8 @@
 
   <h2>AI エージェントの使い方</h2>
   <ol>
-    <li><a href="../catalog.json"><code>catalog.json</code></a> を読みます（形式は <a href="../catalog.schema.json"><code>catalog.schema.json</code></a>、JSON Schema 2020-12）。研究と主張を選びます。主張の番号は変わりません。形は <code>&lt;owner&gt;/&lt;repository&gt;#&lt;claims.json の id&gt;</code> で、例えば <code>tkmt-lab/a3-gsw-classification#thm:classification</code> です。</li>
-    <li>そのリポジトリの <code>AGENTS.md</code>（<code>entry_points.agents_md</code>）を読み、次に <code>claims.json</code> を読みます。<code>release.tag</code> の版のものを使います。</li>
+    <li>まず <a href="../catalog-index.json"><code>catalog-index.json</code></a> で成果を選び、次に <a href="../catalog.json"><code>catalog.json</code></a> の該当する主張を読みます（形式は <a href="../catalog.schema.json"><code>catalog.schema.json</code></a>、JSON Schema 2020-12）。主張の番号は変わりません。形は <code>&lt;owner&gt;/&lt;repository&gt;#&lt;claims.json の id&gt;</code> で、例えば <code>tkmt-lab/a3-gsw-classification#thm:classification</code> です。</li>
+    <li>そのリポジトリの <code>AGENTS.md</code>（<code>entry_points.agents_md</code>）を読み、次に <code>claims.json</code> を読みます。<code>source_revision.commit</code> が <code>release.commit</code> と一致する版を使います。タグは <code>release.tag</code> です。</li>
     <li><code>verification</code> のコマンドを、書かれた作業ディレクトリで実行します。<code>expected_output</code> があれば出力と比べます。Lean の結果は、保存された記録を信じるより、ビルドをやり直すほうが確かです。</li>
     <li>主張を説明するときは、その <code>scope</code>・<code>not_claimed</code> と、研究の <code>scope_flags</code> の範囲を出ないでください。項目に書かれていない限り、人間の査読は受けていません。</li>
   </ol>
@@ -69,6 +76,27 @@
     <tr><td><code>formal-derivation</code></td><td>書かれた仮定のもとでの形式的な（例えば漸近の）計算。証明ではありません。</td></tr>
     <tr><td><code>statement-correspondence</code></td><td>元と収録版の定理の型が一致したという保存済みの検査記録。主張の真偽もリンク先の証明も確かめません。目録を作るときは記録とファイルのハッシュを照合し、Lean は実行しません。</td></tr>
   </table>
+
+  <h2>例</h2>
+  <p>主張の一項目を短くした例です：</p>
+<pre>{
+  "id": "tkmt-lab/a3-gsw-classification#thm:classification",
+  "status": "lean-proved",
+  "human_review": false,
+  "lean_declarations": ["ClaudeMain.main_full"],
+  "evidence": [
+    { "kind": "lean-proof", "basis": "lean",
+      "declaration": "ClaudeMain.main_full",
+      "source_file": "packet/formal/Formal/ClaudeMainFull.lean",
+      "axioms": ["propext", "Classical.choice", "Quot.sound"],
+      "statement_file": "packet/formal/Formal/ComparatorChallengeMain.lean" },
+    { "kind": "comparator", "basis": "README.md",
+      "declaration": "ClaudeMain.main_full",
+      "statement_declaration": "ClaudeChallenge.main", "kernels": 6, … }
+  ],
+  "evidence_kinds": ["comparator", "lean-proof", "prose-proof"],
+  "not_claimed": ["Human peer review of the proof.", …]
+}</pre>
 
   <h2>限界</h2>
   <p>目録は、リポジトリにすでに書かれていることを集めるだけで、数学そのものは確かめません。主張ごとに書いてあることが少ないリポジトリもあり（例えば <code>claims.json</code> に主張の文がないもの）、そのときは項目を省きます。研究室の公開の記録には日本語の文もあり、その文には <code>"lang": "ja"</code> を付けています。</p>

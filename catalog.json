@@ -1,9 +1,9 @@
 {
   "$schema": "https://tkmt-lab.github.io/catalog.schema.json",
   "version": "1.2",
-  "generated_at": "2026-10-25T16:18:09+09:00",
+  "generated_at": "2026-10-26T17:52:28+09:00",
   "sources": {
-    "releases": "docs/releases.json (lab research repository, updated 2026-10-25T16:16:04+09:00)",
+    "releases": "docs/releases.json (lab research repository, updated 2026-10-26T16:18:24+09:00)",
     "repositories": "claims.json, AGENTS.md, README.md, CITATION.cff, .zenodo.json at each repository's published origin/main, required to equal its release commit; exact inputs in work.source_revision"
   },
   "lab": {
@@ -6805,6 +6805,224 @@
           "evidence_kinds": [],
           "evidence_files": [
             "README.md"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tkmt-lab/exception-networks-stability-certificates",
+      "source_revision": {
+        "ref": "origin/main",
+        "commit": "1981c553152bae7fe76f23704fda5c06fd354a7e",
+        "matches_release": true
+      },
+      "work_type": "data-tool",
+      "title": "Stability certificates for two exceptional reaction networks",
+      "packet_version": "1.0.0",
+      "authors": [
+        {
+          "name": "Tatsuhiko Takimoto",
+          "affiliation": "Independent researcher"
+        }
+      ],
+      "summary": "Data and tools for steady-state and stability calculations on the two Tang–Zhang Example 4 networks. Three fixed rational rate vectors have nine certified positive equilibria, three exponentially stable in total. Two written derivations give the all-positive-rate bounds; two implementations recompute the fixed certificates. Not a general-purpose solver, new classification or novelty claim. No proof-assistant verification or human peer review; not blind testing. Current release: tag v1.0.0; commit 1981c553152bae7fe76f23704fda5c06fd354a7e; version DOI 10.5281/zenodo.23659209; concept DOI 10.5281/zenodo.23659208 (all versions).",
+      "release": {
+        "tag": "v1.0.0",
+        "date": "2026-10-26",
+        "commit": "1981c553152bae7fe76f23704fda5c06fd354a7e",
+        "github_release": "https://github.com/tkmt-lab/exception-networks-stability-certificates/releases/tag/v1.0.0",
+        "version_doi": "10.5281/zenodo.23659209",
+        "concept_doi": "10.5281/zenodo.23659208",
+        "doi_status": "minted"
+      },
+      "repo_url": "https://github.com/tkmt-lab/exception-networks-stability-certificates",
+      "entry_points": {
+        "agents_md": [
+          {
+            "path": "AGENTS.md",
+            "url": "https://github.com/tkmt-lab/exception-networks-stability-certificates/blob/v1.0.0/AGENTS.md"
+          }
+        ],
+        "claims_json": {
+          "path": "claims.json",
+          "url": "https://github.com/tkmt-lab/exception-networks-stability-certificates/blob/v1.0.0/claims.json",
+          "raw_url": "https://raw.githubusercontent.com/tkmt-lab/exception-networks-stability-certificates/v1.0.0/claims.json"
+        },
+        "readme": {
+          "path": "README.md",
+          "url": "https://github.com/tkmt-lab/exception-networks-stability-certificates/blob/v1.0.0/README.md"
+        },
+        "citation_cff": {
+          "path": "CITATION.cff",
+          "url": "https://github.com/tkmt-lab/exception-networks-stability-certificates/blob/v1.0.0/CITATION.cff"
+        }
+      },
+      "scope": [
+        {
+          "text": "Tang–Zhang Example 4の例外二網について、全6速度定数が正の質量作用系の正平衡点の上限と指数安定性の二つの文章の導出、および固定した有理速度3組・正平衡点9点の根分離区間とRouth–Hurwitz符号を再計算するデータと検査器。",
+          "lang": "ja",
+          "source": "docs/releases.json"
+        }
+      ],
+      "not_claimed": [
+        {
+          "text": "分類・一般安定性原理・消去法の新規性、375/373分類の再監査、任意の入力の一般ソルバー、退化点の非線形安定性・境界吸引子・大域動力学・生物学的実現性、人の査読・形式証明・盲検・原著者の推薦は主張しない。",
+          "lang": "ja",
+          "source": "docs/releases.json"
+        },
+        {
+          "text": "Novelty or priority of the two-network conclusions.",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "A new classification, elimination method or general stability principle.",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "A theoretical explanation of the upper bound across all 375 networks, or the common structure of the 373 multistable networks; those questions remain unresolved here.",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "A new discovery of the two exceptional networks or the 375/373 classification.",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "Three positive equilibria for every strictly positive rate vector.",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "Nonlinear asymptotic stability of degenerate equilibria.",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "A bound on boundary attractors, cycles or all attracting sets.",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "Dissipativity, global dynamics or biological realizability.",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "A general-purpose solver or certification of arbitrary parameter vectors.",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "Human peer review, formal verification, blinded testing or cited-author endorsement.",
+          "lang": "en",
+          "source": "claims.json"
+        }
+      ],
+      "verification": [
+        {
+          "source": "README.md#Run the checks",
+          "working_directory": ".",
+          "shell": "sh",
+          "script": "python3 -B verify.py",
+          "expected_output": "PASS: 2 networks, 3 samples, 9 equilibria; both implementations agree",
+          "expected_output_status": "documented-example"
+        }
+      ],
+      "claims": [
+        {
+          "id": "tkmt-lab/exception-networks-stability-certificates#positive-bound",
+          "local_id": "positive-bound",
+          "kind": "written-proof-with-symbolic-identity-checks",
+          "statement": "For each of the two networks and every strictly positive rate vector, there are at most three distinct positive equilibria.",
+          "evidence": [
+            {
+              "kind": "prose-proof",
+              "basis": "kind=written-proof-with-symbolic-identity-checks"
+            },
+            {
+              "kind": "finite-computation",
+              "basis": "kind=written-proof-with-symbolic-identity-checks"
+            }
+          ],
+          "evidence_kinds": [
+            "finite-computation",
+            "prose-proof"
+          ],
+          "evidence_files": [
+            "docs/ratio-y-derivation.md",
+            "docs/z-derivation.md"
+          ]
+        },
+        {
+          "id": "tkmt-lab/exception-networks-stability-certificates#three-implies-one",
+          "local_id": "three-implies-one",
+          "kind": "written-proof-with-symbolic-identity-checks",
+          "statement": "For each network, if there are three distinct positive equilibria, all three are nondegenerate and exactly one is exponentially stable.",
+          "evidence": [
+            {
+              "kind": "prose-proof",
+              "basis": "kind=written-proof-with-symbolic-identity-checks"
+            },
+            {
+              "kind": "finite-computation",
+              "basis": "kind=written-proof-with-symbolic-identity-checks"
+            }
+          ],
+          "evidence_kinds": [
+            "finite-computation",
+            "prose-proof"
+          ],
+          "evidence_files": [
+            "docs/ratio-y-derivation.md",
+            "docs/z-derivation.md"
+          ]
+        },
+        {
+          "id": "tkmt-lab/exception-networks-stability-certificates#stable-bound",
+          "local_id": "stable-bound",
+          "kind": "written-proof-with-symbolic-identity-checks",
+          "statement": "For each network and every strictly positive rate vector, at most one positive equilibrium is exponentially stable, including when other positive equilibria are degenerate.",
+          "evidence": [
+            {
+              "kind": "prose-proof",
+              "basis": "kind=written-proof-with-symbolic-identity-checks"
+            },
+            {
+              "kind": "finite-computation",
+              "basis": "kind=written-proof-with-symbolic-identity-checks"
+            }
+          ],
+          "evidence_kinds": [
+            "finite-computation",
+            "prose-proof"
+          ],
+          "evidence_files": [
+            "docs/ratio-y-derivation.md",
+            "docs/z-derivation.md"
+          ]
+        },
+        {
+          "id": "tkmt-lab/exception-networks-stability-certificates#fixed-certificates",
+          "local_id": "fixed-certificates",
+          "kind": "recomputed-finite-certificates",
+          "statement": "Each of the three fixed rational samples has three nondegenerate positive equilibria and one exponentially stable positive equilibrium. Every archived rational interval and Hurwitz sign is recomputed and compared.",
+          "evidence": [
+            {
+              "kind": "finite-computation",
+              "basis": "kind=recomputed-finite-certificates"
+            }
+          ],
+          "evidence_kinds": [
+            "finite-computation"
+          ],
+          "evidence_files": [
+            "certificates/pilot-exact.json",
+            "certificates/independent-samples.json",
+            "certificates/certificate-recheck.json",
+            "verify.py"
           ]
         }
       ]
