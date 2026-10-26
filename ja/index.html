@@ -119,8 +119,7 @@
     .index-arrow { grid-column:3; grid-row:1; }
   }
 
-  figure { max-width:100%; overflow-x:auto; }
-  @media (max-width:480px) { .work:not(#exception-networks-stability-certificates) figure svg { min-width:400px; } }
+  figure { max-width:100%; }
 </style>
 </head>
 <body>
@@ -608,15 +607,15 @@
 <rect x="382" y="22" width="11" height="11" fill="var(--fig-yes)"/>
 <rect x="225" y="309" width="13" height="13" fill="none" stroke="var(--fg)" stroke-width="1.5"/>
 <line x1="232.0" y1="310" x2="172.0" y2="28" stroke="var(--fg)" stroke-width="1"/>
-<text x="170.0" y="25" font-size="12" fill="var(--fg)" text-anchor="middle">GC(17,5)：原子7,980個</text>
-<text x="214.0" y="404" font-size="12" fill="var(--muted)" text-anchor="middle">k →</text>
-<text x="10" y="44" font-size="12" fill="var(--muted)">l ↑</text>
+<text x="170.0" y="25" font-size="13" fill="var(--fg)" text-anchor="middle">GC(17,5)：原子7,980個</text>
+<text x="214.0" y="404" font-size="13" fill="var(--muted)" text-anchor="middle">k →</text>
+<text x="10" y="44" font-size="13" fill="var(--muted)">l ↑</text>
 <rect x="8" y="422" width="11" height="11" fill="var(--fig-yes)"/>
-<text x="24" y="432" font-size="12" fill="var(--fg)">経路あり</text>
+<text x="24" y="432" font-size="13" fill="var(--fg)">経路あり</text>
 <rect x="118" y="422" width="11" height="11" fill="var(--fig-no)"/>
-<text x="134" y="432" font-size="12" fill="var(--fg)">経路なし</text>
-<rect x="208" y="422" width="11" height="11" fill="var(--fig-np)"/>
-<text x="224" y="432" font-size="12" fill="var(--fg)">拡大しただけの形（経路なし）</text>
+<text x="134" y="432" font-size="13" fill="var(--fg)">経路なし</text>
+<rect x="200" y="422" width="11" height="11" fill="var(--fig-np)"/>
+<text x="216" y="432" font-size="13" fill="var(--fg)">拡大しただけの形（経路なし）</text>
 </svg><figcaption>一つのます目が一つのかご GC(k,l)[C20] です。色は証明した規則のとおりです。</figcaption></figure>
     <div class="links"><a href="https://github.com/tkmt-lab/a3-gsw-classification/blob/58124b20fa4a3b19aaa62e734c2036210f7bdcf8/paper/paper-A3-en.pdf">論文（PDF、英語）</a> · <a href="https://github.com/tkmt-lab/a3-gsw-classification">リポジトリ</a> · <a href="https://doi.org/10.5281/zenodo.23515012">この版のDOI</a> · <a href="https://doi.org/10.5281/zenodo.23491202">全版の概念DOI</a> · 公開版 <a href="https://github.com/tkmt-lab/a3-gsw-classification/releases/tag/v1.1.0">v1.1.0</a> (<a href="https://github.com/tkmt-lab/a3-gsw-classification/commit/58124b20fa4a3b19aaa62e734c2036210f7bdcf8"><code>58124b20fa4a</code></a>) · <a href="https://github.com/tkmt-lab/lean-statements/tree/b3647ee21a1fd572e8a500f2288921116dbb098d/FormalConjectures/Paper">Lean の主張文</a> · <a href="https://github.com/tkmt-lab/a3-gsw-classification/blob/58124b20fa4a3b19aaa62e734c2036210f7bdcf8/packet/claims.json">claims.json</a> · <a href="https://github.com/tkmt-lab/a3-gsw-classification/actions">検査（CI）</a></div>
     <p class="note">この問いは A. Bille、V. Buchstaber、E. Spodarev がフラーレンの未解決問題の一覧で定義したものです。この分類は Lean 4 で証明され、あらかじめ書いた主張文との一致を Comparator で確かめています。</p>
@@ -635,54 +634,54 @@
 <rect x="18" y="6" width="9" height="22" fill="var(--fig-no)"/>
 <rect x="28" y="6" width="9" height="22" fill="var(--fig-yes)"/>
 <rect x="38" y="6" width="9" height="22" fill="var(--fig-no)"/>
-<text x="43.0" y="40" font-size="12" fill="var(--muted)" text-anchor="middle">5</text>
+<text x="43.0" y="40" font-size="13" fill="var(--muted)" text-anchor="middle">5</text>
 <rect x="48" y="6" width="9" height="22" fill="var(--fig-yes)"/>
 <rect x="58" y="6" width="9" height="22" fill="var(--fig-no)"/>
 <rect x="68" y="6" width="9" height="22" fill="var(--fig-no)"/>
 <rect x="78" y="6" width="9" height="22" fill="var(--fig-yes)"/>
 <rect x="88" y="6" width="9" height="22" fill="var(--fig-no)"/>
-<text x="93.0" y="40" font-size="12" fill="var(--muted)" text-anchor="middle">10</text>
+<text x="93.0" y="40" font-size="13" fill="var(--muted)" text-anchor="middle">10</text>
 <rect x="98" y="6" width="9" height="22" fill="var(--fig-yes)"/>
 <rect x="108" y="6" width="9" height="22" fill="var(--fig-no)"/>
 <rect x="118" y="6" width="9" height="22" fill="var(--fig-no)"/>
 <rect x="128" y="6" width="9" height="22" fill="var(--fig-yes)"/>
 <rect x="138" y="6" width="9" height="22" fill="var(--fig-no)"/>
-<text x="143.0" y="40" font-size="12" fill="var(--muted)" text-anchor="middle">15</text>
+<text x="143.0" y="40" font-size="13" fill="var(--muted)" text-anchor="middle">15</text>
 <rect x="148" y="6" width="9" height="22" fill="var(--fig-yes)"/>
 <rect x="158" y="6" width="9" height="22" fill="var(--fig-no)"/>
 <rect x="168" y="6" width="9" height="22" fill="var(--fig-no)"/>
 <rect x="178" y="6" width="9" height="22" fill="var(--fig-yes)"/>
 <rect x="188" y="6" width="9" height="22" fill="var(--fig-no)"/>
-<text x="193.0" y="40" font-size="12" fill="var(--muted)" text-anchor="middle">20</text>
+<text x="193.0" y="40" font-size="13" fill="var(--muted)" text-anchor="middle">20</text>
 <rect x="198" y="6" width="9" height="22" fill="var(--fig-yes)"/>
 <rect x="208" y="6" width="9" height="22" fill="var(--fig-no)"/>
 <rect x="218" y="6" width="9" height="22" fill="var(--fig-no)"/>
 <rect x="228" y="6" width="9" height="22" fill="var(--fig-yes)"/>
 <rect x="238" y="6" width="9" height="22" fill="var(--fig-no)"/>
-<text x="243.0" y="40" font-size="12" fill="var(--muted)" text-anchor="middle">25</text>
+<text x="243.0" y="40" font-size="13" fill="var(--muted)" text-anchor="middle">25</text>
 <rect x="248" y="6" width="9" height="22" fill="var(--fig-yes)"/>
 <rect x="258" y="6" width="9" height="22" fill="var(--fig-no)"/>
 <rect x="268" y="6" width="9" height="22" fill="var(--fig-no)"/>
 <rect x="278" y="6" width="9" height="22" fill="var(--fig-yes)"/>
 <rect x="288" y="6" width="9" height="22" fill="var(--fig-no)"/>
-<text x="293.0" y="40" font-size="12" fill="var(--muted)" text-anchor="middle">30</text>
+<text x="293.0" y="40" font-size="13" fill="var(--muted)" text-anchor="middle">30</text>
 <rect x="298" y="6" width="9" height="22" fill="var(--fig-yes)"/>
 <rect x="308" y="6" width="9" height="22" fill="var(--fig-no)"/>
 <rect x="318" y="6" width="9" height="22" fill="var(--fig-no)"/>
 <rect x="328" y="6" width="9" height="22" fill="var(--fig-yes)"/>
 <rect x="338" y="6" width="9" height="22" fill="var(--fig-no)"/>
-<text x="343.0" y="40" font-size="12" fill="var(--muted)" text-anchor="middle">35</text>
+<text x="343.0" y="40" font-size="13" fill="var(--muted)" text-anchor="middle">35</text>
 <rect x="348" y="6" width="9" height="22" fill="var(--fig-yes)"/>
 <rect x="358" y="6" width="9" height="22" fill="var(--fig-no)"/>
 <rect x="368" y="6" width="9" height="22" fill="var(--fig-no)"/>
 <rect x="378" y="6" width="9" height="22" fill="var(--fig-yes)"/>
 <rect x="388" y="6" width="9" height="22" fill="var(--fig-no)"/>
 <rect x="398" y="6" width="9" height="22" fill="var(--fig-yes)"/>
-<text x="408" y="40" font-size="12" fill="var(--muted)" text-anchor="end">s →</text>
+<text x="408" y="40" font-size="13" fill="var(--muted)" text-anchor="end">s →</text>
 <rect x="8" y="48" width="11" height="11" fill="var(--fig-yes)"/>
-<text x="24" y="58" font-size="12" fill="var(--fg)">経路あり</text>
+<text x="24" y="58" font-size="13" fill="var(--fg)">経路あり</text>
 <rect x="118" y="48" width="11" height="11" fill="var(--fig-no)"/>
-<text x="134" y="58" font-size="12" fill="var(--fg)">経路なし</text>
+<text x="134" y="58" font-size="13" fill="var(--fg)">経路なし</text>
 </svg><figcaption>Graver の族 K3(5,s)（s = 2〜41）：s を 5 で割った余りが 1 か 4 のときだけ経路があるので、5 ごとに同じ模様がくり返します。</figcaption></figure>
     <div class="links"><a href="https://github.com/tkmt-lab/gsw-ray-periodicity/blob/8eea5994bfebdcca4865528bd7524af4064f9c16/paper/paper-lines-en.pdf">論文（PDF、英語）</a> · <a href="https://github.com/tkmt-lab/gsw-ray-periodicity">リポジトリ</a> · <a href="https://doi.org/10.5281/zenodo.23589703">この版のDOI</a> · <a href="https://doi.org/10.5281/zenodo.23491204">全版の概念DOI</a> · 公開版 <a href="https://github.com/tkmt-lab/gsw-ray-periodicity/releases/tag/v1.10.0">v1.10.0</a> (<a href="https://github.com/tkmt-lab/gsw-ray-periodicity/commit/8eea5994bfebdcca4865528bd7524af4064f9c16"><code>8eea5994bfeb</code></a>) · <a href="https://github.com/tkmt-lab/lean-statements/tree/b3647ee21a1fd572e8a500f2288921116dbb098d/FormalConjectures/Paper">Lean の主張文</a> · <a href="https://github.com/tkmt-lab/gsw-ray-periodicity/blob/8eea5994bfebdcca4865528bd7524af4064f9c16/packet/claims.json">claims.json</a> · <a href="https://github.com/tkmt-lab/gsw-ray-periodicity/actions">検査（CI）</a></div>
     <p class="note">一般定理の形式版は、論文より弱い仮定で Lean 4 により証明されています。論文の幾何の仮定から形式版への段は、Lean ではなく文章の補題です。K3 と C1 では、それぞれの条件の下で、閉じた分類と周期性をこの段なしで Lean により証明しています。O2、D12、D14、E10 にも族別の Lean の結果があり、対象の条件と結論の範囲は英語の説明と原本に記しています。D12 の Lean の証明は、前の二つの計算機援用の証明を知ったうえで書かれており、三つ目の独立な導出ではありません。</p>
@@ -736,16 +735,16 @@
 <rect x="377" y="111" width="8" height="1" fill="var(--fig-yes)"/>
 <rect x="387" y="111" width="8" height="1" fill="var(--fig-yes)"/>
 <line x1="16" y1="112.5" x2="416" y2="112.5" stroke="var(--muted)" stroke-width="1"/>
-<text x="16" y="126" font-size="12" fill="var(--muted)" text-anchor="middle">0</text>
-<text x="116" y="126" font-size="12" fill="var(--muted)" text-anchor="middle">1</text>
-<text x="216" y="126" font-size="12" fill="var(--muted)" text-anchor="middle">2</text>
-<text x="316" y="126" font-size="12" fill="var(--muted)" text-anchor="middle">3</text>
-<text x="416" y="126" font-size="12" fill="var(--muted)" text-anchor="middle">4</text>
-<text x="416" y="142" font-size="12" fill="var(--muted)" text-anchor="end">破れ −F(p) →</text>
-<text x="184" y="40" font-size="12" fill="var(--fg)">いちばん高い棒：5,188 行</text>
+<text x="16" y="126" font-size="13" fill="var(--muted)" text-anchor="middle">0</text>
+<text x="116" y="126" font-size="13" fill="var(--muted)" text-anchor="middle">1</text>
+<text x="216" y="126" font-size="13" fill="var(--muted)" text-anchor="middle">2</text>
+<text x="316" y="126" font-size="13" fill="var(--muted)" text-anchor="middle">3</text>
+<text x="416" y="126" font-size="13" fill="var(--muted)" text-anchor="middle">4</text>
+<text x="416" y="142" font-size="13" fill="var(--muted)" text-anchor="end">破れ −F(p) →</text>
+<text x="184" y="40" font-size="13" fill="var(--fg)">いちばん高い棒：5,188 行</text>
 <line x1="21.6" y1="109" x2="21.6" y2="32" stroke="var(--fg)" stroke-width="1"/>
-<text x="19.6" y="14" font-size="12" fill="var(--fg)">最小</text>
-<text x="19.6" y="26" font-size="12" fill="var(--fg)">0.056（980 行目）</text>
+<text x="19.6" y="14" font-size="13" fill="var(--fg)">最小</text>
+<text x="19.6" y="26" font-size="13" fill="var(--fg)">0.056（980 行目）</text>
 </svg><figcaption>(4,5,2,2) のリストの、正値性の行を除く 49,357 行それぞれについて、保存した有理数の二量子ビットの証拠が不等式を破る量 −F(p) を 0.1 刻みで数えたものです。どれも 0 より大きい値です。値は元のリストの尺度によるもので、とりうる最大の破れではありません。</figcaption></figure>
     <div class="links"><a href="https://github.com/tkmt-lab/bell-facet-certificates/blob/cd1e141455cf3f5fe05a739782271201cdefe7e8/paper-bell-v1-en.pdf">論文（PDF、英語）</a> · <a href="https://github.com/tkmt-lab/bell-facet-certificates">リポジトリ</a> · <a href="https://doi.org/10.5281/zenodo.23538697">この版のDOI</a> · <a href="https://doi.org/10.5281/zenodo.23538696">全版の概念DOI</a> · 公開版 <a href="https://github.com/tkmt-lab/bell-facet-certificates/releases/tag/v1.0.0">v1.0.0</a> (<a href="https://github.com/tkmt-lab/bell-facet-certificates/commit/cd1e141455cf3f5fe05a739782271201cdefe7e8"><code>cd1e141455cf</code></a>) · <a href="https://github.com/tkmt-lab/bell-facet-certificates/blob/cd1e141455cf3f5fe05a739782271201cdefe7e8/claims.json">claims.json</a> · <a href="https://github.com/tkmt-lab/bell-facet-certificates/actions">検査（CI）</a></div>
     <p class="note">固定した二つの公開リストについての有限の証拠で、Gill の問いを解いたものではありません。リストが完全であることや、量子での最大の値は主張していません。CI の再検査は、小さいリストは全件、大きいリストは一部です。大きいリストの全証明書は公開版に添付しています。Lean の証明はなく、人間の査読は受けていません。</p>
@@ -761,33 +760,33 @@
     </dl>
     <p class="plain">ここで扱う音の地平線のモデルで、分散による温度のずれの主な項を、地平線近くの流れから書く式を形式的な漸近計算で求めました。音の地平線は流体が音より速く流れる場所で、熱的な音波の温度は流れの傾きに関わり、このモデルでは短い波ほど速く進みます。4 乗の分散をもつ一次元の流れで地平線が一つの場合に、周波数ゼロでの温度のずれの主な項を、分散の尺度 Λ が大きいときについて求めました。ずれは 1/Λ² で小さくなり、その係数は地平線での流れの数階の微分で書けます。公式は形式的な漸近計算から出したもので、完全な散乱の計算、新しい流れについて計算の前に書き留めた予測、別に書いた散乱のコードのいずれとも合っています。</p>
     <figure><svg viewBox="0 0 420 156" role="img" aria-label="流れ B3 と B4 の、1/Λ² に対する Λ²[T(0)/T_H − 1]" style="width:100%;max-width:440px;height:auto;display:block">
-<text x="20" y="14" font-size="12" fill="var(--fg)">流れ B3</text>
+<text x="20" y="14" font-size="13" fill="var(--fg)">流れ B3</text>
 <line x1="20" y1="120.5" x2="196" y2="120.5" stroke="var(--muted)" stroke-width="1"/>
 <line x1="20" y1="37.9" x2="196" y2="37.9" stroke="var(--fig-no)" stroke-width="1.5" stroke-dasharray="5 3"/>
 <path d="M20 32.9l5 5-5 5-5-5z" fill="var(--fig-no)"/>
-<text x="196" y="52.9" font-size="12" fill="var(--fg)" text-anchor="end">予測値 b₀ = −0.607</text>
+<text x="196" y="52.9" font-size="13" fill="var(--fg)" text-anchor="end">予測値 b₀ = −0.607</text>
 <polyline points="187.6,104.1 61.9,54.4 30.5,42 22.6,38.9" fill="none" stroke="var(--fig-yes)" stroke-width="1.5"/>
 <circle cx="187.6" cy="104.1" r="4" fill="var(--fig-yes)"/>
 <circle cx="61.9" cy="54.4" r="4" fill="var(--fig-yes)"/>
 <circle cx="30.5" cy="42" r="4" fill="var(--fig-yes)"/>
 <circle cx="22.6" cy="38.9" r="4" fill="var(--fig-yes)"/>
-<text x="187.6" y="134" font-size="12" fill="var(--muted)" text-anchor="middle">Λ=10</text>
-<text x="61.9" y="134" font-size="12" fill="var(--muted)" text-anchor="middle">20</text>
-<text x="20" y="134" font-size="12" fill="var(--muted)" text-anchor="middle">∞</text>
-<text x="234" y="14" font-size="12" fill="var(--fg)">流れ B4</text>
+<text x="187.6" y="134" font-size="13" fill="var(--muted)" text-anchor="middle">Λ=10</text>
+<text x="61.9" y="134" font-size="13" fill="var(--muted)" text-anchor="middle">20</text>
+<text x="20" y="134" font-size="13" fill="var(--muted)" text-anchor="middle">∞</text>
+<text x="234" y="14" font-size="13" fill="var(--fg)">流れ B4</text>
 <line x1="234" y1="120.5" x2="410" y2="120.5" stroke="var(--muted)" stroke-width="1"/>
 <line x1="234" y1="104.1" x2="410" y2="104.1" stroke="var(--fig-no)" stroke-width="1.5" stroke-dasharray="5 3"/>
 <path d="M234 99.1l5 5-5 5-5-5z" fill="var(--fig-no)"/>
-<text x="410" y="98.1" font-size="12" fill="var(--fg)" text-anchor="end">予測値 b₀ = +1.134</text>
+<text x="410" y="98.1" font-size="13" fill="var(--fg)" text-anchor="end">予測値 b₀ = +1.134</text>
 <polyline points="401.6,37.9 275.9,80.2 244.5,98.2 236.6,102.6" fill="none" stroke="var(--fig-yes)" stroke-width="1.5"/>
 <circle cx="401.6" cy="37.9" r="4" fill="var(--fig-yes)"/>
 <circle cx="275.9" cy="80.2" r="4" fill="var(--fig-yes)"/>
 <circle cx="244.5" cy="98.2" r="4" fill="var(--fig-yes)"/>
 <circle cx="236.6" cy="102.6" r="4" fill="var(--fig-yes)"/>
-<text x="401.6" y="134" font-size="12" fill="var(--muted)" text-anchor="middle">Λ=10</text>
-<text x="275.9" y="134" font-size="12" fill="var(--muted)" text-anchor="middle">20</text>
-<text x="234" y="134" font-size="12" fill="var(--muted)" text-anchor="middle">∞</text>
-<text x="418" y="150" font-size="12" fill="var(--muted)" text-anchor="end">1/Λ² →</text>
+<text x="401.6" y="134" font-size="13" fill="var(--muted)" text-anchor="middle">Λ=10</text>
+<text x="275.9" y="134" font-size="13" fill="var(--muted)" text-anchor="middle">20</text>
+<text x="234" y="134" font-size="13" fill="var(--muted)" text-anchor="middle">∞</text>
+<text x="418" y="150" font-size="13" fill="var(--muted)" text-anchor="end">1/Λ² →</text>
 </svg><figcaption>計算の前に b₀ を予測しておいた流れ B3 と B4：散乱の完全な計算から得た Λ²[T(0)/T_H − 1]（Λ = 10, 20, 40, 80、点）を 1/Λ² に対して描いたものです。計算した4点は予測値 b₀（破線とひし形）に近づく傾向を示し、予測を数値的に支えています。縦軸の目盛りはパネルごとに違います。</figcaption></figure>
     <div class="links"><a href="https://github.com/tkmt-lab/hawking-dispersive-offset/blob/00f229f7afd38ebd67be3daa27f89dcb78436aaf/paper-hawking-b0-v1.2-en.pdf">論文（PDF、英語）</a> · <a href="https://github.com/tkmt-lab/hawking-dispersive-offset">リポジトリ</a> · <a href="https://doi.org/10.5281/zenodo.23553203">この版のDOI</a> · <a href="https://doi.org/10.5281/zenodo.23553202">全版の概念DOI</a> · 公開版 <a href="https://github.com/tkmt-lab/hawking-dispersive-offset/releases/tag/v1.0.0">v1.0.0</a> (<a href="https://github.com/tkmt-lab/hawking-dispersive-offset/commit/00f229f7afd38ebd67be3daa27f89dcb78436aaf"><code>00f229f7afd3</code></a>) · <a href="https://github.com/tkmt-lab/hawking-dispersive-offset/blob/00f229f7afd38ebd67be3daa27f89dcb78436aaf/claims.json">claims.json</a> · <a href="https://github.com/tkmt-lab/hawking-dispersive-offset/actions">検査（CI）</a></div>
     <p class="note">計算は、証明していない三つの仮定の上にあり、残りの項の評価もありません。公式は証明ではなく、数値の証拠で支えられています。Lean の証明はなく、人間の査読は受けていません。</p>
@@ -803,20 +802,20 @@
     </dl>
     <p class="plain">固定した整数 k ≥ 2 のどの場合も、一般の値なら、完全な感染者数 I(t) の曲線と総人口から、行動を含む SIR モデルのパラメータと見えない人数が決まることを証明しました。感染の速さを (1 + αI)^k で割って接触を減らす行動を表すモデルで、B. Pant、O. Saucedo、G. Pogudin が k = 1 では決まらないことを示し、ここで証明した拡張を予想しました。2 以上のどの整数 k についても、一般の値では、感染者数の曲線と総人口から、三つの速さと、見えない感受性者・回復者の数が決まることを証明しました。証明は、入出力の方程式を閉じた形で求め、モデルに隠れた保存量がないことを示したうえで、A. Ovchinnikov、G. Pogudin、P. Thompson の結果を使います。</p>
     <figure><svg viewBox="0 0 412 154" role="img" aria-label="二組のパラメータでの感染者数 I(t)、k = 1 と k = 2" style="width:100%;max-width:440px;height:auto;display:block">
-<text x="16" y="13" font-size="12" fill="var(--fg)">k = 1: 曲線は一本</text>
+<text x="16" y="13" font-size="13" fill="var(--fg)">k = 1: 曲線は一本</text>
 <line x1="16" y1="112.5" x2="196" y2="112.5" stroke="var(--muted)" stroke-width="1"/>
 <path d="M16 109.4 18.2 108.9 20.5 108.2 22.8 107.3 25 106.3 27.2 105.1 29.5 103.7 31.8 102 34 100.1 36.2 97.9 38.5 95.4 40.8 92.5 43 89.4 45.2 86 47.5 82.3 49.8 78.4 52 74.4 54.3 70.2 56.5 66 58.8 61.8 61 57.7 63.2 53.7 65.5 49.9 67.8 46.3 70 43 72.2 39.9 74.5 37.2 76.8 34.7 79 32.6 81.2 30.8 83.5 29.4 85.8 28.2 88 27.3 90.2 26.7 92.5 26.4 94.8 26.3 97 26.4 99.3 26.8 101.5 27.3 103.8 28 106 28.9 108.3 29.9 110.5 31.1 112.8 32.3 115 33.7 117.3 35.1 119.5 36.6 121.8 38.2 124 39.8 126.3 41.4 128.5 43.1 130.8 44.8 133 46.5 135.2 48.2 137.5 49.9 139.8 51.6 142 53.3 144.2 55 146.5 56.7 148.8 58.4 151 60 153.2 61.6 155.5 63.2 157.8 64.7 160 66.2 162.2 67.7 164.5 69.2 166.8 70.6 169 72 171.2 73.3 173.5 74.6 175.8 75.9 178 77.1 180.2 78.4 182.5 79.5 184.8 80.7 187 81.8 189.2 82.9 191.5 83.9 193.8 84.9 196 85.9 196 85.9" fill="none" stroke="var(--fig-yes)" stroke-width="3"/>
 <path d="M16 109.4 18.2 108.9 20.5 108.2 22.8 107.3 25 106.3 27.2 105.1 29.5 103.7 31.8 102 34 100.1 36.2 97.9 38.5 95.4 40.8 92.5 43 89.4 45.2 86 47.5 82.3 49.8 78.4 52 74.4 54.3 70.2 56.5 66 58.8 61.8 61 57.7 63.2 53.7 65.5 49.9 67.8 46.3 70 43 72.2 39.9 74.5 37.2 76.8 34.7 79 32.6 81.2 30.8 83.5 29.4 85.8 28.2 88 27.3 90.2 26.7 92.5 26.4 94.8 26.3 97 26.4 99.3 26.8 101.5 27.3 103.8 28 106 28.9 108.3 29.9 110.5 31.1 112.8 32.3 115 33.7 117.3 35.1 119.5 36.6 121.8 38.2 124 39.8 126.3 41.4 128.5 43.1 130.8 44.8 133 46.5 135.2 48.2 137.5 49.9 139.8 51.6 142 53.3 144.2 55 146.5 56.7 148.8 58.4 151 60 153.2 61.6 155.5 63.2 157.8 64.7 160 66.2 162.2 67.7 164.5 69.2 166.8 70.6 169 72 171.2 73.3 173.5 74.6 175.8 75.9 178 77.1 180.2 78.4 182.5 79.5 184.8 80.7 187 81.8 189.2 82.9 191.5 83.9 193.8 84.9 196 85.9 196 85.9" fill="none" stroke="var(--fig-no)" stroke-width="1.5" stroke-dasharray="5 3"/>
-<text x="196" y="126" font-size="12" fill="var(--muted)" text-anchor="end">時間 →</text>
-<text x="230" y="13" font-size="12" fill="var(--fg)">k = 2: 曲線は二本</text>
+<text x="196" y="126" font-size="13" fill="var(--muted)" text-anchor="end">時間 →</text>
+<text x="230" y="13" font-size="13" fill="var(--fg)">k = 2: 曲線は二本</text>
 <line x1="230" y1="112.5" x2="410" y2="112.5" stroke="var(--muted)" stroke-width="1"/>
 <path d="M230 109.4 232.2 108.9 234.5 108.2 236.8 107.4 239 106.5 241.2 105.5 243.5 104.3 245.8 102.9 248 101.3 250.2 99.6 252.5 97.8 254.8 95.8 257 93.7 259.2 91.5 261.5 89.3 263.8 87 266 84.7 268.2 82.5 270.5 80.4 272.8 78.3 275 76.3 277.2 74.5 279.5 72.8 281.8 71.2 284 69.8 286.2 68.5 288.5 67.4 290.8 66.4 293 65.5 295.2 64.8 297.5 64.2 299.8 63.6 302 63.2 304.2 62.9 306.5 62.7 308.8 62.6 311 62.5 313.2 62.5 315.5 62.6 317.8 62.7 320 62.9 322.2 63.1 324.5 63.4 326.8 63.7 329 64 331.2 64.4 333.5 64.8 335.8 65.2 338 65.7 340.2 66.1 342.5 66.6 344.8 67.1 347 67.6 349.2 68.1 351.5 68.7 353.8 69.2 356 69.7 358.2 70.3 360.5 70.8 362.8 71.4 365 71.9 367.2 72.5 369.5 73 371.8 73.6 374 74.1 376.2 74.7 378.5 75.2 380.8 75.8 383 76.3 385.2 76.9 387.5 77.4 389.8 77.9 392 78.5 394.2 79 396.5 79.5 398.8 80 401 80.5 403.2 81 405.5 81.6 407.8 82 410 82.5 410 82.5" fill="none" stroke="var(--fig-yes)" stroke-width="3"/>
 <path d="M230 109.4 232.2 108.9 234.5 108.2 236.8 107.4 239 106.5 241.2 105.4 243.5 104.2 245.8 102.8 248 101.1 250.2 99.3 252.5 97.3 254.8 95.1 257 92.8 259.2 90.3 261.5 87.7 263.8 85 266 82.3 268.2 79.6 270.5 76.8 272.8 74.1 275 71.5 277.2 68.9 279.5 66.5 281.8 64.2 284 62 286.2 60 288.5 58.1 290.8 56.4 293 54.8 295.2 53.4 297.5 52.2 299.8 51.1 302 50.1 304.2 49.3 306.5 48.6 308.8 48.1 311 47.7 313.2 47.4 315.5 47.2 317.8 47.1 320 47.1 322.2 47.2 324.5 47.4 326.8 47.7 329 48 331.2 48.5 333.5 48.9 335.8 49.5 338 50.1 340.2 50.8 342.5 51.5 344.8 52.2 347 53 349.2 53.8 351.5 54.6 353.8 55.5 356 56.4 358.2 57.3 360.5 58.2 362.8 59.2 365 60.1 367.2 61.1 369.5 62.1 371.8 63.1 374 64 376.2 65 378.5 66 380.8 67 383 68 385.2 68.9 387.5 69.9 389.8 70.9 392 71.8 394.2 72.8 396.5 73.7 398.8 74.6 401 75.6 403.2 76.5 405.5 77.3 407.8 78.2 410 79.1 410 79.1" fill="none" stroke="var(--fig-no)" stroke-width="1.5" stroke-dasharray="5 3"/>
-<text x="410" y="126" font-size="12" fill="var(--muted)" text-anchor="end">時間 →</text>
+<text x="410" y="126" font-size="13" fill="var(--muted)" text-anchor="end">時間 →</text>
 <line x1="16" y1="142" x2="36" y2="142" stroke="var(--fig-yes)" stroke-width="3"/>
-<text x="42" y="146" font-size="12" fill="var(--fg)">(α, β, γ) = (2, 3, 5)</text>
+<text x="42" y="146" font-size="13" fill="var(--fg)">(α, β, γ) = (2, 3, 5)</text>
 <line x1="200" y1="142" x2="220" y2="142" stroke="var(--fig-no)" stroke-width="1.5" stroke-dasharray="5 3"/>
-<text x="226" y="146" font-size="12" fill="var(--fg)">(2, 10, 3/2)</text>
+<text x="226" y="146" font-size="13" fill="var(--fg)">(2, 10, 3/2)</text>
 </svg><figcaption>(α, β, γ) = (2, 3, 5) と (2, 10, 3/2) での感染者数 I(t)。二つは k = 1 の入れ替え (β, γ) → (αγ, β/α) で移り合います。初期値は説明用で、I(0)、I′(0) と全人口をそろえています。k = 1 では二本の曲線が完全に重なり、k = 2 では離れるので、曲線からパラメータを見分けられます。</figcaption></figure>
     <div class="links"><a href="https://github.com/tkmt-lab/behavioral-sir-identifiability/blob/6691a76801a522592712e41993b6f4353decee88/paper-behavioral-sir-v1.1-en.pdf">論文（PDF、英語）</a> · <a href="https://github.com/tkmt-lab/behavioral-sir-identifiability">リポジトリ</a> · <a href="https://doi.org/10.5281/zenodo.23553807">この版のDOI</a> · <a href="https://doi.org/10.5281/zenodo.23553806">全版の概念DOI</a> · 公開版 <a href="https://github.com/tkmt-lab/behavioral-sir-identifiability/releases/tag/v1.0.0">v1.0.0</a> (<a href="https://github.com/tkmt-lab/behavioral-sir-identifiability/commit/6691a76801a522592712e41993b6f4353decee88"><code>6691a76801a5</code></a>) · <a href="https://github.com/tkmt-lab/behavioral-sir-identifiability/blob/6691a76801a522592712e41993b6f4353decee88/claims.json">claims.json</a> · <a href="https://github.com/tkmt-lab/behavioral-sir-identifiability/actions">検査（CI）</a></div>
     <p class="note">証明は文章によるもので、二つの AI が読み、一部を計算し直しました。k = 1〜12 は厳密な数式処理でも確かめています。整数でない k、未知の k、誤差のあるデータは扱っていません。Lean の証明はなく、人間の査読は受けていません。</p>
@@ -838,13 +837,13 @@
 <path d="M236 390h36v12h-36zM236 378h48v12h-48zM320 378h12v12h-12zM200 366h84v12h-84zM308 366h24v12h-24zM188 354h72v12h-72zM272 354h60v12h-60zM164 342h84v12h-84zM272 342h48v12h-48zM68 330h24v12h-24zM140 330h72v12h-72zM272 330h36v12h-36zM56 318h36v12h-36zM140 318h72v12h-72zM284 318h24v12h-24zM56 306h48v12h-48zM128 306h48v12h-48zM284 306h36v12h-36zM56 294h120v12h-120zM296 294h36v12h-36zM92 282h48v12h-48zM308 282h48v12h-48zM92 270h36v12h-36zM308 270h84v12h-84zM80 258h24v12h-24zM308 258h72v12h-72zM44 246h60v12h-60zM320 246h48v12h-48zM44 234h48v12h-48zM320 234h48v12h-48zM44 222h36v12h-36zM332 222h36v12h-36zM56 210h24v12h-24zM332 210h36v12h-36zM44 198h36v12h-36zM344 198h36v12h-36zM32 186h72v12h-72zM356 186h48v12h-48zM8 174h96v12h-96zM320 174h12v12h-12zM356 174h48v12h-48zM8 162h96v12h-96zM320 162h24v12h-24zM356 162h36v12h-36zM20 150h36v12h-36zM80 150h36v12h-36zM320 150h60v12h-60zM92 138h36v12h-36zM332 138h48v12h-48zM116 126h12v12h-12zM344 126h36v12h-36zM104 114h48v12h-48zM308 114h60v12h-60zM68 102h96v12h-96zM284 102h60v12h-60zM68 90h132v12h-132zM272 90h72v12h-72zM68 78h144v12h-144zM236 78h60v12h-60zM320 78h36v12h-36zM80 66h48v12h-48zM164 66h120v12h-120zM332 66h36v12h-36zM104 54h12v12h-12zM152 54h36v12h-36zM200 54h72v12h-72zM140 42h36v12h-36zM200 42h72v12h-72zM200 30h60v12h-60zM236 18h24v12h-24zM248 6h12v12h-12z" fill="var(--fig-yes)"/>
 <path d="M104 162h12M104 162v12M104 174v12M104 186v12M104 198h12M104 246h12M104 246v12M104 258v12M104 270h12M104 270v12M104 66v12M104 78v12M104 90h12M116 102h12M116 138h12M116 150h12M116 150v12M116 186h12M116 186v12M116 222h12M116 222v12M116 234h12M116 234v12M116 270h12M116 270v12M116 282v12M116 294v12M116 90v12M128 102v12M128 114v12M128 126h12M128 126v12M128 138v12M128 174h12M128 174v12M128 210h12M128 210v12M128 234h12M128 270v12M128 282h12M140 126h12M140 174h12M140 174v12M140 186v12M140 198v12M140 234h12M140 282v12M140 294h12M152 114h12M152 114v12M152 126v12M152 138h12M152 174h12M152 222h12M152 222v12M152 234v12M152 246v12M152 258h12M152 258v12M152 270h12M152 294h12M164 102h12M164 102v12M164 138h12M164 138v12M164 150v12M164 162v12M164 174h12M164 210h12M164 210v12M164 258h12M164 270v12M164 282h12M164 294h12M164 330h12M164 330v12M164 78v12M164 90v12M176 102h12M176 138v12M176 150h12M176 174v12M176 186h12M176 210h12M176 258h12M176 282v12M176 294v12M176 306v12M176 318h12M176 318v12M188 102h12M188 150v12M188 162h12M188 186v12M188 198v12M188 210h12M188 210v12M188 222v12M188 234h12M188 258v12M188 270h12M188 318h12M200 102v12M200 114v12M200 126h12M200 126v12M200 138h12M200 162h12M200 210h12M200 234v12M200 246h12M200 270v12M200 282h12M200 318h12M200 66h12M200 90h12M200 90v12M212 126h12M212 138v12M212 150h12M212 162h12M212 198h12M212 198v12M212 246h12M212 246v12M212 258v12M212 270v12M212 282h12M212 306h12M212 306v12M212 318v12M212 330v12M212 342h12M212 342v12M212 354h12M212 66v12M212 78h12M212 78v12M224 126h12M224 150v12M224 162v12M224 174v12M224 186h12M224 186v12M224 246h12M224 282v12M224 294h12M224 294v12M224 342h12M224 354v12M224 366h12M224 78h12M236 102h12M236 126v12M236 138h12M236 186h12M236 210h12M236 210v12M236 222v12M236 234v12M236 246h12M236 294h12M236 342h12M236 366v12M236 54h12M236 54v12M236 66v12M236 78v12M236 90h12M236 90v12M248 102v12M248 114h12M248 138v12M248 150h12M248 186h12M248 198h12M248 198v12M248 234h12M248 234v12M248 270h12M248 270v12M248 282h12M248 282v12M248 294v12M248 306v12M248 318h12M248 342v12M248 354h12M248 42h12M248 42v12M248 90h12M260 114v12M260 126v12M260 138v12M260 150h12M260 174h12M260 174v12M260 186v12M260 222h12M260 222v12M260 258h12M260 258v12M260 282h12M260 318v12M260 330h12M260 354v12M260 366h12M260 90h12M272 102h12M272 150h12M272 150v12M272 162v12M272 174h12M272 222h12M272 222v12M272 234v12M272 246v12M272 282h12M272 330h12M272 330v12M272 342v12M272 354v12M272 366h12M272 90v12M284 102v12M284 114h12M284 150h12M284 174v12M284 186h12M284 222h12M284 270h12M284 270v12M284 306h12M284 306v12M284 318h12M284 318v12M296 102v12M296 114h12M296 138h12M296 138v12M296 186h12M296 186v12M296 198v12M296 210v12M296 222h12M296 258h12M296 258v12M296 294h12M296 294v12M296 318h12M296 90v12M308 114v12M308 126h12M308 126v12M308 186h12M308 222v12M308 234h12M308 258h12M308 258v12M308 270v12M308 282v12M320 126h12M320 150h12M320 150v12M320 162v12M320 174v12M320 186h12M320 234h12M320 234v12M320 246v12M320 258h12M332 126h12M332 138h12M332 138v12M332 174h12M332 174v12M332 210h12M332 210v12M332 222h12M332 222v12M332 258h12M344 114v12M344 126v12M344 162h12M344 162v12M344 198h12M344 198v12M344 222h12M344 258v12M344 270h12M356 162h12M356 162v12M356 174v12M356 186v12M356 222h12M356 270v12M368 162h12M56 162v12M56 174v12M56 186h12M56 210h12M68 186v12M68 198h12M68 210h12M80 198h12M80 198v12M80 210v12M80 222v12M80 234h12M92 198h12M92 234v12M92 246h12M92 282h12" stroke="var(--bg)" stroke-width="2" fill="none"/>
 <rect x="8" y="414" width="11" height="11" fill="var(--fig-no)"/>
-<text x="24" y="424" font-size="12" fill="var(--fg)">元の形</text>
+<text x="24" y="424" font-size="13" fill="var(--fg)">元の形</text>
 <rect x="208" y="414" width="11" height="11" fill="var(--fig-yes)"/>
-<text x="224" y="424" font-size="12" fill="var(--fg)">1 層目 (6個)</text>
+<text x="224" y="424" font-size="13" fill="var(--fg)">1 層目 (6個)</text>
 <rect x="8" y="432" width="11" height="11" fill="var(--fig-np)"/>
-<text x="24" y="442" font-size="12" fill="var(--fg)">2 層目 (12個)</text>
+<text x="24" y="442" font-size="13" fill="var(--fg)">2 層目 (12個)</text>
 <rect x="208" y="432" width="11" height="11" fill="var(--fig-yes)"/>
-<text x="224" y="442" font-size="12" fill="var(--fg)">3 層目 (18個)</text>
+<text x="224" y="442" font-size="13" fill="var(--fg)">3 層目 (18個)</text>
 </svg><figcaption>Kaplan の 17 マスの表にある #43 のポリオミノ（オレンジ）と、公開した証拠の囲み方：同じ形の写し 36 個が、穴のない完全な層を三重に作ります。この囲みは Hc と Hh の下界3を示します。本文で説明した上界の証拠と合わせて、Hc = Hh = 3 となります。二つの数え上げのプログラムが見つけた、穴のない最大の囲み方 28 通りのすべてで、内側の二層は同じで、違うのはいちばん外の層だけです。</figcaption></figure>
     <div class="links"><a href="https://github.com/tkmt-lab/heesch-certificates/blob/271bc8ce223a1fd641494352eb31f350e3d8bf37/paper-heesch-certificates-v2.1-en.pdf">論文（PDF、英語）</a> · <a href="https://github.com/tkmt-lab/heesch-certificates">リポジトリ</a> · <a href="https://doi.org/10.5281/zenodo.23572883">この版のDOI</a> · <a href="https://doi.org/10.5281/zenodo.23572882">全版の概念DOI</a> · 公開版 <a href="https://github.com/tkmt-lab/heesch-certificates/releases/tag/v1.0.0">v1.0.0</a> (<a href="https://github.com/tkmt-lab/heesch-certificates/commit/271bc8ce223a1fd641494352eb31f350e3d8bf37"><code>271bc8ce223a</code></a>) · <a href="https://github.com/tkmt-lab/lean-statements/tree/b3647ee21a1fd572e8a500f2288921116dbb098d/FormalConjectures/Paper">Lean の主張文</a> · <a href="https://github.com/tkmt-lab/heesch-certificates/blob/271bc8ce223a1fd641494352eb31f350e3d8bf37/claims.json">claims.json</a> · <a href="https://github.com/tkmt-lab/heesch-certificates/actions">検査（CI）</a></div>
     <p class="note">充足不能の証明は、Lean の外で drat-trim が確かめたものです。確かめた式のファイルと Lean の符号化が一致することも、Lean の証明ではなく、記録した有限の計算によります。いちばん外の層の数え上げには証明書がなく、探索は Hh = 4 のポリオミノがないことを示すものではありません。対象は挙げた形だけです。最初の結果だとは主張しません。人間の査読は受けていません。証明のファイル（25 GB）は付けていませんが、式は 1 バイトも違わずに作り直せ、CI が一部を確かめ直します。</p>
@@ -861,67 +860,67 @@
     <p class="plain">本文の平衡点・非退化性の条件のもとでは、不変直線の七型は8項、二型は6項が最少になることを示しました。不変直線は平衡点の近くで濃度の流れがその上にとどまる直線であり、九通りの型を、二つの式の係数が0でない項の数で比べています。その項数で実現する厳密な係数の例をすべて作り、それより少なくできないことも証明しました。元論文にある最も少ない例と比べると、五型で項数が減っています。同じ単項式が両方の式に出る場合は、それぞれ一項と数えます。</p>
     <figure><svg viewBox="0 0 420 398" role="img" aria-label="九つの不変直線の型ごとの項数。元論文の実例は9,8,10,8,9,9,8,6,8項、証明した最少値は8,8,8,8,8,8,8,6,6項。" style="width:100%;max-width:440px;height:auto;display:block">
 <rect x="8" y="7" width="16" height="10" fill="var(--fig-no)"/>
-<text x="30" y="17" font-size="12" fill="var(--fg)">元論文の実例</text>
+<text x="30" y="17" font-size="13" fill="var(--fg)">元論文の実例</text>
 <rect x="209" y="7" width="16" height="10" fill="var(--fig-yes)"/>
-<text x="231" y="17" font-size="12" fill="var(--fg)">証明した最少値</text>
+<text x="231" y="17" font-size="13" fill="var(--fg)">証明した最少値</text>
 <line x1="145" y1="45" x2="145" y2="365" stroke="var(--line)"/>
-<text x="145" y="39" font-size="12" fill="var(--muted)" text-anchor="middle">0</text>
+<text x="145" y="39" font-size="13" fill="var(--muted)" text-anchor="middle">0</text>
 <line x1="191" y1="45" x2="191" y2="365" stroke="var(--line)"/>
-<text x="191" y="39" font-size="12" fill="var(--muted)" text-anchor="middle">2</text>
+<text x="191" y="39" font-size="13" fill="var(--muted)" text-anchor="middle">2</text>
 <line x1="237" y1="45" x2="237" y2="365" stroke="var(--line)"/>
-<text x="237" y="39" font-size="12" fill="var(--muted)" text-anchor="middle">4</text>
+<text x="237" y="39" font-size="13" fill="var(--muted)" text-anchor="middle">4</text>
 <line x1="283" y1="45" x2="283" y2="365" stroke="var(--line)"/>
-<text x="283" y="39" font-size="12" fill="var(--muted)" text-anchor="middle">6</text>
+<text x="283" y="39" font-size="13" fill="var(--muted)" text-anchor="middle">6</text>
 <line x1="329" y1="45" x2="329" y2="365" stroke="var(--line)"/>
-<text x="329" y="39" font-size="12" fill="var(--muted)" text-anchor="middle">8</text>
+<text x="329" y="39" font-size="13" fill="var(--muted)" text-anchor="middle">8</text>
 <line x1="375" y1="45" x2="375" y2="365" stroke="var(--line)"/>
-<text x="375" y="39" font-size="12" fill="var(--muted)" text-anchor="middle">10</text>
-<text x="4" y="84" font-size="12" fill="var(--fg)">H</text>
+<text x="375" y="39" font-size="13" fill="var(--muted)" text-anchor="middle">10</text>
+<text x="4" y="84" font-size="13" fill="var(--fg)">H</text>
 <rect x="145" y="68" width="207" height="10" fill="var(--fig-no)"/>
-<text x="357" y="77" font-size="12" fill="var(--fg)">9</text>
+<text x="357" y="77" font-size="13" fill="var(--fg)">9</text>
 <rect x="145" y="81" width="184" height="10" fill="var(--fig-yes)"/>
-<text x="334" y="90" font-size="12" fill="var(--fg)">8</text>
-<text x="4" y="118" font-size="12" fill="var(--fg)">P2H</text>
+<text x="334" y="90" font-size="13" fill="var(--fg)">8</text>
+<text x="4" y="118" font-size="13" fill="var(--fg)">P2H</text>
 <rect x="145" y="102" width="184" height="10" fill="var(--fig-no)"/>
-<text x="334" y="111" font-size="12" fill="var(--fg)">8</text>
+<text x="334" y="111" font-size="13" fill="var(--fg)">8</text>
 <rect x="145" y="115" width="184" height="10" fill="var(--fig-yes)"/>
-<text x="334" y="124" font-size="12" fill="var(--fg)">8</text>
-<text x="4" y="152" font-size="12" fill="var(--fg)">D,H</text>
+<text x="334" y="124" font-size="13" fill="var(--fg)">8</text>
+<text x="4" y="152" font-size="13" fill="var(--fg)">D,H</text>
 <rect x="145" y="136" width="230" height="10" fill="var(--fig-no)"/>
-<text x="380" y="145" font-size="12" fill="var(--fg)">10</text>
+<text x="380" y="145" font-size="13" fill="var(--fg)">10</text>
 <rect x="145" y="149" width="184" height="10" fill="var(--fig-yes)"/>
-<text x="334" y="158" font-size="12" fill="var(--fg)">8</text>
-<text x="4" y="186" font-size="12" fill="var(--fg)">D,P2H</text>
+<text x="334" y="158" font-size="13" fill="var(--fg)">8</text>
+<text x="4" y="186" font-size="13" fill="var(--fg)">D,P2H</text>
 <rect x="145" y="170" width="184" height="10" fill="var(--fig-no)"/>
-<text x="334" y="179" font-size="12" fill="var(--fg)">8</text>
+<text x="334" y="179" font-size="13" fill="var(--fg)">8</text>
 <rect x="145" y="183" width="184" height="10" fill="var(--fig-yes)"/>
-<text x="334" y="192" font-size="12" fill="var(--fg)">8</text>
-<text x="4" y="220" font-size="12" fill="var(--fg)">P1,P2,H</text>
+<text x="334" y="192" font-size="13" fill="var(--fg)">8</text>
+<text x="4" y="220" font-size="13" fill="var(--fg)">P1,P2,H</text>
 <rect x="145" y="204" width="207" height="10" fill="var(--fig-no)"/>
-<text x="357" y="213" font-size="12" fill="var(--fg)">9</text>
+<text x="357" y="213" font-size="13" fill="var(--fg)">9</text>
 <rect x="145" y="217" width="184" height="10" fill="var(--fig-yes)"/>
-<text x="334" y="226" font-size="12" fill="var(--fg)">8</text>
-<text x="4" y="254" font-size="12" fill="var(--fg)">P1,H,H</text>
+<text x="334" y="226" font-size="13" fill="var(--fg)">8</text>
+<text x="4" y="254" font-size="13" fill="var(--fg)">P1,H,H</text>
 <rect x="145" y="238" width="207" height="10" fill="var(--fig-no)"/>
-<text x="357" y="247" font-size="12" fill="var(--fg)">9</text>
+<text x="357" y="247" font-size="13" fill="var(--fg)">9</text>
 <rect x="145" y="251" width="184" height="10" fill="var(--fig-yes)"/>
-<text x="334" y="260" font-size="12" fill="var(--fg)">8</text>
-<text x="4" y="288" font-size="12" fill="var(--fg)">P1,P2,P2H</text>
+<text x="334" y="260" font-size="13" fill="var(--fg)">8</text>
+<text x="4" y="288" font-size="13" fill="var(--fg)">P1,P2,P2H</text>
 <rect x="145" y="272" width="184" height="10" fill="var(--fig-no)"/>
-<text x="334" y="281" font-size="12" fill="var(--fg)">8</text>
+<text x="334" y="281" font-size="13" fill="var(--fg)">8</text>
 <rect x="145" y="285" width="184" height="10" fill="var(--fig-yes)"/>
-<text x="334" y="294" font-size="12" fill="var(--fg)">8</text>
-<text x="4" y="322" font-size="12" fill="var(--fg)">P1,H,P2H</text>
+<text x="334" y="294" font-size="13" fill="var(--fg)">8</text>
+<text x="4" y="322" font-size="13" fill="var(--fg)">P1,H,P2H</text>
 <rect x="145" y="306" width="138" height="10" fill="var(--fig-no)"/>
-<text x="288" y="315" font-size="12" fill="var(--fg)">6</text>
+<text x="288" y="315" font-size="13" fill="var(--fg)">6</text>
 <rect x="145" y="319" width="138" height="10" fill="var(--fig-yes)"/>
-<text x="288" y="328" font-size="12" fill="var(--fg)">6</text>
-<text x="4" y="356" font-size="12" fill="var(--fg)">P1,P2H,P2H</text>
+<text x="288" y="328" font-size="13" fill="var(--fg)">6</text>
+<text x="4" y="356" font-size="13" fill="var(--fg)">P1,P2H,P2H</text>
 <rect x="145" y="340" width="184" height="10" fill="var(--fig-no)"/>
-<text x="334" y="349" font-size="12" fill="var(--fg)">8</text>
+<text x="334" y="349" font-size="13" fill="var(--fg)">8</text>
 <rect x="145" y="353" width="138" height="10" fill="var(--fig-yes)"/>
-<text x="288" y="362" font-size="12" fill="var(--fg)">6</text>
-<text x="260" y="389" font-size="12" fill="var(--muted)" text-anchor="middle">二つの式の項の総数</text>
+<text x="288" y="362" font-size="13" fill="var(--fg)">6</text>
+<text x="260" y="389" font-size="13" fill="var(--muted)" text-anchor="middle">二つの式の項の総数</text>
 </svg><figcaption>元論文で示された例（表1と第4節の6項の例）の項数と、九型について証明した最少項数を比べています。二つの方程式の項を別々に数えた比較です。</figcaption></figure>
     <div class="links"><a href="https://github.com/tkmt-lab/minimal-terms-quadratic-mass-action/blob/dfb36e121ec0b014e495abd07f870ea76503fbc4/paper/paper-v1.pdf">論文PDF</a> · <a href="https://github.com/tkmt-lab/minimal-terms-quadratic-mass-action">リポジトリ</a> · <a href="https://doi.org/10.5281/zenodo.23602991">この版のDOI</a> · <a href="https://doi.org/10.5281/zenodo.23602990">全版の概念DOI</a> · 公開版 <a href="https://github.com/tkmt-lab/minimal-terms-quadratic-mass-action/releases/tag/v1.0.0">v1.0.0</a> (<a href="https://github.com/tkmt-lab/minimal-terms-quadratic-mass-action/commit/dfb36e121ec0b014e495abd07f870ea76503fbc4"><code>dfb36e121ec0</code></a>) · <a href="https://github.com/tkmt-lab/minimal-terms-quadratic-mass-action/blob/dfb36e121ec0b014e495abd07f870ea76503fbc4/claims.json">主張と範囲</a> · <a href="https://github.com/tkmt-lab/minimal-terms-quadratic-mass-action/actions">検査（CI）</a></div>
     <p class="note">対象は二種類の物質の質量作用系で、反応物は二分子以下、生成物の分子数には上限を置きません。正の平衡点でヤコビ行列全体が零となり、平衡点を原点に移した二次成分の斉次終結式（resultant）が非零であることを条件とします。零の成分や共通因子を持つ式は対象外です。濃度座標での項数を数え、反応の本数の最少化は扱いません。定義と数学的な準備を共有した別検証も同じ最少値を得ました。Leanの証明・人間の査読・優先権は主張せず、歴史的原典の分類領域との全文照合は未了です。</p>
@@ -955,52 +954,52 @@
 <line x1="64" y1="62" x2="304" y2="62" stroke="var(--line)" stroke-width="1"/>
 <line x1="64" y1="14" x2="304" y2="14" stroke="var(--line)" stroke-width="1"/>
 <line x1="112" y1="350" x2="304" y2="158" stroke="var(--muted)" stroke-width="1" stroke-dasharray="4 3"/>
-<text x="308" y="170" font-size="12" fill="var(--muted)">差なし</text>
+<text x="308" y="170" font-size="13" fill="var(--muted)">差なし</text>
 <circle cx="88" cy="326" r="7.2" fill="var(--fig-yes)" fill-opacity="0.45"/>
-<text x="97.2" y="320.8" font-size="12" fill="var(--fg)">2</text>
+<text x="97.2" y="320.8" font-size="13" fill="var(--fg)">2</text>
 <circle cx="136" cy="326" r="6" fill="var(--fig-np)"/>
-<text x="148" y="345" font-size="12" fill="var(--fg)">1</text>
+<text x="148" y="345" font-size="13" fill="var(--fg)">1</text>
 <circle cx="136" cy="278" r="12.4" fill="var(--fig-yes)" fill-opacity="0.45"/>
-<text x="136" y="282" font-size="12" fill="var(--fg)" text-anchor="middle">10</text>
+<text x="136" y="282" font-size="13" fill="var(--fg)" text-anchor="middle">10</text>
 <circle cx="136" cy="230" r="11.4" fill="var(--fig-yes)" fill-opacity="0.45"/>
-<text x="136" y="234" font-size="12" fill="var(--fg)" text-anchor="middle">8</text>
+<text x="136" y="234" font-size="13" fill="var(--fg)" text-anchor="middle">8</text>
 <circle cx="136" cy="182" r="7.2" fill="var(--fig-yes)" fill-opacity="0.45"/>
-<text x="145.2" y="176.8" font-size="12" fill="var(--fg)">2</text>
+<text x="145.2" y="176.8" font-size="13" fill="var(--fg)">2</text>
 <circle cx="184" cy="230" r="11.9" fill="var(--fig-yes)" fill-opacity="0.45"/>
-<text x="184" y="234" font-size="12" fill="var(--fg)" text-anchor="middle">9</text>
+<text x="184" y="234" font-size="13" fill="var(--fg)" text-anchor="middle">9</text>
 <circle cx="184" cy="182" r="10.2" fill="var(--fig-yes)" fill-opacity="0.45"/>
-<text x="184" y="186" font-size="12" fill="var(--fg)" text-anchor="middle">6</text>
+<text x="184" y="186" font-size="13" fill="var(--fg)" text-anchor="middle">6</text>
 <circle cx="184" cy="134" r="6" fill="var(--fig-yes)" fill-opacity="0.45"/>
-<text x="192" y="130" font-size="12" fill="var(--fg)">1</text>
+<text x="192" y="130" font-size="13" fill="var(--fg)">1</text>
 <circle cx="232" cy="230" r="6" fill="var(--fig-np)"/>
-<text x="244" y="249" font-size="12" fill="var(--fg)">1</text>
+<text x="244" y="249" font-size="13" fill="var(--fg)">1</text>
 <circle cx="232" cy="182" r="12.8" fill="var(--fig-yes)" fill-opacity="0.45"/>
-<text x="232" y="186" font-size="12" fill="var(--fg)" text-anchor="middle">11</text>
+<text x="232" y="186" font-size="13" fill="var(--fg)" text-anchor="middle">11</text>
 <circle cx="232" cy="134" r="21" fill="var(--fig-yes)" fill-opacity="0.45"/>
-<text x="232" y="138" font-size="12" fill="var(--fg)" text-anchor="middle">37</text>
+<text x="232" y="138" font-size="13" fill="var(--fg)" text-anchor="middle">37</text>
 <circle cx="232" cy="86" r="6" fill="var(--fig-yes)" fill-opacity="0.45"/>
-<text x="240" y="82" font-size="12" fill="var(--fg)">1</text>
+<text x="240" y="82" font-size="13" fill="var(--fg)">1</text>
 <circle cx="232" cy="38" r="6" fill="var(--fig-no)"/>
 <circle cx="280" cy="134" r="11.4" fill="var(--fig-yes)" fill-opacity="0.45"/>
-<text x="280" y="138" font-size="12" fill="var(--fg)" text-anchor="middle">8</text>
+<text x="280" y="138" font-size="13" fill="var(--fg)" text-anchor="middle">8</text>
 <circle cx="280" cy="86" r="6" fill="var(--fig-yes)" fill-opacity="0.45"/>
-<text x="288" y="82" font-size="12" fill="var(--fg)">1</text>
-<text x="244" y="42" font-size="12" fill="var(--fg)">tsa V1 / tsg V3</text>
-<text x="88" y="364" font-size="12" fill="var(--muted)" text-anchor="middle">1</text>
-<text x="136" y="364" font-size="12" fill="var(--muted)" text-anchor="middle">2</text>
-<text x="184" y="364" font-size="12" fill="var(--muted)" text-anchor="middle">3</text>
-<text x="232" y="364" font-size="12" fill="var(--muted)" text-anchor="middle">4</text>
-<text x="280" y="364" font-size="12" fill="var(--muted)" text-anchor="middle">5</text>
-<text x="56" y="330" font-size="12" fill="var(--muted)" text-anchor="end">2</text>
-<text x="56" y="282" font-size="12" fill="var(--muted)" text-anchor="end">3</text>
-<text x="56" y="234" font-size="12" fill="var(--muted)" text-anchor="end">4</text>
-<text x="56" y="186" font-size="12" fill="var(--muted)" text-anchor="end">5</text>
-<text x="56" y="138" font-size="12" fill="var(--muted)" text-anchor="end">6</text>
-<text x="56" y="90" font-size="12" fill="var(--muted)" text-anchor="end">7</text>
-<text x="56" y="42" font-size="12" fill="var(--muted)" text-anchor="end">8</text>
-<text x="184" y="382" font-size="12" fill="var(--fg)" text-anchor="middle"><tspan font-style="italic">r</tspan><tspan font-size="12" dy="3">min</tspan><tspan dy="-3">（球が初めて違う半径）</tspan></text>
-<text transform="translate(16 182) rotate(-90)" font-size="12" fill="var(--fg)" text-anchor="middle"><tspan font-style="italic">r</tspan><tspan font-size="12" dy="3">WL</tspan><tspan dy="-3">（1-WL が初めて見分ける半径）</tspan></text>
-<text x="64" y="402" font-size="12" fill="var(--muted)">円が大きいほど件数が多い</text>
+<text x="288" y="82" font-size="13" fill="var(--fg)">1</text>
+<text x="244" y="42" font-size="13" fill="var(--fg)">tsa V1 / tsg V3</text>
+<text x="88" y="364" font-size="13" fill="var(--muted)" text-anchor="middle">1</text>
+<text x="136" y="364" font-size="13" fill="var(--muted)" text-anchor="middle">2</text>
+<text x="184" y="364" font-size="13" fill="var(--muted)" text-anchor="middle">3</text>
+<text x="232" y="364" font-size="13" fill="var(--muted)" text-anchor="middle">4</text>
+<text x="280" y="364" font-size="13" fill="var(--muted)" text-anchor="middle">5</text>
+<text x="56" y="330" font-size="13" fill="var(--muted)" text-anchor="end">2</text>
+<text x="56" y="282" font-size="13" fill="var(--muted)" text-anchor="end">3</text>
+<text x="56" y="234" font-size="13" fill="var(--muted)" text-anchor="end">4</text>
+<text x="56" y="186" font-size="13" fill="var(--muted)" text-anchor="end">5</text>
+<text x="56" y="138" font-size="13" fill="var(--muted)" text-anchor="end">6</text>
+<text x="56" y="90" font-size="13" fill="var(--muted)" text-anchor="end">7</text>
+<text x="56" y="42" font-size="13" fill="var(--muted)" text-anchor="end">8</text>
+<text x="184" y="382" font-size="13" fill="var(--fg)" text-anchor="middle"><tspan font-style="italic">r</tspan><tspan font-size="13" dy="3">min</tspan><tspan dy="-3">（球が初めて違う半径）</tspan></text>
+<text transform="translate(16 182) rotate(-90)" font-size="13" fill="var(--fg)" text-anchor="middle"><tspan font-style="italic">r</tspan><tspan font-size="13" dy="3">WL</tspan><tspan dy="-3">（1-WL が初めて見分ける半径）</tspan></text>
+<text x="64" y="402" font-size="13" fill="var(--muted)">円が大きいほど件数が多い</text>
 </svg><figcaption>99 件のテストを r_min と r_WL の組で数えたもので、件数が多いほど円を大きく描いています。r_WL = r_min の対角線上にあるのは 2 件（灰色）だけで、差がいちばん大きいのは tsa V1 / tsg V3（オレンジ、r_min = 4、r_WL = 8）です。</figcaption></figure>
     <div class="links"><a href="https://github.com/tkmt-lab/periodic-net-wl-tests">リポジトリ</a> · <a href="https://doi.org/10.5281/zenodo.23587478">この版のDOI</a> · <a href="https://doi.org/10.5281/zenodo.23587477">全版の概念DOI</a> · 公開版 <a href="https://github.com/tkmt-lab/periodic-net-wl-tests/releases/tag/v1.0.0">v1.0.0</a> (<a href="https://github.com/tkmt-lab/periodic-net-wl-tests/commit/e427857923563e55a9fdb8ba06cb6a5bb953cd85"><code>e42785792356</code></a>) · <a href="https://github.com/tkmt-lab/periodic-net-wl-tests/blob/e427857923563e55a9fdb8ba06cb6a5bb953cd85/claims.json">claims.json</a> · <a href="https://github.com/tkmt-lab/periodic-net-wl-tests/actions">検査（CI）</a></div>
     <p class="note">固定した版の RCSR にライセンスや再配布の条件が見つからなかったので、RCSR のデータは同梱していません。プログラムが固定した commit から RCSR のファイルを取得し、SHA-256 を確かめます。別の実装で確かめたのは中心の 6 件だけです。99 件は選んだもので、RCSR 全体での最大値ではありません。グラフニューラルネットワーク一般については何も主張せず、半径は層の数ではありません。最初の結果だとは主張しません。人間の専門家による点検も、形式証明もありません。</p>
@@ -1017,9 +1016,9 @@
     <p class="plain">ブールネットワークの非同期の簡約プログラムを試す人が、変数消去によるアトラクターの変化を確かめるための反例集です。これは遺伝子の働きをオン・オフで表すモデルであり、最小のトラップ空間では見つからない長期の振る舞い「モチーフを避けるアトラクター」がなぜ珍しいのかを、Pastva らは問いました。この一式は、消す変数がフィードバックの輪の上になくても、また仲介・単調性の条件を満たしていても、変数を一つ消すとそれが生まれる小さなネットワークを三つ示します。座標を変えた写しと公開済みの対照二つを加えた六つの例を、簡約のソフトウェアの回帰試験の入力として使えます。</p>
     <figure><svg viewBox="0 0 370 256" role="img" aria-label="例 E1 で a を消したあとの状態の移り変わり。状態は bcd、矢印は非同期の遷移。アトラクター 000・010・100 は唯一の最小トラップ空間 d = 1 の外にある" style="width:100%;max-width:440px;height:auto;display:block">
 <rect x="198" y="24" width="154" height="154" rx="10" fill="var(--fig-yes)" fill-opacity="0.12" stroke="var(--fig-yes)" stroke-dasharray="4 3"/>
-<text x="95" y="16" font-size="12" fill="var(--muted)" text-anchor="middle">d = 0</text>
-<text x="275" y="16" font-size="12" fill="var(--muted)" text-anchor="middle">d = 1</text>
-<text x="275" y="194" font-size="12" fill="var(--fig-yes)" text-anchor="middle">唯一の最小トラップ空間</text>
+<text x="95" y="16" font-size="13" fill="var(--muted)" text-anchor="middle">d = 0</text>
+<text x="275" y="16" font-size="13" fill="var(--muted)" text-anchor="middle">d = 1</text>
+<text x="275" y="194" font-size="13" fill="var(--fig-yes)" text-anchor="middle">唯一の最小トラップ空間</text>
 <defs><marker id="bool-arr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L8 4L0 8z" fill="var(--muted)"/></marker></defs>
 <line x1="45" y1="139" x2="45" y2="65" stroke="var(--muted)" stroke-width="1.2" marker-end="url(#bool-arr)"/>
 <line x1="57" y1="161" x2="131" y2="161" stroke="var(--muted)" stroke-width="1.2" marker-end="url(#bool-arr)"/>
@@ -1035,25 +1034,25 @@
 <line x1="237" y1="51" x2="311" y2="51" stroke="var(--muted)" stroke-width="1.2" marker-end="url(#bool-arr)"/>
 <line x1="215" y1="63" x2="215" y2="137" stroke="var(--muted)" stroke-width="1.2" marker-end="url(#bool-arr)"/>
 <circle cx="40" cy="156" r="17" fill="var(--fig-no)"/>
-<text x="40" y="160" font-size="12" fill="var(--fg)" text-anchor="middle">000</text>
+<text x="40" y="160" font-size="13" fill="var(--fg)" text-anchor="middle">000</text>
 <circle cx="330" cy="156" r="17" fill="var(--fig-yes)"/>
-<text x="330" y="160" font-size="12" fill="var(--fg)" text-anchor="middle">001</text>
+<text x="330" y="160" font-size="13" fill="var(--fg)" text-anchor="middle">001</text>
 <circle cx="40" cy="46" r="17" fill="var(--fig-no)"/>
-<text x="40" y="50" font-size="12" fill="var(--fg)" text-anchor="middle">010</text>
+<text x="40" y="50" font-size="13" fill="var(--fg)" text-anchor="middle">010</text>
 <circle cx="330" cy="46" r="17" fill="var(--fig-yes)"/>
-<text x="330" y="50" font-size="12" fill="var(--fg)" text-anchor="middle">011</text>
+<text x="330" y="50" font-size="13" fill="var(--fg)" text-anchor="middle">011</text>
 <circle cx="150" cy="156" r="17" fill="var(--fig-no)"/>
-<text x="150" y="160" font-size="12" fill="var(--fg)" text-anchor="middle">100</text>
+<text x="150" y="160" font-size="13" fill="var(--fg)" text-anchor="middle">100</text>
 <circle cx="220" cy="156" r="17" fill="var(--fig-yes)"/>
-<text x="220" y="160" font-size="12" fill="var(--fg)" text-anchor="middle">101</text>
+<text x="220" y="160" font-size="13" fill="var(--fg)" text-anchor="middle">101</text>
 <circle cx="150" cy="46" r="17" fill="var(--fig-np)"/>
-<text x="150" y="50" font-size="12" fill="var(--fg)" text-anchor="middle">110</text>
+<text x="150" y="50" font-size="13" fill="var(--fg)" text-anchor="middle">110</text>
 <circle cx="220" cy="46" r="17" fill="var(--fig-np)"/>
-<text x="220" y="50" font-size="12" fill="var(--fg)" text-anchor="middle">111</text>
+<text x="220" y="50" font-size="13" fill="var(--fg)" text-anchor="middle">111</text>
 <circle cx="40" cy="222" r="6" fill="var(--fig-no)"/>
-<text x="52" y="226" font-size="12" fill="var(--fg)">新しく生まれたモチーフを避けるアトラクター</text>
+<text x="52" y="226" font-size="13" fill="var(--fg)">新しく生まれたモチーフを避けるアトラクター</text>
 <circle cx="40" cy="242" r="6" fill="var(--fig-yes)"/>
-<text x="52" y="246" font-size="12" fill="var(--fg)">トラップ空間の中のアトラクター</text>
+<text x="52" y="246" font-size="13" fill="var(--fg)">トラップ空間の中のアトラクター</text>
 </svg><figcaption>例 E1 で a を消したあとの状態の移り変わり（状態は bcd の順）。消す前はアトラクターがすべて最小トラップ空間 d = 1 の中にありますが、消したあとはアトラクター 000・010・100（オレンジ）が d = 0 にとどまり、唯一の最小トラップ空間（色の付いた枠）の外にあるので、モチーフを避けるアトラクターになります。</figcaption></figure>
     <table aria-label="反例集の内容">
       <caption>一式に含まれる例の数です。最小が4変数であることは、以前の全探索の保存記録によるもので、この一式は探索を再実行しません。</caption>
@@ -1065,7 +1064,7 @@
 
   <div class="work" id="exception-networks-stability-certificates">
     <div class="num">データと道具 · 2026</div>
-    <h3 class="t">Stability certificates for two exceptional reaction networks</h3>
+    <h3 class="t">例外の2反応網の安定性の証明書</h3>
     <dl class="work-summary"><div><dt>データと用途</dt><dd>質量作用の化学反応網の例外2網で、定常点の個数と安定性の計算を照合するために使える、根の分離区間と安定性の厳密な証明書です。</dd></div>
       <div><dt>保存した結果</dt><dd>固定した3組の速度入力・正平衡点9点。各入力で正平衡点は3個、そのうち指数安定はちょうど1個です。</dd></div>
       <div><dt>範囲</dt><dd>どちらの網も6個の速度定数がすべて正なら、文章の導出で正平衡点は高々3個、指数安定な正平衡点は高々1個と示しています。</dd></div></dl>
@@ -1089,7 +1088,7 @@
 <text x="38" y="189" font-size="13" fill="var(--fg)">指数安定</text>
 <path d="M225 177l14 14m-14 0l14 -14" stroke="var(--fig-no)" stroke-width="3"/>
 <text x="247" y="189" font-size="13" fill="var(--fg)">不安定</text>
-<text x="14" y="215" font-size="12" fill="var(--muted)">点の間隔は濃度差を表さない</text>
+<text x="14" y="215" font-size="13" fill="var(--muted)">点の間隔は濃度差を表さない</text>
 </svg><figcaption>公開版の3入力・全9点の保存した証明書から描いた安定性の並び。各入力で正平衡点3個のうち指数安定は1個。</figcaption></figure>
     <div class="links"><a href="https://github.com/tkmt-lab/exception-networks-stability-certificates">リポジトリ</a> · <a href="https://doi.org/10.5281/zenodo.23659209">この版のDOI</a> · <a href="https://doi.org/10.5281/zenodo.23659208">全版の概念DOI</a> · 公開版 <a href="https://github.com/tkmt-lab/exception-networks-stability-certificates/releases/tag/v1.0.0">v1.0.0</a> (<a href="https://github.com/tkmt-lab/exception-networks-stability-certificates/commit/1981c553152bae7fe76f23704fda5c06fd354a7e"><code>1981c553152b</code></a>) · <a href="https://github.com/tkmt-lab/exception-networks-stability-certificates/blob/1981c553152bae7fe76f23704fda5c06fd354a7e/claims.json">claims.json</a> · <a href="https://github.com/tkmt-lab/exception-networks-stability-certificates/actions">検査（CI）</a></div>
     <p class="note">全正速度に関する議論は、恒等式の計算照合を伴う文章の証明です。3例だけから一般の上限を結論したものではありません。別実装は初めの導出・コードを読む前に固定しましたが、期待される結論と件数は知らされていました。任意の網や速度入力の一般ソルバーではなく、新しい分類や優先権、人間の査読、証明支援系による形式証明は主張しません。</p>
