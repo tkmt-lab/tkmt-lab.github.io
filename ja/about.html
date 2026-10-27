@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>研究の進め方・感謝・連絡 — tkmt-lab</title>
+<meta name="description" content="AI のチームで数学と科学を研究する個人の研究室。Lean による形式証明や計算の検査など、成果ごとの検証方法と範囲を公開しています。">
+<link rel="alternate" hreflang="en" href="https://tkmt-lab.github.io/">
+<link rel="alternate" type="text/plain" href="../llms.txt" title="AI向け索引（英語）">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="tkmt-lab">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="tkmt-lab — 滝本竜彦（Tatsuhiko Takimoto）の研究室">
+<meta property="og:description" content="AI のチームで数学と科学を研究する個人の研究室。Lean による形式証明や計算の検査など、成果ごとの検証方法と範囲を公開しています。">
+<meta property="og:url" content="https://tkmt-lab.github.io/ja/">
+<meta property="og:image" content="https://tkmt-lab.github.io/assets/og-1200x630.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="暗い背景に、帯で編んだ青く光る五角形の tkmt-lab のロゴと、文字 tkmt-lab">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tkmt-lab.github.io/assets/og-1200x630.png">
+<meta name="twitter:image:alt" content="暗い背景に、帯で編んだ青く光る五角形の tkmt-lab のロゴと、文字 tkmt-lab">
+<style>
+  :root { --fig-yes:#2a9d8f; --fig-no:#e76f51; --fig-np:#d9d9d9; --fg:#1d1d1f; --muted:#5f6368; --line:#e3e3e3; --bg:#ffffff; --link:#1a5fb4; }
+  @media (prefers-color-scheme: dark) { :root { --fig-yes:#3fb8a9; --fig-no:#f08a6c; --fig-np:#727272; --fg:#e8e8e8; --muted:#a0a0a0; --line:#333; --bg:#141414; --link:#8ab4f8; } }
+  body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.8 system-ui, -apple-system, "Hiragino Sans", "Segoe UI", sans-serif; }
+  main { max-width:720px; margin:0 auto; padding:32px 16px 64px; }
+  h1 { font-size:1.6rem; margin:0 0 4px; }
+  .motto { font-size:.9rem; line-height:1.6; color:var(--muted); margin:0; }
+  .pagenote { font-size:0.85rem; color:var(--muted); }
+  .hero { display:block; flex:none; width:144px; height:auto; border-radius:8px; margin:0; }
+  h2 { font-size:1.1rem; margin:40px 0 8px; border-bottom:1px solid var(--line); padding-bottom:4px; }
+  p, li { color:var(--fg); }
+  .muted { color:var(--muted); }
+  a { color:var(--link); }
+  ul { padding-left:1.2rem; }
+  .work { margin:28px 0 36px; padding:2px 0 2px 16px; border-left:3px solid var(--fig-yes); }
+  .work .num { font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-bottom:2px; }
+  .work .t { font-size:1.2rem; line-height:1.4; font-weight:650; margin:0 0 8px; }
+  :lang(ja) .work .tag { font-style:normal; font-weight:500; }
+  .work .links { font-size:.95rem; margin:10px 0 4px; }
+  .work .note { font-size:.9rem; color:var(--muted); margin:4px 0 0; }
+  table { border-collapse:collapse; width:100%; font-size:.95rem; }
+  figure { margin:12px 0 8px; }
+  figcaption { color:var(--muted); font-size:.9rem; margin-top:4px; }
+  .plain { margin:6px 0 10px; }
+  td { border-top:1px solid var(--line); padding:6px 4px; vertical-align:top; }
+  .masthead { display:flex; align-items:center; gap:20px; }
+  .byline { margin:4px 0 0; font-size:.9rem; line-height:1.5; text-wrap:balance; }
+  .byline > span { display:block; }
+  .site-links { margin:16px 0 20px; font-size:.88rem; }
+  .axis { font-size:1.18rem; line-height:1.65; font-weight:550; margin:0 0 14px; }
+  .work-index { margin:28px 0 36px; }
+  .work-index h2 { margin-top:0; }
+  .work-index h3 { margin:16px 0 4px; font-size:.82rem; font-weight:650; color:var(--muted); }
+  .index-list { list-style:none; padding:0; margin:0; }
+  .index-list a { display:grid; grid-template-columns:3rem minmax(0,1fr); gap:8px; align-items:baseline; padding:8px 0; text-decoration:none; line-height:1.45; }
+  .index-list a:hover, .index-list a:focus-visible { text-decoration:underline; }
+  .index-num { font-size:.8rem; color:var(--muted); }
+  .work { scroll-margin-top:24px; }
+  .work-summary { margin:14px 0 16px; padding:10px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .work-summary > div { display:grid; grid-template-columns:6rem minmax(0,1fr); gap:12px; margin:6px 0; }
+  .work-summary dt { font-size:.84rem; font-weight:650; color:var(--muted); line-height:1.9; }
+  .work-summary dd { margin:0; }
+  a:focus-visible { outline:2px solid var(--link); outline-offset:4px; border-radius:2px; }
+  @media (max-width:480px) {
+    main { padding-top:24px; }
+    .masthead { gap:14px; }
+    .hero { width:112px; }
+    .byline { font-size:.8rem; }
+    .axis { font-size:1.08rem; }
+    .work { padding-left:12px; }
+    .work-summary > div { display:block; margin:10px 0; }
+    .work-summary dt { display:inline; margin-right:8px; }
+    .work-summary dd { display:inline; }
+  }
+
+  /* Short banner: preserve the complete original mark and its lettering. */
+  .masthead { display:block; }
+  .hero-banner { height:190px; width:100%; margin:0 0 18px; overflow:hidden; background:#060c19; border-radius:6px; }
+  .hero { width:auto; max-width:100%; height:100%; margin:0 auto; border-radius:0; object-fit:contain; object-position:center; mask-image:linear-gradient(to right,transparent,#000 7%,#000 93%,transparent); }
+  .byline > span { display:inline; }
+  .byline > span + span::before { content:" · "; }
+  .site-links { margin:10px 0 20px; }
+  .work-index { --index-bg:color-mix(in srgb,var(--fg) 2%,var(--bg)); --index-hover:color-mix(in srgb,var(--fg) 5%,var(--bg)); }
+  .work-index h2 { border-bottom:0; padding-bottom:0; margin-bottom:18px; }
+  .work-index h3 { margin:20px 0 10px; font-size:.75rem; font-weight:650; letter-spacing:.06em; }
+  .index-list { list-style:none; padding:0; margin:0; }
+  .index-list a { color:var(--fg); text-decoration:none; }
+  .index-list a:hover, .index-list a:focus-visible { text-decoration:none; }
+  .index-question { font-size:1rem; font-weight:500; line-height:1.5; }
+  .index-field, .index-meta { color:var(--muted); font-size:.75rem; line-height:1.5; font-weight:400; }
+  .index-arrow { font-size:1rem; color:var(--muted); font-weight:400; }
+  .index-list a:focus-visible { outline:2px solid var(--link); outline-offset:4px; }
+  @media (max-width:480px) {
+    .hero-banner { height:120px; margin-bottom:16px; }
+    .byline > span { display:block; }
+    .byline > span + span::before { content:none; }
+    .work-index h2 { margin-bottom:16px; }
+    .index-question { font-size:.98rem; }
+  }
+
+  /* B: numbered rows, restrained dividers and a field at the right. */
+  .index-list li { border-top:1px solid var(--line); }
+  .index-list li:last-child { border-bottom:1px solid var(--line); }
+  .index-list a { display:grid; grid-template-columns:2rem minmax(0,1fr) 7.2rem 1rem; gap:12px; align-items:start; padding:17px 8px; border-radius:3px; }
+  .index-num { padding-top:3px; font:400 .75rem/1.6 ui-monospace,SFMono-Regular,Consolas,monospace; color:var(--muted); }
+  .index-field { text-align:right; padding-top:3px; }
+  .index-arrow { text-align:right; }
+  .index-list a:hover { background:var(--index-hover); }
+  .index-list a:hover .index-question { text-decoration:underline; text-underline-offset:3px; }
+  @media (max-width:480px) {
+    .index-list a { grid-template-columns:1.6rem minmax(0,1fr) 1rem; column-gap:10px; row-gap:5px; padding:14px 4px; }
+    .index-num { grid-row:1 / 3; }
+    .index-field { grid-column:2; grid-row:2; text-align:left; padding-top:0; }
+    .index-arrow { grid-column:3; grid-row:1; }
+  }
+
+  figure { max-width:100%; }
+</style>
+</head>
+<body><main><p><a href="./">tkmt-lab</a> · <a href="../about.html">English</a></p><h1>研究の進め方・感謝・連絡</h1><h2 id="checks">どう確かめているか</h2>
+  <ul>
+    <li><b>形式証明</b>：Lean 4 という証明の検査系が、証明の全段階を機械で確かめます。その証明が、別の者が先に書いておいた主張文と同じことの証明であることも、Comparator という道具で確かめています。論文から形式版へ移す段階で、Lean に含まれない部分も明記しています。</li>
+    <li><b>独立な導出</b>：別のチームが、もう一方の証明やコードを見ずに、別の証明を書きました。主張・期待される結果・数学的な準備まで伏せられていたとは限りません。共有したものは各研究の記録に示します。別実装による検査やAIによる読解とは区別します。</li>
+    <li><b>AI による点検</b>：AI が文章の証明を読み、一部を計算し直しました。人間の査読とは区別します。</li>
+    <li><b>有限の計算</b>：全数を調べた検査と、一部を抽出した検査を区別し、調べた範囲を明記しています。</li>
+  </ul>
+  <p>論文 1・2・6 の主な定理は、証明を除いた Lean の主張文として、別の<a href="https://github.com/tkmt-lab/lean-statements">主張文集</a>（doi:<a href="https://doi.org/10.5281/zenodo.23594152">10.5281/zenodo.23594152</a>）にもまとめています。各主張文は固定した commit の証明にリンクしています。主張文集をビルドしても証明は検査されません。</p>
+  <p>人間の専門家による査読は受けていません。新規性を含め、何を確かめ、何が未確認かは、各リポジトリに主張ごとに記しています。訂正も公開しています。</p>
+  <p>すべての成果の主張、証拠の種類、確かめ直すコマンドは、機械で読める一つのファイルにまとめています：<a href="catalog.html">成果の目録</a>（<a href="../catalog.json">catalog.json</a>）。<a href="../llms.txt">AI向けの短い索引（英語）</a>もあります。</p>
+  <p>検査の種類ごとのやり方、それで言えること、残ることを、他の研究でも使える手順としてまとめています：<a href="verification.html">成果をどう確かめるか</a>。</p>
+
+  <h2 id="process">研究の進め方</h2>
+  <p>AI（OpenAI の Codex と Anthropic の Claude Code）が、探索、独立な検証、文献の調査、形式化を、別々のチームとして担っています。私（滝本竜彦）が方向を決め、判断し、公開する成果、その来歴、明記した検証の範囲と限界に責任を持ちます。AI は著者に入れていません。</p>
+
+  <h2 id="thanks">元になった研究への感謝</h2>
+  <p>これらの結果は、この分野を切り開いてきた研究者の方々の仕事の上にあります。フラーレンの問いは、A. Bille、V. Buchstaber、E. Spodarev による未解決問題の一覧から生まれました。調べた形は、M. Goldberg と H. S. M. Coxeter の名を冠した構成と、それを広げた M. Dutour Sikirić と M. Deza の仕事、そして J. E. Graver の目録によるものです。K. Kutnar と D. Marušič によるフラーレンの巡回辺連結性の研究、J. R. Büchi、C. C. Elgot、B. A. Trakhtenbrot による論理と有限オートマトンを結ぶ定理、Lean 4 と mathlib、Comparator と独立な検査器を作った方々の仕事も使わせていただきました。</p>
+  <p>Bell 不等式の仕事は、R. Gill の問いと、C. Staufenbiel が公開した面のリストと道具、その土台になった S. Lörwald と G. Reinelt の PANDA の上にあります。</p>
+  <p>分散のある Hawking 放射の仕事は、W. G. Unruh の音のブラックホールの考えと、S. Corley と T. Jacobson、W. G. Unruh と R. Schützhold、J. Macher、A. Coutant、S. Finazzi、R. Parentani、U. Leonhardt と S. Robertson、Y. Himemoto と T. Tanaka、A. Moreno-Ruiz と D. Bermudez、A. Coutant と S. Weinfurtner、そして比べる相手とした有効地平線の結果を出した F. Del Porro、S. Liberati、M. Schneider の仕事の上にあります。</p>
+  <p>感染症のモデルの仕事は、B. Pant、O. Saucedo、G. Pogudin の問いと予想、そして識別可能性の微分代数の結果を築いた A. Ovchinnikov、G. Pogudin、P. Thompson と、H. Hong、A. Ovchinnikov、G. Pogudin、C. Yap の仕事の上にあります。</p>
+  <p>Heesch 数の仕事は、H. Heesch の問題と、C. S. Kaplan の研究（すべての層をまとめた SAT による定式化、データ、heesch-sat のソフトウェア）の上にあります。問い、Hc と Hh の定義、調べた形、比べた値は、すべてそこから来ています。C. Mann の解説と、C. Mann と B. C. Thomas による辺に印のあるポリフォームの計算、A. Fontaine と B. Bašić の構成、Heesch 数に初めて確かめられる証明書を付けた Layr-Labs/Eigen の Heesch challenge とその参加者の方々、N. Wetzler、M. Heule、W. Hunt の drat-trim、A. Biere の CaDiCaL と Lingeling、G. Audemard と L. Simon の Glucose、A. Ignatiev、A. Morgado、J. Marques-Silva の PySAT、C. Sinz の逐次カウンタ、そして形式化の手本にした C. Codel、J. Avigad、M. Heule の検証された SAT 符号化と、B. Subercaseaux らによる空の六角形の数の検証の仕事も使わせていただきました。</p>
+  <p>結晶のネットの識別テストは、M. O'Keeffe、M. A. Peskov、S. J. Ramsden、O. M. Yaghi の RCSR（Reticular Chemistry Structure Resource）と、それぞれのネットを最初に記述した研究者の方々の仕事の上にあります。使ったネット、頂点の軌道、座標は、すべてそこから来ています。成長する配位殻をグラフとして比べ、どの殻まで一致するかを測る考えは V. A. Blatov と D. M. Proserpio によるもので、r_min はこの種の測定です。周期的なものを含む点群で、距離を使う WL やグラフニューラルネットワークが見分けられない組は、S. N. Pozdnyakov と M. Ceriotti が示しました（そちらは距離を使い、こちらはグラフの形だけを使います）。プログラムが読む空間群の表は、O. Delgado-Friedrichs の Gavrog のものです。</p>
+  <p>主張文集では、<a href="https://github.com/google-deepmind/formal-conjectures/tree/9833012f66a47cdd3a6f3eca9cb4b84e0f18a003">Formal Conjectures Authors</a> によるファイルの形式と、分類・分野・証明へのリンクを記す属性を使わせていただきました。</p>
+  <p>ブールネットワークの反例集は、モチーフを避けるアトラクターがなぜ珍しいのかを問い、対照に使った例 7・8 を示した S. Pastva、K. H. Park、O. Huvar、J. C. Rozum、R. Albert と、試した条件の元になった仲介の条件と射影の補題を示した E. Tonello と L. Paulevé の仕事に負っています。</p>
+  <p>二次の質量作用系の項数の仕事は、<a href="https://arxiv.org/abs/2610.06130v1">N. Yeung と R. Erban</a> による分類と、項数をどこまで減らせるかという問いを出発点としています。幾何の枠組みは、<a href="https://www.mathnet.ru/eng/rm6840">L. S. Lyagina</a> と <a href="https://doi.org/10.1137/1020007">T. A. Newton</a> による分類と不変直線の記述に基づいています。</p>
+  <p>例外の2反応網の資料は、Example 4で二網を示し、Theorem 2とLemma 3で上限・375/373の分類・安定性の結果を与えたXiaoxian TangとJiandong Zhang、および行列式への還元と安定性の交替を示したAngélica TorresとElisenda Feliuの仕事に基づいています。</p>
+  <p>RNAの仕事は、Théo Boury、Laurent Bulteau、Yann PontyによるmaxStacksの枠組みと問い、DRAT-trim、CakeML/cake_lprの仕事の上にあります。挙げた著者は、この研究に参加したり推薦したりしたわけではありません。</p>
+  <p>心から感謝します。この小さな仕事が、この分野にわずかでも新しいものを付け加えられたなら幸いです。</p>
+  <p class="muted">出典は各論文と各リポジトリにすべて挙げています。</p>
+
+  <h2 id="ai">AI向けの入口</h2>
+  <p><a href="../llms.txt">llms.txt（英語の索引）</a>と、<a href="../catalog-index.json">小さい機械向け目録</a>から、各成果の主張・範囲・検査方法をたどれます。</p>
+
+  <h2 id="other">もう一つの仕事</h2>
+  <p>小説家：<a href="https://tatsuhikotakimoto.com/">滝本竜彦</a></p>
+
+  <h2 id="contact">連絡</h2>
+  <p>質問や誤りのご指摘、関連する研究のお知らせは、<a href="mailto:research@tatsuhikotakimoto.com">research@tatsuhikotakimoto.com</a> か、各リポジトリの GitHub の Issue でお願いします。</p>
+
+  <h2 id="licence">ライセンス</h2>
+  <p>このサイトの文章は <a href="https://creativecommons.org/licenses/by/4.0/deed.ja">CC BY 4.0</a> で公開しています。各リポジトリのライセンスは、それぞれに書いています。</p>
+</main></body></html>

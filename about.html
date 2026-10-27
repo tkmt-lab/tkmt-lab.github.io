@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Process, acknowledgements and contact — tkmt-lab</title>
+<meta name="description" content="Independent research in mathematics and science with AI teams, with machine-checked proofs and open verification data.">
+<link rel="alternate" type="text/plain" href="llms.txt" title="Index for AI readers">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="tkmt-lab">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="tkmt-lab — research lab of Tatsuhiko Takimoto">
+<meta property="og:description" content="Independent research in mathematics and science with AI teams, with machine-checked proofs and open verification data.">
+<meta property="og:url" content="https://tkmt-lab.github.io/">
+<meta property="og:image" content="https://tkmt-lab.github.io/assets/og-1200x630.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The tkmt-lab mark, a glowing blue pentagon woven from strips, on a dark background, with the text tkmt-lab">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tkmt-lab.github.io/assets/og-1200x630.png">
+<meta name="twitter:image:alt" content="The tkmt-lab mark, a glowing blue pentagon woven from strips, on a dark background, with the text tkmt-lab">
+<link rel="alternate" hreflang="ja" href="https://tkmt-lab.github.io/ja/">
+<style>
+  :root { --fig-yes:#2a9d8f; --fig-no:#e76f51; --fig-np:#d9d9d9; --fg:#1d1d1f; --muted:#5f6368; --line:#e3e3e3; --bg:#ffffff; --link:#1a5fb4; }
+  @media (prefers-color-scheme: dark) { :root { --fig-yes:#3fb8a9; --fig-no:#f08a6c; --fig-np:#727272; --fg:#e8e8e8; --muted:#a0a0a0; --line:#333; --bg:#141414; --link:#8ab4f8; } }
+  body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width:720px; margin:0 auto; padding:32px 16px 64px; }
+  h1 { font-size:1.6rem; margin:0 0 4px; }
+  .motto { font-size:.9rem; line-height:1.6; color:var(--muted); margin:0; }
+  .pagenote { font-size:0.85rem; color:var(--muted); }
+  .hero { display:block; flex:none; width:144px; height:auto; border-radius:8px; margin:0; }
+  h2 { font-size:1.1rem; margin:40px 0 8px; border-bottom:1px solid var(--line); padding-bottom:4px; }
+  p, li { color:var(--fg); }
+  .muted { color:var(--muted); }
+  a { color:var(--link); }
+  ul { padding-left:1.2rem; }
+  .work { margin:28px 0 36px; padding:2px 0 2px 16px; border-left:3px solid var(--fig-yes); }
+  .work .num { font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-bottom:2px; }
+  .work .t { font-size:1.2rem; line-height:1.4; font-weight:650; margin:0 0 8px; }
+  .work .links { font-size:.95rem; margin:10px 0 4px; }
+  .work .note { font-size:.9rem; color:var(--muted); margin:4px 0 0; }
+  table { border-collapse:collapse; width:100%; font-size:.95rem; }
+  figure { margin:12px 0 8px; }
+  figcaption { color:var(--muted); font-size:.9rem; margin-top:4px; }
+  .plain { margin:6px 0 10px; }
+  td { border-top:1px solid var(--line); padding:6px 4px; vertical-align:top; }
+  .masthead { display:flex; align-items:center; gap:20px; }
+  .byline { margin:4px 0 0; font-size:.9rem; line-height:1.5; text-wrap:balance; }
+  .byline > span { display:block; }
+  .site-links { margin:16px 0 20px; font-size:.88rem; }
+  .axis { font-size:1.18rem; line-height:1.65; font-weight:550; margin:0 0 14px; }
+  .work-index { margin:28px 0 36px; }
+  .work-index h2 { margin-top:0; }
+  .work-index h3 { margin:16px 0 4px; font-size:.82rem; font-weight:650; color:var(--muted); }
+  .index-list { list-style:none; padding:0; margin:0; }
+  .index-list a { display:grid; grid-template-columns:3rem minmax(0,1fr); gap:8px; align-items:baseline; padding:8px 0; text-decoration:none; line-height:1.45; }
+  .index-list a:hover, .index-list a:focus-visible { text-decoration:underline; }
+  .index-num { font-size:.8rem; color:var(--muted); }
+  .work { scroll-margin-top:24px; }
+  .work-summary { margin:14px 0 16px; padding:10px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .work-summary > div { display:grid; grid-template-columns:6rem minmax(0,1fr); gap:12px; margin:6px 0; }
+  .work-summary dt { font-size:.84rem; font-weight:650; color:var(--muted); line-height:1.9; }
+  .work-summary dd { margin:0; }
+  a:focus-visible { outline:2px solid var(--link); outline-offset:4px; border-radius:2px; }
+  @media (max-width:480px) {
+    main { padding-top:24px; }
+    .masthead { gap:14px; }
+    .hero { width:112px; }
+    .byline { font-size:.8rem; }
+    .axis { font-size:1.08rem; }
+    .work { padding-left:12px; }
+    .work-summary > div { display:block; margin:10px 0; }
+    .work-summary dt { display:inline; margin-right:8px; }
+    .work-summary dd { display:inline; }
+  }
+
+  /* Short banner: preserve the complete original mark and its lettering. */
+  .masthead { display:block; }
+  .hero-banner { height:190px; width:100%; margin:0 0 18px; overflow:hidden; background:#060c19; border-radius:6px; }
+  .hero { width:auto; max-width:100%; height:100%; margin:0 auto; border-radius:0; object-fit:contain; object-position:center; mask-image:linear-gradient(to right,transparent,#000 7%,#000 93%,transparent); }
+  .byline > span { display:inline; }
+  .byline > span + span::before { content:" · "; }
+  .site-links { margin:10px 0 20px; }
+  .work-index { --index-bg:color-mix(in srgb,var(--fg) 2%,var(--bg)); --index-hover:color-mix(in srgb,var(--fg) 5%,var(--bg)); }
+  .work-index h2 { border-bottom:0; padding-bottom:0; margin-bottom:18px; }
+  .work-index h3 { margin:20px 0 10px; font-size:.75rem; font-weight:650; letter-spacing:.06em; }
+  .index-list { list-style:none; padding:0; margin:0; }
+  .index-list a { color:var(--fg); text-decoration:none; }
+  .index-list a:hover, .index-list a:focus-visible { text-decoration:none; }
+  .index-question { font-size:1rem; font-weight:500; line-height:1.5; }
+  .index-field, .index-meta { color:var(--muted); font-size:.75rem; line-height:1.5; font-weight:400; }
+  .index-arrow { font-size:1rem; color:var(--muted); font-weight:400; }
+  .index-list a:focus-visible { outline:2px solid var(--link); outline-offset:4px; }
+  @media (max-width:480px) {
+    .hero-banner { height:120px; margin-bottom:16px; }
+    .byline > span { display:block; }
+    .byline > span + span::before { content:none; }
+    .work-index h2 { margin-bottom:16px; }
+    .index-question { font-size:.98rem; }
+  }
+
+  /* B: numbered rows, restrained dividers and a field at the right. */
+  .index-list li { border-top:1px solid var(--line); }
+  .index-list li:last-child { border-bottom:1px solid var(--line); }
+  .index-list a { display:grid; grid-template-columns:2rem minmax(0,1fr) 7.2rem 1rem; gap:12px; align-items:start; padding:17px 8px; border-radius:3px; }
+  .index-num { padding-top:3px; font:400 .75rem/1.6 ui-monospace,SFMono-Regular,Consolas,monospace; color:var(--muted); }
+  .index-field { text-align:right; padding-top:3px; }
+  .index-arrow { text-align:right; }
+  .index-list a:hover { background:var(--index-hover); }
+  .index-list a:hover .index-question { text-decoration:underline; text-underline-offset:3px; }
+  @media (max-width:480px) {
+    .index-list a { grid-template-columns:1.6rem minmax(0,1fr) 1rem; column-gap:10px; row-gap:5px; padding:14px 4px; }
+    .index-num { grid-row:1 / 3; }
+    .index-field { grid-column:2; grid-row:2; text-align:left; padding-top:0; }
+    .index-arrow { grid-column:3; grid-row:1; }
+  }
+
+  figure { max-width:100%; }
+</style>
+</head>
+<body><main><p><a href="./">tkmt-lab</a> · <a href="ja/about.html">日本語</a></p><h1>Process, acknowledgements and contact</h1><h2 id="checks">How the work is checked</h2>
+  <p>Each release keeps different kinds of evidence apart, and says which applies to each claim:</p>
+  <table>
+    <tr><td>Formal proof</td><td>Checked by the Lean 4 kernel. Separately, the Comparator tool checks that the proof proves exactly a statement written in advance by a different agent. Anyone can re-run the build; each repository's GitHub Actions workflow rebuilds the main modules and checks their axioms on every push. Any step from the paper to the formal statement that is not in Lean is said so in the repository.</td></tr>
+    <tr><td>Independent derivation</td><td>A second proof written by a separate team that did not see the first proof or its code. This does not by itself mean that the statement, expected result or mathematical preparation was withheld. Each work records what was shared; a separate implementation and an AI reading are different checks.</td></tr>
+    <tr><td>AI review</td><td>Prose read and recalculated by an AI reviewer. Not human peer review.</td></tr>
+    <tr><td>Finite computation</td><td>Exhaustive or sampled checks, with their exact ranges.</td></tr>
+  </table>
+  <p>The main theorems of Papers 1, 2 and 6 are also written as Lean statements, without proofs, in a separate <a href="https://github.com/tkmt-lab/lean-statements">statement collection</a> (doi:<a href="https://doi.org/10.5281/zenodo.23594152">10.5281/zenodo.23594152</a>). Each statement links to its proof at a fixed commit; building the collection does not check the proofs.</p>
+  <p>What is not yet established — for example human peer review or novelty — is stated in each repository. Corrections are listed openly.</p>
+  <p>All results, their claims, kinds of evidence and commands to re-check them are listed in one machine-readable file: <a href="catalog.html">catalog of results</a> (<a href="catalog.json">catalog.json</a>).</p>
+  <p>How each kind of check is done, what it establishes and what it leaves open, as a procedure others can reuse: <a href="verification.html">how the work is checked</a>.</p>
+
+  <h2 id="process">How this research is done</h2>
+  <p>The research is carried out with AI systems (OpenAI Codex and Anthropic Claude Code) working as separate teams for exploration, independent verification, literature search and formalization. I, Tatsuhiko Takimoto, direct the work, make the decisions, and am responsible for what is released, its provenance and the stated limits of verification. AI systems are not listed as authors.</p>
+
+  <h2 id="thanks">Built on the work of others</h2>
+  <ul>
+    <li>A. Bille, V. Buchstaber and E. Spodarev, who defined generalized Stone–Wales paths and collected open problems on fullerenes. Our question comes from their work.</li>
+    <li>M. Goldberg and H. S. M. Coxeter, after whom the Goldberg–Coxeter construction is named, and M. Dutour Sikirić and M. Deza, who developed it for plane graphs together with the theory of zigzags.</li>
+    <li>J. E. Graver, whose catalogue of highly symmetric fullerenes gives the families we study, and K. Kutnar and D. Marušič, whose work on cyclic edge-connectivity of fullerenes we rely on.</li>
+    <li>J. R. Büchi, C. C. Elgot and B. A. Trakhtenbrot, whose theorem connecting logic on words with finite automata is the last step of the periodicity proof.</li>
+    <li>R. Gill, who asked whether every nontrivial Bell facet can be violated quantum mechanically; C. Staufenbiel, whose sampled facet lists and tools we certify; and S. Lörwald and G. Reinelt, the authors of the polyhedral software PANDA on which those tools are built.</li>
+    <li>W. G. Unruh, whose sonic analogue of a black hole started the field, and the authors who developed Hawking radiation with dispersion — among them S. Corley and T. Jacobson, W. G. Unruh and R. Schützhold, J. Macher, A. Coutant, S. Finazzi and R. Parentani, U. Leonhardt and S. Robertson, Y. Himemoto and T. Tanaka, A. Moreno-Ruiz and D. Bermudez, A. Coutant and S. Weinfurtner, and F. Del Porro, S. Liberati and M. Schneider, whose effective-horizon result is our point of comparison.</li>
+    <li>B. Pant, O. Saucedo and G. Pogudin, who posed the identifiability question for the behavioral SIR model and its conjecture; A. Ovchinnikov, G. Pogudin and P. Thompson, and H. Hong, A. Ovchinnikov, G. Pogudin and C. Yap, whose differential-algebra results on identifiability carry our proof.</li>
+    <li>H. Heesch, who posed the problem; C. S. Kaplan, whose study of the Heesch numbers of unmarked polyforms, with its SAT formulation over all layers, its dataset and the heesch-sat software, gives the question, the definitions of Hc and Hh, the shapes and every reference value of the Heesch work; C. Mann's survey, C. Mann and B. C. Thomas's computations for edge-marked polyforms, and the constructions of A. Fontaine and B. Bašić; the Heesch challenge of Layr-Labs/Eigen and its contributors, which first attached checkable certificates to Heesch numbers; N. Wetzler, M. Heule and W. Hunt's drat-trim, A. Biere's CaDiCaL and Lingeling, G. Audemard and L. Simon's Glucose, A. Ignatiev, A. Morgado and J. Marques-Silva's PySAT, and C. Sinz's sequential counter; and the verified SAT encodings of C. Codel, J. Avigad and M. Heule and the empty-hexagon verification of B. Subercaseaux and colleagues, whose approach the formalization follows.</li>
+    <li>M. O'Keeffe, M. A. Peskov, S. J. Ramsden and O. M. Yaghi, whose Reticular Chemistry Structure Resource (RCSR) is the source of every net, vertex orbit and coordinate in the identification tests, and the researchers who first described each net; V. A. Blatov and D. M. Proserpio, who compared nets by the graphs of growing coordination shells and measured the largest shell up to which they agree (r_min is a measurement of this kind); S. N. Pozdnyakov and M. Ceriotti, who gave pairs of point clouds, including periodic ones, that distance-based WL tests and graph neural networks cannot tell apart (their setting has distances; the tests here have only graph structure); and O. Delgado-Friedrichs, whose Gavrog space-group table the code reads.</li>
+    <li>For the statement collection: the <a href="https://github.com/google-deepmind/formal-conjectures/tree/9833012f66a47cdd3a6f3eca9cb4b84e0f18a003">Formal Conjectures Authors</a>, whose file format and category, subject and proof-link attributes it uses.</li>
+    <li><a href="https://arxiv.org/abs/2610.06130v1">N. Yeung and R. Erban</a>, whose classification and question about reducing the number of terms led to the quadratic mass-action work; <a href="https://www.mathnet.ru/eng/rm6840">L. S. Lyagina</a> and <a href="https://doi.org/10.1137/1020007">T. A. Newton</a>, whose classifications and invariant-line descriptions provide its geometric framework.</li>
+    <li>For the Boolean-network counterexamples: S. Pastva, K. H. Park, O. Huvar, J. C. Rozum and R. Albert, who asked why motif-avoidant attractors are so rare and whose Examples 7 and 8 are the controls; and E. Tonello and L. Paulevé, whose mediator condition and projection lemma shaped the conditions tested.</li>
+    <li>The developers of Lean 4 and mathlib, and of the Comparator tool and the independent proof kernels used to check our proofs.</li>
+    <li>Xiaoxian Tang and Jiandong Zhang, whose Example 4 supplied the two exceptional networks and whose Theorem 2 and Lemma 3 give the upper bound, the 375/373 classification and the stability result used here; Angélica Torres and Elisenda Feliu, whose determinant reduction and stability-alternation results the two explicit derivations specialize.</li>
+  </ul>
+  <p>The RNA work builds on Théo Boury, Laurent Bulteau and Yann Ponty’s maxStacks framework and question, and on DRAT-trim and CakeML/cake_lpr. The cited authors did not participate in or endorse this work.</p>
+  <p>I am grateful to them, and I hope this work adds something new to the field they opened. The papers and repositories cite these and other sources in full.</p>
+
+  <h2 id="ai">For AI readers</h2>
+  <p>A plain-text index is at <a href="llms.txt">llms.txt</a>. Each repository has an <code>AGENTS.md</code> and a machine-readable <code>claims.json</code>.</p>
+
+  <h2 id="other">My other work</h2>
+  <p>Novelist: <a href="https://tatsuhikotakimoto.com/en/">Tatsuhiko Takimoto (滝本竜彦)</a></p>
+
+  <h2 id="contact">Contact</h2>
+  <p>Questions, errors and related work: <a href="mailto:research@tatsuhikotakimoto.com">research@tatsuhikotakimoto.com</a>, or an issue in the relevant repository.</p>
+
+  <h2 id="licence">Licence</h2>
+  <p>The text of this site is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Each repository states its own licences.</p>
+</main></body></html>
