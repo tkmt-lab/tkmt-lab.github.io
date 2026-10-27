@@ -1,9 +1,9 @@
 {
   "$schema": "https://tkmt-lab.github.io/catalog.schema.json",
   "version": "1.2",
-  "generated_at": "2026-10-27T09:57:23+09:00",
+  "generated_at": "2026-10-28T08:50:52+09:00",
   "sources": {
-    "releases": "docs/releases.json (lab research repository, updated 2026-10-27T09:42:14+09:00)",
+    "releases": "docs/releases.json (lab research repository, updated 2026-10-26T16:18:24+09:00)",
     "repositories": "claims.json, AGENTS.md, README.md, CITATION.cff, .zenodo.json at each repository's published origin/main, required to equal its release commit; exact inputs in work.source_revision"
   },
   "lab": {
@@ -7028,6 +7028,244 @@
       ]
     },
     {
+      "id": "tkmt-lab/multistationarity-375-networks-bound",
+      "source_revision": {
+        "ref": "origin/main",
+        "commit": "cc161da467e90032a4c435bc5bd3e7622f159e81",
+        "matches_release": true
+      },
+      "title": "A certified three-equilibrium bound for 375 fixed quadratic zero-one reaction networks",
+      "title_tex": "A certified three-equilibrium bound for 375 fixed\\protect\\\\\nquadratic zero-one reaction networks",
+      "paper_version": "draft v1, public-package copy",
+      "packet_version": "1.0.0",
+      "authors": [
+        {
+          "name": "Tatsuhiko Takimoto",
+          "affiliation": "Independent researcher"
+        }
+      ],
+      "summary": "For each network in Tang–Zhang’s fixed 375-network list, at most three distinct positive equilibria at every strictly positive rate vector, including degenerate equilibria. Three species, six reactions, quadratic zero-one complexes and rank three. Exact Cramer certificates (272 cubic, 103 quartic residuals), a historical independent resultant derivation checked by explicit Sylvester determinants, and the article’s proof support the bound. Also includes a post-selected finite structural observation and one seven-reaction family, not general classifications. The list, original upper-bound claim and reported 373/2 stability classification are Tang and Zhang’s; enumeration, all existence witnesses and the 373-network stability classification are not reverified here. No formal verification, human peer review, priority or new blind review during packaging.",
+      "release": {
+        "tag": "v1.0.0",
+        "date": "2026-10-28",
+        "commit": "cc161da467e90032a4c435bc5bd3e7622f159e81",
+        "github_release": "https://github.com/tkmt-lab/multistationarity-375-networks-bound/releases/tag/v1.0.0",
+        "version_doi": "10.5281/zenodo.23715811",
+        "concept_doi": "10.5281/zenodo.23715810",
+        "doi_status": "minted"
+      },
+      "repo_url": "https://github.com/tkmt-lab/multistationarity-375-networks-bound",
+      "paper_pdf": {
+        "path": "paper/paper-v1.pdf",
+        "url": "https://github.com/tkmt-lab/multistationarity-375-networks-bound/blob/v1.0.0/paper/paper-v1.pdf",
+        "raw_url": "https://raw.githubusercontent.com/tkmt-lab/multistationarity-375-networks-bound/v1.0.0/paper/paper-v1.pdf"
+      },
+      "paper_source": {
+        "path": "paper/paper-v1.tex",
+        "url": "https://github.com/tkmt-lab/multistationarity-375-networks-bound/blob/v1.0.0/paper/paper-v1.tex"
+      },
+      "entry_points": {
+        "agents_md": [
+          {
+            "path": "AGENTS.md",
+            "url": "https://github.com/tkmt-lab/multistationarity-375-networks-bound/blob/v1.0.0/AGENTS.md"
+          }
+        ],
+        "claims_json": {
+          "path": "claims.json",
+          "url": "https://github.com/tkmt-lab/multistationarity-375-networks-bound/blob/v1.0.0/claims.json",
+          "raw_url": "https://raw.githubusercontent.com/tkmt-lab/multistationarity-375-networks-bound/v1.0.0/claims.json"
+        },
+        "readme": {
+          "path": "README.md",
+          "url": "https://github.com/tkmt-lab/multistationarity-375-networks-bound/blob/v1.0.0/README.md"
+        },
+        "citation_cff": {
+          "path": "CITATION.cff",
+          "url": "https://github.com/tkmt-lab/multistationarity-375-networks-bound/blob/v1.0.0/CITATION.cff"
+        }
+      },
+      "scope": [
+        {
+          "text": "Each of the fixed 375 three-species, six-reaction quadratic zero-one networks has at most three distinct positive equilibria for every strictly positive rate vector, including degenerate equilibria. The package includes exact Cramer and Sylvester certificate checks, a post-selected structural observation within the list, and one seven-reaction family with a rational witness.",
+          "lang": "en",
+          "source": "docs/releases.json"
+        }
+      ],
+      "not_claimed": [
+        {
+          "text": "No new enumeration or re-verification of all 375 existence witnesses or the reported 373-network stability classification; no general stability theorem from the post-selected structural observation, nonlinear degenerate or boundary stability, global dynamics, priority, formal verification, human peer review, or new blind review during packaging.",
+          "lang": "en",
+          "source": "docs/releases.json"
+        },
+        {
+          "text": "original enumeration reverified",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "all 375 existence witnesses reverified",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "373-network stability classification reverified",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "B1 as a general theorem",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "nonlinear degenerate or boundary stability",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "global dynamics",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "priority",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "formal verification",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "human peer review",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "a new blind review during packaging",
+          "lang": "en",
+          "source": "claims.json"
+        }
+      ],
+      "verification": [
+        {
+          "source": "README.md#Reproduce the checks",
+          "working_directory": ".",
+          "shell": "sh",
+          "script": "python3 -m venv .venv\n.venv/bin/python -m pip install -r requirements.txt\n.venv/bin/python -B tools/fetch_input.py\n.venv/bin/python -B verify.py",
+          "expected_output_status": "not-documented-in-extracted-section"
+        },
+        {
+          "source": "README.md#Reproduce the checks",
+          "working_directory": ".",
+          "shell": "sh",
+          "script": "python3 -B tools/fetch_input.py\npython3 -B verify.py --stdlib-only",
+          "expected_output_status": "not-documented-in-extracted-section"
+        }
+      ],
+      "claims": [
+        {
+          "id": "tkmt-lab/multistationarity-375-networks-bound#B2",
+          "local_id": "B2",
+          "statement": "Each of the fixed 375 networks has at most three distinct positive equilibria for every strictly positive rate vector, including degenerate equilibria.",
+          "evidence": [
+            {
+              "kind": "finite-computation",
+              "basis": "evidence_types=exact-computation"
+            },
+            {
+              "kind": "independent-implementation",
+              "basis": "evidence_types=historical-independent-implementation"
+            },
+            {
+              "kind": "prose-proof",
+              "basis": "evidence_types=prose"
+            }
+          ],
+          "evidence_kinds": [
+            "finite-computation",
+            "independent-implementation",
+            "prose-proof"
+          ],
+          "evidence_files": [
+            "certificates/cramer.jsonl",
+            "certificates/resultants.json",
+            "checkers/cramer.py",
+            "checkers/sylvester.py"
+          ]
+        },
+        {
+          "id": "tkmt-lab/multistationarity-375-networks-bound#B1",
+          "local_id": "B1",
+          "statement": "Within the fixed list, no inflow and an acyclic unimolecular net-production graph select exactly networks 33449 and 239089.",
+          "evidence": [
+            {
+              "kind": "finite-computation",
+              "basis": "evidence_types=exact-computation"
+            },
+            {
+              "kind": "finite-computation",
+              "basis": "evidence_types=finite-post-selected-observation"
+            }
+          ],
+          "evidence_kinds": [
+            "finite-computation"
+          ],
+          "evidence_files": [
+            "certificates/structure.json",
+            "checkers/structure.py"
+          ]
+        },
+        {
+          "id": "tkmt-lab/multistationarity-375-networks-bound#B3-family",
+          "local_id": "B3-family",
+          "statement": "Network 33449 with added X3 -> 0 at positive rate h has at most three distinct positive equilibria and at most one exponentially stable positive equilibrium for all seven positive rates.",
+          "evidence": [
+            {
+              "kind": "finite-computation",
+              "basis": "evidence_types=exact-symbolic-identities"
+            },
+            {
+              "kind": "prose-proof",
+              "basis": "evidence_types=prose"
+            }
+          ],
+          "evidence_kinds": [
+            "finite-computation",
+            "prose-proof"
+          ],
+          "evidence_files": [
+            "certificates/seven-reaction-z.json",
+            "checkers/seven_reaction_t.py",
+            "checkers/seven_reaction_z.py"
+          ]
+        },
+        {
+          "id": "tkmt-lab/multistationarity-375-networks-bound#B3-witness",
+          "local_id": "B3-witness",
+          "statement": "At the bundled rational rates, the seven-reaction family has exactly three simple positive equilibria; one is exponentially stable and two are unstable.",
+          "evidence": [
+            {
+              "kind": "finite-computation",
+              "basis": "evidence_types=exact-computation"
+            }
+          ],
+          "evidence_kinds": [
+            "finite-computation"
+          ],
+          "evidence_files": [
+            "certificates/seven-reaction-sample.json",
+            "certificates/seven-reaction-t.json",
+            "certificates/seven-reaction-z.json",
+            "checkers/seven_reaction_t.py",
+            "checkers/seven_reaction_z.py"
+          ]
+        }
+      ]
+    },
+    {
       "id": "tkmt-lab/lean-statements",
       "source_revision": {
         "ref": "origin/main",
@@ -8052,7 +8290,19 @@
           "url": "https://github.com/tkmt-lab/maxstacks-two-bp-helices/blob/v1.0.0/CITATION.cff"
         }
       },
+      "scope": [
+        {
+          "text": "For T_D = '((.' + '((.)).'*(D-1) + '))', T_12 has a unique maxStacks design and every D >= 13 has no such design. Thus D_2 = 12 in this fixed family.",
+          "lang": "en",
+          "source": "docs/releases.json"
+        }
+      ],
       "not_claimed": [
+        {
+          "text": "Designability of every D <= 12; A result for arbitrary RNA trees; Hairpins with three or more unpaired bases; The Turner energy model or experimental RNA; Priority or human peer review; A proof-assistant verification of the RNA-to-CNF correspondence",
+          "lang": "en",
+          "source": "docs/releases.json"
+        },
         {
           "text": "Designability of every D <= 12",
           "lang": "en",
