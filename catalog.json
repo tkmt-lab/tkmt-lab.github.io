@@ -1,9 +1,9 @@
 {
   "$schema": "https://tkmt-lab.github.io/catalog.schema.json",
   "version": "1.2",
-  "generated_at": "2026-10-26T17:52:28+09:00",
+  "generated_at": "2026-10-27T09:57:23+09:00",
   "sources": {
-    "releases": "docs/releases.json (lab research repository, updated 2026-10-26T16:18:24+09:00)",
+    "releases": "docs/releases.json (lab research repository, updated 2026-10-27T09:42:14+09:00)",
     "repositories": "claims.json, AGENTS.md, README.md, CITATION.cff, .zenodo.json at each repository's published origin/main, required to equal its release commit; exact inputs in work.source_revision"
   },
   "lab": {
@@ -7991,6 +7991,145 @@
           ],
           "scope": "Eventual periodicity of PathExists along every natural affine ray (r0+a*n,s0+b*n), with r0,s0 >= 1 and a,b >= 0. A positive period is asserted after some threshold; parameter-one boundaries and constant rays are included. This declaration does not state the separate closed classification.",
           "reproduce": "python3 -B tools/check.py --problem D12"
+        }
+      ]
+    },
+    {
+      "id": "tkmt-lab/maxstacks-two-bp-helices",
+      "source_revision": {
+        "ref": "origin/main",
+        "commit": "5e150006317ecaabf4d63150cba46bc04ae7d3ac",
+        "matches_release": true
+      },
+      "title": "Twelve two-base-pair helices: an exact designability bound for a fixed family in the maxStacks model",
+      "title_tex": "Twelve two-base-pair helices: an exact designability bound\\protect\\\\\nfor a fixed family in the maxStacks model",
+      "paper_version": "1.2",
+      "packet_version": "1.0.0",
+      "authors": [
+        {
+          "name": "Tatsuhiko Takimoto",
+          "affiliation": "Independent researcher"
+        }
+      ],
+      "summary": "Paper 8. In the fixed maxStacks target family T_D, a 71-base sequence uniquely designs T_12; T_D is undesignable for every D >= 13. GU pairs allowed, no isolated pairs, one-base hairpins and separators in the targets. Finite DP and CNF checks, LRAT certificates accepted by cake_lpr under the documented trust boundary, and prose normalization/general-D arguments are distinct evidence. No proof-assistant verification of the RNA-to-CNF correspondence, classification of every D <= 12, arbitrary RNA-tree result, usual three-base-hairpin or Turner-energy result, experimental RNA, priority or human peer review.",
+      "release": {
+        "tag": "v1.0.0",
+        "date": "2026-10-27",
+        "commit": "5e150006317ecaabf4d63150cba46bc04ae7d3ac",
+        "github_release": "https://github.com/tkmt-lab/maxstacks-two-bp-helices/releases/tag/v1.0.0",
+        "version_doi": "10.5281/zenodo.23679268",
+        "concept_doi": "10.5281/zenodo.23679267",
+        "doi_status": "minted"
+      },
+      "repo_url": "https://github.com/tkmt-lab/maxstacks-two-bp-helices",
+      "paper_pdf": {
+        "path": "paper/paper-v1.2.pdf",
+        "url": "https://github.com/tkmt-lab/maxstacks-two-bp-helices/blob/v1.0.0/paper/paper-v1.2.pdf",
+        "raw_url": "https://raw.githubusercontent.com/tkmt-lab/maxstacks-two-bp-helices/v1.0.0/paper/paper-v1.2.pdf"
+      },
+      "paper_source": {
+        "path": "paper/paper-v1.2.tex",
+        "url": "https://github.com/tkmt-lab/maxstacks-two-bp-helices/blob/v1.0.0/paper/paper-v1.2.tex"
+      },
+      "entry_points": {
+        "agents_md": [
+          {
+            "path": "AGENTS.md",
+            "url": "https://github.com/tkmt-lab/maxstacks-two-bp-helices/blob/v1.0.0/AGENTS.md"
+          }
+        ],
+        "claims_json": {
+          "path": "claims.json",
+          "url": "https://github.com/tkmt-lab/maxstacks-two-bp-helices/blob/v1.0.0/claims.json",
+          "raw_url": "https://raw.githubusercontent.com/tkmt-lab/maxstacks-two-bp-helices/v1.0.0/claims.json"
+        },
+        "readme": {
+          "path": "README.md",
+          "url": "https://github.com/tkmt-lab/maxstacks-two-bp-helices/blob/v1.0.0/README.md"
+        },
+        "citation_cff": {
+          "path": "CITATION.cff",
+          "url": "https://github.com/tkmt-lab/maxstacks-two-bp-helices/blob/v1.0.0/CITATION.cff"
+        }
+      },
+      "not_claimed": [
+        {
+          "text": "Designability of every D <= 12",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "A result for arbitrary RNA trees",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "Hairpins with three or more unpaired bases",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "The Turner energy model or experimental RNA",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "Priority or human peer review",
+          "lang": "en",
+          "source": "claims.json"
+        },
+        {
+          "text": "A proof-assistant verification of the RNA-to-CNF correspondence",
+          "lang": "en",
+          "source": "claims.json"
+        }
+      ],
+      "verification": [
+        {
+          "source": "README.md#Run the light checks",
+          "working_directory": ".",
+          "shell": "sh",
+          "script": "nice -n 10 python3 -B checkers/verify.py",
+          "expected_output_status": "not-documented-in-extracted-section",
+          "acceptance_notes": "Success is exit 0 and `work/checks/verification.json` with `\"status\": \"PASS\"`.\nDo not use `python -O` or `PYTHONOPTIMIZE`: the programs refuse optimized\nPython because assertions perform mathematical checks. Output is written to\nignored `work/`. The programs reconstruct, rather than trust stored verdicts:"
+        },
+        {
+          "source": "README.md#Check all 34 U14 LRATs",
+          "working_directory": ".",
+          "shell": "sh",
+          "script": "nice -n 10 python3 -B tools/build_cake.py\nnice -n 10 python3 -B checkers/verify_lrat.py \\\n  --checker work/cake_lpr/cake_lpr --scope U14",
+          "expected_output_status": "not-documented-in-extracted-section"
+        },
+        {
+          "source": "README.md#Check D13 with the separate large files",
+          "working_directory": ".",
+          "shell": "sh",
+          "script": "nice -n 10 python3 -B checkers/verify_lrat.py \\\n  --checker work/cake_lpr/cake_lpr --scope D13 \\\n  --large-dir ../maxstacks-two-bp-helices-large",
+          "expected_output_status": "not-documented-in-extracted-section"
+        },
+        {
+          "source": "README.md#Check D13 with the separate large files",
+          "working_directory": ".",
+          "shell": "sh",
+          "script": "set -o pipefail\nnice -n 10 gzip -dc ../maxstacks-two-bp-helices-large/D13.lratb.gz |\n  nice -n 10 work/cake_lpr/cake_lpr --CML_HEAP_SIZE=4096 --CML_STACK_SIZE=128 \\\n    work/checks/D13-rebuilt.cnf /dev/stdin",
+          "expected_output_status": "not-documented-in-extracted-section"
+        }
+      ],
+      "claims": [
+        {
+          "id": "tkmt-lab/maxstacks-two-bp-helices#claim",
+          "local_id": "claim",
+          "statement": "For T_D = '((.' + '((.)).'*(D-1) + '))', T_12 has a unique maxStacks design and every D >= 13 has no such design. Thus D_2 = 12 in this fixed family.",
+          "evidence": [],
+          "evidence_kinds": [],
+          "not_claimed": [
+            "Designability of every D <= 12",
+            "A result for arbitrary RNA trees",
+            "Hairpins with three or more unpaired bases",
+            "The Turner energy model or experimental RNA",
+            "Priority or human peer review",
+            "A proof-assistant verification of the RNA-to-CNF correspondence"
+          ]
         }
       ]
     }
