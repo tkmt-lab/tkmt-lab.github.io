@@ -38,17 +38,19 @@
 <main>
   <p class="muted"><a href="./">tkmt-lab</a> · <a href="../catalog.html">English</a> · 日本語</p>
   <h1>成果の目録</h1>
+  <p>ここでは成果と記録された確認方法を紹介します。公開した一式は人間の専門家による査読を受けておらず、目録への掲載が新しさを確定するものではありません。</p>
   <p class="muted">研究室が公開したすべての成果を、機械で読める一つのファイルに</p>
 
   <p><a href="../catalog.json"><code>/catalog.json</code></a> は、tkmt-lab が公開したすべての研究と、その中のすべての主張の一覧です。主張ごとに、どんな種類の証拠があるか、Lean の主張文と証明がどこにあるか、どうすれば確かめ直せるか、何を主張していないかを書いています。主な読み手は、成果を見つけ、読み、確かめようとする AI エージェントです。人が読んでも使えます。</p>
   <p>目録は新しい事実を足しません。研究室の公開の記録と、各リポジトリの <code>claims.json</code>・<code>AGENTS.md</code>・<code>README.md</code>・<code>CITATION.cff</code>・<code>.zenodo.json</code> から、公開されている状態のものを道具で集めて作ります。元のファイルにない項目は、補わずに省きます。公開のたびに作り直します。正はあくまで各リポジトリです。目録とリポジトリが食い違っていたら、リポジトリが正しく、知らせていただけるとありがたいです。</p>
 
+  <p>研究ごとの紹介文と範囲の限定は、<code>llms.txt</code> に合わせた編集文です。個別の主張文・証拠・実行の記録・元の未解決事項は原記録を保ち、元資料での確認状態を残しています。</p>
   <h2>AI エージェントの使い方</h2>
   <ol>
     <li>まず <a href="../catalog-index.json"><code>catalog-index.json</code></a> で成果を選び、次に <a href="../catalog.json"><code>catalog.json</code></a> の該当する主張を読みます（形式は <a href="../catalog.schema.json"><code>catalog.schema.json</code></a>、JSON Schema 2020-12）。主張の番号は変わりません。形は <code>&lt;owner&gt;/&lt;repository&gt;#&lt;claims.json の id&gt;</code> で、例えば <code>tkmt-lab/a3-gsw-classification#thm:classification</code> です。</li>
     <li>そのリポジトリの <code>AGENTS.md</code>（<code>entry_points.agents_md</code>）を読み、次に <code>claims.json</code> を読みます。<code>source_revision.commit</code> が <code>release.commit</code> と一致する版を使います。タグは <code>release.tag</code> です。</li>
     <li><code>verification</code> のコマンドを、書かれた作業ディレクトリで実行します。<code>expected_output</code> があれば出力と比べます。Lean の結果は、保存された記録を信じるより、ビルドをやり直すほうが確かです。</li>
-    <li>主張を説明するときは、その <code>scope</code>・<code>not_claimed</code> と、研究の <code>scope_flags</code> の範囲を出ないでください。項目に書かれていない限り、人間の査読は受けていません。</li>
+    <li>主張を説明するときは、その <code>scope</code>・<code>not_claimed</code> と、研究の <code>scope_flags</code> の範囲を出ないでください。</li>
   </ol>
 
   <h2>ファイルの中身</h2>
@@ -70,7 +72,7 @@
     <tr><td><code>comparator</code></td><td>証明が、別の者が先に書いておいた主張文のファイルとちょうど同じことを証明していることを、Comparator という道具で確かめたもの。<code>kernels</code> 個の独立な検査器が受け入れました。主張文のファイルと、リンクがあれば Comparator の記録を書きます。</td></tr>
     <tr><td><code>independent-implementation</code></td><td>別に書いたプログラム、または有限の結果についての別のチームの導出が、同じ結果に達したもの。</td></tr>
     <tr><td><code>prose-proof</code></td><td>文章による証明。<code>lean-proof</code> が一緒になければ、機械では確かめていません。<code>independent: true</code> は別のチームによるもう一つの証明です。</td></tr>
-    <tr><td><code>ai-review</code></td><td>書くことに関わらなかった AI が読み、一部を計算し直したもの。人間の査読ではありません。</td></tr>
+    <tr><td><code>ai-review</code></td><td>書くことに関わらなかった AI が読み、一部を計算し直したもの。</td></tr>
     <tr><td><code>finite-computation</code></td><td>決まった有限の範囲やリストについての、厳密な計算。</td></tr>
     <tr><td><code>numerical-evidence</code></td><td>浮動小数点による数値計算。主張を支えますが、証明ではありません。</td></tr>
     <tr><td><code>formal-derivation</code></td><td>書かれた仮定のもとでの形式的な（例えば漸近の）計算。証明ではありません。</td></tr>
@@ -94,8 +96,7 @@
       "declaration": "ClaudeMain.main_full",
       "statement_declaration": "ClaudeChallenge.main", "kernels": 6, … }
   ],
-  "evidence_kinds": ["comparator", "lean-proof", "prose-proof"],
-  "not_claimed": ["Human peer review of the proof.", …]
+  "evidence_kinds": ["comparator", "lean-proof", "prose-proof"]
 }</pre>
 
   <h2>限界</h2>

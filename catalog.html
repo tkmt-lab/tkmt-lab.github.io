@@ -39,17 +39,19 @@
 <main>
   <p class="muted"><a href="./">tkmt-lab</a> · English · <a href="ja/catalog.html">日本語</a></p>
   <h1>Catalog of results</h1>
+  <p>This catalog records results and documented checks. These packages have not undergone human peer review; inclusion in the catalog does not establish novelty.</p>
   <p class="muted">One machine-readable file for every published result of the lab</p>
 
   <p><a href="catalog.json"><code>/catalog.json</code></a> lists every published work of tkmt-lab and every claim in it. For each claim it says what kind of evidence stands behind it, where the Lean statement and proof are, how to re-check it, and what it does not claim. It is written mainly for AI agents that want to find, read and verify the results, and it is equally usable by people.</p>
   <p>The catalog adds no facts of its own. It is built by a script from the lab's release record and from each repository's <code>claims.json</code>, <code>AGENTS.md</code>, <code>README.md</code>, <code>CITATION.cff</code> and <code>.zenodo.json</code>, at the published state of each repository. Where those files do not give a field, the field is left out rather than filled in. The catalog is rebuilt after each release. The repositories remain the authority: if the catalog and a repository disagree, the repository is right, and we would be grateful to hear about it.</p>
 
+  <p>Work summaries and work-level limits are editorial text aligned with <code>llms.txt</code>. Individual claim statements, evidence, execution records and original remaining obligations retain their source records, including their recorded review status.</p>
   <h2>How an AI agent should use it</h2>
   <ol>
     <li>Start with <a href="catalog-index.json"><code>catalog-index.json</code></a>, a compact navigation index, then fetch the selected claim in <a href="catalog.json"><code>catalog.json</code></a> (format: <a href="catalog.schema.json"><code>catalog.schema.json</code></a>, JSON Schema 2020-12). Pick a work and a claim. Claim ids are stable: <code>&lt;owner&gt;/&lt;repository&gt;#&lt;id in claims.json&gt;</code>, for example <code>tkmt-lab/a3-gsw-classification#thm:classification</code>.</li>
     <li>Open the repository's <code>AGENTS.md</code> (<code>entry_points.agents_md</code>) and then its <code>claims.json</code>, at <code>source_revision.commit</code>, which must match <code>release.commit</code>. The release tag is given in <code>release.tag</code>.</li>
     <li>Run the commands in <code>verification</code> from the stated working directory, and compare with <code>expected_output</code> where it is given. For Lean results, re-running the build is better than trusting saved logs.</li>
-    <li>When you describe a claim, stay within its <code>scope</code>, <code>not_claimed</code> and the work's <code>scope_flags</code>. None of the results has had human peer review unless a field says so.</li>
+    <li>When you describe a claim, stay within its <code>scope</code>, <code>not_claimed</code> and the work's <code>scope_flags</code>.</li>
   </ol>
 
   <h2>What is in the file</h2>
@@ -73,7 +75,7 @@
     <tr><td><code>comparator</code></td><td>The Comparator tool checked that the proof proves exactly a statement file written in advance by a different agent; <code>kernels</code> independent kernels accepted it. Gives the statement file and, where linked, the Comparator record.</td></tr>
     <tr><td><code>independent-implementation</code></td><td>Separately written code, or a separate team's derivation of a finite result, that reached the same result.</td></tr>
     <tr><td><code>prose-proof</code></td><td>A proof written in prose. Not machine-checked unless a <code>lean-proof</code> item is also present. <code>independent: true</code> marks a second proof by a separate team.</td></tr>
-    <tr><td><code>ai-review</code></td><td>Read and partly recomputed by AI readers not involved in writing it. Not human peer review.</td></tr>
+    <tr><td><code>ai-review</code></td><td>Read and partly recomputed by AI readers not involved in writing it.</td></tr>
     <tr><td><code>finite-computation</code></td><td>Exact computation over a stated finite range or list.</td></tr>
     <tr><td><code>numerical-evidence</code></td><td>Floating-point computation. It supports a claim but does not prove it.</td></tr>
     <tr><td><code>formal-derivation</code></td><td>A formal (for example asymptotic) calculation under stated assumptions. Not a proof.</td></tr>
@@ -97,8 +99,7 @@
       "declaration": "ClaudeMain.main_full",
       "statement_declaration": "ClaudeChallenge.main", "kernels": 6, … }
   ],
-  "evidence_kinds": ["comparator", "lean-proof", "prose-proof"],
-  "not_claimed": ["Human peer review of the proof.", …]
+  "evidence_kinds": ["comparator", "lean-proof", "prose-proof"]
 }</pre>
 
   <h2>Limits</h2>

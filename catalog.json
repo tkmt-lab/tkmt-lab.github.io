@@ -4,7 +4,8 @@
   "generated_at": "2026-10-28T08:50:52+09:00",
   "sources": {
     "releases": "docs/releases.json (lab research repository, updated 2026-10-26T16:18:24+09:00)",
-    "repositories": "claims.json, AGENTS.md, README.md, CITATION.cff, .zenodo.json at each repository's published origin/main, required to equal its release commit; exact inputs in work.source_revision"
+    "repositories": "claims.json, AGENTS.md, README.md, CITATION.cff, .zenodo.json at each repository's published origin/main, required to equal its release commit; exact inputs in work.source_revision",
+    "homepage_editorial": "Work summaries and work-level exclusions copied from llms.txt; claim statements, evidence, scope, raw remaining obligations and execution flags retain their source records."
   },
   "lab": {
     "name": "tkmt-lab",
@@ -18,6 +19,7 @@
     }
   },
   "how_to_use": [
+    "This catalog records results and documented checks. These packages have not undergone human peer review; inclusion in the catalog does not establish novelty.",
     "Pick a work and a claim here; claim ids are '<owner>/<repo>#<claim id in claims.json>'.",
     "Read the repository's AGENTS.md (entry_points.agents_md), then its claims.json.",
     "Run the commands in 'verification' from the stated working directory; for Lean, prefer re-running the build over trusting saved logs.",
@@ -27,7 +29,7 @@
     "lean-proof": "A Lean 4 declaration checked by the Lean kernel; 'axioms' lists what it depends on.",
     "comparator": "Comparator checked that the proof proves exactly a statement file written in advance; 'kernels' independent kernels accepted it.",
     "independent-implementation": "A separately written code base or derivation that reached the same result without sharing the main code.",
-    "ai-review": "Read and partly recomputed by AI readers not involved in writing it; not human peer review.",
+    "ai-review": "Read and partly recomputed by AI readers not involved in writing it.",
     "finite-computation": "Exact computation over a stated finite range or list.",
     "numerical-evidence": "Floating-point computation; supports but does not prove the claim.",
     "prose-proof": "A proof written in prose; not machine-checked unless a lean-proof item is also present.",
@@ -52,7 +54,7 @@
           "affiliation": "Independent researcher"
         }
       ],
-      "summary": "GC(k,l)[C20] has a literal linear generalized Stone-Wales path iff an explicit two-stage residue criterion holds. Proved in Lean 4 (standard axioms only), checked with Comparator against an independent statement.",
+      "summary": "This work classifies when a literal linear generalized Stone–Wales path exists in Goldberg–Coxeter images of the dodecahedron. Documented checks: Lean 4 proof with standard axioms; Comparator comparison with an independently written statement. Limits: The classification concerns literal linear paths in the stated graph model. A certified algorithm for ray thresholds and periods and a proof of the density statement are not supplied. The density-one statement remains a prose draft outside the formal proof and without a complete separate check. Details: GC(k,l)[C20] has a literal linear generalized Stone-Wales path iff an explicit two-stage residue criterion holds. Proved in Lean 4 (standard axioms only), checked with Comparator against an independent statement.",
       "release": {
         "tag": "v1.1.0",
         "date": "2026-10-21",
@@ -106,14 +108,9 @@
       ],
       "not_claimed": [
         {
-          "text": "人の査読は受けていない。新しさは確定していない（関連文献の一部が未読）。密度が 1 に近づく主張は散文の証明の草稿で、形式化も完全な独立の点検もない。半直線の周期の閾値と周期を計算する証明つきの算法は付けていない。",
-          "lang": "ja",
-          "source": "docs/releases.json"
-        },
-        {
-          "text": "human peer review of the proofs, novelty with respect to the full zigzag/position-mapping theory, a certified algorithm for ray thresholds and periods, a formal proof of the density statement.",
+          "text": "The classification concerns literal linear paths in the stated graph model. A certified algorithm for ray thresholds and periods and a proof of the density statement are not supplied. The density-one statement remains a prose draft outside the formal proof and without a complete separate check.",
           "lang": "en",
-          "source": "AGENTS.md"
+          "source": "llms.txt"
         }
       ],
       "status_semantics": "lean-proved records the exact stated formal graph theorem, not human semantic review, peer review or novelty. Complete classification and primitive minimum are proved. Ray existence only is proved; effective threshold/period computation is not certified. Two independent prose derivations are received, not blind; one AI coordinator review is not human review. P006-15 separately records the owner-reported meaning check of the classification challenge statement; human_review continues to mean human proof review and remains false. The claims depends_on relation is the manuscript's expository/prose dependency graph, not Lean's checked import or proof-term dependency graph. The theorem is Lean-proved by a separate route: sufficiency uses ClaudePos.criterion_sufficient (Claude's Lean following R004's construction); necessity uses R002.GCClosed.criterion_necessary (the research team's Lean). Open sec:positive/sec:negative entries concern their particular prose coordinate bridges, whose human semantic and proof review remains outstanding; they are not admitted hypotheses or unchecked proof terms of ClaudeMain.main_full.",
@@ -2656,7 +2653,7 @@
           "affiliation": "Independent researcher"
         }
       ],
-      "summary": "for fullerene families built from a fixed number of convex lattice faces with affine coordinates, existence of a literal gSW path is eventually periodic along every integer affine ray. Main theorem proved in Lean 4 (standard axioms only) for a specification with weaker hypotheses than the paper, checked with Comparator; a prose lemma connects the paper's geometric hypotheses to it. For Graver's family K3(r,s) (two caps of four triangles of side r joined by three hexagons with sides r, r, s, r, r, s) the result on every ray in r, s ≥ 1 and the closed classification (for r, s ≥ 2: a path exists iff s ≡ ±1 mod r) are Lean-proved with no prose step; the same holds for Graver's family C1 (for a, b ≥ 1: a path exists iff b = 1), for Graver's family O2 the ray result and absence of paths for t, d ≥ 2 are Lean-proved with no prose step, and so are the ray result for Graver's family D14 and the classification (r ≥ 2) and ray result for Graver's family E10. For Graver's family D12 the closed classification (for positive r, s: a path exists iff r | s−1, r | s+1 or |r−3s| = 1) and the ray result are Lean-proved (v1.10.0); two earlier computer-assisted proofs are kept as additional evidence. The Lean proof was written with knowledge of those proofs and is not a third independent derivation; no human peer review is claimed. Lean also covers the family arithmetic.",
+      "summary": "This work proves eventual periodicity of literal generalized Stone–Wales path existence along integer affine rays in specified fullerene families. Documented checks: Lean 4 proofs and arithmetic; Comparator checks; two earlier computer-assisted D12 derivations retained as evidence. The D12 Lean proof used the earlier proofs and is not a third independent derivation. Limits: The geometric bridge for the main theorem is a prose lemma. The statements concern the specified families and integer affine rays, not an effective certified algorithm for every ray threshold and period. The D12 proof used the earlier derivations; their model-correspondence and information boundaries are recorded with the evidence. Details: for fullerene families built from a fixed number of convex lattice faces with affine coordinates, existence of a literal gSW path is eventually periodic along every integer affine ray. Main theorem proved in Lean 4 (standard axioms only) for a specification with weaker hypotheses than the paper, checked with Comparator; a prose lemma connects the paper's geometric hypotheses to it. For Graver's family K3(r,s) (two caps of four triangles of side r joined by three hexagons with sides r, r, s, r, r, s) the result on every ray in r, s ≥ 1 and the closed classification (for r, s ≥ 2: a path exists iff s ≡ ±1 mod r) are Lean-proved with no prose step; the same holds for Graver's family C1 (for a, b ≥ 1: a path exists iff b = 1), for Graver's family O2 the ray result and absence of paths for t, d ≥ 2 are Lean-proved with no prose step, and so are the ray result for Graver's family D14 and the classification (r ≥ 2) and ray result for Graver's family E10. For Graver's family D12 the closed classification (for positive r, s: a path exists iff r | s−1, r | s+1 or |r−3s| = 1) and the ray result are Lean-proved (v1.10.0); two earlier computer-assisted proofs are kept as additional evidence. The Lean proof was written with knowledge of those proofs and is not a third independent derivation. Lean also covers the family arithmetic.",
       "release": {
         "tag": "v1.10.0",
         "date": "2026-10-23",
@@ -2710,9 +2707,9 @@
       ],
       "not_claimed": [
         {
-          "text": "論文の幾何の仮定から形式版の仮定への段は Lean ではなく散文の補題。D12 の Lean の証明は前の二つの散文・計算機援用の証明を知ったうえで書いたもので、三つ目の独立な導出ではない。人の査読は受けていない。",
-          "lang": "ja",
-          "source": "docs/releases.json"
+          "text": "The geometric bridge for the main theorem is a prose lemma. The statements concern the specified families and integer affine rays, not an effective certified algorithm for every ray threshold and period. The D12 proof used the earlier derivations; their model-correspondence and information boundaries are recorded with the evidence.",
+          "lang": "en",
+          "source": "llms.txt"
         }
       ],
       "scope_flags": {
@@ -4490,7 +4487,7 @@
           "affiliation": "Independent researcher"
         }
       ],
-      "summary": "for the two fixed published lists of C. Staufenbiel — (4,5,2,2) with 49,358 rows and (4,6,2,2) with 4,327,233 rows — every row is a facet of the local polytope, and every row except the single positivity representative of each list is strictly violated by a two-qubit pure state with binary projective measurements given by rational numbers. Two separately written exact verifiers accept every row. Finite evidence concerning Gill's question; no completeness of the lists, optimal quantum values, Lean proof or human peer review is claimed. Full (4,6,2,2) certificates are release attachments.",
+      "summary": "This package supplies exact rational two-qubit witnesses and facet certificates for two fixed Bell-inequality lists published by C. Staufenbiel. Documented checks: Two separately written exact verifiers accept every listed row; full large-list certificates are release attachments. Limits: The input lists are fixed and are not proved complete. Optimal quantum values and a general resolution of Gill’s question are outside the result. The result supplies finite evidence concerning Gill's question on the two identified lists. Details: for the two fixed published lists of C. Staufenbiel — (4,5,2,2) with 49,358 rows and (4,6,2,2) with 4,327,233 rows — every row is a facet of the local polytope, and every row except the single positivity representative of each list is strictly violated by a two-qubit pure state with binary projective measurements given by rational numbers. Two separately written exact verifiers accept every row. Finite evidence concerning Gill's question; the fixed input lists are not proved complete, and optimal quantum values are outside the result. Full (4,6,2,2) certificates are release attachments.",
       "release": {
         "tag": "v1.0.0",
         "date": "2026-10-22",
@@ -4540,14 +4537,9 @@
       ],
       "not_claimed": [
         {
-          "text": "リストの完全性、最適な量子の値、Lean の証明、人の査読は主張しない。Gill の問いへの有限の証拠であって、問いの解決ではない。",
-          "lang": "ja",
-          "source": "docs/releases.json"
-        },
-        {
-          "text": "Do not infer optimality, input-list completeness, human proof peer review, a formal-kernel proof or general resolution of Gill's question.",
+          "text": "The input lists are fixed and are not proved complete. Optimal quantum values and a general resolution of Gill’s question are outside the result. The result supplies finite evidence concerning Gill's question on the two identified lists.",
           "lang": "en",
-          "source": "AGENTS.md"
+          "source": "llms.txt"
         }
       ],
       "scope_flags": {
@@ -4749,7 +4741,7 @@
           "affiliation": "Independent researcher"
         }
       ],
-      "summary": "for a one-dimensional flow with quartic superluminal dispersion ω² = k² + k⁴/Λ² and a single horizon, the zero-frequency temperature satisfies T(0)/T_H − 1 = κ g‴(0)/(12Λ²) + O(Λ⁻⁴), with the local coefficient b0 = g‴(0)/(12κ) in derivatives of the flow at the horizon. Formal asymptotic calculation under three stated assumptions (not proved, no remainder bound), supported by full scattering numerics, predictions recorded before calculation, and a separately written scattering code (agreement within about 1e-7). No Lean proof or human peer review. `python3 -B reproduce.py` re-runs everything.",
+      "summary": "This work derives a conditional low-frequency dispersive temperature correction for a stationary one-dimensional analogue Hawking model. Documented checks: Formal asymptotic derivation; recorded-before-calculation predictions; full scattering numerics and a separately written scattering code. Limits: Assumptions A1–A3 and a bound on the asymptotic remainder remain unproved. The calculation uses the stated quartic model and single-horizon setting. The numerical checks support the conditional calculation on the recorded profiles. Details: for a one-dimensional flow with quartic superluminal dispersion ω² = k² + k⁴/Λ² and a single horizon, the zero-frequency temperature satisfies T(0)/T_H − 1 = κ g‴(0)/(12Λ²) + O(Λ⁻⁴), with the local coefficient b0 = g‴(0)/(12κ) in derivatives of the flow at the horizon. Formal asymptotic calculation under three stated assumptions (not proved, no remainder bound), supported by full scattering numerics, predictions recorded before calculation, and a separately written scattering code (agreement within about 1e-7). `python3 -B reproduce.py` re-runs everything.",
       "release": {
         "tag": "v1.0.0",
         "date": "2026-10-22",
@@ -4799,9 +4791,9 @@
       ],
       "not_claimed": [
         {
-          "text": "Proof of A1-A3, remainder bound, Lean proof, human peer review",
+          "text": "Assumptions A1–A3 and a bound on the asymptotic remainder remain unproved. The calculation uses the stated quartic model and single-horizon setting. The numerical checks support the conditional calculation on the recorded profiles.",
           "lang": "en",
-          "source": "docs/releases.json"
+          "source": "llms.txt"
         }
       ],
       "scope_flags": {
@@ -5143,7 +5135,7 @@
           "affiliation": "Independent researcher"
         }
       ],
-      "summary": "for S' = −βSI/(1+αI)^k, I' = βSI/(1+αI)^k − γI, R' = γI with a fixed known integer k ≥ 2, observed through I(t) with known total population, α, β, γ and S(0), I(0), R(0) are generically globally identifiable — the integer-exponent case of Conjecture 2 of Pant, Saucedo and Pogudin. Prose proof read by two AI reviewers, with exact computer-algebra checks for k = 1..12; no Lean proof or human peer review; non-integer or unknown k and noisy data not covered.",
+      "summary": "This work proves generic global identifiability of a behavioral SIR model for each fixed known integer saturation exponent k ≥ 2. Documented checks: Prose proof read by two AI readers; exact checks for k=1 through 12 and separate SymPy checks. Limits: The exponent is a fixed known integer and identifiability is generic. Non-integer or unknown exponents, exceptional points and noisy or finite-sample data are outside the result. The observations and positive-model assumptions are those stated in the article. Details: for S' = −βSI/(1+αI)^k, I' = βSI/(1+αI)^k − γI, R' = γI with a fixed known integer k ≥ 2, observed through I(t) with known total population, α, β, γ and S(0), I(0), R(0) are generically globally identifiable — the integer-exponent case of Conjecture 2 of Pant, Saucedo and Pogudin. Prose proof read by two AI reviewers, with exact computer-algebra checks for k = 1..12; non-integer or unknown k and noisy data not covered.",
       "release": {
         "tag": "v1.0.0",
         "date": "2026-10-22",
@@ -5193,9 +5185,9 @@
       ],
       "not_claimed": [
         {
-          "text": "Lean proof, human peer review, non-integer or unknown k, exceptional set, noisy data",
+          "text": "The exponent is a fixed known integer and identifiability is generic. Non-integer or unknown exponents, exceptional points and noisy or finite-sample data are outside the result. The observations and positive-model assumptions are those stated in the article.",
           "lang": "en",
-          "source": "docs/releases.json"
+          "source": "llms.txt"
         }
       ],
       "scope_flags": {
@@ -5482,7 +5474,7 @@
           "affiliation": "Independent researcher"
         }
       ],
-      "summary": "for a fixed selection of 3,964 polyominoes, polyhexes and polyiamonds from C. S. Kaplan's tables, every Heesch number (hole-free Hc and outer-holes Hh) equals Kaplan's value and comes with checkable evidence: 6,574 corona witnesses accepted by two geometric checkers (lower bounds) and 5,019 unsatisfiability proofs accepted by drat-trim (upper bounds). Soundness of the SAT encoding on the square, hexagonal and triangular grids is proved in Lean 4 (standard axioms only; Comparator, six kernel runs); the checked CNFs equal the Lean encoding up to renaming by a recorded finite comparison. Also: maximal-corona counts for 22 shapes by two separately written implementations, and a restricted search of 3,442 polyominoes with 20-28 cells that found no finite Hh = 4. The DRAT proofs are checked outside Lean; outer-layer counts have no certificate; the search is not exhaustive; only the listed shapes are covered; no priority or human peer review is claimed.",
+      "summary": "This package certifies the reported Heesch numbers for a fixed selection of 3,964 polyforms from C. S. Kaplan’s tables. Documented checks: Two geometric witness checkers; drat-trim checks; Lean soundness of the encoding and a finite CNF correspondence check; separate corona-count implementations. DRAT checking is outside Lean. Limits: Only the listed shapes are certified. The larger-shape search is restricted rather than exhaustive, and the outer-layer counts have no certificates. The DRAT traces are checked outside Lean, and the CNF-to-encoding match is a finite computational comparison. Details: for a fixed selection of 3,964 polyominoes, polyhexes and polyiamonds from C. S. Kaplan's tables, every Heesch number (hole-free Hc and outer-holes Hh) equals Kaplan's value and comes with checkable evidence: 6,574 corona witnesses accepted by two geometric checkers (lower bounds) and 5,019 unsatisfiability proofs accepted by drat-trim (upper bounds). Soundness of the SAT encoding on the square, hexagonal and triangular grids is proved in Lean 4 (standard axioms only; Comparator, six kernel runs); the checked CNFs equal the Lean encoding up to renaming by a recorded finite comparison. Also: maximal-corona counts for 22 shapes by two separately written implementations, and a restricted search of 3,442 polyominoes with 20-28 cells that found no finite Hh = 4. The DRAT proofs are checked outside Lean; outer-layer counts have no certificate; the search is not exhaustive; only the listed shapes are covered.",
       "release": {
         "tag": "v1.0.0",
         "date": "2026-10-23",
@@ -5532,9 +5524,9 @@
       ],
       "not_claimed": [
         {
-          "text": "Lean check of the DRAT proofs, certificates for outer-layer corona counts, priority, human peer review",
+          "text": "Only the listed shapes are certified. The larger-shape search is restricted rather than exhaustive, and the outer-layer counts have no certificates. The DRAT traces are checked outside Lean, and the CNF-to-encoding match is a finite computational comparison.",
           "lang": "en",
-          "source": "docs/releases.json"
+          "source": "llms.txt"
         }
       ],
       "scope_flags": {
@@ -6070,7 +6062,7 @@
           "affiliation": "Independent researcher"
         }
       ],
-      "summary": "Paper 7. For nine invariant-line-type multisets in two-species quadratic mass-action systems, the minimum nonzero component-term counts are 8,8,8,8,8,8,8,6,6. Exact examples attain the bounds and a proof over real nonnegative parameters excludes fewer terms. Five counts improve on the best examples in the source paper; four prior attained bounds are proved optimal in this domain. Reactant molecularity at most two, unrestricted products, a positive equilibrium with zero Jacobian, and nonzero homogeneous resultant; terms are counted in concentration coordinates, separately in each component. A separate verification agrees but shared the specification and mathematical preparation. No minimum reaction count, historical-domain equivalence, priority, Lean proof or human peer review is claimed.",
+      "summary": "This work determines the minimum numbers of nonzero component terms for nine specified line-type configurations of quadratic two-species mass-action systems. Documented checks: Exact examples, lower-bound certificates and checkers; a separate recomputation agrees. The separate verification shared the specification and mathematical preparation. Limits: Terms, not reactions, are minimized in the stated coordinates and domain. Full equivalence to the historical domains, zero-resultant or boundary cases and arbitrary topological classifications are outside the result. Zero components are excluded. The nine line-type multisets are not nine arbitrary topological-equivalence classes, and the result is not a general classifier for arbitrary cubic slope polynomials. Details: Paper 7. For nine invariant-line-type multisets in two-species quadratic mass-action systems, the minimum nonzero component-term counts are 8,8,8,8,8,8,8,6,6. Exact examples attain the bounds and a proof over real nonnegative parameters excludes fewer terms. Five counts improve on the best examples in the source paper; four prior attained bounds are proved optimal in this domain. Reactant molecularity at most two, unrestricted products, a positive equilibrium with zero Jacobian, and nonzero homogeneous resultant; terms are counted in concentration coordinates, separately in each component. A separate verification agrees but shared the specification and mathematical preparation. Minimum reaction count and historical-domain equivalence are outside the result.",
       "release": {
         "tag": "v1.0.0",
         "date": "2026-10-24",
@@ -6120,44 +6112,9 @@
       ],
       "not_claimed": [
         {
-          "text": "Minimal number of reactions, full correspondence with Newton/Lyagina, priority, human review",
+          "text": "Terms, not reactions, are minimized in the stated coordinates and domain. Full equivalence to the historical domains, zero-resultant or boundary cases and arbitrary topological classifications are outside the result. Zero components are excluded. The nine line-type multisets are not nine arbitrary topological-equivalence classes, and the result is not a general classifier for arbitrary cubic slope polynomials.",
           "lang": "en",
-          "source": "docs/releases.json"
-        },
-        {
-          "text": "Minimum number of reactions",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "A result for zero resultant, zero components or boundary equilibria",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "Equivalence to the entire historical Lyagina or Newton classification domains",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "Nine distinct classes under arbitrary topological equivalence",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "A complete priority search or a first-result claim",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "Human peer review or proof-assistant assurance",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "A general-purpose classifier for arbitrary cubic slope polynomials",
-          "lang": "en",
-          "source": "claims.json"
+          "source": "llms.txt"
         }
       ],
       "scope_flags": {
@@ -6310,7 +6267,7 @@
       "work_type": "data-tool",
       "title": "Rooted periodic-net identification tests (RCSR, 1-WL)",
       "packet_version": "1.0.0",
-      "summary": "99 test cases built from a pinned RCSR-content commit, each a pair of nets with a root vertex in each. Each case records r_min, the smallest radius at which the two rooted balls (all vertices within r edges of the root and the edges between them) are not isomorphic, and r_WL, the smallest radius at which stable 1-WL colour refinement, with initial colours (distance from root, degree in ball), separates them. In 97 cases r_WL > r_min; the largest gap is 4 (tsa V1 / tsg V3: r_min = 4, r_WL = 8). A checker separate from the generator verifies a complete root-preserving isomorphism at r_min − 1 and a non-isomorphism certificate at r_min; the 6 core cases were also computed by a separately written implementation, the other 93 only by this package's checker. Bare graphs only: nothing is claimed about methods that use species, coordinates, distances or angles, about GNNs in general, about radii as numbers of layers, or about a maximum over RCSR (the cases are a selection). No RCSR data is redistributed; the code downloads it and checks its SHA-256. No paper, priority, human review or formal proof.",
+      "summary": "This package contains 99 rooted periodic-net test cases comparing exact ball isomorphism with stable one-dimensional Weisfeiler–Leman refinement. Documented checks: Exact root-preserving isomorphism witnesses and non-isomorphism certificates; a checker separate from the generator; a second implementation for six core cases. The other 93 cases have the package checker only. Limits: These are selected bare-graph cases, not a database-wide maximum or a result about GNNs in general, geometric features or neural-network layer counts. RCSR source data are fetched by the user rather than redistributed. The source models do not certify the RCSR authors' intended structures beyond those models. Agreement of balls up to a finite radius does not identify the whole nets. The package supplies tests rather than a new isomorphism algorithm; no GNN model was trained or tested. The other 93 cases have the package checker only. Earlier-table comparison did not cover the Blatov-Proserpio 2009 supplementary files, ToposPro TTD collections and later literature in full. Details: 99 test cases built from a pinned RCSR-content commit, each a pair of nets with a root vertex in each. Each case records r_min, the smallest radius at which the two rooted balls (all vertices within r edges of the root and the edges between them) are not isomorphic, and r_WL, the smallest radius at which stable 1-WL colour refinement, with initial colours (distance from root, degree in ball), separates them. In 97 cases r_WL > r_min; the largest gap is 4 (tsa V1 / tsg V3: r_min = 4, r_WL = 8). A checker separate from the generator verifies a complete root-preserving isomorphism at r_min − 1 and a non-isomorphism certificate at r_min; the 6 core cases were also computed by a separately written implementation, the other 93 only by this package's checker. Bare graphs only: nothing is claimed about methods that use species, coordinates, distances or angles, about GNNs in general, about radii as numbers of layers, or about a maximum over RCSR (the cases are a selection). No RCSR data is redistributed; the code downloads it and checks its SHA-256. This is a data-and-tools package.",
       "release": {
         "tag": "v1.0.0",
         "date": "2026-10-23",
@@ -6351,59 +6308,9 @@
       ],
       "not_claimed": [
         {
-          "text": "Methods using species/coordinates/distances, GNNs in general, a database-wide maximum, priority",
+          "text": "These are selected bare-graph cases, not a database-wide maximum or a result about GNNs in general, geometric features or neural-network layer counts. RCSR source data are fetched by the user rather than redistributed. The source models do not certify the RCSR authors' intended structures beyond those models. Agreement of balls up to a finite radius does not identify the whole nets. The package supplies tests rather than a new isomorphism algorithm; no GNN model was trained or tested. The other 93 cases have the package checker only. Earlier-table comparison did not cover the Blatov-Proserpio 2009 supplementary files, ToposPro TTD collections and later literature in full.",
           "lang": "en",
-          "source": "docs/releases.json"
-        },
-        {
-          "text": "anything about graph neural networks in general; no model was trained or tested",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "that a ball radius, or r_WL - r_min, is a number of GNN layers",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "anything about models that use species, coordinates, distances, angles or periodic labels",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "a maximum of r_min, r_WL or r_WL - r_min over the RCSR database; the 99 cases are a selection",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "that the graphs are the structures intended by the RCSR authors, beyond the stated source models",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "that nets whose balls agree up to some radius are the same net",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "a new isomorphism algorithm, a new concept, or priority",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "independent checking of the 93 non-core cases",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "a complete search for earlier tables of this kind (the Blatov-Proserpio 2009 supplementary files, the ToposPro TTD collections and the later literature were not checked in full)",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "human expert review",
-          "lang": "en",
-          "source": "claims.json"
+          "source": "llms.txt"
         }
       ],
       "scope_flags": {
@@ -6574,7 +6481,7 @@
           "affiliation": "Independent researcher"
         }
       ],
-      "summary": "regression inputs for implementations of asynchronous Boolean-network reduction. Three counterexamples (E1, E2, E3) in which eliminating one variable without an essential self-dependency creates a motif-avoidant attractor (MAA): E1 and E3 delete a variable on no directed cycle, and all three satisfy an exploratory mediator-and-monotonicity condition informed by Tonello–Paulevé (arXiv:2406.02304); plus a coordinate-transformed copy of E1 and Examples 7 and 8 of Pastva et al. (arXiv:2410.03976) as controls. Each case has formulas and fixed expected finite dynamics (transitions, attractors, trap spaces, MAAs); the Python checker (standard library) recomputes them exactly, and 16 self-tests include a second algorithm. Saved records of earlier exhaustive enumerations (also with a separate implementation, not blinded to n=3 counts) found no counterexample on 1–3 variables, giving minimum variable count four for each condition; the enumeration is not rerun. The general fact that elimination can create or remove MAAs is known; novelty of these examples is not established; the conditions are this study's exploratory candidates, not theorems of the cited authors. No safety theorem, edge-minimality, biological claim, priority, human review or formal proof.",
+      "summary": "This package provides regression inputs for implementations of asynchronous Boolean-network variable elimination. Documented checks: Exact recomputation of finite dynamics; self-tests including a second algorithm; saved separate earlier enumeration records. The earlier enumeration was not blinded to the three-variable counts. Limits: The conditions are exploratory; no safety theorem, edge minimality, biological conclusion, exhaustive classification or general result for five or more variables follows. The package does not rerun the earlier enumeration. Minimality of E3 is not established, and saved enumeration records are not a new proof of enumeration coverage. The examples do not contradict Tonello-Pauleve Theorem 3.3. The earlier independent implementation knew the n=3 counts. Cited-author endorsement is not implied. Details: regression inputs for implementations of asynchronous Boolean-network reduction. Three counterexamples (E1, E2, E3) in which eliminating one variable without an essential self-dependency creates a motif-avoidant attractor (MAA): E1 and E3 delete a variable on no directed cycle, and all three satisfy an exploratory mediator-and-monotonicity condition informed by Tonello–Paulevé (arXiv:2406.02304); plus a coordinate-transformed copy of E1 and Examples 7 and 8 of Pastva et al. (arXiv:2410.03976) as controls. Each case has formulas and fixed expected finite dynamics (transitions, attractors, trap spaces, MAAs); the Python checker (standard library) recomputes them exactly, and 16 self-tests include a second algorithm. Saved records of earlier exhaustive enumerations (also with a separate implementation, not blinded to n=3 counts) found no counterexample on 1–3 variables, giving minimum variable count four for each condition; the enumeration is not rerun. The general fact that elimination can create or remove MAAs is known; the conditions are this study's exploratory candidates, not theorems of the cited authors. No safety theorem, edge-minimality or biological claim follows.",
       "release": {
         "tag": "v1.0.0",
         "date": "2026-10-25",
@@ -6615,69 +6522,9 @@
       ],
       "not_claimed": [
         {
-          "text": "Novelty of the selected examples, any safety theorem, edge-minimality, biological behaviour, priority, human review",
+          "text": "The conditions are exploratory; no safety theorem, edge minimality, biological conclusion, exhaustive classification or general result for five or more variables follows. The package does not rerun the earlier enumeration. Minimality of E3 is not established, and saved enumeration records are not a new proof of enumeration coverage. The examples do not contradict Tonello-Pauleve Theorem 3.3. The earlier independent implementation knew the n=3 counts. Cited-author endorsement is not implied.",
           "lang": "en",
-          "source": "docs/releases.json"
-        },
-        {
-          "text": "novelty or priority of the examples",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "a new sufficient safety condition for elimination",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "biological behaviour",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "a general result for networks with n >= 5",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "edge minimality",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "minimality of E3",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "an exhaustive classification of counterexamples",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "that this package replays the earlier exhaustive enumeration or proves its coverage",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "a contradiction of Tonello-Pauleve Theorem 3.3",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "human expert review or formal proof",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "numerical blinding of the earlier independent implementation",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "endorsement by the cited authors",
-          "lang": "en",
-          "source": "claims.json"
+          "source": "llms.txt"
         }
       ],
       "verification": [
@@ -6825,7 +6672,7 @@
           "affiliation": "Independent researcher"
         }
       ],
-      "summary": "Data and tools for steady-state and stability calculations on the two Tang–Zhang Example 4 networks. Three fixed rational rate vectors have nine certified positive equilibria, three exponentially stable in total. Two written derivations give the all-positive-rate bounds; two implementations recompute the fixed certificates. Not a general-purpose solver, new classification or novelty claim. No proof-assistant verification or human peer review; not blind testing. Current release: tag v1.0.0; commit 1981c553152bae7fe76f23704fda5c06fd354a7e; version DOI 10.5281/zenodo.23659209; concept DOI 10.5281/zenodo.23659208 (all versions).",
+      "summary": "This package supplies data and tools for steady-state and stability calculations on the two exceptional networks in Tang–Zhang Example 4. Documented checks: Two prose derivations; two implementations of fixed root-isolation and stability certificate checks. The separate testing was not blind. Limits: The result concerns the two fixed networks and the specified rate cases and bounds. It does not provide a general-purpose solver, global dynamics, boundary or nonlinear degenerate stability, or a structural theorem for all 375 networks. A general classification, elimination method, stability principle, re-audit of the 375/373 classification, dissipativity and biological realizability are outside this two-network result. Three positive equilibria are not asserted for every strictly positive rate vector. Cycles and all attracting sets are not bounded by these equilibrium certificates. Cited-author endorsement is not implied. Details: Data and tools for steady-state and stability calculations on the two Tang–Zhang Example 4 networks. Three fixed rational rate vectors have nine certified positive equilibria, three exponentially stable in total. Two written derivations give the all-positive-rate bounds; two implementations recompute the fixed certificates. The two-network certificates are not a general-purpose solver; the separate testing was not blind.",
       "release": {
         "tag": "v1.0.0",
         "date": "2026-10-26",
@@ -6866,59 +6713,9 @@
       ],
       "not_claimed": [
         {
-          "text": "分類・一般安定性原理・消去法の新規性、375/373分類の再監査、任意の入力の一般ソルバー、退化点の非線形安定性・境界吸引子・大域動力学・生物学的実現性、人の査読・形式証明・盲検・原著者の推薦は主張しない。",
-          "lang": "ja",
-          "source": "docs/releases.json"
-        },
-        {
-          "text": "Novelty or priority of the two-network conclusions.",
+          "text": "The result concerns the two fixed networks and the specified rate cases and bounds. It does not provide a general-purpose solver, global dynamics, boundary or nonlinear degenerate stability, or a structural theorem for all 375 networks. A general classification, elimination method, stability principle, re-audit of the 375/373 classification, dissipativity and biological realizability are outside this two-network result. Three positive equilibria are not asserted for every strictly positive rate vector. Cycles and all attracting sets are not bounded by these equilibrium certificates. Cited-author endorsement is not implied.",
           "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "A new classification, elimination method or general stability principle.",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "A theoretical explanation of the upper bound across all 375 networks, or the common structure of the 373 multistable networks; those questions remain unresolved here.",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "A new discovery of the two exceptional networks or the 375/373 classification.",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "Three positive equilibria for every strictly positive rate vector.",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "Nonlinear asymptotic stability of degenerate equilibria.",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "A bound on boundary attractors, cycles or all attracting sets.",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "Dissipativity, global dynamics or biological realizability.",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "A general-purpose solver or certification of arbitrary parameter vectors.",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "Human peer review, formal verification, blinded testing or cited-author endorsement.",
-          "lang": "en",
-          "source": "claims.json"
+          "source": "llms.txt"
         }
       ],
       "verification": [
@@ -7044,7 +6841,7 @@
           "affiliation": "Independent researcher"
         }
       ],
-      "summary": "For each network in Tang–Zhang’s fixed 375-network list, at most three distinct positive equilibria at every strictly positive rate vector, including degenerate equilibria. Three species, six reactions, quadratic zero-one complexes and rank three. Exact Cramer certificates (272 cubic, 103 quartic residuals), a historical independent resultant derivation checked by explicit Sylvester determinants, and the article’s proof support the bound. Also includes a post-selected finite structural observation and one seven-reaction family, not general classifications. The list, original upper-bound claim and reported 373/2 stability classification are Tang and Zhang’s; enumeration, all existence witnesses and the 373-network stability classification are not reverified here. No formal verification, human peer review, priority or new blind review during packaging.",
+      "summary": "This work proves a bound of three distinct positive equilibria for every network in Tang–Zhang’s fixed 375-network list at every strictly positive rate vector. Documented checks: Exact Cramer certificates; a historical separate resultant derivation checked by explicit Sylvester determinants; the article’s prose proof. Packaging did not add a new blind verification. Limits: The original enumeration, all existence witnesses and the reported 373-network stability classification are not reverified. The post-selected structural observation is finite evidence, not a general stability theorem or a result about global or boundary dynamics. Nonlinear stability of degenerate equilibria is outside the bound. Packaging adds no new blind review. Details: For each network in Tang–Zhang’s fixed 375-network list, at most three distinct positive equilibria at every strictly positive rate vector, including degenerate equilibria. Three species, six reactions, quadratic zero-one complexes and rank three. Exact Cramer certificates (272 cubic, 103 quartic residuals), a historical independent resultant derivation checked by explicit Sylvester determinants, and the article’s proof support the bound. Also includes a post-selected finite structural observation and one seven-reaction family, not general classifications. The list, original upper-bound claim and reported 373/2 stability classification are Tang and Zhang’s; enumeration, all existence witnesses and the 373-network stability classification are not reverified here. Packaging did not add a new blind verification.",
       "release": {
         "tag": "v1.0.0",
         "date": "2026-10-28",
@@ -7094,59 +6891,9 @@
       ],
       "not_claimed": [
         {
-          "text": "No new enumeration or re-verification of all 375 existence witnesses or the reported 373-network stability classification; no general stability theorem from the post-selected structural observation, nonlinear degenerate or boundary stability, global dynamics, priority, formal verification, human peer review, or new blind review during packaging.",
+          "text": "The original enumeration, all existence witnesses and the reported 373-network stability classification are not reverified. The post-selected structural observation is finite evidence, not a general stability theorem or a result about global or boundary dynamics. Nonlinear stability of degenerate equilibria is outside the bound. Packaging adds no new blind review.",
           "lang": "en",
-          "source": "docs/releases.json"
-        },
-        {
-          "text": "original enumeration reverified",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "all 375 existence witnesses reverified",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "373-network stability classification reverified",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "B1 as a general theorem",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "nonlinear degenerate or boundary stability",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "global dynamics",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "priority",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "formal verification",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "human peer review",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "a new blind review during packaging",
-          "lang": "en",
-          "source": "claims.json"
+          "source": "llms.txt"
         }
       ],
       "verification": [
@@ -7282,7 +7029,7 @@
           "affiliation": "Independent researcher"
         }
       ],
-      "summary": "9 Lean files containing 18 theorem statements from 3 published repositories (a3-gsw-classification, gsw-ray-periodicity and heesch-certificates). For readers and programs that want to inspect assumptions, import one statement or find its proof. Definitions, namespaces, hypotheses and types are preserved; every theorem body is intentionally by sorry. Each formal_proof attribute links to a proof at a fixed public commit; research solved marks status. Recorded checks compare the original and local theorem types and inspect metadata. Building this package does not establish mathematical truth or execute the linked proofs. Files with repeated namespaces must be used separately. Not an official part of formal-conjectures and not contributed to it; compatibility with its Lean version and full linter suite is unverified. No new proof or human expert review.",
+      "summary": "This collection provides 18 Lean theorem statements in nine files, linked to proofs in three published repositories. Documented checks: Recorded comparisons of original and local theorem types and metadata inspection; statement correspondence rather than proof checking. Limits: Building sorry statements does not establish their truth or rerun the linked proofs. The collection is not part of formal-conjectures; upstream Lean and full-linter compatibility are unverified. The collection has not been contributed to formal-conjectures. Compatibility with upstream Lean 4.33.1 and its full linter suite is unverified. Details: 9 Lean files containing 18 theorem statements from 3 published repositories (a3-gsw-classification, gsw-ray-periodicity and heesch-certificates). For readers and programs that want to inspect assumptions, import one statement or find its proof. Definitions, namespaces, hypotheses and types are preserved; every theorem body is intentionally by sorry. Each formal_proof attribute links to a proof at a fixed public commit; research solved marks status. Recorded checks compare the original and local theorem types and inspect metadata. Building this package does not establish mathematical truth or execute the linked proofs. Files with repeated namespaces must be used separately. Not an official part of formal-conjectures and not contributed to it; compatibility with its Lean version and full linter suite is unverified.",
       "release": {
         "tag": "v1.0.0",
         "date": "2026-10-23",
@@ -7323,34 +7070,9 @@
       ],
       "not_claimed": [
         {
-          "text": "Truth of the statements is not checked by building them; not part of formal-conjectures; nothing submitted",
+          "text": "Building sorry statements does not establish their truth or rerun the linked proofs. The collection is not part of formal-conjectures; upstream Lean and full-linter compatibility are unverified. The collection has not been contributed to formal-conjectures. Compatibility with upstream Lean 4.33.1 and its full linter suite is unverified.",
           "lang": "en",
-          "source": "docs/releases.json"
-        },
-        {
-          "text": "Elaborating sorry statements proves their truth.",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "This package reruns or contains the linked mathematical proofs.",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "This package is an official part of formal-conjectures or has been contributed to it.",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "The package provides an independent new proof or human expert review.",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "Compatibility with upstream Lean 4.33.1 or its full linter suite.",
-          "lang": "en",
-          "source": "claims.json"
+          "source": "llms.txt"
         }
       ],
       "verification": [
@@ -8249,7 +7971,7 @@
           "affiliation": "Independent researcher"
         }
       ],
-      "summary": "Paper 8. In the fixed maxStacks target family T_D, a 71-base sequence uniquely designs T_12; T_D is undesignable for every D >= 13. GU pairs allowed, no isolated pairs, one-base hairpins and separators in the targets. Finite DP and CNF checks, LRAT certificates accepted by cake_lpr under the documented trust boundary, and prose normalization/general-D arguments are distinct evidence. No proof-assistant verification of the RNA-to-CNF correspondence, classification of every D <= 12, arbitrary RNA-tree result, usual three-base-hairpin or Turner-energy result, experimental RNA, priority or human peer review.",
+      "summary": "This work gives an exact designability bound of twelve two-base-pair helices in a fixed maxStacks target family. Documented checks: Finite dynamic-programming and CNF checks; LRAT certificates checked by cake_lpr under the documented trust boundary; prose normalization and general-D arguments. The RNA-to-CNF bridge is supported by prose and computational checks. Limits: The result concerns the fixed target family and stated maxStacks conventions. Designability of every smaller target, arbitrary RNA trees, three-base hairpins, Turner energies and experimental RNA are outside the result. The statement does not classify every D <= 12. The RNA-to-CNF bridge uses prose correspondence and finite computational checks. Details: Paper 8. In the fixed maxStacks target family T_D, a 71-base sequence uniquely designs T_12; T_D is undesignable for every D >= 13. GU pairs allowed, no isolated pairs, one-base hairpins and separators in the targets. Finite DP and CNF checks, LRAT certificates accepted by cake_lpr under the documented trust boundary, and prose normalization/general-D arguments are distinct evidence. No proof-assistant verification of the RNA-to-CNF correspondence, classification of every D <= 12, arbitrary RNA-tree result, usual three-base-hairpin or Turner-energy result, experimental RNA.",
       "release": {
         "tag": "v1.0.0",
         "date": "2026-10-27",
@@ -8299,39 +8021,9 @@
       ],
       "not_claimed": [
         {
-          "text": "Designability of every D <= 12; A result for arbitrary RNA trees; Hairpins with three or more unpaired bases; The Turner energy model or experimental RNA; Priority or human peer review; A proof-assistant verification of the RNA-to-CNF correspondence",
+          "text": "The result concerns the fixed target family and stated maxStacks conventions. Designability of every smaller target, arbitrary RNA trees, three-base hairpins, Turner energies and experimental RNA are outside the result. The statement does not classify every D <= 12. The RNA-to-CNF bridge uses prose correspondence and finite computational checks.",
           "lang": "en",
-          "source": "docs/releases.json"
-        },
-        {
-          "text": "Designability of every D <= 12",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "A result for arbitrary RNA trees",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "Hairpins with three or more unpaired bases",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "The Turner energy model or experimental RNA",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "Priority or human peer review",
-          "lang": "en",
-          "source": "claims.json"
-        },
-        {
-          "text": "A proof-assistant verification of the RNA-to-CNF correspondence",
-          "lang": "en",
-          "source": "claims.json"
+          "source": "llms.txt"
         }
       ],
       "verification": [
