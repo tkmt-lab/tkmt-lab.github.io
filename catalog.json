@@ -1,10 +1,10 @@
 {
   "$schema": "https://tkmt-lab.github.io/catalog.schema.json",
   "version": "1.2",
-  "generated_at": "2026-10-28T08:50:52+09:00",
+  "generated_at": "2026-10-31T15:25:53+09:00",
   "sources": {
-    "releases": "docs/releases.json (lab research repository, updated 2026-10-26T16:18:24+09:00)",
-    "repositories": "claims.json, AGENTS.md, README.md, CITATION.cff, .zenodo.json at each repository's published origin/main, required to equal its release commit; exact inputs in work.source_revision",
+    "releases": "docs/releases.json (lab research repository, updated 2026-10-31T15:05:00+09:00)",
+    "repositories": "Files read at the exact release commits recorded in work.source_revision. Its ref names belong to the selected local input repositories; when release-pinned offline snapshots are used, origin/main denotes the snapshot-local ref, not a receipt of the current public remote ref. Public-history checks and observed remote refs are recorded separately in the post-release input manifest.",
     "homepage_editorial": "Work summaries and work-level exclusions copied from llms.txt; claim statements, evidence, scope, raw remaining obligations and execution flags retain their source records."
   },
   "lab": {
@@ -23,7 +23,8 @@
     "Pick a work and a claim here; claim ids are '<owner>/<repo>#<claim id in claims.json>'.",
     "Read the repository's AGENTS.md (entry_points.agents_md), then its claims.json.",
     "Run the commands in 'verification' from the stated working directory; for Lean, prefer re-running the build over trusting saved logs.",
-    "Respect 'scope', 'not_claimed' and 'scope_flags': do not describe a claim beyond them."
+    "Respect 'scope', 'not_claimed' and 'scope_flags': do not describe a claim beyond them.",
+    "For three-body-brake-orbit-certificates, local_id claims-N is a navigation key for source /claims/N (zero-based), not an authored claim ID; evidence/status absent from those strings is not inferred."
   ],
   "evidence_kinds": {
     "lean-proof": "A Lean 4 declaration checked by the Lean kernel; 'axioms' lists what it depends on.",
@@ -8072,6 +8073,111 @@
             "Priority or human peer review",
             "A proof-assistant verification of the RNA-to-CNF correspondence"
           ]
+        }
+      ]
+    },
+    {
+      "id": "tkmt-lab/three-body-brake-orbit-certificates",
+      "source_revision": {
+        "ref": "origin/main",
+        "commit": "6f43f9eb90e21f0ea8c5ad219f15f57e9355d53d",
+        "matches_release": true
+      },
+      "title": "Interval certification of selected equal-mass three-body periodic brake orbits",
+      "title_tex": "Interval certification of selected equal-mass\\newline\nthree-body periodic brake orbits",
+      "paper_version": "1.0.0",
+      "packet_version": "1.0.0",
+      "authors": [
+        {
+          "name": "Tatsuhiko Takimoto"
+        }
+      ],
+      "summary": "This work certifies periodic solutions of the planar equal-mass three-body equations in thirteen parameter boxes around published numerical candidates. Documented checks: Interval-flow certificates, strict Krawczyk inclusion and local uniqueness; exact rational terminal checks of 23 saved certificates and ten same-zero comparisons. Default checks do not reintegrate the ODE. Limits: The finite checker assumes the saved flow and derivative enclosures. Thirteen boxes do not establish thirteen geometrically distinct orbits, least periods, stability or catalogue completeness. Details: Paper 10. Thirteen boxes for rows 1-6 and 10-16 contain nonconstant, collision-free periodic solutions. Arb supplies thirteen certificates; handwritten MPFR covers rows 1, 2, 3, 12 and CAPD covers 4, 5, 6, 10, 13, 14. Equal rational centers, nested boxes and outer-box uniqueness identify the same normalized zero in ten pairs. Rows 11, 15 and 16 are Arb-only; second routes for 11 and 16 remain on hold. The default checker proves finite terminal implications conditional on saved flow/derivative enclosures; it does not regenerate integrations or certify geometric distinctness, least period, stability or completeness. The numerical candidates are due to Hristov and collaborators.",
+      "release": {
+        "tag": "v1.0.0",
+        "date": "2026-10-31",
+        "commit": "6f43f9eb90e21f0ea8c5ad219f15f57e9355d53d",
+        "github_release": "https://github.com/tkmt-lab/three-body-brake-orbit-certificates/releases/tag/v1.0.0",
+        "version_doi": "10.5281/zenodo.23830274",
+        "concept_doi": "10.5281/zenodo.23830273",
+        "doi_status": "minted"
+      },
+      "repo_url": "https://github.com/tkmt-lab/three-body-brake-orbit-certificates",
+      "paper_pdf": {
+        "path": "paper/article.pdf",
+        "url": "https://github.com/tkmt-lab/three-body-brake-orbit-certificates/blob/v1.0.0/paper/article.pdf",
+        "raw_url": "https://raw.githubusercontent.com/tkmt-lab/three-body-brake-orbit-certificates/v1.0.0/paper/article.pdf"
+      },
+      "paper_source": {
+        "path": "paper/article.tex",
+        "url": "https://github.com/tkmt-lab/three-body-brake-orbit-certificates/blob/v1.0.0/paper/article.tex"
+      },
+      "entry_points": {
+        "agents_md": [
+          {
+            "path": "AGENTS.md",
+            "url": "https://github.com/tkmt-lab/three-body-brake-orbit-certificates/blob/v1.0.0/AGENTS.md"
+          }
+        ],
+        "claims_json": {
+          "path": "claims.json",
+          "url": "https://github.com/tkmt-lab/three-body-brake-orbit-certificates/blob/v1.0.0/claims.json",
+          "raw_url": "https://raw.githubusercontent.com/tkmt-lab/three-body-brake-orbit-certificates/v1.0.0/claims.json"
+        },
+        "readme": {
+          "path": "README.md",
+          "url": "https://github.com/tkmt-lab/three-body-brake-orbit-certificates/blob/v1.0.0/README.md"
+        },
+        "citation_cff": {
+          "path": "CITATION.cff",
+          "url": "https://github.com/tkmt-lab/three-body-brake-orbit-certificates/blob/v1.0.0/CITATION.cff"
+        }
+      },
+      "scope": [
+        {
+          "text": "Thirteen parameter boxes around published numerical candidates each contain a nonconstant, collision-free periodic solution of the planar equal-mass three-body equations; in ten boxes two flow implementations certify the same normalized solution. The finite checker is conditional on the saved flow and derivative enclosures.",
+          "lang": "en",
+          "source": "docs/releases.json"
+        }
+      ],
+      "not_claimed": [
+        {
+          "text": "The finite checker assumes the saved flow and derivative enclosures. Thirteen boxes do not establish thirteen geometrically distinct orbits, least periods, stability or catalogue completeness.",
+          "lang": "en",
+          "source": "llms.txt"
+        }
+      ],
+      "verification": [
+        {
+          "source": "README.md#Check the records",
+          "working_directory": ".",
+          "shell": "sh",
+          "script": "python3 -B check_all.py",
+          "expected_output_status": "not-documented-in-extracted-section",
+          "acceptance_notes": "Success is exit code 0 with `status: PASS`. `verify.py` checks 23 finite\nterminal implications and ten same-zero comparisons; `negative_controls.py`\nrejects 27 deliberately corrupted inputs. `regenerate.py --check` recomputes\nnumerical cells and checks them against the TeX and generated fragments.\nTable 1's qualitative descriptions are manual text. Incomplete-run statuses\nand the three unmatched catalogue entries are saved-record checks, not new\nintegrations or an exhaustive catalogue search. Optimized Python is refused."
+        }
+      ],
+      "claims": [
+        {
+          "id": "tkmt-lab/three-body-brake-orbit-certificates#claims-0",
+          "local_id": "claims-0",
+          "statement": "Existence of a nonconstant collision-free periodic solution in each of 13 normalized parameter boxes, conditional on the stated validated-flow and symmetry premises.",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/three-body-brake-orbit-certificates#claims-1",
+          "local_id": "claims-1",
+          "statement": "Local uniqueness of the reduced zero in each box.",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/three-body-brake-orbit-certificates#claims-2",
+          "local_id": "claims-2",
+          "statement": "Exact matching centers and nested boxes identify the same reduced zero in ten implementation pairs.",
+          "evidence": [],
+          "evidence_kinds": []
         }
       ]
     }
