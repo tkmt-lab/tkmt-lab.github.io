@@ -107,7 +107,7 @@
           "required": ["agents_md", "claims_json"],
           "additionalProperties": false,
           "properties": {
-            "agents_md": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/link"}},
+            "agents_md": {"type": "array", "minItems": 0, "items": {"$ref": "#/$defs/link"}},
             "claims_json": {"$ref": "#/$defs/link"},
             "readme": {"$ref": "#/$defs/link"},
             "citation_cff": {"$ref": "#/$defs/link"}

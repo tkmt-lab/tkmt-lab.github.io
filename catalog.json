@@ -1,9 +1,9 @@
 {
   "$schema": "https://tkmt-lab.github.io/catalog.schema.json",
   "version": "1.2",
-  "generated_at": "2026-11-01T11:44:18+09:00",
+  "generated_at": "2026-11-03T09:35:58+09:00",
   "sources": {
-    "releases": "docs/releases.json (lab research repository, updated 2026-11-01T10:43:42+09:00)",
+    "releases": "docs/releases.json (lab research repository, updated 2026-11-03T09:28:48+09:00)",
     "repositories": "Files read at the exact release commits recorded in work.source_revision. Its ref names belong to the selected local input repositories; when release-pinned offline snapshots are used, origin/main denotes the snapshot-local ref, not a receipt of the current public remote ref. Public-history checks and observed remote refs are recorded separately in the post-release input manifest.",
     "homepage_editorial": "Work summaries and work-level exclusions copied from llms.txt; claim statements, evidence, scope, raw remaining obligations and execution flags retain their source records."
   },
@@ -8330,6 +8330,254 @@
           "statement": "Both saved-record checkers agree on all five coverings for the same exact inputs.",
           "evidence": [],
           "evidence_kinds": []
+        }
+      ]
+    },
+    {
+      "id": "tkmt-lab/associahedron-a7-matching-certificates",
+      "source_revision": {
+        "ref": "origin/main",
+        "commit": "043def44ecbd4038c09fd6eafaed9d8bfa41c527",
+        "matches_release": true
+      },
+      "work_type": "data-tool",
+      "title": "Maximal matchings in the associahedron A7: witnesses and certificates",
+      "summary": "The A7 graph and maximal-matching witnesses and certificates record 134 ≤ M(A7) ≤ 143; 144 is the minimum under all nine rotations. Documented checks: The lower bound 134 is an LRAT certificate (CaDiCaL, cake_lpr) for the supplied CNF; Argon (Gemini) produced the 143-edge construction, checked by the laboratory; the C9 result uses a finite integer certificate with an ordinary Python checker. Limits: The exact unrestricted value of M(A7) remains open; the graph-to-CNF correspondence is a written argument, not formalized; no claim of best prior bounds in the literature. Details: This is a data-and-tools package.",
+      "release": {
+        "tag": "v1.0.0",
+        "date": "2026-11-01",
+        "commit": "043def44ecbd4038c09fd6eafaed9d8bfa41c527",
+        "github_release": "https://github.com/tkmt-lab/associahedron-a7-matching-certificates/releases/tag/v1.0.0",
+        "version_doi": "10.5281/zenodo.23858801",
+        "concept_doi": "10.5281/zenodo.23858800",
+        "doi_status": "minted"
+      },
+      "repo_url": "https://github.com/tkmt-lab/associahedron-a7-matching-certificates",
+      "entry_points": {
+        "agents_md": [],
+        "claims_json": {
+          "path": "claims.json",
+          "url": "https://github.com/tkmt-lab/associahedron-a7-matching-certificates/blob/v1.0.0/claims.json",
+          "raw_url": "https://raw.githubusercontent.com/tkmt-lab/associahedron-a7-matching-certificates/v1.0.0/claims.json"
+        },
+        "readme": {
+          "path": "README.md",
+          "url": "https://github.com/tkmt-lab/associahedron-a7-matching-certificates/blob/v1.0.0/README.md"
+        },
+        "citation_cff": {
+          "path": "CITATION.cff",
+          "url": "https://github.com/tkmt-lab/associahedron-a7-matching-certificates/blob/v1.0.0/CITATION.cff"
+        }
+      },
+      "scope": [
+        {
+          "text": "For the rotation graph A7 (429 vertices, 1287 edges), saved witnesses and certificates record 134 ≤ M(A7) ≤ 143 for the minimum size of a maximal matching, and 144 as the minimum among matchings invariant under all nine rotations. The 143-edge witness was constructed by Argon (Gemini) and checked by the laboratory; the lower bound 134 is an LRAT certificate (CaDiCaL, cake_lpr) for the supplied CNF.",
+          "lang": "en",
+          "source": "docs/releases.json"
+        }
+      ],
+      "not_claimed": [
+        {
+          "text": "The exact unrestricted value of M(A7) remains open; the graph-to-CNF correspondence is a written argument, not formalized; no claim of best prior bounds in the literature.",
+          "lang": "en",
+          "source": "llms.txt"
+        }
+      ],
+      "verification": [
+        {
+          "source": "README.md#Verify the small packet",
+          "working_directory": ".",
+          "shell": "sh",
+          "script": "python3 -B verify.py",
+          "expected_output_status": "not-documented-in-extracted-section"
+        },
+        {
+          "source": "README.md#The large lower-bound certificate",
+          "working_directory": ".",
+          "shell": "sh",
+          "script": "python3 -B verify.py \\\n  --lrat /path/to/A7-k133-vertex.lrat.gz \\\n  --checker /path/to/cake_lpr \\\n  --output verification/my-full-check.json",
+          "expected_output_status": "not-documented-in-extracted-section"
+        }
+      ],
+      "claims": [
+        {
+          "id": "tkmt-lab/associahedron-a7-matching-certificates#U143",
+          "local_id": "U143",
+          "kind": "existence",
+          "statement": "A7 has a maximal matching with 143 edges.",
+          "evidence": [],
+          "evidence_kinds": [],
+          "scope": "unrestricted A7",
+          "not_claimed": [
+            "143 is the unrestricted minimum"
+          ]
+        },
+        {
+          "id": "tkmt-lab/associahedron-a7-matching-certificates#U144",
+          "local_id": "U144",
+          "kind": "existence",
+          "statement": "A7 has a C9-invariant maximal matching with 144 edges.",
+          "evidence": [],
+          "evidence_kinds": [],
+          "scope": "A7; invariant under all 9 polygon rotations",
+          "not_claimed": [
+            "144 is the unrestricted minimum"
+          ]
+        },
+        {
+          "id": "tkmt-lab/associahedron-a7-matching-certificates#U156",
+          "local_id": "U156",
+          "kind": "existence",
+          "statement": "A7 has a maximal matching with 156 edges.",
+          "evidence": [],
+          "evidence_kinds": [],
+          "scope": "unrestricted A7",
+          "not_claimed": [
+            "156 is the unrestricted minimum"
+          ]
+        },
+        {
+          "id": "tkmt-lab/associahedron-a7-matching-certificates#L134",
+          "local_id": "L134",
+          "kind": "lower_bound",
+          "statement": "Every maximal matching of A7 has at least 134 edges.",
+          "evidence": [],
+          "evidence_kinds": [],
+          "scope": "unrestricted A7; no symmetry constraints in adopted CNF",
+          "not_claimed": [
+            "formalized graph-to-CNF correspondence; no claim that M(A7)>=135"
+          ]
+        },
+        {
+          "id": "tkmt-lab/associahedron-a7-matching-certificates#C9MIN",
+          "local_id": "C9MIN",
+          "kind": "restricted_exact_value",
+          "statement": "The minimum size among C9-invariant maximal matchings of A7 is 144.",
+          "evidence": [],
+          "evidence_kinds": [],
+          "scope": "invariance under all 9 polygon rotations only",
+          "not_claimed": [
+            "an unrestricted lower bound of 144; Lean/LRAT formalization of the C9 certificate"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tkmt-lab/sinr-incidence-identifiability",
+      "source_revision": {
+        "ref": "origin/main",
+        "commit": "1984075cfe5638f6d0632ae0201515e5d365c723",
+        "matches_release": true
+      },
+      "title": "Global identifiability for the staged-infection SIR model",
+      "title_tex": "Global identifiability\\\\ for the staged-infection SIR model",
+      "paper_version": "1.0.0",
+      "packet_version": "1.0.0",
+      "authors": [
+        {
+          "name": "Tatsuhiko Takimoto",
+          "affiliation": "Independent researcher"
+        }
+      ],
+      "summary": "This work proves that, for each known number of infection stages n ≥ 1 and known total population, exact incidence near one time determines both rates and all initial states of the staged-infection SIR model for a generic true real point, against every real competitor. Documented checks: Prose proof supported by a two-stage AI mathematical audit, whose first stage did not independently complete the all-n bridges; exact finite controls for n = 1 through 6. Limits: Unknown n or unknown total population, finitely sampled or noisy observations, stable estimation and disease-model adequacy are outside the result; generic true points may exclude exceptional cases. The finite controls for n = 1 to 6 do not prove the all-n statement. Details: for S' = −βS(I₁ + … + Iₙ), I₁' = βS(I₁ + … + Iₙ) − ζI₁, Iⱼ' = ζIⱼ₋₁ − ζIⱼ (j = 2..n), R' = ζIₙ, observed through incidence y = βS(I₁ + … + Iₙ) with known n and total population, β, ζ and all initial states are generically globally identifiable against every real competitor — Conjecture 1 of Pant, Saucedo and Pogudin.",
+      "release": {
+        "tag": "v1.0.0",
+        "date": "2026-11-03",
+        "commit": "1984075cfe5638f6d0632ae0201515e5d365c723",
+        "github_release": "https://github.com/tkmt-lab/sinr-incidence-identifiability/releases/tag/v1.0.0",
+        "version_doi": "10.5281/zenodo.23900995",
+        "concept_doi": "10.5281/zenodo.23900994",
+        "doi_status": "minted"
+      },
+      "repo_url": "https://github.com/tkmt-lab/sinr-incidence-identifiability",
+      "paper_pdf": {
+        "path": "paper.pdf",
+        "url": "https://github.com/tkmt-lab/sinr-incidence-identifiability/blob/v1.0.0/paper.pdf",
+        "raw_url": "https://raw.githubusercontent.com/tkmt-lab/sinr-incidence-identifiability/v1.0.0/paper.pdf"
+      },
+      "paper_source": {
+        "path": "paper.tex",
+        "url": "https://github.com/tkmt-lab/sinr-incidence-identifiability/blob/v1.0.0/paper.tex"
+      },
+      "entry_points": {
+        "agents_md": [
+          {
+            "path": "AGENTS.md",
+            "url": "https://github.com/tkmt-lab/sinr-incidence-identifiability/blob/v1.0.0/AGENTS.md"
+          }
+        ],
+        "claims_json": {
+          "path": "claims.json",
+          "url": "https://github.com/tkmt-lab/sinr-incidence-identifiability/blob/v1.0.0/claims.json",
+          "raw_url": "https://raw.githubusercontent.com/tkmt-lab/sinr-incidence-identifiability/v1.0.0/claims.json"
+        },
+        "readme": {
+          "path": "README.md",
+          "url": "https://github.com/tkmt-lab/sinr-incidence-identifiability/blob/v1.0.0/README.md"
+        },
+        "citation_cff": {
+          "path": "CITATION.cff",
+          "url": "https://github.com/tkmt-lab/sinr-incidence-identifiability/blob/v1.0.0/CITATION.cff"
+        }
+      },
+      "scope": [
+        {
+          "text": "For each known number of infection stages n ≥ 1 and known total population, the exact incidence germ determines both rates and all initial states for a generic true real point against every real competitor (Conjecture 1 of Pant–Saucedo–Pogudin, medRxiv v2). Finite exact checks for n = 1–6.",
+          "lang": "en",
+          "source": "docs/releases.json"
+        }
+      ],
+      "not_claimed": [
+        {
+          "text": "Unknown n or unknown total population, finitely sampled or noisy observations, stable estimation and disease-model adequacy are outside the result; generic true points may exclude exceptional cases. The finite controls for n = 1 to 6 do not prove the all-n statement.",
+          "lang": "en",
+          "source": "llms.txt"
+        }
+      ],
+      "verification": [
+        {
+          "source": "README.md#Reproduce the finite controls",
+          "working_directory": ".",
+          "shell": "sh",
+          "script": "python3 -B check_packet.py\npython3 -B reproduce.py",
+          "expected_output_status": "not-documented-in-extracted-section"
+        }
+      ],
+      "claims": [
+        {
+          "id": "tkmt-lab/sinr-incidence-identifiability#all-n-identifiability",
+          "local_id": "all-n-identifiability",
+          "statement": "For each known n >= 1 and known N0, generic real true points are identifiable against all real competitors from the analytic incidence germ",
+          "status": "PROSE_PROOF_WITH_TWO_STAGE_AI_AUDIT",
+          "evidence": [
+            {
+              "kind": "prose-proof",
+              "basis": "status=PROSE_PROOF_WITH_TWO_STAGE_AI_AUDIT"
+            },
+            {
+              "kind": "ai-review",
+              "basis": "status=PROSE_PROOF_WITH_TWO_STAGE_AI_AUDIT"
+            }
+          ],
+          "evidence_kinds": [
+            "ai-review",
+            "prose-proof"
+          ]
+        },
+        {
+          "id": "tkmt-lab/sinr-incidence-identifiability#finite-controls",
+          "local_id": "finite-controls",
+          "statement": "Exact finite controls at n=1 through 6",
+          "status": "REPRODUCIBLE_FINITE_CHECKS",
+          "evidence": [
+            {
+              "kind": "finite-computation",
+              "basis": "status=REPRODUCIBLE_FINITE_CHECKS"
+            }
+          ],
+          "evidence_kinds": [
+            "finite-computation"
+          ]
         }
       ]
     }
