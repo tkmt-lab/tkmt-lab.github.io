@@ -1,9 +1,9 @@
 {
   "$schema": "https://tkmt-lab.github.io/catalog.schema.json",
   "version": "1.2",
-  "generated_at": "2026-11-03T09:35:58+09:00",
+  "generated_at": "2026-11-04T17:20:00+09:00",
   "sources": {
-    "releases": "docs/releases.json (lab research repository, updated 2026-11-03T09:28:48+09:00)",
+    "releases": "docs/releases.json (lab research repository, updated 2026-11-04T16:08:11+09:00)",
     "repositories": "Files read at the exact release commits recorded in work.source_revision. Its ref names belong to the selected local input repositories; when release-pinned offline snapshots are used, origin/main denotes the snapshot-local ref, not a receipt of the current public remote ref. Public-history checks and observed remote refs are recorded separately in the post-release input manifest.",
     "homepage_editorial": "Work summaries and work-level exclusions copied from llms.txt; claim statements, evidence, scope, raw remaining obligations and execution flags retain their source records."
   },
@@ -7017,26 +7017,26 @@
       "id": "tkmt-lab/lean-statements",
       "source_revision": {
         "ref": "origin/main",
-        "commit": "b3647ee21a1fd572e8a500f2288921116dbb098d",
+        "commit": "7ef9a45c7813c45d9feb2b98360e20c94b1139e3",
         "matches_release": true
       },
       "work_type": "data-tool",
       "statement_only": true,
       "title": "Lean statements from published papers",
-      "packet_version": "1.0.0",
+      "packet_version": "1.0.1",
       "authors": [
         {
           "name": "Tatsuhiko Takimoto",
           "affiliation": "Independent researcher"
         }
       ],
-      "summary": "This collection provides 18 Lean theorem statements in nine files, linked to proofs in three published repositories. Documented checks: Recorded comparisons of original and local theorem types and metadata inspection; statement correspondence rather than proof checking. Limits: Building sorry statements does not establish their truth or rerun the linked proofs. The collection is not part of formal-conjectures; upstream Lean and full-linter compatibility are unverified. The collection has not been contributed to formal-conjectures. Compatibility with upstream Lean 4.33.1 and its full linter suite is unverified. Details: 9 Lean files containing 18 theorem statements from 3 published repositories (a3-gsw-classification, gsw-ray-periodicity and heesch-certificates). For readers and programs that want to inspect assumptions, import one statement or find its proof. Definitions, namespaces, hypotheses and types are preserved; every theorem body is intentionally by sorry. Each formal_proof attribute links to a proof at a fixed public commit; research solved marks status. Recorded checks compare the original and local theorem types and inspect metadata. Building this package does not establish mathematical truth or execute the linked proofs. Files with repeated namespaces must be used separately. Not an official part of formal-conjectures and not contributed to it; compatibility with its Lean version and full linter suite is unverified.",
+      "summary": "This supporting collection can be used to inspect assumptions, import individual Lean statements or locate fixed-commit proofs from three published repositories. Documented checks: Recorded comparisons of original and local theorem types and metadata inspection; statement correspondence rather than proof checking. Limits: Elaborating sorry statements does not establish their truth or rerun the linked proofs. The collection is not part of formal-conjectures and has not been contributed to it; compatibility with upstream Lean 4.33.1 and its full linter suite is unverified. Details: Supporting material for the a3-gsw-classification, gsw-ray-periodicity and heesch-certificates papers, not a separate mathematical result. Nine Lean files contain 18 theorem statements with preserved definitions, hypotheses and types; each formal_proof attribute points to a fixed public proof commit. Files with repeated namespaces must be used separately. Version 1.0.1 fixes checker setup, memory bounds and CI; statements and correspondence records are unchanged.",
       "release": {
-        "tag": "v1.0.0",
-        "date": "2026-10-23",
-        "commit": "b3647ee21a1fd572e8a500f2288921116dbb098d",
-        "github_release": "https://github.com/tkmt-lab/lean-statements/releases/tag/v1.0.0",
-        "version_doi": "10.5281/zenodo.23594152",
+        "tag": "v1.0.1",
+        "date": "2026-11-04",
+        "commit": "7ef9a45c7813c45d9feb2b98360e20c94b1139e3",
+        "github_release": "https://github.com/tkmt-lab/lean-statements/releases/tag/v1.0.1",
+        "version_doi": "10.5281/zenodo.23933366",
         "concept_doi": "10.5281/zenodo.23594151",
         "doi_status": "minted"
       },
@@ -7045,33 +7045,33 @@
         "agents_md": [
           {
             "path": "AGENTS.md",
-            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/AGENTS.md"
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.1/AGENTS.md"
           }
         ],
         "claims_json": {
           "path": "claims.json",
-          "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/claims.json",
-          "raw_url": "https://raw.githubusercontent.com/tkmt-lab/lean-statements/v1.0.0/claims.json"
+          "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.1/claims.json",
+          "raw_url": "https://raw.githubusercontent.com/tkmt-lab/lean-statements/v1.0.1/claims.json"
         },
         "readme": {
           "path": "README.md",
-          "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/README.md"
+          "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.1/README.md"
         },
         "citation_cff": {
           "path": "CITATION.cff",
-          "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/CITATION.cff"
+          "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.1/CITATION.cff"
         }
       },
       "scope": [
         {
-          "text": "18 Lean theorem statements (statements only) from three published repositories, each linked to its public proof at a fixed commit",
+          "text": "18 Lean theorem statements (statements only) from three published repositories, each linked to its public proof at a fixed commit; v1.0.1 fixes the statement checker (prepared setup file, higher memory bounds) and its CI.",
           "lang": "en",
           "source": "docs/releases.json"
         }
       ],
       "not_claimed": [
         {
-          "text": "Building sorry statements does not establish their truth or rerun the linked proofs. The collection is not part of formal-conjectures; upstream Lean and full-linter compatibility are unverified. The collection has not been contributed to formal-conjectures. Compatibility with upstream Lean 4.33.1 and its full linter suite is unverified.",
+          "text": "Elaborating sorry statements does not establish their truth or rerun the linked proofs. The collection is not part of formal-conjectures and has not been contributed to it; compatibility with upstream Lean 4.33.1 and its full linter suite is unverified.",
           "lang": "en",
           "source": "llms.txt"
         }
@@ -7102,7 +7102,7 @@
           "source": "README.md#Check correspondence with the source",
           "working_directory": ".",
           "shell": "sh",
-          "script": "python3 -B tools/check.py --lean-memory-mib 4096 --rss-limit-mib 4608",
+          "script": "python3 -B tools/prepare_setup.py --evidence .build/setup-prep\npython3 -B tools/check.py --lean-memory-mib 11264 --rss-limit-mib 12288",
           "expected_output_status": "not-documented-in-extracted-section"
         }
       ],
@@ -7115,7 +7115,7 @@
           "statement_body": "by sorry (intentional statement placeholder)",
           "statement_location": {
             "path": "FormalConjectures/Paper/A3.lean",
-            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/FormalConjectures/Paper/A3.lean#L175"
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.1/FormalConjectures/Paper/A3.lean#L175"
           },
           "lean_declarations": [
             "ClaudeChallenge.main"
@@ -7162,7 +7162,7 @@
           "statement_body": "by sorry (intentional statement placeholder)",
           "statement_location": {
             "path": "FormalConjectures/Paper/AffineRays.lean",
-            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/FormalConjectures/Paper/AffineRays.lean#L215"
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.1/FormalConjectures/Paper/AffineRays.lean#L215"
           },
           "lean_declarations": [
             "ClaudeChallenge2.main"
@@ -7209,7 +7209,7 @@
           "statement_body": "by sorry (intentional statement placeholder)",
           "statement_location": {
             "path": "FormalConjectures/Paper/K3.lean",
-            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/FormalConjectures/Paper/K3.lean#L212"
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.1/FormalConjectures/Paper/K3.lean#L212"
           },
           "lean_declarations": [
             "ClaudeChallengeK3.main"
@@ -7256,7 +7256,7 @@
           "statement_body": "by sorry (intentional statement placeholder)",
           "statement_location": {
             "path": "FormalConjectures/Paper/C1.lean",
-            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/FormalConjectures/Paper/C1.lean#L198"
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.1/FormalConjectures/Paper/C1.lean#L198"
           },
           "lean_declarations": [
             "ClaudeChallengeC1.classification"
@@ -7303,7 +7303,7 @@
           "statement_body": "by sorry (intentional statement placeholder)",
           "statement_location": {
             "path": "FormalConjectures/Paper/C1.lean",
-            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/FormalConjectures/Paper/C1.lean#L205"
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.1/FormalConjectures/Paper/C1.lean#L205"
           },
           "lean_declarations": [
             "ClaudeChallengeC1.main"
@@ -7350,7 +7350,7 @@
           "statement_body": "by sorry (intentional statement placeholder)",
           "statement_location": {
             "path": "FormalConjectures/Paper/O2.lean",
-            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/FormalConjectures/Paper/O2.lean#L210"
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.1/FormalConjectures/Paper/O2.lean#L210"
           },
           "lean_declarations": [
             "ClaudeChallengeO2.classification"
@@ -7397,7 +7397,7 @@
           "statement_body": "by sorry (intentional statement placeholder)",
           "statement_location": {
             "path": "FormalConjectures/Paper/O2.lean",
-            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/FormalConjectures/Paper/O2.lean#L217"
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.1/FormalConjectures/Paper/O2.lean#L217"
           },
           "lean_declarations": [
             "ClaudeChallengeO2.main"
@@ -7444,7 +7444,7 @@
           "statement_body": "by sorry (intentional statement placeholder)",
           "statement_location": {
             "path": "FormalConjectures/Paper/D14.lean",
-            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/FormalConjectures/Paper/D14.lean#L210"
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.1/FormalConjectures/Paper/D14.lean#L210"
           },
           "lean_declarations": [
             "ClaudeChallengeD14.main"
@@ -7491,7 +7491,7 @@
           "statement_body": "by sorry (intentional statement placeholder)",
           "statement_location": {
             "path": "FormalConjectures/Paper/E10.lean",
-            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/FormalConjectures/Paper/E10.lean#L254"
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.1/FormalConjectures/Paper/E10.lean#L254"
           },
           "lean_declarations": [
             "ClaudeChallengeE10.classification"
@@ -7538,7 +7538,7 @@
           "statement_body": "by sorry (intentional statement placeholder)",
           "statement_location": {
             "path": "FormalConjectures/Paper/E10.lean",
-            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/FormalConjectures/Paper/E10.lean#L264"
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.1/FormalConjectures/Paper/E10.lean#L264"
           },
           "lean_declarations": [
             "ClaudeChallengeE10.main"
@@ -7585,7 +7585,7 @@
           "statement_body": "by sorry (intentional statement placeholder)",
           "statement_location": {
             "path": "FormalConjectures/Paper/Heesch.lean",
-            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/FormalConjectures/Paper/Heesch.lean#L568"
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.1/FormalConjectures/Paper/Heesch.lean#L568"
           },
           "lean_declarations": [
             "Heesch.hh_sound_square"
@@ -7632,7 +7632,7 @@
           "statement_body": "by sorry (intentional statement placeholder)",
           "statement_location": {
             "path": "FormalConjectures/Paper/Heesch.lean",
-            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/FormalConjectures/Paper/Heesch.lean#L578"
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.1/FormalConjectures/Paper/Heesch.lean#L578"
           },
           "lean_declarations": [
             "Heesch.hc_sound_square"
@@ -7679,7 +7679,7 @@
           "statement_body": "by sorry (intentional statement placeholder)",
           "statement_location": {
             "path": "FormalConjectures/Paper/Heesch.lean",
-            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/FormalConjectures/Paper/Heesch.lean#L588"
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.1/FormalConjectures/Paper/Heesch.lean#L588"
           },
           "lean_declarations": [
             "Heesch.hh_sound_hex"
@@ -7726,7 +7726,7 @@
           "statement_body": "by sorry (intentional statement placeholder)",
           "statement_location": {
             "path": "FormalConjectures/Paper/Heesch.lean",
-            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/FormalConjectures/Paper/Heesch.lean#L598"
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.1/FormalConjectures/Paper/Heesch.lean#L598"
           },
           "lean_declarations": [
             "Heesch.hc_sound_hex"
@@ -7773,7 +7773,7 @@
           "statement_body": "by sorry (intentional statement placeholder)",
           "statement_location": {
             "path": "FormalConjectures/Paper/Heesch.lean",
-            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/FormalConjectures/Paper/Heesch.lean#L608"
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.1/FormalConjectures/Paper/Heesch.lean#L608"
           },
           "lean_declarations": [
             "Heesch.hh_sound_tri"
@@ -7820,7 +7820,7 @@
           "statement_body": "by sorry (intentional statement placeholder)",
           "statement_location": {
             "path": "FormalConjectures/Paper/Heesch.lean",
-            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/FormalConjectures/Paper/Heesch.lean#L618"
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.1/FormalConjectures/Paper/Heesch.lean#L618"
           },
           "lean_declarations": [
             "Heesch.hc_sound_tri"
@@ -7867,7 +7867,7 @@
           "statement_body": "by sorry (intentional statement placeholder)",
           "statement_location": {
             "path": "FormalConjectures/Paper/D12.lean",
-            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/FormalConjectures/Paper/D12.lean#L212"
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.1/FormalConjectures/Paper/D12.lean#L212"
           },
           "lean_declarations": [
             "ClaudeChallengeD12.classification"
@@ -7914,7 +7914,7 @@
           "statement_body": "by sorry (intentional statement placeholder)",
           "statement_location": {
             "path": "FormalConjectures/Paper/D12.lean",
-            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.0/FormalConjectures/Paper/D12.lean#L221"
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.1/FormalConjectures/Paper/D12.lean#L221"
           },
           "lean_declarations": [
             "ClaudeChallengeD12.main"
@@ -8458,6 +8458,144 @@
           "scope": "invariance under all 9 polygon rotations only",
           "not_claimed": [
             "an unrestricted lower bound of 144; Lean/LRAT formalization of the C9 certificate"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tkmt-lab/boolean-release-observation-certificates",
+      "source_revision": {
+        "ref": "origin/main",
+        "commit": "2a6cac69fc1621b37a23a7aae5aa547d481e5c0c",
+        "matches_release": true
+      },
+      "work_type": "data-tool",
+      "title": "Fourteen observation bits for a fixed Boolean release protocol",
+      "packet_version": "1.0.0",
+      "summary": "This Boolean-network benchmark can be used to check when fixed controls can be released using current-state observations, with matching lower and upper certificates for one specified guard. Documented checks: A certificate consumer replays saved finite lower witnesses and UNSAT proof trees; a separate ROBDD implementation checks reachable states, all-path safety and fair eventual release. Of 108 size-14 hitting candidates, 107 fail and one passes. The ROBDD reviewer had read the earlier protocol proof and saw a brief revised certificate synopsis, so this was not fully proof-blind derivation. Limits: The result is limited to this model, intervention, guard and candidate set; it does not optimize over other guards, observation histories or interventions, or establish native 51-species fairness or observation-cost equivalence, biological safety or therapeutic effectiveness. Uniqueness and the 107 exclusions use one ROBDD route only; the certificate consumer does not check uniqueness. The result does not establish that each of the fourteen bits is mandatory in every successful larger set. Details: A finite model-specific benchmark for releasing fixed controls. The guard releases all four clamps at the first E1 state whose current values on the chosen observation set agree with the reference state. Fourteen disjoint nonempty witness difference sets exclude costs at most 13; an explicit 14-bit set meets prefix safety, eventual release on fair paths and E1 persistence after release. Uniqueness is recomputed by the ROBDD route; individual violating paths for the 107 exclusions are not bundled. The CC0 BioModels input and converter support the fixed model rather than constituting the observation result.",
+      "release": {
+        "tag": "v1.0.0",
+        "date": "2026-11-04",
+        "commit": "2a6cac69fc1621b37a23a7aae5aa547d481e5c0c",
+        "github_release": "https://github.com/tkmt-lab/boolean-release-observation-certificates/releases/tag/v1.0.0",
+        "version_doi": "10.5281/zenodo.23939998",
+        "concept_doi": "10.5281/zenodo.23939997",
+        "doi_status": "minted"
+      },
+      "repo_url": "https://github.com/tkmt-lab/boolean-release-observation-certificates",
+      "entry_points": {
+        "agents_md": [],
+        "claims_json": {
+          "path": "claims.json",
+          "url": "https://github.com/tkmt-lab/boolean-release-observation-certificates/blob/v1.0.0/claims.json",
+          "raw_url": "https://raw.githubusercontent.com/tkmt-lab/boolean-release-observation-certificates/v1.0.0/claims.json"
+        },
+        "readme": {
+          "path": "README.md",
+          "url": "https://github.com/tkmt-lab/boolean-release-observation-certificates/blob/v1.0.0/README.md"
+        },
+        "citation_cff": {
+          "path": "CITATION.cff",
+          "url": "https://github.com/tkmt-lab/boolean-release-observation-certificates/blob/v1.0.0/CITATION.cff"
+        }
+      },
+      "scope": [
+        {
+          "text": "For one frozen 56-rule EMT Boolean model and a fixed two-stage intervention, 14 additional observation bits are necessary and sufficient for the specified release guard; the optimal set is unique (checked by one ROBDD route). Saved certificates and two separate checkers.",
+          "lang": "en",
+          "source": "docs/releases.json"
+        }
+      ],
+      "not_claimed": [
+        {
+          "text": "The result is limited to this model, intervention, guard and candidate set; it does not optimize over other guards, observation histories or interventions, or establish native 51-species fairness or observation-cost equivalence, biological safety or therapeutic effectiveness. Uniqueness and the 107 exclusions use one ROBDD route only; the certificate consumer does not check uniqueness. The result does not establish that each of the fourteen bits is mandatory in every successful larger set.",
+          "lang": "en",
+          "source": "llms.txt"
+        }
+      ],
+      "scope_flags": {
+        "rules": 56,
+        "model_sha256": "e15ee45915ca1ff81b363cdf24db1a4f4fab37f250e6b3e57cf8ff9ca52d744d",
+        "controlled_bits": [
+          "ECad",
+          "PAK",
+          "FAK_SRC_b1",
+          "FAK_SRC_b2"
+        ],
+        "candidate_observation_bits": 37,
+        "cost": "number of extra observed Boolean bits",
+        "specification": "SPEC.md",
+        "guard_family": "A fixed set S selected once; first E1 state whose current values on S equal the reference state."
+      },
+      "verification": [
+        {
+          "source": "README.md#Fourteen observation bits for a fixed Boolean release protocol",
+          "working_directory": ".",
+          "shell": "sh",
+          "script": "python3 -I -B verify.py --budget-seconds 540",
+          "expected_output_status": "not-documented-in-extracted-section"
+        }
+      ],
+      "claims": [
+        {
+          "id": "tkmt-lab/boolean-release-observation-certificates#M3-2",
+          "local_id": "M3-2",
+          "statement": "Exactly two unforced M3 fixed points under the fixed environment.",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/boolean-release-observation-certificates#LB-14",
+          "local_id": "LB-14",
+          "statement": "No set of at most 13 additional observation bits satisfies the specified all-path requirements.",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/boolean-release-observation-certificates#UB-14",
+          "local_id": "UB-14",
+          "statement": "The given 14-bit set gives prefix safety, finite guards on all fair paths and E1 persistence after release.",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/boolean-release-observation-certificates#OPT-14",
+          "local_id": "OPT-14",
+          "statement": "The minimum additional observation cost for this frozen protocol is 14 bits.",
+          "evidence": [],
+          "evidence_kinds": [],
+          "depends_on": [
+            "tkmt-lab/boolean-release-observation-certificates#M3-2",
+            "tkmt-lab/boolean-release-observation-certificates#LB-14",
+            "tkmt-lab/boolean-release-observation-certificates#UB-14"
+          ]
+        },
+        {
+          "id": "tkmt-lab/boolean-release-observation-certificates#DOMAIN",
+          "local_id": "DOMAIN",
+          "statement": "The four threshold chains remain admissible under natural updates and corrected atomic clamps; all checked paths and reachable states are admissible.",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/boolean-release-observation-certificates#UNIQUE-14",
+          "local_id": "UNIQUE-14",
+          "statement": "Exactly one 14-bit observation set satisfies the fixed protocol. Among the 108 size-14 sets that hit all fourteen difference sets, 107 admit a violating path released at a state that is the first E1 state on that path, followed by a finite continuation that loses E1.",
+          "evidence": [],
+          "evidence_kinds": [],
+          "depends_on": [
+            "tkmt-lab/boolean-release-observation-certificates#LB-14",
+            "tkmt-lab/boolean-release-observation-certificates#UB-14"
+          ]
+        },
+        {
+          "id": "tkmt-lab/boolean-release-observation-certificates#DELETE-ESSENTIAL-14",
+          "local_id": "DELETE-ESSENTIAL-14",
+          "statement": "Removing any one bit leaves 13 bits and therefore fails by LB-14; the deletion certificate identifies the responsible checked finite witness. This is deletion necessity within the unique optimal set.",
+          "evidence": [],
+          "evidence_kinds": [],
+          "depends_on": [
+            "tkmt-lab/boolean-release-observation-certificates#LB-14"
           ]
         }
       ]
