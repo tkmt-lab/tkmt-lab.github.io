@@ -1,9 +1,9 @@
 {
   "$schema": "https://tkmt-lab.github.io/catalog.schema.json",
   "version": "1.2",
-  "generated_at": "2026-11-04T17:20:00+09:00",
+  "generated_at": "2026-11-06T05:55:00+09:00",
   "sources": {
-    "releases": "docs/releases.json (lab research repository, updated 2026-11-04T16:08:11+09:00)",
+    "releases": "docs/releases.json (lab research repository, updated 2026-11-06T05:27:31+09:00)",
     "repositories": "Files read at the exact release commits recorded in work.source_revision. Its ref names belong to the selected local input repositories; when release-pinned offline snapshots are used, origin/main denotes the snapshot-local ref, not a receipt of the current public remote ref. Public-history checks and observed remote refs are recorded separately in the post-release input manifest.",
     "homepage_editorial": "Work summaries and work-level exclusions copied from llms.txt; claim statements, evidence, scope, raw remaining obligations and execution flags retain their source records."
   },
@@ -5123,337 +5123,754 @@
       "id": "tkmt-lab/behavioral-sir-identifiability",
       "source_revision": {
         "ref": "origin/main",
-        "commit": "6691a76801a522592712e41993b6f4353decee88",
+        "commit": "aaffbd233dca9bca9db0874280578a5d9f0d5417",
         "matches_release": true
       },
-      "title": "Global identifiability of a behavioral SIR model for every integer saturation exponent k >= 2",
-      "title_tex": "Global identifiability of a behavioral SIR model\\newline\nfor every integer saturation exponent $k\\geq2$",
-      "paper_version": "1.1",
-      "packet_version": "1.0.0",
+      "title": "Global identifiability of a behavioral SIR model with an unknown positive saturation exponent",
+      "title_tex": "Global identifiability of a behavioral SIR model\\newline\nwith an unknown positive saturation exponent",
+      "paper_version": "3.4",
+      "packet_version": "3.4.0",
       "authors": [
         {
           "name": "Tatsuhiko Takimoto",
           "affiliation": "Independent researcher"
         }
       ],
-      "summary": "This work proves generic global identifiability of a behavioral SIR model for each fixed known integer saturation exponent k ≥ 2. Documented checks: Prose proof read by two AI readers; exact checks for k=1 through 12 and separate SymPy checks. Limits: The exponent is a fixed known integer and identifiability is generic. Non-integer or unknown exponents, exceptional points and noisy or finite-sample data are outside the result. The observations and positive-model assumptions are those stated in the article. Details: for S' = −βSI/(1+αI)^k, I' = βSI/(1+αI)^k − γI, R' = γI with a fixed known integer k ≥ 2, observed through I(t) with known total population, α, β, γ and S(0), I(0), R(0) are generically globally identifiable — the integer-exponent case of Conjecture 2 of Pant, Saucedo and Pogudin. Prose proof read by two AI reviewers, with exact computer-algebra checks for k = 1..12; non-integer or unknown k and noisy data not covered.",
+      "summary": "This work proves when an exact infection curve identifies the exponent, rates and hidden populations of a behavioral SIR model at every positive true point. Documented checks: Prose proofs and exact algebra certificates; statement-first checks 9–11 retained prior-session background. Article review MINOR, MAJOR 0; author-corrected metadata was not separately re-refereed. Limits: The ambiguity at k=1 remains; k=0 is excluded. Unknown total population, finite observations, noisy-data stability and a uniform derivative-order bound are outside these claims. Details: For known N0>0, the exact analytic germ of I(t) identifies the exponent, all three rates and all initial states at every positive true point with true 0<k<1 or 1<k<2 compared against any real k_star>=0, and true k>=2 compared against real k_star>=2. Neither point must be generic. This is an ideal-observation identifiability theorem, not an estimator for finite or noisy observations. Source proofs, finite certificates and historical AI checks are distinct evidence.",
       "release": {
-        "tag": "v1.0.0",
-        "date": "2026-10-22",
-        "commit": "6691a76801a522592712e41993b6f4353decee88",
-        "github_release": "https://github.com/tkmt-lab/behavioral-sir-identifiability/releases/tag/v1.0.0",
-        "version_doi": "10.5281/zenodo.23553807",
+        "tag": "v3.4.0",
+        "date": "2026-11-06",
+        "commit": "aaffbd233dca9bca9db0874280578a5d9f0d5417",
+        "github_release": "https://github.com/tkmt-lab/behavioral-sir-identifiability/releases/tag/v3.4.0",
+        "version_doi": "10.5281/zenodo.23989257",
         "concept_doi": "10.5281/zenodo.23553806",
         "doi_status": "minted"
       },
       "repo_url": "https://github.com/tkmt-lab/behavioral-sir-identifiability",
       "paper_pdf": {
-        "path": "paper-behavioral-sir-v1.1-en.pdf",
-        "url": "https://github.com/tkmt-lab/behavioral-sir-identifiability/blob/v1.0.0/paper-behavioral-sir-v1.1-en.pdf",
-        "raw_url": "https://raw.githubusercontent.com/tkmt-lab/behavioral-sir-identifiability/v1.0.0/paper-behavioral-sir-v1.1-en.pdf"
+        "path": "paper-behavioral-sir-v3.4-en.pdf",
+        "url": "https://github.com/tkmt-lab/behavioral-sir-identifiability/blob/v3.4.0/paper-behavioral-sir-v3.4-en.pdf",
+        "raw_url": "https://raw.githubusercontent.com/tkmt-lab/behavioral-sir-identifiability/v3.4.0/paper-behavioral-sir-v3.4-en.pdf"
       },
       "paper_source": {
-        "path": "paper-behavioral-sir-v1.1-en.tex",
-        "url": "https://github.com/tkmt-lab/behavioral-sir-identifiability/blob/v1.0.0/paper-behavioral-sir-v1.1-en.tex"
+        "path": "paper-behavioral-sir-v3.4-en.tex",
+        "url": "https://github.com/tkmt-lab/behavioral-sir-identifiability/blob/v3.4.0/paper-behavioral-sir-v3.4-en.tex"
       },
       "entry_points": {
         "agents_md": [
           {
             "path": "AGENTS.md",
-            "url": "https://github.com/tkmt-lab/behavioral-sir-identifiability/blob/v1.0.0/AGENTS.md"
+            "url": "https://github.com/tkmt-lab/behavioral-sir-identifiability/blob/v3.4.0/AGENTS.md"
           }
         ],
         "claims_json": {
           "path": "claims.json",
-          "url": "https://github.com/tkmt-lab/behavioral-sir-identifiability/blob/v1.0.0/claims.json",
-          "raw_url": "https://raw.githubusercontent.com/tkmt-lab/behavioral-sir-identifiability/v1.0.0/claims.json"
+          "url": "https://github.com/tkmt-lab/behavioral-sir-identifiability/blob/v3.4.0/claims.json",
+          "raw_url": "https://raw.githubusercontent.com/tkmt-lab/behavioral-sir-identifiability/v3.4.0/claims.json"
         },
         "readme": {
           "path": "README.md",
-          "url": "https://github.com/tkmt-lab/behavioral-sir-identifiability/blob/v1.0.0/README.md"
+          "url": "https://github.com/tkmt-lab/behavioral-sir-identifiability/blob/v3.4.0/README.md"
         },
         "citation_cff": {
           "path": "CITATION.cff",
-          "url": "https://github.com/tkmt-lab/behavioral-sir-identifiability/blob/v1.0.0/CITATION.cff"
+          "url": "https://github.com/tkmt-lab/behavioral-sir-identifiability/blob/v3.4.0/CITATION.cff"
         }
       },
       "scope": [
         {
-          "text": "Prose proof read by two AI reviewers; exact checks k=1..12 and independent SymPy checks",
+          "text": "Known N0>0; exact analytic germ of I(t); every positive true point for 0<k<1 and 1<k<2 against any real k_star>=0, and for k>=2 against any real k_star>=2; all three rates and all initial states.",
           "lang": "en",
           "source": "docs/releases.json"
         }
       ],
       "not_claimed": [
         {
-          "text": "The exponent is a fixed known integer and identifiability is generic. Non-integer or unknown exponents, exceptional points and noisy or finite-sample data are outside the result. The observations and positive-model assumptions are those stated in the article.",
+          "text": "The ambiguity at k=1 remains; k=0 is excluded. Unknown total population, finite observations, noisy-data stability and a uniform derivative-order bound are outside these claims.",
           "lang": "en",
           "source": "llms.txt"
         }
       ],
       "scope_flags": {
         "prose_proof": true,
-        "integer_k_only": true,
-        "k_known": true,
-        "generic_parameters_only": true,
-        "non_integer_k": false,
-        "unknown_k": false,
+        "fixed_known_real_k_ge_2": true,
+        "positive_real_branch": true,
+        "positive_parameters_and_states": true,
+        "known_N0": true,
+        "generic_true_points": false,
+        "all_admissible_competitors": true,
+        "irrational_k": true,
+        "unknown_N0": false,
         "noisy_or_discrete_data": false,
-        "exceptional_set_described": false,
-        "Lean_proof": false,
-        "human_expert_review": false,
+        "all_initial_points": true,
+        "original_coordinates_Zariski_open": false,
+        "common_generic_set_all_k": true,
+        "formal_proof": false,
+        "human_peer_review": false,
         "priority_established": false,
-        "ai_readings": 2
-      },
-      "evidence_type_meaning": {
-        "prose-proof": "proof written in the article; relies on the cited published theorems; not machine-checked",
-        "ai-review": "read and partly recomputed by two AI reader sessions not involved in writing the proof (one for the proof notes, one for the article); not human peer review",
-        "finite-exact-computation": "exact symbolic or rational computation for finitely many k or one trajectory; checks formulas, does not prove the general statement"
+        "unknown_k_corollary": true,
+        "joint_generic_unknown_k": true,
+        "unknown_k_all_fixed_slices": true,
+        "all_initial_points_domain": "positive rates and states; fixed known N0 > 0; real k > 0, k != 1; piecewise competitor domains",
+        "true_exponent_domain": "real k > 0, k != 1",
+        "competitor_domains": [
+          {
+            "true": "0 < k < 1",
+            "competitor": "real k_star >= 0"
+          },
+          {
+            "true": "1 < k < 2",
+            "competitor": "real k_star >= 0"
+          },
+          {
+            "true": "k >= 2",
+            "competitor": "real k_star >= 2"
+          }
+        ]
       },
       "verification": [
         {
-          "source": "README.md#Check in a minute",
+          "source": "README.md#Reproduce offline",
           "working_directory": ".",
           "shell": "sh",
-          "script": "python3 -B reproduce.py",
-          "expected_output": "{\"status\": \"PASS\", \"seconds\": ..., \"steps\": [\"1-exact-elimination-k1-12\", \"2-proof-algebra\", \"3-article-algebra\", \"4-supplement-s9\"]}",
-          "expected_output_status": "documented-example"
+          "script": "python3 -B check_packet.py\npython3 -B verify.py",
+          "expected_output_status": "not-documented-in-extracted-section"
         },
         {
-          "source": "README.md#Check in a minute",
+          "source": "README.md#Reproduce offline",
           "working_directory": ".",
           "shell": "sh",
-          "script": "python3 -B -c \"\nimport sympy as sp\na,b,g,y,v,w = sp.symbols('alpha beta gamma y v w'); k = 3; u = 1 + a*y\nP = sp.Poly(sp.expand(y*u**k*w - (1-(k-1)*a*y)*u**(k-1)*v**2 + (k*a*g*y**2*u**(k-1) + b*y**2)*v + b*g*y**3), y, v, w)\nc = dict(P.terms()); al = c[(2,0,1)]/k; ga = c[(3,1,0)]/(k*(k-1)*al**2); be = c[(2,1,0)] - k*al*ga\nprint(sp.simplify(al), sp.simplify(be), sp.simplify(ga))\n\"",
+          "script": "python3 -B verify.py --with-sympy\npython3 -B check_packet.py --pdf",
           "expected_output_status": "not-documented-in-extracted-section"
         }
       ],
       "claims": [
         {
-          "id": "tkmt-lab/behavioral-sir-identifiability#global-identifiability",
-          "local_id": "global-identifiability",
-          "paper_label": "thm:main",
-          "statement": "For every fixed integer k >= 2, model (1) observed through y = I with known N0 is globally structurally identifiable: alpha, beta, gamma, S(0), I(0), R(0) are identifiable for generic parameters and initial values (Definition 1; complex Zariski-generic, hence real open dense).",
-          "human_review": false,
+          "id": "tkmt-lab/behavioral-sir-identifiability#thm:positive-map",
+          "local_id": "thm:positive-map",
+          "paper_label": "thm:positive-map",
+          "statement": "Every positive true point with real k>0, k!=1 and known N0 is identified against the piecewise competitor domains stated in scope.competitor_domains.",
           "evidence": [
             {
               "kind": "prose-proof",
-              "basis": "evidence_types=prose-proof",
-              "meaning": "proof written in the article; relies on the cited published theorems; not machine-checked"
-            },
-            {
-              "kind": "ai-review",
-              "basis": "evidence_types=ai-review",
-              "meaning": "read and partly recomputed by two AI reader sessions not involved in writing the proof (one for the proof notes, one for the article); not human peer review"
+              "basis": "claims.json:/claims/0/assurance",
+              "meaning": "Prose proof with exact certificates and prior-session checking reservations; article 3.4 review MINOR, MAJOR 0; required metadata correction addressed by the author, not re-refereed; not formalized.",
+              "source_file": "paper-behavioral-sir-v3.4-en.tex",
+              "detail": "Source-reported evidence; catalog checks file integrity, not the proof or computation."
             }
           ],
           "evidence_kinds": [
-            "ai-review",
             "prose-proof"
           ],
-          "scope": "prose proof for each integer k >= 2 separately fixed and known; finite computations below check formulas and do not replace the proof",
-          "depends_on_published_results": [
-            "Ovchinnikov-Pogudin-Thompson, arXiv:2007.14787v2, Theorem 4.7, Corollary 5.7, Proposition 3.1",
-            "Hong-Ovchinnikov-Pogudin-Yap, arXiv:1801.08112v5, Lemma 3.2"
-          ],
-          "reproduce": "not computational; read Sections 3-7 of the article",
+          "scope": "Prose proof with exact certificates and prior-session checking reservations; article 3.4 review MINOR, MAJOR 0; required metadata correction addressed by the author, not re-refereed; not formalized.",
           "evidence_files": [
+            "paper-behavioral-sir-v3.4-en.tex",
             "VERIFICATION-RECORD.md"
           ]
         },
         {
-          "id": "tkmt-lab/behavioral-sir-identifiability#input-output-equation",
-          "local_id": "input-output-equation",
-          "paper_label": "prop:charpres",
-          "statement": "P of Eq. (4) vanishes on the model, is irreducible, and {P} is a monic characteristic presentation of the input-output ideal.",
-          "human_review": false,
+          "id": "tkmt-lab/behavioral-sir-identifiability#thm:between",
+          "local_id": "thm:between",
+          "paper_label": "thm:between",
+          "statement": "Every positive true point with 1<k<2 and known N0 is identified against every positive real k_star>=0 competitor.",
           "evidence": [
             {
               "kind": "prose-proof",
-              "basis": "evidence_types=prose-proof",
-              "meaning": "proof written in the article; relies on the cited published theorems; not machine-checked"
-            },
-            {
-              "kind": "ai-review",
-              "basis": "evidence_types=ai-review",
-              "meaning": "read and partly recomputed by two AI reader sessions not involved in writing the proof (one for the proof notes, one for the article); not human peer review"
+              "basis": "claims.json:/claims/1/assurance",
+              "meaning": "Prose proof with exact certificates and prior-session checking reservations; article 3.4 review MINOR, MAJOR 0; required metadata correction addressed by the author, not re-refereed; not formalized.",
+              "source_file": "paper-behavioral-sir-v3.4-en.tex",
+              "detail": "Source-reported evidence; catalog checks file integrity, not the proof or computation."
             },
             {
               "kind": "finite-computation",
-              "basis": "evidence_types=finite-exact-computation",
-              "meaning": "exact symbolic or rational computation for finitely many k or one trajectory; checks formulas, does not prove the general statement"
-            }
-          ],
-          "evidence_kinds": [
-            "ai-review",
-            "finite-computation",
-            "prose-proof"
-          ],
-          "reproduce": "reproduce.py steps 1-3",
-          "numbers": "vector-field identity as an exact polynomial identity for k = 1..12; irreducibility over Q(alpha,beta,gamma) checked for k = 2..6",
-          "evidence_files": [
-            "exact/check_exact.py",
-            "results/exact-checks.jsonl",
-            "independent/check_proof_algebra.py",
-            "results/check_proof_algebra.out",
-            "independent/check_article_algebra.py",
-            "results/check_article_algebra.out"
-          ]
-        },
-        {
-          "id": "tkmt-lab/behavioral-sir-identifiability#coefficients-and-inverse",
-          "local_id": "coefficients-and-inverse",
-          "paper_label": "prop:coef",
-          "statement": "The coefficients of P are given by Eq. (5) for all k; alpha, gamma, beta follow from Eq. (7) with denominators k and k(k-1)alpha^2.",
-          "human_review": false,
-          "evidence": [
-            {
-              "kind": "prose-proof",
-              "basis": "evidence_types=prose-proof",
-              "meaning": "proof written in the article; relies on the cited published theorems; not machine-checked"
-            },
-            {
-              "kind": "ai-review",
-              "basis": "evidence_types=ai-review",
-              "meaning": "read and partly recomputed by two AI reader sessions not involved in writing the proof (one for the proof notes, one for the article); not human peer review"
-            },
-            {
-              "kind": "finite-computation",
-              "basis": "evidence_types=finite-exact-computation",
-              "meaning": "exact symbolic or rational computation for finitely many k or one trajectory; checks formulas, does not prove the general statement"
-            }
-          ],
-          "evidence_kinds": [
-            "ai-review",
-            "finite-computation",
-            "prose-proof"
-          ],
-          "reproduce": "reproduce.py steps 1-3",
-          "numbers": "all monomials agree for k = 1..12 (elimination) and k = 1..12 (separate implementation)",
-          "evidence_files": [
-            "exact/check_exact.py",
-            "results/exact-checks.jsonl",
-            "independent/check_proof_algebra.py",
-            "results/check_proof_algebra.out",
-            "independent/check_article_algebra.py",
-            "results/check_article_algebra.out"
-          ]
-        },
-        {
-          "id": "tkmt-lab/behavioral-sir-identifiability#no-rational-first-integral",
-          "local_id": "no-rational-first-integral",
-          "paper_label": "lem:noint",
-          "statement": "For k >= 2 the reduced two-state model has no nonconstant rational first integral.",
-          "human_review": false,
-          "evidence": [
-            {
-              "kind": "prose-proof",
-              "basis": "evidence_types=prose-proof",
-              "meaning": "proof written in the article; relies on the cited published theorems; not machine-checked"
-            },
-            {
-              "kind": "ai-review",
-              "basis": "evidence_types=ai-review",
-              "meaning": "read and partly recomputed by two AI reader sessions not involved in writing the proof (one for the proof notes, one for the article); not human peer review"
-            },
-            {
-              "kind": "finite-computation",
-              "basis": "evidence_types=finite-exact-computation",
-              "meaning": "exact symbolic or rational computation for finitely many k or one trajectory; checks formulas, does not prove the general statement"
-            }
-          ],
-          "evidence_kinds": [
-            "ai-review",
-            "finite-computation",
-            "prose-proof"
-          ],
-          "scope": "computations check the identities (8), (9) and the absence of polynomial first integrals of degree <= 6 for k = 2, 3 at random rational parameters; the lemma itself is proved only in prose",
-          "reproduce": "reproduce.py steps 2-3",
-          "evidence_files": [
-            "independent/check_proof_algebra.py",
-            "results/check_proof_algebra.out",
-            "independent/check_article_algebra.py",
-            "results/check_article_algebra.out"
-          ]
-        },
-        {
-          "id": "tkmt-lab/behavioral-sir-identifiability#k1-contrast",
-          "local_id": "k1-contrast",
-          "paper_label": "sec:coef",
-          "statement": "For k = 1 the coefficients are invariant under (beta, gamma) -> (alpha gamma, beta/alpha); for k >= 2 they are not.",
-          "human_review": false,
-          "evidence": [
-            {
-              "kind": "prose-proof",
-              "basis": "evidence_types=prose-proof",
-              "meaning": "proof written in the article; relies on the cited published theorems; not machine-checked"
-            },
-            {
-              "kind": "finite-computation",
-              "basis": "evidence_types=finite-exact-computation",
-              "meaning": "exact symbolic or rational computation for finitely many k or one trajectory; checks formulas, does not prove the general statement"
+              "basis": "claims.json:/claims/1/assurance",
+              "meaning": "Prose proof with exact certificates and prior-session checking reservations; article 3.4 review MINOR, MAJOR 0; required metadata correction addressed by the author, not re-refereed; not formalized.",
+              "source_file": "low-exponent/minor-3_2.json",
+              "detail": "Source-reported evidence; catalog checks file integrity, not the proof or computation."
             }
           ],
           "evidence_kinds": [
             "finite-computation",
             "prose-proof"
           ],
-          "reproduce": "reproduce.py steps 1, 3",
-          "numbers": "checked at (2,3,5) vs (2,10,3/2) for k = 1..12 and symbolically for k = 1..7",
+          "scope": "Prose proof with exact certificates and prior-session checking reservations; article 3.4 review MINOR, MAJOR 0; required metadata correction addressed by the author, not re-refereed; not formalized.",
           "evidence_files": [
-            "exact/check_exact.py",
-            "results/exact-checks.jsonl",
-            "independent/check_article_algebra.py",
-            "results/check_article_algebra.out"
+            "paper-behavioral-sir-v3.4-en.tex",
+            "low-exponent/minor-3_2.json",
+            "low-exponent/minor-exact-check.json",
+            "low-exponent/bridge-check.json",
+            "independent-check-10/exact-result.json",
+            "independent-check-10/REPORT.md"
           ]
         },
         {
-          "id": "tkmt-lab/behavioral-sir-identifiability#published-s9-equations",
-          "local_id": "published-s9-equations",
+          "id": "tkmt-lab/behavioral-sir-identifiability#thm:below",
+          "local_id": "thm:below",
+          "paper_label": "thm:below",
+          "statement": "Every positive true point with 0<k<1 and known N0 is identified against every positive real k_star>=0 competitor, including true k=1/2 and initial infection peaks.",
+          "evidence": [
+            {
+              "kind": "prose-proof",
+              "basis": "claims.json:/claims/2/assurance",
+              "meaning": "Prose proof with exact certificates and prior-session checking reservations; article 3.4 review MINOR, MAJOR 0; required metadata correction addressed by the author, not re-refereed; not formalized.",
+              "source_file": "paper-behavioral-sir-v3.4-en.tex",
+              "detail": "Source-reported evidence; catalog checks file integrity, not the proof or computation."
+            },
+            {
+              "kind": "finite-computation",
+              "basis": "claims.json:/claims/2/assurance",
+              "meaning": "Prose proof with exact certificates and prior-session checking reservations; article 3.4 review MINOR, MAJOR 0; required metadata correction addressed by the author, not re-refereed; not formalized.",
+              "source_file": "below-one/identities.json",
+              "detail": "Source-reported evidence; catalog checks file integrity, not the proof or computation."
+            }
+          ],
+          "evidence_kinds": [
+            "finite-computation",
+            "prose-proof"
+          ],
+          "scope": "Prose proof with exact certificates and prior-session checking reservations; article 3.4 review MINOR, MAJOR 0; required metadata correction addressed by the author, not re-refereed; not formalized.",
+          "evidence_files": [
+            "paper-behavioral-sir-v3.4-en.tex",
+            "below-one/identities.json",
+            "below-one/rational-check.json",
+            "independent-check-11/verification.json",
+            "independent-check-11/REPORT.md"
+          ]
+        },
+        {
+          "id": "tkmt-lab/behavioral-sir-identifiability#thm:all-positive",
+          "local_id": "thm:all-positive",
+          "paper_label": "thm:all-positive",
+          "statement": "For known N0>0, all positive true and competing points with real k,k_star>=2 and the same analytic I germ have identical exponent, rates and initial states. No genericity assumption.",
+          "evidence": [
+            {
+              "kind": "prose-proof",
+              "basis": "claims.json:/claims/3/assurance",
+              "meaning": "General Puiseux and Darboux prose lemmas; all-rate symbolic minors; time translation; supported by check-9 with documented prior background. Not formalized.",
+              "source_file": "paper-behavioral-sir-v3.4-en.tex",
+              "detail": "Source-reported evidence; catalog checks file integrity, not the proof or computation."
+            },
+            {
+              "kind": "finite-computation",
+              "basis": "claims.json:/claims/3/assurance",
+              "meaning": "General Puiseux and Darboux prose lemmas; all-rate symbolic minors; time translation; supported by check-9 with documented prior background. Not formalized.",
+              "source_file": "all-positive/parameter-minors.json",
+              "detail": "Source-reported evidence; catalog checks file integrity, not the proof or computation."
+            }
+          ],
+          "evidence_kinds": [
+            "finite-computation",
+            "prose-proof"
+          ],
+          "scope": "General Puiseux and Darboux prose lemmas; all-rate symbolic minors; time translation; supported by check-9 with documented prior background. Not formalized.",
+          "evidence_files": [
+            "paper-behavioral-sir-v3.4-en.tex",
+            "all-positive/parameter-minors.json",
+            "independent-all-positive/algebra-result.json",
+            "independent-all-positive/endpoints-result.json",
+            "VERIFICATION-RECORD.md"
+          ]
+        },
+        {
+          "id": "tkmt-lab/behavioral-sir-identifiability#thm:main",
+          "local_id": "thm:main",
+          "paper_label": "thm:main",
+          "statement": "For each fixed known real k>=2 and known N0, an open dense set of positive true points is identified against every positive competitor at the same k.",
+          "evidence": [
+            {
+              "kind": "prose-proof",
+              "basis": "claims.json:/claims/4/assurance",
+              "meaning": "Prose argument with inherited proof checks and exact certificates. Current manuscript review status is recorded in VERIFICATION-RECORD.md.",
+              "source_file": "paper-behavioral-sir-v3.4-en.tex",
+              "detail": "Source-reported evidence; catalog checks file integrity, not the proof or computation."
+            }
+          ],
+          "evidence_kinds": [
+            "prose-proof"
+          ],
+          "scope": "Prose argument with inherited proof checks and exact certificates. Current manuscript review status is recorded in VERIFICATION-RECORD.md.",
+          "evidence_files": [
+            "paper-behavioral-sir-v3.4-en.tex",
+            "VERIFICATION-RECORD.md"
+          ]
+        },
+        {
+          "id": "tkmt-lab/behavioral-sir-identifiability#lem:constants",
+          "local_id": "lem:constants",
+          "paper_label": "lem:constants",
+          "statement": "The two-state rational cover has only parameter-field constants.",
+          "evidence": [
+            {
+              "kind": "prose-proof",
+              "basis": "claims.json:/claims/5/assurance",
+              "meaning": "Laurent leading-term proof, not finite extrapolation.",
+              "source_file": "paper-behavioral-sir-v3.4-en.tex",
+              "detail": "Source-reported evidence; catalog checks file integrity, not the proof or computation."
+            }
+          ],
+          "evidence_kinds": [
+            "prose-proof"
+          ],
+          "scope": "Laurent leading-term proof, not finite extrapolation.",
+          "evidence_files": [
+            "paper-behavioral-sir-v3.4-en.tex"
+          ]
+        },
+        {
+          "id": "tkmt-lab/behavioral-sir-identifiability#lem:minimal",
+          "local_id": "lem:minimal",
+          "paper_label": "lem:minimal",
+          "statement": "The rational minimal equation has order two and highest-derivative degree q.",
+          "evidence": [
+            {
+              "kind": "prose-proof",
+              "basis": "claims.json:/claims/6/assurance",
+              "meaning": "Field-extension and primitivity proof, with finite identity checks.",
+              "source_file": "paper-behavioral-sir-v3.4-en.tex",
+              "detail": "Source-reported evidence; catalog checks file integrity, not the proof or computation."
+            },
+            {
+              "kind": "finite-computation",
+              "basis": "claims.json:/claims/6/assurance",
+              "meaning": "Field-extension and primitivity proof, with finite identity checks.",
+              "source_file": "producer/output-rational/symbolic.json",
+              "detail": "Source-reported evidence; catalog checks file integrity, not the proof or computation."
+            }
+          ],
+          "evidence_kinds": [
+            "finite-computation",
+            "prose-proof"
+          ],
+          "scope": "Field-extension and primitivity proof, with finite identity checks.",
+          "evidence_files": [
+            "paper-behavioral-sir-v3.4-en.tex",
+            "producer/output-rational/symbolic.json",
+            "independent-rational/exact-checks.json"
+          ]
+        },
+        {
+          "id": "tkmt-lab/behavioral-sir-identifiability#prop:characteristic",
+          "local_id": "prop:characteristic",
+          "paper_label": "prop:characteristic",
+          "statement": "Q is a monic characteristic presentation under the cited definition.",
+          "evidence": [
+            {
+              "kind": "prose-proof",
+              "basis": "claims.json:/claims/7/assurance",
+              "meaning": "Prose verification of OPT hypotheses.",
+              "source_file": "paper-behavioral-sir-v3.4-en.tex",
+              "detail": "Source-reported evidence; catalog checks file integrity, not the proof or computation."
+            }
+          ],
+          "evidence_kinds": [
+            "prose-proof"
+          ],
+          "scope": "Prose verification of OPT hypotheses.",
+          "evidence_files": [
+            "paper-behavioral-sir-v3.4-en.tex"
+          ]
+        },
+        {
+          "id": "tkmt-lab/behavioral-sir-identifiability#prop:coefficients",
+          "local_id": "prop:coefficients",
+          "paper_label": "prop:coefficients",
+          "statement": "Rational coefficients recover alpha,gamma,beta^q; q=1 uses distinct integer formulas.",
+          "evidence": [
+            {
+              "kind": "prose-proof",
+              "basis": "claims.json:/claims/8/assurance",
+              "meaning": "Uniform coefficient formulas and exact checks.",
+              "source_file": "paper-behavioral-sir-v3.4-en.tex",
+              "detail": "Source-reported evidence; catalog checks file integrity, not the proof or computation."
+            },
+            {
+              "kind": "finite-computation",
+              "basis": "claims.json:/claims/8/assurance",
+              "meaning": "Uniform coefficient formulas and exact checks.",
+              "source_file": "producer/output-rational/symbolic.json",
+              "detail": "Source-reported evidence; catalog checks file integrity, not the proof or computation."
+            }
+          ],
+          "evidence_kinds": [
+            "finite-computation",
+            "prose-proof"
+          ],
+          "scope": "Uniform coefficient formulas and exact checks.",
+          "evidence_files": [
+            "paper-behavioral-sir-v3.4-en.tex",
+            "producer/output-rational/symbolic.json",
+            "independent-rational/exact-checks.json"
+          ]
+        },
+        {
+          "id": "tkmt-lab/behavioral-sir-identifiability#sec:identification",
+          "local_id": "sec:identification",
+          "paper_label": "sec:identification",
+          "statement": "For each fixed known rational k>=2 and the same known N0>0, the positive-branch argument identifies beta and all initial states against every positive competitor at that same exponent; the true point satisfies the stated genericity condition.",
+          "evidence": [
+            {
+              "kind": "prose-proof",
+              "basis": "claims.json:/claims/9/assurance",
+              "meaning": "OPT quantifiers explicitly retained from referee correction.",
+              "source_file": "paper-behavioral-sir-v3.4-en.tex",
+              "detail": "Source-reported evidence; catalog checks file integrity, not the proof or computation."
+            }
+          ],
+          "evidence_kinds": [
+            "prose-proof"
+          ],
+          "scope": "OPT quantifiers explicitly retained from referee correction.",
+          "evidence_files": [
+            "paper-behavioral-sir-v3.4-en.tex"
+          ]
+        },
+        {
+          "id": "tkmt-lab/behavioral-sir-identifiability#lem:irrconstants",
+          "local_id": "lem:irrconstants",
+          "paper_label": "lem:irrconstants",
+          "statement": "The three-state rational field has constants C(alpha,gamma) for every fixed irrational k>=2.",
+          "evidence": [
+            {
+              "kind": "prose-proof",
+              "basis": "claims.json:/claims/10/assurance",
+              "meaning": "Two Laurent valuations and irrational Euler weights; 27 monomials are finite consistency checks.",
+              "source_file": "paper-behavioral-sir-v3.4-en.tex",
+              "detail": "Source-reported evidence; catalog checks file integrity, not the proof or computation."
+            },
+            {
+              "kind": "finite-computation",
+              "basis": "claims.json:/claims/10/assurance",
+              "meaning": "Two Laurent valuations and irrational Euler weights; 27 monomials are finite consistency checks.",
+              "source_file": "producer-irrational/exact-checks.json",
+              "detail": "Source-reported evidence; catalog checks file integrity, not the proof or computation."
+            }
+          ],
+          "evidence_kinds": [
+            "finite-computation",
+            "prose-proof"
+          ],
+          "scope": "Two Laurent valuations and irrational Euler weights; 27 monomials are finite consistency checks.",
+          "evidence_files": [
+            "paper-behavioral-sir-v3.4-en.tex",
+            "producer-irrational/exact-checks.json",
+            "independent-irrational/reproduced-actions.json"
+          ]
+        },
+        {
+          "id": "tkmt-lab/behavioral-sir-identifiability#lem:irrminimal",
+          "local_id": "lem:irrminimal",
+          "paper_label": "lem:irrminimal",
+          "statement": "The three-state minimal equation has order three, degree one, and coefficients recovering alpha,gamma; primitive for k!=0,1.",
+          "evidence": [
+            {
+              "kind": "prose-proof",
+              "basis": "claims.json:/claims/11/assurance",
+              "meaning": "Birational observation field, Gauss lemma and three content evaluations.",
+              "source_file": "paper-behavioral-sir-v3.4-en.tex",
+              "detail": "Source-reported evidence; catalog checks file integrity, not the proof or computation."
+            },
+            {
+              "kind": "finite-computation",
+              "basis": "claims.json:/claims/11/assurance",
+              "meaning": "Birational observation field, Gauss lemma and three content evaluations.",
+              "source_file": "producer-irrational/observation-exact.json",
+              "detail": "Source-reported evidence; catalog checks file integrity, not the proof or computation."
+            }
+          ],
+          "evidence_kinds": [
+            "finite-computation",
+            "prose-proof"
+          ],
+          "scope": "Birational observation field, Gauss lemma and three content evaluations.",
+          "evidence_files": [
+            "paper-behavioral-sir-v3.4-en.tex",
+            "producer-irrational/observation-exact.json",
+            "producer-irrational/observation-sympy.json",
+            "independent-irrational/exact-checks.json"
+          ]
+        },
+        {
+          "id": "tkmt-lab/behavioral-sir-identifiability#sec:wronskian",
+          "local_id": "sec:wronskian",
+          "paper_label": "sec:wronskian",
+          "statement": "For each fixed irrational k>=2 and known N0>0, a nonzero rational Wronskian at the true point forces equality with every positive competitor at that same exponent and the same known N0; analytic initial-value inversion recovers beta and all initial states.",
+          "evidence": [
+            {
+              "kind": "prose-proof",
+              "basis": "claims.json:/claims/12/assurance",
+              "meaning": "Prose Wronskian criterion and degree argument; no numerical general-Wronskian calculation.",
+              "source_file": "paper-behavioral-sir-v3.4-en.tex",
+              "detail": "Source-reported evidence; catalog checks file integrity, not the proof or computation."
+            }
+          ],
+          "evidence_kinds": [
+            "prose-proof"
+          ],
+          "scope": "Prose Wronskian criterion and degree argument; no numerical general-Wronskian calculation.",
+          "evidence_files": [
+            "paper-behavioral-sir-v3.4-en.tex"
+          ]
+        },
+        {
+          "id": "tkmt-lab/behavioral-sir-identifiability#sec:checks",
+          "local_id": "sec:checks",
           "paper_label": "sec:checks",
-          "statement": "The input-output equations printed in Supplement S9 for k = 2, 3, 4 coincide term by term with -P.",
-          "human_review": false,
+          "statement": "22 rational records at 19 exponents, 14 matrices, eight other identity checks; four irrational exponent witnesses, with three sqrt(7) initial points.",
           "evidence": [
             {
               "kind": "finite-computation",
-              "basis": "evidence_types=finite-exact-computation",
-              "meaning": "exact symbolic or rational computation for finitely many k or one trajectory; checks formulas, does not prove the general statement"
+              "basis": "claims.json:/claims/13/assurance",
+              "meaning": "Finite exact evidence; not universal proof.",
+              "source_file": "cases.json",
+              "detail": "Source-reported evidence; catalog checks file integrity, not the proof or computation."
             }
           ],
           "evidence_kinds": [
             "finite-computation"
           ],
-          "scope": "two separate hand transcriptions of the printed equations",
-          "reproduce": "reproduce.py steps 1, 4",
+          "scope": "Finite exact evidence; not universal proof.",
           "evidence_files": [
-            "exact/check_exact.py",
-            "results/exact-checks.jsonl",
-            "independent/check_supplement_s9.py",
-            "results/check_supplement_s9.out"
+            "cases.json",
+            "irrational-cases.json",
+            "producer-irrational/specializations.json",
+            "producer-irrational/observation-exact.json",
+            "producer-irrational/observation-sympy.json",
+            "independent-irrational/exact-checks.json"
           ]
         },
         {
-          "id": "tkmt-lab/behavioral-sir-identifiability#single-trajectory",
-          "local_id": "single-trajectory",
-          "paper_label": "sec:checks",
-          "statement": "For (alpha,beta,gamma,S(0),I(0)) = (1/3,2/5,1/7,5/2,1/2) the polynomial relations of the stated shape vanishing on the trajectory form a one-dimensional space that returns the parameters exactly.",
-          "human_review": false,
+          "id": "tkmt-lab/behavioral-sir-identifiability#sec:scope",
+          "local_id": "sec:scope",
+          "paper_label": "sec:scope",
+          "statement": "Known N0>0, positive rates/states, true k>0 except 1, and piecewise competing-exponent domains: k_star>=0 below two, k_star>=2 at and above two. No unknown-N0, finite/noisy-data or uniform-order claim.",
+          "evidence": [],
+          "evidence_kinds": [],
+          "scope": "Explicit theorem boundary.",
+          "evidence_files": [
+            "paper-behavioral-sir-v3.4-en.tex",
+            "README.md"
+          ]
+        },
+        {
+          "id": "tkmt-lab/behavioral-sir-identifiability#cor:unknown",
+          "local_id": "cor:unknown",
+          "paper_label": "cor:unknown",
+          "statement": "For each known N0>0, a relatively open dense set in the full positive parameter space including unknown k>=2 is identified against every positive competitor with real k_star>=2 and the same known N0, including different exponents. This corollary alone states full-space genericity; the separate theorem thm:slice-unknown supplies the guarantee on every fixed true-k>=2 slice.",
           "evidence": [
             {
+              "kind": "prose-proof",
+              "basis": "claims.json:/claims/15/assurance",
+              "meaning": "Prose argument with inherited proof checks and exact certificates. Current manuscript review status is recorded in VERIFICATION-RECORD.md.",
+              "source_file": "paper-behavioral-sir-v3.4-en.tex",
+              "detail": "Source-reported evidence; catalog checks file integrity, not the proof or computation."
+            },
+            {
               "kind": "finite-computation",
-              "basis": "evidence_types=finite-exact-computation",
-              "meaning": "exact symbolic or rational computation for finitely many k or one trajectory; checks formulas, does not prove the general statement"
+              "basis": "claims.json:/claims/15/assurance",
+              "meaning": "Prose argument with inherited proof checks and exact certificates. Current manuscript review status is recorded in VERIFICATION-RECORD.md.",
+              "source_file": "unknown-k-cases.json",
+              "detail": "Source-reported evidence; catalog checks file integrity, not the proof or computation."
             }
           ],
           "evidence_kinds": [
-            "finite-computation"
+            "finite-computation",
+            "prose-proof"
           ],
-          "reproduce": "reproduce.py steps 2-3",
-          "numbers": "k = 2, 3, 5 (series to order 40) and k = 2, 3 (separate series code, order 26)",
+          "scope": "Prose argument with inherited proof checks and exact certificates. Current manuscript review status is recorded in VERIFICATION-RECORD.md.",
           "evidence_files": [
-            "independent/check_proof_algebra.py",
-            "results/check_proof_algebra.out",
-            "independent/check_article_algebra.py",
-            "results/check_article_algebra.out"
+            "paper-behavioral-sir-v3.4-en.tex",
+            "VERIFICATION-RECORD.md",
+            "unknown-k-cases.json",
+            "unknown-k/output/symbolic.json",
+            "unknown-k/output/jets.json",
+            "independent-unknown/exact-checks.json"
+          ]
+        },
+        {
+          "id": "tkmt-lab/behavioral-sir-identifiability#eq:unknown-recovery",
+          "local_id": "eq:unknown-recovery",
+          "paper_label": "eq:unknown-recovery",
+          "statement": "With [y^2 v x]P=1, k=2+[y^2 v^2 w]P/[y^3 v x]P; denominator 2 alpha>0.",
+          "evidence": [
+            {
+              "kind": "prose-proof",
+              "basis": "claims.json:/claims/16/assurance",
+              "meaning": "Exact symbolic identities and separately generated coefficient systems.",
+              "source_file": "paper-behavioral-sir-v3.4-en.tex",
+              "detail": "Source-reported evidence; catalog checks file integrity, not the proof or computation."
+            },
+            {
+              "kind": "finite-computation",
+              "basis": "claims.json:/claims/16/assurance",
+              "meaning": "Exact symbolic identities and separately generated coefficient systems.",
+              "source_file": "unknown-k/output/symbolic.json",
+              "detail": "Source-reported evidence; catalog checks file integrity, not the proof or computation."
+            }
+          ],
+          "evidence_kinds": [
+            "finite-computation",
+            "prose-proof"
+          ],
+          "scope": "Exact symbolic identities and separately generated coefficient systems.",
+          "evidence_files": [
+            "paper-behavioral-sir-v3.4-en.tex",
+            "unknown-k/output/symbolic.json",
+            "independent-unknown/exact-checks.json"
+          ]
+        },
+        {
+          "id": "tkmt-lab/behavioral-sir-identifiability#eq:k2-dependence",
+          "local_id": "eq:k2-dependence",
+          "paper_label": "eq:k2-dependence",
+          "statement": "The universal 24-column Wronskian vanishes identically on the positive k=2 slice by an eight-monomial constant relation. This does not disprove unknown-k identifiability there; fixed-known-k=2 is already covered by v1.",
+          "evidence": [
+            {
+              "kind": "prose-proof",
+              "basis": "claims.json:/claims/17/assurance",
+              "meaning": "Referee-suggested proof, author-checked by exact expansion and substitution in the auxiliary vector field.",
+              "source_file": "paper-behavioral-sir-v3.4-en.tex",
+              "detail": "Source-reported evidence; catalog checks file integrity, not the proof or computation."
+            }
+          ],
+          "evidence_kinds": [
+            "prose-proof"
+          ],
+          "scope": "Referee-suggested proof, author-checked by exact expansion and substitution in the auxiliary vector field.",
+          "evidence_files": [
+            "paper-behavioral-sir-v3.4-en.tex",
+            "VERIFICATION-RECORD.md"
+          ]
+        },
+        {
+          "id": "tkmt-lab/behavioral-sir-identifiability#thm:k2",
+          "local_id": "thm:k2",
+          "paper_label": "thm:k2",
+          "statement": "Generic true-k=2 points are identified against all positive real-k_star>=2 competitors.",
+          "evidence": [
+            {
+              "kind": "prose-proof",
+              "basis": "claims.json:/claims/18/assurance",
+              "meaning": "Prose proof and exact certificates with historical proof checks through article 3.2. The fresh article 3.3 review returned MINOR, MAJOR 0, requiring only current hash/size bindings; see verification-history-through-v3.3.md and review-response-v3.3.md. The article 3.4 review returned MINOR, MAJOR 0; see ARTICLE-REVIEW.md and REVIEW-RESPONSE.md.",
+              "source_file": "paper-behavioral-sir-v3.4-en.tex",
+              "detail": "Source-reported evidence; catalog checks file integrity, not the proof or computation."
+            },
+            {
+              "kind": "finite-computation",
+              "basis": "claims.json:/claims/18/assurance",
+              "meaning": "Prose proof and exact certificates with historical proof checks through article 3.2. The fresh article 3.3 review returned MINOR, MAJOR 0, requiring only current hash/size bindings; see verification-history-through-v3.3.md and review-response-v3.3.md. The article 3.4 review returned MINOR, MAJOR 0; see ARTICLE-REVIEW.md and REVIEW-RESPONSE.md.",
+              "source_file": "k2-slice/algebra-check.json",
+              "detail": "Source-reported evidence; catalog checks file integrity, not the proof or computation."
+            }
+          ],
+          "evidence_kinds": [
+            "finite-computation",
+            "prose-proof"
+          ],
+          "scope": "Prose proof and exact certificates with historical proof checks through article 3.2. The fresh article 3.3 review returned MINOR, MAJOR 0, requiring only current hash/size bindings; see verification-history-through-v3.3.md and review-response-v3.3.md. The article 3.4 review returned MINOR, MAJOR 0; see ARTICLE-REVIEW.md and REVIEW-RESPONSE.md.",
+          "evidence_files": [
+            "paper-behavioral-sir-v3.4-en.tex",
+            "k2-slice/algebra-check.json",
+            "k2-slice/exact-check.json",
+            "independent-k2/stage2-result.json"
+          ]
+        },
+        {
+          "id": "tkmt-lab/behavioral-sir-identifiability#thm:W-exceptions",
+          "local_id": "thm:W-exceptions",
+          "paper_label": "thm:W-exceptions",
+          "statement": "For real k>=2 the old W is identically zero on exactly the slice k=2.",
+          "evidence": [
+            {
+              "kind": "prose-proof",
+              "basis": "claims.json:/claims/19/assurance",
+              "meaning": "Prose proof and exact certificates with historical proof checks through article 3.2. The fresh article 3.3 review returned MINOR, MAJOR 0, requiring only current hash/size bindings; see verification-history-through-v3.3.md and review-response-v3.3.md. The article 3.4 review returned MINOR, MAJOR 0; see ARTICLE-REVIEW.md and REVIEW-RESPONSE.md.",
+              "source_file": "paper-behavioral-sir-v3.4-en.tex",
+              "detail": "Source-reported evidence; catalog checks file integrity, not the proof or computation."
+            },
+            {
+              "kind": "finite-computation",
+              "basis": "claims.json:/claims/19/assurance",
+              "meaning": "Prose proof and exact certificates with historical proof checks through article 3.2. The fresh article 3.3 review returned MINOR, MAJOR 0, requiring only current hash/size bindings; see verification-history-through-v3.3.md and review-response-v3.3.md. The article 3.4 review returned MINOR, MAJOR 0; see ARTICLE-REVIEW.md and REVIEW-RESPONSE.md.",
+              "source_file": "exception-map/coverage-check.json",
+              "detail": "Source-reported evidence; catalog checks file integrity, not the proof or computation."
+            }
+          ],
+          "evidence_kinds": [
+            "finite-computation",
+            "prose-proof"
+          ],
+          "scope": "Prose proof and exact certificates with historical proof checks through article 3.2. The fresh article 3.3 review returned MINOR, MAJOR 0, requiring only current hash/size bindings; see verification-history-through-v3.3.md and review-response-v3.3.md. The article 3.4 review returned MINOR, MAJOR 0; see ARTICLE-REVIEW.md and REVIEW-RESPONSE.md.",
+          "evidence_files": [
+            "paper-behavioral-sir-v3.4-en.tex",
+            "exception-map/coverage-check.json",
+            "exception-map/cross-check.json",
+            "independent-map/matrix-result.json"
+          ]
+        },
+        {
+          "id": "tkmt-lab/behavioral-sir-identifiability#thm:slice-unknown",
+          "local_id": "thm:slice-unknown",
+          "paper_label": "thm:slice-unknown",
+          "statement": "For every fixed real k>=2, an open dense set in that positive slice is identified against all positive competitors with any real k_star>=2.",
+          "evidence": [
+            {
+              "kind": "prose-proof",
+              "basis": "claims.json:/claims/20/assurance",
+              "meaning": "Prose proof and exact certificates with historical proof checks through article 3.2. The fresh article 3.3 review returned MINOR, MAJOR 0, requiring only current hash/size bindings; see verification-history-through-v3.3.md and review-response-v3.3.md. The article 3.4 review returned MINOR, MAJOR 0; see ARTICLE-REVIEW.md and REVIEW-RESPONSE.md.",
+              "source_file": "paper-behavioral-sir-v3.4-en.tex",
+              "detail": "Source-reported evidence; catalog checks file integrity, not the proof or computation."
+            },
+            {
+              "kind": "finite-computation",
+              "basis": "claims.json:/claims/20/assurance",
+              "meaning": "Prose proof and exact certificates with historical proof checks through article 3.2. The fresh article 3.3 review returned MINOR, MAJOR 0, requiring only current hash/size bindings; see verification-history-through-v3.3.md and review-response-v3.3.md. The article 3.4 review returned MINOR, MAJOR 0; see ARTICLE-REVIEW.md and REVIEW-RESPONSE.md.",
+              "source_file": "exception-map/coverage-check.json",
+              "detail": "Source-reported evidence; catalog checks file integrity, not the proof or computation."
+            }
+          ],
+          "evidence_kinds": [
+            "finite-computation",
+            "prose-proof"
+          ],
+          "scope": "Prose proof and exact certificates with historical proof checks through article 3.2. The fresh article 3.3 review returned MINOR, MAJOR 0, requiring only current hash/size bindings; see verification-history-through-v3.3.md and review-response-v3.3.md. The article 3.4 review returned MINOR, MAJOR 0; see ARTICLE-REVIEW.md and REVIEW-RESPONSE.md.",
+          "evidence_files": [
+            "paper-behavioral-sir-v3.4-en.tex",
+            "exception-map/coverage-check.json",
+            "independent-map/matrix-result.json",
+            "independent-k2/stage2-result.json"
+          ]
+        },
+        {
+          "id": "tkmt-lab/behavioral-sir-identifiability#prop:low-exponents",
+          "local_id": "prop:low-exponents",
+          "paper_label": "prop:low-exponents",
+          "statement": "True 4/3 and 3/2 slices have a generic guarantee against all positive k_star>=0 competitors; 0 and 1 have same-curve ambiguity families.",
+          "evidence": [
+            {
+              "kind": "prose-proof",
+              "basis": "claims.json:/claims/21/assurance",
+              "meaning": "Prose proof and exact certificates with historical proof checks through article 3.2. The fresh article 3.3 review returned MINOR, MAJOR 0, requiring only current hash/size bindings; see verification-history-through-v3.3.md and review-response-v3.3.md. The article 3.4 review returned MINOR, MAJOR 0; see ARTICLE-REVIEW.md and REVIEW-RESPONSE.md.",
+              "source_file": "paper-behavioral-sir-v3.4-en.tex",
+              "detail": "Source-reported evidence; catalog checks file integrity, not the proof or computation."
+            },
+            {
+              "kind": "finite-computation",
+              "basis": "claims.json:/claims/21/assurance",
+              "meaning": "Prose proof and exact certificates with historical proof checks through article 3.2. The fresh article 3.3 review returned MINOR, MAJOR 0, requiring only current hash/size bindings; see verification-history-through-v3.3.md and review-response-v3.3.md. The article 3.4 review returned MINOR, MAJOR 0; see ARTICLE-REVIEW.md and REVIEW-RESPONSE.md.",
+              "source_file": "exception-map/coverage-check.json",
+              "detail": "Source-reported evidence; catalog checks file integrity, not the proof or computation."
+            }
+          ],
+          "evidence_kinds": [
+            "finite-computation",
+            "prose-proof"
+          ],
+          "scope": "Prose proof and exact certificates with historical proof checks through article 3.2. The fresh article 3.3 review returned MINOR, MAJOR 0, requiring only current hash/size bindings; see verification-history-through-v3.3.md and review-response-v3.3.md. The article 3.4 review returned MINOR, MAJOR 0; see ARTICLE-REVIEW.md and REVIEW-RESPONSE.md.",
+          "evidence_files": [
+            "paper-behavioral-sir-v3.4-en.tex",
+            "exception-map/coverage-check.json",
+            "exception-map/counterexamples-check.json",
+            "independent-map/stage1-result.json"
           ]
         }
       ]
@@ -8715,6 +9132,109 @@
           ],
           "evidence_kinds": [
             "finite-computation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tkmt-lab/alcubierre-tidal-energy-asymptotics",
+      "source_revision": {
+        "ref": "origin/main",
+        "commit": "7a6656b21d528c0309733aa9ed6a69a4b269de74",
+        "matches_release": true
+      },
+      "title": "Sharp first-order energy correction under an Eulerian tidal bound for finite-wall Alcubierre profiles",
+      "title_tex": "Sharp first-order energy correction under an Eulerian tidal bound for finite-wall Alcubierre profiles",
+      "paper_version": "1.2",
+      "authors": [
+        {
+          "name": "Tatsuhiko Takimoto"
+        }
+      ],
+      "summary": "This work determines the first correction to the infimum of the energy index for a fixed finite-wall Alcubierre model under an Eulerian tidal bound. Documented checks: Analytic lower and upper bounds, 18 exact rational enclosures, saved symbolic and separate quadrature checks, and a separate derivation from the stated claim. The retained Lean L1 file only type-checks a weaker statement with existential error constants; it is not a formal proof of the theorem. Limits: The result concerns the specified radial profiles, metric, observer and electric Riemann norm. It does not establish a finite-eta optimizer, an optimal remainder rate, bounds for other observers or curvature components, or the same energy bound for general shifts. The slice integral is not ADM mass, and matter realizability, energy conditions, quantum inequalities and stability are outside the result. Details: Paper 13. The bound is ||E/v^2|| <= eta at every radius and angle. With J = integral_1^R r^2 f′(r)^2 dr, eta[J_R*(eta)-R/(R-1)] tends uniformly to 1/[3R(R-1)^3] for R in [3/2,3]. At v=1/10 the Eulerian slice energy is -J/1200. The finite-wall width stays in [1/2,2]; this is not a thin-wall limit. The lower and constructed upper bounds have scaled errors O(eta^-1/2) and O(eta^-1); no optimizer existence is assumed. Finite calculations support the formulas and examples, while the uniform result rests on the analytic proof.",
+      "release": {
+        "tag": "v1.0.0",
+        "date": "2026-11-05",
+        "commit": "7a6656b21d528c0309733aa9ed6a69a4b269de74",
+        "github_release": "https://github.com/tkmt-lab/alcubierre-tidal-energy-asymptotics/releases/tag/v1.0.0",
+        "version_doi": "10.5281/zenodo.23965866",
+        "concept_doi": "10.5281/zenodo.23965865",
+        "doi_status": "minted"
+      },
+      "repo_url": "https://github.com/tkmt-lab/alcubierre-tidal-energy-asymptotics",
+      "paper_pdf": {
+        "path": "paper.pdf",
+        "url": "https://github.com/tkmt-lab/alcubierre-tidal-energy-asymptotics/blob/v1.0.0/paper.pdf",
+        "raw_url": "https://raw.githubusercontent.com/tkmt-lab/alcubierre-tidal-energy-asymptotics/v1.0.0/paper.pdf"
+      },
+      "paper_source": {
+        "path": "paper.tex",
+        "url": "https://github.com/tkmt-lab/alcubierre-tidal-energy-asymptotics/blob/v1.0.0/paper.tex"
+      },
+      "entry_points": {
+        "agents_md": [
+          {
+            "path": "AGENTS.md",
+            "url": "https://github.com/tkmt-lab/alcubierre-tidal-energy-asymptotics/blob/v1.0.0/AGENTS.md"
+          }
+        ],
+        "claims_json": {
+          "path": "claims.json",
+          "url": "https://github.com/tkmt-lab/alcubierre-tidal-energy-asymptotics/blob/v1.0.0/claims.json",
+          "raw_url": "https://raw.githubusercontent.com/tkmt-lab/alcubierre-tidal-energy-asymptotics/v1.0.0/claims.json"
+        },
+        "readme": {
+          "path": "README.md",
+          "url": "https://github.com/tkmt-lab/alcubierre-tidal-energy-asymptotics/blob/v1.0.0/README.md"
+        },
+        "citation_cff": {
+          "path": "CITATION.cff",
+          "url": "https://github.com/tkmt-lab/alcubierre-tidal-energy-asymptotics/blob/v1.0.0/CITATION.cff"
+        }
+      },
+      "scope": [
+        {
+          "text": "Fixed finite radial wall in the specified Alcubierre metric, monotone C² radial profiles matched at both boundaries, one Eulerian observer's electric tidal norm: the first correction coefficient is 1/[3R(R-1)^3] uniformly for R in [3/2,3], with explicit bounds and error orders.",
+          "lang": "en",
+          "source": "docs/releases.json"
+        }
+      ],
+      "not_claimed": [
+        {
+          "text": "The result concerns the specified radial profiles, metric, observer and electric Riemann norm. It does not establish a finite-eta optimizer, an optimal remainder rate, bounds for other observers or curvature components, or the same energy bound for general shifts. The slice integral is not ADM mass, and matter realizability, energy conditions, quantum inequalities and stability are outside the result.",
+          "lang": "en",
+          "source": "llms.txt"
+        }
+      ],
+      "verification": [
+        {
+          "source": "README.md#Reproduce the finite checks",
+          "working_directory": ".",
+          "shell": "sh",
+          "script": "python3 -B check_all.py",
+          "expected_output_status": "not-documented-in-extracted-section",
+          "acceptance_notes": "Success is exit code 0 and `status: PASS`. It checks the distribution manifest, input/export provenance, PDF version and text, claim metadata, and saved citation records. It regenerates **18 exact rational enclosures**, the numerical table, the bibliography, and **15 exact arithmetic checks** of the constant bounds in temporary directories. Negative controls require rejection of a changed table cell, a missing row, a changed rational bound, and optimized Python. The numerical checker compares against regeneration without consulting the file-hash manifest."
+        }
+      ],
+      "claims": [
+        {
+          "id": "tkmt-lab/alcubierre-tidal-energy-asymptotics#primary_claim",
+          "local_id": "primary_claim",
+          "statement": "Theorem 1: uniform first-order coefficient of the constrained radial energy infimum",
+          "evidence": [],
+          "evidence_kinds": [],
+          "not_claimed": [
+            "finite-eta optimizer existence or uniqueness",
+            "optimal remainder rate",
+            "other observers",
+            "bounds on all curvature components",
+            "matter realizability",
+            "quantum inequalities",
+            "stability",
+            "energy-condition satisfaction",
+            "global novelty priority",
+            "identifying the Eulerian slice-energy integral with ADM mass",
+            "the same energy bound for nonmonotone or nonradial profiles, multicomponent shifts, or general divergence-free shifts"
           ]
         }
       ]

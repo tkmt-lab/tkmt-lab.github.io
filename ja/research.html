@@ -803,13 +803,13 @@
 
   <div class="work" id="behavioral-sir-identifiability">
     <div class="num">論文 5 · 2026</div>
-    <h3 class="t">2 以上のすべての整数の飽和指数 k での、行動変容 SIR モデルの大域的な識別可能性</h3>
+    <h3 class="t">未知の正の飽和指数をもつ行動変容SIRモデルの大域的な識別可能性</h3>
     <dl class="work-summary">
-      <div><dt>問い</dt><dd>完全な感染者数の曲線と総人口から、行動を含む SIR モデルのパラメータが分かるか。</dd></div>
-      <div><dt>分かったこと</dt><dd>固定した整数 k ≥ 2 のすべてで、一般的な値なら、三つの速さと見えない感受性者・回復者の数が決まる。</dd></div>
-      <div><dt>証拠</dt><dd>文章の証明、二つの AI による読解と一部の再計算、k = 1〜12 の厳密な数式処理。</dd></div>
+      <div><dt>問い</dt><dd>感染曲線から、指数と三つの速さ、見えない人数を区別できるか。</dd></div>
+      <div><dt>分かったこと</dt><dd>総人口が既知なら、正確な感染曲線から、正の各点で指数・三つの速さ・初期人数が決まります。対象は k &gt; 0、k ≠ 1。比べる指数は、真の k &lt; 2 では 0 以上、k ≥ 2 では 2 以上です。</dd></div>
+      <div><dt>証拠</dt><dd>文章の証明と厳密な代数の証明書。検査9〜11には前の検査の文脈があり、論文のAI査読はMINOR・MAJOR 0。著者が直したメタデータは別途の再査読を受けていません。</dd></div>
     </dl>
-    <p class="plain">固定した整数 k ≥ 2 のどの場合も、一般の値なら、完全な感染者数 I(t) の曲線と総人口から、行動を含む SIR モデルのパラメータと見えない人数が決まることを証明しました。感染の速さを (1 + αI)^k で割って接触を減らす行動を表すモデルで、B. Pant、O. Saucedo、G. Pogudin が k = 1 では決まらないことを示し、ここで証明した拡張を予想しました。2 以上のどの整数 k についても、一般の値では、感染者数の曲線と総人口から、三つの速さと、見えない感受性者・回復者の数が決まることを証明しました。証明は、入出力の方程式を閉じた形で求め、モデルに隠れた保存量がないことを示したうえで、A. Ovchinnikov、G. Pogudin、P. Thompson の結果を使います。</p>
+    <p class="plain">モデルの異なる指数や人数が、同じ理想的な感染曲線を作るかどうかを調べた結果です。既知の整数に限らず、整数でない指数や未知の指数も、上記の範囲で区別します。k = 1 の二義性は残ります。有限個の観測や誤差のあるデータから推定する手法ではなく、総人口が未知の場合も対象外です。</p>
     <figure><svg viewBox="0 0 412 154" role="img" aria-label="二組のパラメータでの感染者数 I(t)、k = 1 と k = 2" style="width:100%;max-width:440px;height:auto;display:block">
 <text x="16" y="13" font-size="13" fill="var(--fg)">k = 1: 曲線は一本</text>
 <line x1="16" y1="112.5" x2="196" y2="112.5" stroke="var(--muted)" stroke-width="1"/>
@@ -825,9 +825,9 @@
 <text x="42" y="146" font-size="13" fill="var(--fg)">(α, β, γ) = (2, 3, 5)</text>
 <line x1="200" y1="142" x2="220" y2="142" stroke="var(--fig-no)" stroke-width="1.5" stroke-dasharray="5 3"/>
 <text x="226" y="146" font-size="13" fill="var(--fg)">(2, 10, 3/2)</text>
-</svg><figcaption>(α, β, γ) = (2, 3, 5) と (2, 10, 3/2) での感染者数 I(t)。二つは k = 1 の入れ替え (β, γ) → (αγ, β/α) で移り合います。初期値は説明用で、I(0)、I′(0) と全人口をそろえています。k = 1 では二本の曲線が完全に重なり、k = 2 では離れるので、曲線からパラメータを見分けられます。</figcaption></figure>
-    <div class="links"><a href="https://github.com/tkmt-lab/behavioral-sir-identifiability/blob/6691a76801a522592712e41993b6f4353decee88/paper-behavioral-sir-v1.1-en.pdf">論文（PDF、英語）</a> · <a href="https://github.com/tkmt-lab/behavioral-sir-identifiability">リポジトリ</a> · <a href="https://doi.org/10.5281/zenodo.23553807">この版のDOI</a> · <a href="https://doi.org/10.5281/zenodo.23553806">全版の概念DOI</a> · 公開版 <a href="https://github.com/tkmt-lab/behavioral-sir-identifiability/releases/tag/v1.0.0">v1.0.0</a> (<a href="https://github.com/tkmt-lab/behavioral-sir-identifiability/commit/6691a76801a522592712e41993b6f4353decee88"><code>6691a76801a5</code></a>) · <a href="https://github.com/tkmt-lab/behavioral-sir-identifiability/blob/6691a76801a522592712e41993b6f4353decee88/claims.json">claims.json</a> · <a href="https://github.com/tkmt-lab/behavioral-sir-identifiability/actions">検査（CI）</a></div>
-    <p class="note">証明は文章によるもので、二つの AI が読み、一部を計算し直しました。k = 1〜12 は厳密な数式処理でも確かめています。整数でない k、未知の k、誤差のあるデータは扱っていません。</p>
+</svg><figcaption>(α, β, γ) = (2, 3, 5) と (2, 10, 3/2) での感染者数 I(t)。二つは k = 1 の入れ替え (β, γ) → (αγ, β/α) で移り合います。初期値は説明用で、I(0)、I′(0) と全人口をそろえています。k = 1 では二本の曲線が完全に重なり、k = 2 では離れるので、曲線からパラメータを見分けられます。 この図は k = 1 と k = 2 の例示です。定理の指数の範囲は上記のとおりです。</figcaption></figure>
+    <div class="links"><a href="https://github.com/tkmt-lab/behavioral-sir-identifiability/blob/aaffbd233dca9bca9db0874280578a5d9f0d5417/paper-behavioral-sir-v3.4-en.pdf">論文（PDF、英語）</a> · <a href="https://github.com/tkmt-lab/behavioral-sir-identifiability">リポジトリ</a> · <a href="https://doi.org/10.5281/zenodo.23989257">この版のDOI</a> · <a href="https://doi.org/10.5281/zenodo.23553806">全版の概念DOI</a> · 公開版 <a href="https://github.com/tkmt-lab/behavioral-sir-identifiability/releases/tag/v3.4.0">v3.4.0</a> (<a href="https://github.com/tkmt-lab/behavioral-sir-identifiability/commit/aaffbd233dca9bca9db0874280578a5d9f0d5417"><code>aaffbd233dca</code></a>) · <a href="https://github.com/tkmt-lab/behavioral-sir-identifiability/blob/aaffbd233dca9bca9db0874280578a5d9f0d5417/claims.json">claims.json</a> · <a href="https://github.com/tkmt-lab/behavioral-sir-identifiability/actions">検査（CI）</a></div>
+    <p class="note">指数を比べる範囲は k = 2 を境に異なります。図の二例や有限の代数検査だけを、一般の解析的な主張の証明とはしていません。</p>
   </div>
 
   <div class="work" id="heesch-certificates">

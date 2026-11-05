@@ -800,13 +800,13 @@
 
   <div class="work" id="behavioral-sir-identifiability">
     <div class="num">Paper 5 · 2026</div>
-    <h3 class="t">Global identifiability of a behavioral SIR model for every integer saturation exponent k ≥ 2</h3>
+    <h3 class="t">Global identifiability of a behavioral SIR model with an unknown positive saturation exponent</h3>
     <dl class="work-summary">
-      <div><dt>Question</dt><dd>Can a perfect infection curve and total population identify the behavioral SIR model’s parameters?</dd></div>
-      <div><dt>Findings</dt><dd>For every fixed integer k ≥ 2, the three rates and hidden S and R counts are identifiable for generic values.</dd></div>
-      <div><dt>Evidence</dt><dd>A prose proof, two AI readers’ partial recomputations, and exact algebra checks for k = 1–12.</dd></div>
+      <div><dt>Question</dt><dd>Can the infection curve distinguish the exponent, rates and hidden populations?</dd></div>
+      <div><dt>Findings</dt><dd>With known total population, an exact infection curve identifies the exponent, rates and initial populations at every positive true point with k &gt; 0, k ≠ 1. Competitors have k* ≥ 0 for true k &lt; 2, and k* ≥ 2 for true k ≥ 2.</dd></div>
+      <div><dt>Evidence</dt><dd>Prose proofs and exact algebra certificates. Checks 9–11 retained prior-session context. Article review: MINOR, MAJOR 0; author-corrected metadata was not separately re-refereed.</dd></div>
     </dl>
-    <p class="plain">For every fixed integer k ≥ 2, a perfect infection curve I(t) and total population determine this behavioral SIR model's parameters and hidden population counts for generic values. The transmission rate is divided by (1 + αI)^k to model reduced contacts as infections rise; B. Pant, O. Saucedo and G. Pogudin showed non-identifiability at k = 1 and conjectured the extension proved here. We prove this for every fixed integer k ≥ 2: for generic values, the infection curve and the total population determine the three rates and the hidden numbers of susceptible and recovered people. The proof gives the input–output equation in closed form and shows that the model has no hidden conserved quantity, then uses results of A. Ovchinnikov, G. Pogudin and P. Thompson.</p>
+    <p class="plain">The result states when different positive model quantities can produce the same ideal infection curve. It covers noninteger and unknown exponents at every positive true point in the stated domains. The ambiguity at k = 1 remains. This is an ideal-observation theorem, not an estimator for finite or noisy samples; unknown total population is outside the result.</p>
     <figure><svg viewBox="0 0 412 154" role="img" aria-label="Infected count I(t) for two parameter sets, k = 1 and k = 2" style="width:100%;max-width:440px;height:auto;display:block">
 <text x="16" y="13" font-size="13" fill="var(--fg)">k = 1: one curve</text>
 <line x1="16" y1="112.5" x2="196" y2="112.5" stroke="var(--muted)" stroke-width="1"/>
@@ -822,9 +822,9 @@
 <text x="42" y="146" font-size="13" fill="var(--fg)">(α, β, γ) = (2, 3, 5)</text>
 <line x1="200" y1="142" x2="220" y2="142" stroke="var(--fig-no)" stroke-width="1.5" stroke-dasharray="5 3"/>
 <text x="226" y="146" font-size="13" fill="var(--fg)">(2, 10, 3/2)</text>
-</svg><figcaption>Infected count I(t) for (α, β, γ) = (2, 3, 5) and (2, 10, 3/2), which are related by the k = 1 swap (β, γ) → (αγ, β/α); starting values are illustrative, with the same I(0), I′(0) and total population. For k = 1 the two curves are identical; for k = 2 they separate, so the curve tells the parameters apart.</figcaption></figure>
-    <div class="links"><a href="https://github.com/tkmt-lab/behavioral-sir-identifiability/blob/6691a76801a522592712e41993b6f4353decee88/paper-behavioral-sir-v1.1-en.pdf">Paper (PDF)</a> · <a href="https://github.com/tkmt-lab/behavioral-sir-identifiability">Repository</a> · <a href="https://doi.org/10.5281/zenodo.23553807">Version DOI</a> · <a href="https://doi.org/10.5281/zenodo.23553806">Concept DOI (all versions)</a> · Release <a href="https://github.com/tkmt-lab/behavioral-sir-identifiability/releases/tag/v1.0.0">v1.0.0</a> (<a href="https://github.com/tkmt-lab/behavioral-sir-identifiability/commit/6691a76801a522592712e41993b6f4353decee88"><code>6691a76801a5</code></a>) · <a href="https://github.com/tkmt-lab/behavioral-sir-identifiability/blob/6691a76801a522592712e41993b6f4353decee88/claims.json">claims.json</a> · <a href="https://github.com/tkmt-lab/behavioral-sir-identifiability/actions">Exact checks</a></div>
-    <p class="note">The proof is in prose; two AI reviewers read it and recomputed parts, and exact computer-algebra checks cover k = 1 to 12. Non-integer or unknown k and noisy data are not covered.</p>
+</svg><figcaption>Infected count I(t) for (α, β, γ) = (2, 3, 5) and (2, 10, 3/2), which are related by the k = 1 swap (β, γ) → (αγ, β/α); starting values are illustrative, with the same I(0), I′(0) and total population. For k = 1 the two curves are identical; for k = 2 they separate, so the curve tells the parameters apart. The plot illustrates these two exponents only; the theorem domains are stated above.</figcaption></figure>
+    <div class="links"><a href="https://github.com/tkmt-lab/behavioral-sir-identifiability/blob/aaffbd233dca9bca9db0874280578a5d9f0d5417/paper-behavioral-sir-v3.4-en.pdf">Paper (PDF)</a> · <a href="https://github.com/tkmt-lab/behavioral-sir-identifiability">Repository</a> · <a href="https://doi.org/10.5281/zenodo.23989257">Version DOI</a> · <a href="https://doi.org/10.5281/zenodo.23553806">Concept DOI (all versions)</a> · Release <a href="https://github.com/tkmt-lab/behavioral-sir-identifiability/releases/tag/v3.4.0">v3.4.0</a> (<a href="https://github.com/tkmt-lab/behavioral-sir-identifiability/commit/aaffbd233dca9bca9db0874280578a5d9f0d5417"><code>aaffbd233dca</code></a>) · <a href="https://github.com/tkmt-lab/behavioral-sir-identifiability/blob/aaffbd233dca9bca9db0874280578a5d9f0d5417/claims.json">claims.json</a> · <a href="https://github.com/tkmt-lab/behavioral-sir-identifiability/actions">Checks (CI)</a></div>
+    <p class="note">The competitor ranges differ across k = 2. Neither the illustrative plot nor finite algebra checks alone prove the general analytic claims.</p>
   </div>
 
   <div class="work" id="heesch-certificates">
