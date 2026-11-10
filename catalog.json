@@ -3,7 +3,7 @@
   "version": "1.2",
   "generated_at": "2026-11-10T00:00:00+00:00",
   "sources": {
-    "releases": "docs/releases.json (lab research repository, updated 2026-11-06T05:27:31+09:00)",
+    "releases": "docs/releases.json (lab research repository, input ba31f919e60dbf8603134992e08d20b9654e421d; targeted five-work update)",
     "repositories": "Files read at the exact release commits recorded in work.source_revision. Its ref names belong to the selected local input repositories; when release-pinned offline snapshots are used, origin/main denotes the snapshot-local ref, not a receipt of the current public remote ref. Public-history checks and observed remote refs are recorded separately in the post-release input manifest.",
     "homepage_editorial": "Work summaries and work-level exclusions copied from llms.txt; claim statements, evidence, scope, raw remaining obligations and execution flags retain their source records.",
     "targeted_update": "Three correction releases and two new papers read from the fixed pkg snapshots in the 2026-11-10 research task; other work records retained from the homepage baseline. Local origin/main denotes each selected snapshot, not a fresh public-remote observation."
@@ -9239,6 +9239,323 @@
           ]
         }
       ]
+    },
+    {
+      "id": "tkmt-lab/elastic-buchdahl-ball-certificates",
+      "source_revision": {
+        "ref": "origin/main",
+        "commit": "9fc9731a504e0b476ec112528fa2fd51cf870abf",
+        "matches_release": true
+      },
+      "title": "An interval certificate for a relativistic elastic ball beyond the Buchdahl compactness value",
+      "title_tex": "An interval certificate for a relativistic elastic ball\\\\beyond the Buchdahl compactness value",
+      "paper_version": "1.0.0",
+      "packet_version": "1.0.0",
+      "authors": [
+        {
+          "name": "Tatsuhiko Takimoto"
+        }
+      ],
+      "summary": "For one fixed material and central value δc = 8, interval certificates establish a regular finite elastic ball with 0.91089951 < 2M/R < 0.91180552, above 8/9; physical material viability and stability are outside the claim. Documented checks: Two interval certificates, with 465 and 1592 tubes, replayed through a shared integer interval engine. Limits: The reference shear modulus is μ = −60. The result concerns one mathematical constitutive law and central value; physical material viability, arbitrary-direction causality and dynamical stability are outside the claim. Buchdahl’s perfect-fluid assumptions differ from this anisotropic model. The argument uses prose lemmas and integer interval checks; the Lean file only type-checks a statement. Details: Paper 14. One anisotropic elastic ball is certified from its regular center to its first finite surface, with surface compactness above 8/9. For the specified Alho–Natário–Pani–Raposo material and central value δc = 8, both pressures are nonnegative, the dominant energy condition holds, and all five principal-direction squared wave speeds lie in [0,1] throughout the ball. The certificates can be used to check this fixed example globally; the numerical exceedance in this family was already established by the original authors.",
+      "release": {
+        "tag": "v1.0.0",
+        "date": "2026-11-09",
+        "commit": "9fc9731a504e0b476ec112528fa2fd51cf870abf",
+        "github_release": "https://github.com/tkmt-lab/elastic-buchdahl-ball-certificates/releases/tag/v1.0.0",
+        "version_doi": "10.5281/zenodo.24083491",
+        "concept_doi": "10.5281/zenodo.24083490",
+        "doi_status": "minted"
+      },
+      "repo_url": "https://github.com/tkmt-lab/elastic-buchdahl-ball-certificates",
+      "paper_pdf": {
+        "path": "paper.pdf",
+        "url": "https://github.com/tkmt-lab/elastic-buchdahl-ball-certificates/blob/v1.0.0/paper.pdf",
+        "raw_url": "https://raw.githubusercontent.com/tkmt-lab/elastic-buchdahl-ball-certificates/v1.0.0/paper.pdf"
+      },
+      "paper_source": {
+        "path": "paper.tex",
+        "url": "https://github.com/tkmt-lab/elastic-buchdahl-ball-certificates/blob/v1.0.0/paper.tex"
+      },
+      "entry_points": {
+        "agents_md": [
+          {
+            "path": "AGENTS.md",
+            "url": "https://github.com/tkmt-lab/elastic-buchdahl-ball-certificates/blob/v1.0.0/AGENTS.md"
+          }
+        ],
+        "claims_json": {
+          "path": "claims.json",
+          "url": "https://github.com/tkmt-lab/elastic-buchdahl-ball-certificates/blob/v1.0.0/claims.json",
+          "raw_url": "https://raw.githubusercontent.com/tkmt-lab/elastic-buchdahl-ball-certificates/v1.0.0/claims.json"
+        },
+        "readme": {
+          "path": "README.md",
+          "url": "https://github.com/tkmt-lab/elastic-buchdahl-ball-certificates/blob/v1.0.0/README.md"
+        },
+        "citation_cff": {
+          "path": "CITATION.cff",
+          "url": "https://github.com/tkmt-lab/elastic-buchdahl-ball-certificates/blob/v1.0.0/CITATION.cff"
+        }
+      },
+      "verification": [
+        {
+          "source": "README.md",
+          "working_directory": ".",
+          "shell": "sh",
+          "script": "python3 -I -B verify.py",
+          "expected_output_status": "not-documented-in-extracted-section"
+        }
+      ],
+      "claims": [
+        {
+          "id": "tkmt-lab/elastic-buchdahl-ball-certificates#existence",
+          "local_id": "existence",
+          "statement": "Regular finite static spherical ball with first transverse zero of radial pressure",
+          "evidence": [],
+          "evidence_kinds": [],
+          "evidence_files": [
+            "paper.tex",
+            "certificates/check_own_tubes.py",
+            "certificates/replay_producer.py"
+          ]
+        },
+        {
+          "id": "tkmt-lab/elastic-buchdahl-ball-certificates#continuous-conditions",
+          "local_id": "continuous-conditions",
+          "statement": "Nonnegative pressures, full DEC, five principal squared speeds in [0,1] on the entire ball",
+          "evidence": [],
+          "evidence_kinds": [],
+          "evidence_files": [
+            "spec.json",
+            "certificates/independent.py",
+            "certificates/check_own_tubes.py",
+            "certificates/replay_producer.py"
+          ]
+        },
+        {
+          "id": "tkmt-lab/elastic-buchdahl-ball-certificates#surface-bounds",
+          "local_id": "surface-bounds",
+          "evidence": [],
+          "evidence_kinds": [],
+          "evidence_files": [
+            "certificates/own-tubes-checked.json",
+            "verify.py"
+          ]
+        }
+      ],
+      "not_claimed": [
+        {
+          "text": "The contribution is a global interval certificate for one fixed material and central value. The reference shear modulus is μ=−60. Physical material viability, arbitrary-direction causality, dynamical stability and general constitutive families are outside the claim. No priority claim is made for the phenomenon or for the first rigorous treatment of this family. The Lean file is a type-checked L1 proposition, with no formal proof. This article has not been externally peer-reviewed. The related computations by Merkushev cited below were not independently checked here. Approximate margin displays below are not exact decimal lower bounds; the integer endpoints and replay determine the proof. Review history and the scope of static AI review are recorded in [VERIFICATION-RECORD.md](VERIFICATION-RECORD.md).",
+          "lang": "en",
+          "source": "README.md#Scope"
+        }
+      ],
+      "scope": [
+        {
+          "text": "For one Alho–Natário–Pani–Raposo material and central value δc=8, interval certificates establish a regular finite static ball with nonnegative pressures, the dominant energy condition and five principal-direction squared wave speeds in [0,1].\nIts surface compactness satisfies **0.91089951 < 2M/R < 0.91180552**, exceeding 8/9.\nThe certificates give a global rigorous check of one anisotropic elastic example in a family whose numerical exceedance was established by those authors; Buchdahl's perfect-fluid assumptions differ from this model.",
+          "lang": "en",
+          "source": "README.md"
+        }
+      ],
+      "status_semantics": "Claim evidence paths and source scope are retained; no per-claim proof status or evidence kind is inferred from work-level descriptions. The verification commands were copied, not executed by this catalog update."
+    },
+    {
+      "id": "tkmt-lab/behavioral-sir-minimal-jets",
+      "source_revision": {
+        "ref": "origin/main",
+        "commit": "47498e99f9ba4c37947d4fb2fc775ed306c54a70",
+        "matches_release": true
+      },
+      "title": "Minimal jet orders in a positive behavioral SIR model",
+      "title_tex": "Minimal jet orders in a positive behavioral SIR model",
+      "paper_version": "1.0",
+      "packet_version": "1.0.0",
+      "authors": [
+        {
+          "name": "Tatsuhiko Takimoto",
+          "affiliation": "Independent researcher"
+        }
+      ],
+      "summary": "For each fixed known k = 2, 3, 5/2 and known N0 > 0, exact infectious-population jets identify positive rates and states at minimal order four locally and five globally, for generic true points. Documented checks: Prose proof, supported by exact positive-branch certificates for the three exponents. The certificates were checked by two algebraic implementations. Limits: The supplementary certificates at k = 7/2 and 1 + √2 do not extend the main theorem. The result does not classify all exponents or exceptional fibers, assert ambiguity at every fourth-order jet, or address unknown k or N0, noisy-data estimation or numerical stability. Details: Paper 15. In the positive behavioral SIR model, four exact derivatives of the infectious population, together with its value at one time, suffice locally; five are needed globally, for generic true points. Here k is fixed and known, separately at 2, 3 or 5/2, and the total population N0 > 0 is known. Generic means an open dense set in the positive domain; global comparison includes every positive competitor with the same k and N0. Distinct regular positive points sharing the same fourth-order jet yield a nonempty open set of ambiguity. The certificates can be used to compare local identifiability with uniqueness throughout the positive domain.",
+      "release": {
+        "tag": "v1.0.0",
+        "date": "2026-11-10",
+        "commit": "47498e99f9ba4c37947d4fb2fc775ed306c54a70",
+        "github_release": "https://github.com/tkmt-lab/behavioral-sir-minimal-jets/releases/tag/v1.0.0",
+        "version_doi": "10.5281/zenodo.24095239",
+        "concept_doi": "10.5281/zenodo.24095238",
+        "doi_status": "minted"
+      },
+      "repo_url": "https://github.com/tkmt-lab/behavioral-sir-minimal-jets",
+      "paper_pdf": {
+        "path": "paper-sir-minimal-jets-v1-en.pdf",
+        "url": "https://github.com/tkmt-lab/behavioral-sir-minimal-jets/blob/v1.0.0/paper-sir-minimal-jets-v1-en.pdf",
+        "raw_url": "https://raw.githubusercontent.com/tkmt-lab/behavioral-sir-minimal-jets/v1.0.0/paper-sir-minimal-jets-v1-en.pdf"
+      },
+      "paper_source": {
+        "path": "paper-sir-minimal-jets-v1-en.tex",
+        "url": "https://github.com/tkmt-lab/behavioral-sir-minimal-jets/blob/v1.0.0/paper-sir-minimal-jets-v1-en.tex"
+      },
+      "entry_points": {
+        "agents_md": [
+          {
+            "path": "AGENTS.md",
+            "url": "https://github.com/tkmt-lab/behavioral-sir-minimal-jets/blob/v1.0.0/AGENTS.md"
+          }
+        ],
+        "claims_json": {
+          "path": "claims.json",
+          "url": "https://github.com/tkmt-lab/behavioral-sir-minimal-jets/blob/v1.0.0/claims.json",
+          "raw_url": "https://raw.githubusercontent.com/tkmt-lab/behavioral-sir-minimal-jets/v1.0.0/claims.json"
+        },
+        "readme": {
+          "path": "README.md",
+          "url": "https://github.com/tkmt-lab/behavioral-sir-minimal-jets/blob/v1.0.0/README.md"
+        },
+        "citation_cff": {
+          "path": "CITATION.cff",
+          "url": "https://github.com/tkmt-lab/behavioral-sir-minimal-jets/blob/v1.0.0/CITATION.cff"
+        }
+      },
+      "scope_flags": {
+        "fixed_known_k": [
+          "2",
+          "3",
+          "5/2"
+        ],
+        "known_N0": true,
+        "positive_real_domain": true,
+        "positive_rates_and_states": true,
+        "genericity": "Euclidean open dense true set",
+        "all_positive_same_k_competitors": true,
+        "local_minimum": 4,
+        "global_minimum": 5,
+        "fourth_order_ambiguity_on_nonempty_open_set": true,
+        "all_points_ambiguous_at_order_four": false,
+        "all_k_classified": false,
+        "unknown_k": false,
+        "unknown_N0": false,
+        "noisy_data": false,
+        "expanded_J5_inverse": false,
+        "formal_proof": false,
+        "human_peer_review": false,
+        "external_package_comparison_executed": false
+      },
+      "verification": [
+        {
+          "source": "README.md",
+          "working_directory": ".",
+          "shell": "sh",
+          "script": "python3 -B verify.py",
+          "expected_output_status": "not-documented-in-extracted-section"
+        }
+      ],
+      "claims": [
+        {
+          "id": "tkmt-lab/behavioral-sir-minimal-jets#thm:main",
+          "local_id": "thm:main",
+          "paper_label": "thm:main",
+          "statement": "For each fixed known k=2,3,5/2 and each known N0>0, generic local minimal jet order is 4 and generic global minimal order against all positive same-k competitors is 5.",
+          "evidence": [],
+          "evidence_kinds": [],
+          "scope": "Cited upper bound; exact regular-pair certificates; inverse/constant rank theorems and positive scaling.",
+          "evidence_files": [
+            "paper-sir-minimal-jets-v1-en.tex",
+            "VERIFICATION-RECORD.md",
+            "producer/output/certificate.json",
+            "independent/source-certificate-check.json"
+          ]
+        },
+        {
+          "id": "tkmt-lab/behavioral-sir-minimal-jets#prop:upper",
+          "local_id": "prop:upper",
+          "paper_label": "prop:upper",
+          "statement": "The observation field on the rational cover is generated by J5; its observable quantities recover all positive rates and states against every same-jet competitor at generic true points.",
+          "evidence": [],
+          "evidence_kinds": [],
+          "scope": "DPR order-five bound, also proved by separant argument; cover observability proved in Lemma 3 / Appendix B with direct Wronskian recovery. Companion argument and precise locations retained.",
+          "evidence_files": [
+            "paper-sir-minimal-jets-v1-en.tex",
+            "companion/paper-behavioral-sir-v3.0-en.tex",
+            "companion/paper-behavioral-sir-v3.0-en.pdf",
+            "VERIFICATION-RECORD.md",
+            "check_observability.py",
+            "observability-check.json"
+          ]
+        },
+        {
+          "id": "tkmt-lab/behavioral-sir-minimal-jets#lem:certificate",
+          "local_id": "lem:certificate",
+          "paper_label": "lem:certificate",
+          "statement": "Three positive same-J4 pairs have different fifth derivatives and nonzero full J4 Jacobians at both points.",
+          "evidence": [],
+          "evidence_kinds": [],
+          "scope": "Two separately written algebraic checks plus rational interval checks; exact fractions, not approximate root equality.",
+          "evidence_files": [
+            "paper-sir-minimal-jets-v1-en.tex",
+            "producer/output/certificate.json",
+            "producer/output/certificate-check.json",
+            "independent/source-certificate-check.json",
+            "article-cases.json"
+          ]
+        },
+        {
+          "id": "tkmt-lab/behavioral-sir-minimal-jets#lem:two-branches",
+          "local_id": "lem:two-branches",
+          "paper_label": "lem:two-branches",
+          "statement": "Two disjoint regular inverse branches with a common fourth-order jet imply a nonempty open set of ambiguous true points.",
+          "evidence": [],
+          "evidence_kinds": [],
+          "scope": "Inverse function theorem; does not classify all fibers or all exceptional points.",
+          "evidence_files": [
+            "paper-sir-minimal-jets-v1-en.tex"
+          ]
+        },
+        {
+          "id": "tkmt-lab/behavioral-sir-minimal-jets#sec:minimal",
+          "local_id": "sec:minimal",
+          "paper_label": "sec:minimal",
+          "statement": "Dimension and constant rank exclude generic local identification below order four; positive scaling preserves the result at every N0>0.",
+          "evidence": [],
+          "evidence_kinds": [],
+          "scope": "Prose argument with nonzero full Jacobian certificates.",
+          "evidence_files": [
+            "paper-sir-minimal-jets-v1-en.tex",
+            "producer/output/certificate-check.json"
+          ]
+        },
+        {
+          "id": "tkmt-lab/behavioral-sir-minimal-jets#sec:scope",
+          "local_id": "sec:scope",
+          "paper_label": "sec:scope",
+          "statement": "Additional interval certificates include k=7/2 and 1+sqrt(2), with a changed initial point; the main theorem is not extended to those exponents.",
+          "evidence": [],
+          "evidence_kinds": [],
+          "scope": "Strict contraction and exact rational interval replay, uniform for an enclosure of the irrational exponent.",
+          "evidence_files": [
+            "paper-sir-minimal-jets-v1-en.tex",
+            "independent/stage1-certified-pairs.json",
+            "independent/extra-pairs.json",
+            "verify_intervals.py",
+            "EVIDENCE.md"
+          ]
+        }
+      ],
+      "not_claimed": [
+        {
+          "text": "The theorem assumes fixed known k in {2,3,5/2}, known N0>0, positive rates and states, and exact derivatives at one time. The supplementary k=7/2 and 1+sqrt(2) certificates do not extend the main theorem. A nonempty open set of fourth-order ambiguity does not imply that every J4 fiber is ambiguous or has exactly two positive points. Classification of all exponents, exceptional points and positive fibers, unknown k or N0, expanded J5 inverse formulas, noisy-data estimation and numerical stability are outside the result.\n\nThe proof has not been formalized in a proof assistant or reviewed by human experts. The Appendix B review was limited to the stated proof and fifth-order reduction, rather than a whole-article audit. The bounded literature comparison does not establish priority; external identifiability packages were not executed. The verification record gives the details.",
+          "lang": "en",
+          "source": "README.md#Scope"
+        }
+      ],
+      "scope": [
+        {
+          "text": "For each fixed, known **k = 2, 3, 5/2** and known **N0 > 0**, the infectious population I(t) and its exact derivatives at one time identify positive rates and states at minimal jet order **four locally and five globally**, for generic true points.\nGlobal comparison includes **every positive competitor with the same k and N0**.\nThe positive fourth-order ambiguity certificates help researchers distinguish local identifiability from uniqueness throughout the positive domain.",
+          "lang": "en",
+          "source": "README.md"
+        }
+      ],
+      "status_semantics": "Claim evidence paths and source scope are retained; no per-claim proof status or evidence kind is inferred from work-level descriptions. The verification commands were copied, not executed by this catalog update."
     }
   ]
 }
