@@ -1,11 +1,12 @@
 {
   "$schema": "https://tkmt-lab.github.io/catalog.schema.json",
   "version": "1.2",
-  "generated_at": "2026-11-06T05:55:00+09:00",
+  "generated_at": "2026-11-10T00:00:00+00:00",
   "sources": {
     "releases": "docs/releases.json (lab research repository, updated 2026-11-06T05:27:31+09:00)",
     "repositories": "Files read at the exact release commits recorded in work.source_revision. Its ref names belong to the selected local input repositories; when release-pinned offline snapshots are used, origin/main denotes the snapshot-local ref, not a receipt of the current public remote ref. Public-history checks and observed remote refs are recorded separately in the post-release input manifest.",
-    "homepage_editorial": "Work summaries and work-level exclusions copied from llms.txt; claim statements, evidence, scope, raw remaining obligations and execution flags retain their source records."
+    "homepage_editorial": "Work summaries and work-level exclusions copied from llms.txt; claim statements, evidence, scope, raw remaining obligations and execution flags retain their source records.",
+    "targeted_update": "Three correction releases and two new papers read from the fixed pkg snapshots in the 2026-11-10 research task; other work records retained from the homepage baseline. Local origin/main denotes each selected snapshot, not a fresh public-remote observation."
   },
   "lab": {
     "name": "tkmt-lab",
@@ -2641,62 +2642,62 @@
       "id": "tkmt-lab/gsw-ray-periodicity",
       "source_revision": {
         "ref": "origin/main",
-        "commit": "8eea5994bfebdcca4865528bd7524af4064f9c16",
+        "commit": "7bd917c67f9505e525ece09473bb146af52625d7",
         "matches_release": true
       },
       "title": "Eventual periodicity of linear generalized Stone-Wales paths in affine fullerene families with convex lattice-face decompositions",
       "title_tex": "Eventual periodicity of linear generalized Stone--Wales paths in affine fullerene families with convex lattice-face decompositions",
       "paper_version": "6.3",
-      "packet_version": "1.10.0",
+      "packet_version": "1.10.1",
       "authors": [
         {
           "name": "Tatsuhiko Takimoto",
           "affiliation": "Independent researcher"
         }
       ],
-      "summary": "This work proves eventual periodicity of literal generalized Stone–Wales path existence along integer affine rays in specified fullerene families. Documented checks: Lean 4 proofs and arithmetic; Comparator checks; two earlier computer-assisted D12 derivations retained as evidence. The D12 Lean proof used the earlier proofs and is not a third independent derivation. Limits: The geometric bridge for the main theorem is a prose lemma. The statements concern the specified families and integer affine rays, not an effective certified algorithm for every ray threshold and period. The D12 proof used the earlier derivations; their model-correspondence and information boundaries are recorded with the evidence. Details: for fullerene families built from a fixed number of convex lattice faces with affine coordinates, existence of a literal gSW path is eventually periodic along every integer affine ray. Main theorem proved in Lean 4 (standard axioms only) for a specification with weaker hypotheses than the paper, checked with Comparator; a prose lemma connects the paper's geometric hypotheses to it. For Graver's family K3(r,s) (two caps of four triangles of side r joined by three hexagons with sides r, r, s, r, r, s) the result on every ray in r, s ≥ 1 and the closed classification (for r, s ≥ 2: a path exists iff s ≡ ±1 mod r) are Lean-proved with no prose step; the same holds for Graver's family C1 (for a, b ≥ 1: a path exists iff b = 1), for Graver's family O2 the ray result and absence of paths for t, d ≥ 2 are Lean-proved with no prose step, and so are the ray result for Graver's family D14 and the classification (r ≥ 2) and ray result for Graver's family E10. For Graver's family D12 the closed classification (for positive r, s: a path exists iff r | s−1, r | s+1 or |r−3s| = 1) and the ray result are Lean-proved (v1.10.0); two earlier computer-assisted proofs are kept as additional evidence. The Lean proof was written with knowledge of those proofs and is not a third independent derivation. Lean also covers the family arithmetic.",
+      "summary": "This work proves eventual periodicity of literal generalized Stone–Wales path existence along integer affine rays in specified fullerene families. Documented checks: Lean 4 proofs and arithmetic; Comparator checks; two earlier computer-assisted D12 derivations retained as evidence. The D12 Lean proof used the earlier proofs and is not a third independent derivation. Limits: The geometric bridge for the main theorem is a prose lemma. The statements concern the specified families and integer affine rays, not an effective certified algorithm for every ray threshold and period. The D12 proof used the earlier derivations; their model-correspondence and information boundaries are recorded with the evidence. Details: for fullerene families built from a fixed number of convex lattice faces with affine coordinates, existence of a literal gSW path is eventually periodic along every integer affine ray. Main theorem proved in Lean 4 (standard axioms only) for a specification with weaker hypotheses than the paper, checked with Comparator; a prose lemma connects the paper's geometric hypotheses to it. For Graver's family K3(r,s) (two caps of four triangles of side r joined by three hexagons with sides r, r, s, r, r, s) the result on every ray in r, s ≥ 1 and the closed classification (for r, s ≥ 2: a path exists iff s ≡ ±1 mod r) are Lean-proved with no prose step; the same holds for Graver's family C1 (for a, b ≥ 1: a path exists iff b = 1), for Graver's family O2 the ray result and absence of paths for t, d ≥ 2 are Lean-proved with no prose step, and so are the ray result for Graver's family D14 and the classification (r ≥ 2) and ray result for Graver's family E10. For Graver's family D12 the closed classification (for positive r, s: a path exists iff r | s−1, r | s+1 or |r−3s| = 1) and the ray result are Lean-proved (v1.10.1); two earlier computer-assisted proofs are kept as additional evidence. The Lean proof was written with knowledge of those proofs and is not a third independent derivation. Lean also covers the family arithmetic.",
       "release": {
-        "tag": "v1.10.0",
-        "date": "2026-10-23",
-        "commit": "8eea5994bfebdcca4865528bd7524af4064f9c16",
-        "github_release": "https://github.com/tkmt-lab/gsw-ray-periodicity/releases/tag/v1.10.0",
-        "version_doi": "10.5281/zenodo.23589703",
+        "tag": "v1.10.1",
+        "date": "2026-11-09",
+        "commit": "7bd917c67f9505e525ece09473bb146af52625d7",
+        "github_release": "https://github.com/tkmt-lab/gsw-ray-periodicity/releases/tag/v1.10.1",
+        "version_doi": "10.5281/zenodo.24083204",
         "concept_doi": "10.5281/zenodo.23491204",
         "doi_status": "minted"
       },
       "repo_url": "https://github.com/tkmt-lab/gsw-ray-periodicity",
       "paper_pdf": {
         "path": "paper/paper-lines-en.pdf",
-        "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/v1.10.0/paper/paper-lines-en.pdf",
-        "raw_url": "https://raw.githubusercontent.com/tkmt-lab/gsw-ray-periodicity/v1.10.0/paper/paper-lines-en.pdf"
+        "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/v1.10.1/paper/paper-lines-en.pdf",
+        "raw_url": "https://raw.githubusercontent.com/tkmt-lab/gsw-ray-periodicity/v1.10.1/paper/paper-lines-en.pdf"
       },
       "paper_source": {
         "path": "packet/paper-lines-v6.3-en.tex",
-        "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/v1.10.0/packet/paper-lines-v6.3-en.tex"
+        "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/v1.10.1/packet/paper-lines-v6.3-en.tex"
       },
       "entry_points": {
         "agents_md": [
           {
             "path": "AGENTS.md",
-            "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/v1.10.0/AGENTS.md"
+            "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/v1.10.1/AGENTS.md"
           },
           {
             "path": "packet/AGENTS.md",
-            "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/v1.10.0/packet/AGENTS.md"
+            "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/v1.10.1/packet/AGENTS.md"
           }
         ],
         "claims_json": {
           "path": "packet/claims.json",
-          "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/v1.10.0/packet/claims.json",
-          "raw_url": "https://raw.githubusercontent.com/tkmt-lab/gsw-ray-periodicity/v1.10.0/packet/claims.json"
+          "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/v1.10.1/packet/claims.json",
+          "raw_url": "https://raw.githubusercontent.com/tkmt-lab/gsw-ray-periodicity/v1.10.1/packet/claims.json"
         },
         "readme": {
           "path": "README.md",
-          "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/v1.10.0/README.md"
+          "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/v1.10.1/README.md"
         },
         "citation_cff": {
           "path": "CITATION.cff",
-          "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/v1.10.0/CITATION.cff"
+          "url": "https://github.com/tkmt-lab/gsw-ray-periodicity/blob/v1.10.1/CITATION.cff"
         }
       },
       "scope": [
@@ -3967,7 +3968,7 @@
           "local_id": "ex:e10-formal",
           "paper_label": "ex:e10-formal",
           "kind": "arithmetic-example",
-          "statement": "For every natural t, E10Pos(200+5t,17+2t,23+t) iff t=3,10,17 or 34; graph interpretation still uses the prose classification.",
+          "statement": "For every natural t, E10Pos(200+5t,17+2t,23+t) iff t=3,10,17 or 34. This declaration proves the arithmetic predicate; its graph interpretation follows by combining it with the separately received Lean classification ClaudeChallengeE10.classification, since p>=200, r>=17 and s>=23 on this ray.",
           "status": "lean-result-received",
           "human_review": false,
           "lean_declarations": [
@@ -5879,13 +5880,13 @@
       "id": "tkmt-lab/heesch-certificates",
       "source_revision": {
         "ref": "origin/main",
-        "commit": "271bc8ce223a1fd641494352eb31f350e3d8bf37",
+        "commit": "50a504290c1cbc44c2d0f0841412f92607c66a04",
         "matches_release": true
       },
       "title": "Heesch numbers and maximal coronas of small polyforms with certificates and a Lean-verified SAT encoding",
       "title_tex": "Heesch numbers and maximal coronas of small polyforms\\newline\nwith certificates and a Lean-verified SAT encoding",
       "paper_version": "2.1",
-      "packet_version": "1.0.0",
+      "packet_version": "1.0.1",
       "authors": [
         {
           "name": "Tatsuhiko Takimoto",
@@ -5894,43 +5895,43 @@
       ],
       "summary": "This package certifies the reported Heesch numbers for a fixed selection of 3,964 polyforms from C. S. Kaplan’s tables. Documented checks: Two geometric witness checkers; drat-trim checks; Lean soundness of the encoding and a finite CNF correspondence check; separate corona-count implementations. DRAT checking is outside Lean. Limits: Only the listed shapes are certified. The larger-shape search is restricted rather than exhaustive, and the outer-layer counts have no certificates. The DRAT traces are checked outside Lean, and the CNF-to-encoding match is a finite computational comparison. Details: for a fixed selection of 3,964 polyominoes, polyhexes and polyiamonds from C. S. Kaplan's tables, every Heesch number (hole-free Hc and outer-holes Hh) equals Kaplan's value and comes with checkable evidence: 6,574 corona witnesses accepted by two geometric checkers (lower bounds) and 5,019 unsatisfiability proofs accepted by drat-trim (upper bounds). Soundness of the SAT encoding on the square, hexagonal and triangular grids is proved in Lean 4 (standard axioms only; Comparator, six kernel runs); the checked CNFs equal the Lean encoding up to renaming by a recorded finite comparison. Also: maximal-corona counts for 22 shapes by two separately written implementations, and a restricted search of 3,442 polyominoes with 20-28 cells that found no finite Hh = 4. The DRAT proofs are checked outside Lean; outer-layer counts have no certificate; the search is not exhaustive; only the listed shapes are covered.",
       "release": {
-        "tag": "v1.0.0",
-        "date": "2026-10-23",
-        "commit": "271bc8ce223a1fd641494352eb31f350e3d8bf37",
-        "github_release": "https://github.com/tkmt-lab/heesch-certificates/releases/tag/v1.0.0",
-        "version_doi": "10.5281/zenodo.23572883",
+        "tag": "v1.0.1",
+        "date": "2026-11-09",
+        "commit": "50a504290c1cbc44c2d0f0841412f92607c66a04",
+        "github_release": "https://github.com/tkmt-lab/heesch-certificates/releases/tag/v1.0.1",
+        "version_doi": "10.5281/zenodo.24082652",
         "concept_doi": "10.5281/zenodo.23572882",
         "doi_status": "minted"
       },
       "repo_url": "https://github.com/tkmt-lab/heesch-certificates",
       "paper_pdf": {
         "path": "paper-heesch-certificates-v2.1-en.pdf",
-        "url": "https://github.com/tkmt-lab/heesch-certificates/blob/v1.0.0/paper-heesch-certificates-v2.1-en.pdf",
-        "raw_url": "https://raw.githubusercontent.com/tkmt-lab/heesch-certificates/v1.0.0/paper-heesch-certificates-v2.1-en.pdf"
+        "url": "https://github.com/tkmt-lab/heesch-certificates/blob/v1.0.1/paper-heesch-certificates-v2.1-en.pdf",
+        "raw_url": "https://raw.githubusercontent.com/tkmt-lab/heesch-certificates/v1.0.1/paper-heesch-certificates-v2.1-en.pdf"
       },
       "paper_source": {
         "path": "paper-heesch-certificates-v2.1-en.tex",
-        "url": "https://github.com/tkmt-lab/heesch-certificates/blob/v1.0.0/paper-heesch-certificates-v2.1-en.tex"
+        "url": "https://github.com/tkmt-lab/heesch-certificates/blob/v1.0.1/paper-heesch-certificates-v2.1-en.tex"
       },
       "entry_points": {
         "agents_md": [
           {
             "path": "AGENTS.md",
-            "url": "https://github.com/tkmt-lab/heesch-certificates/blob/v1.0.0/AGENTS.md"
+            "url": "https://github.com/tkmt-lab/heesch-certificates/blob/v1.0.1/AGENTS.md"
           }
         ],
         "claims_json": {
           "path": "claims.json",
-          "url": "https://github.com/tkmt-lab/heesch-certificates/blob/v1.0.0/claims.json",
-          "raw_url": "https://raw.githubusercontent.com/tkmt-lab/heesch-certificates/v1.0.0/claims.json"
+          "url": "https://github.com/tkmt-lab/heesch-certificates/blob/v1.0.1/claims.json",
+          "raw_url": "https://raw.githubusercontent.com/tkmt-lab/heesch-certificates/v1.0.1/claims.json"
         },
         "readme": {
           "path": "README.md",
-          "url": "https://github.com/tkmt-lab/heesch-certificates/blob/v1.0.0/README.md"
+          "url": "https://github.com/tkmt-lab/heesch-certificates/blob/v1.0.1/README.md"
         },
         "citation_cff": {
           "path": "CITATION.cff",
-          "url": "https://github.com/tkmt-lab/heesch-certificates/blob/v1.0.0/CITATION.cff"
+          "url": "https://github.com/tkmt-lab/heesch-certificates/blob/v1.0.1/CITATION.cff"
         }
       },
       "scope": [
@@ -7434,13 +7435,13 @@
       "id": "tkmt-lab/lean-statements",
       "source_revision": {
         "ref": "origin/main",
-        "commit": "7ef9a45c7813c45d9feb2b98360e20c94b1139e3",
+        "commit": "1a414b9b2667063a6521628e68cf9ad805217465",
         "matches_release": true
       },
       "work_type": "data-tool",
       "statement_only": true,
       "title": "Lean statements from published papers",
-      "packet_version": "1.0.1",
+      "packet_version": "1.0.2",
       "authors": [
         {
           "name": "Tatsuhiko Takimoto",
@@ -7449,11 +7450,11 @@
       ],
       "summary": "This supporting collection can be used to inspect assumptions, import individual Lean statements or locate fixed-commit proofs from three published repositories. Documented checks: Recorded comparisons of original and local theorem types and metadata inspection; statement correspondence rather than proof checking. Limits: Elaborating sorry statements does not establish their truth or rerun the linked proofs. The collection is not part of formal-conjectures and has not been contributed to it; compatibility with upstream Lean 4.33.1 and its full linter suite is unverified. Details: Supporting material for the a3-gsw-classification, gsw-ray-periodicity and heesch-certificates papers, not a separate mathematical result. Nine Lean files contain 18 theorem statements with preserved definitions, hypotheses and types; each formal_proof attribute points to a fixed public proof commit. Files with repeated namespaces must be used separately. Version 1.0.1 fixes checker setup, memory bounds and CI; statements and correspondence records are unchanged.",
       "release": {
-        "tag": "v1.0.1",
-        "date": "2026-11-04",
-        "commit": "7ef9a45c7813c45d9feb2b98360e20c94b1139e3",
-        "github_release": "https://github.com/tkmt-lab/lean-statements/releases/tag/v1.0.1",
-        "version_doi": "10.5281/zenodo.23933366",
+        "tag": "v1.0.2",
+        "date": "2026-11-09",
+        "commit": "1a414b9b2667063a6521628e68cf9ad805217465",
+        "github_release": "https://github.com/tkmt-lab/lean-statements/releases/tag/v1.0.2",
+        "version_doi": "10.5281/zenodo.24082547",
         "concept_doi": "10.5281/zenodo.23594151",
         "doi_status": "minted"
       },
@@ -7462,21 +7463,21 @@
         "agents_md": [
           {
             "path": "AGENTS.md",
-            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.1/AGENTS.md"
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.2/AGENTS.md"
           }
         ],
         "claims_json": {
           "path": "claims.json",
-          "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.1/claims.json",
-          "raw_url": "https://raw.githubusercontent.com/tkmt-lab/lean-statements/v1.0.1/claims.json"
+          "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.2/claims.json",
+          "raw_url": "https://raw.githubusercontent.com/tkmt-lab/lean-statements/v1.0.2/claims.json"
         },
         "readme": {
           "path": "README.md",
-          "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.1/README.md"
+          "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.2/README.md"
         },
         "citation_cff": {
           "path": "CITATION.cff",
-          "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.1/CITATION.cff"
+          "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.2/CITATION.cff"
         }
       },
       "scope": [
@@ -7532,7 +7533,7 @@
           "statement_body": "by sorry (intentional statement placeholder)",
           "statement_location": {
             "path": "FormalConjectures/Paper/A3.lean",
-            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.1/FormalConjectures/Paper/A3.lean#L175"
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.2/FormalConjectures/Paper/A3.lean#L175"
           },
           "lean_declarations": [
             "ClaudeChallenge.main"
@@ -7579,7 +7580,7 @@
           "statement_body": "by sorry (intentional statement placeholder)",
           "statement_location": {
             "path": "FormalConjectures/Paper/AffineRays.lean",
-            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.1/FormalConjectures/Paper/AffineRays.lean#L215"
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.2/FormalConjectures/Paper/AffineRays.lean#L215"
           },
           "lean_declarations": [
             "ClaudeChallenge2.main"
@@ -7626,7 +7627,7 @@
           "statement_body": "by sorry (intentional statement placeholder)",
           "statement_location": {
             "path": "FormalConjectures/Paper/K3.lean",
-            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.1/FormalConjectures/Paper/K3.lean#L212"
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.2/FormalConjectures/Paper/K3.lean#L212"
           },
           "lean_declarations": [
             "ClaudeChallengeK3.main"
@@ -7673,7 +7674,7 @@
           "statement_body": "by sorry (intentional statement placeholder)",
           "statement_location": {
             "path": "FormalConjectures/Paper/C1.lean",
-            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.1/FormalConjectures/Paper/C1.lean#L198"
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.2/FormalConjectures/Paper/C1.lean#L198"
           },
           "lean_declarations": [
             "ClaudeChallengeC1.classification"
@@ -7720,7 +7721,7 @@
           "statement_body": "by sorry (intentional statement placeholder)",
           "statement_location": {
             "path": "FormalConjectures/Paper/C1.lean",
-            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.1/FormalConjectures/Paper/C1.lean#L205"
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.2/FormalConjectures/Paper/C1.lean#L205"
           },
           "lean_declarations": [
             "ClaudeChallengeC1.main"
@@ -7767,7 +7768,7 @@
           "statement_body": "by sorry (intentional statement placeholder)",
           "statement_location": {
             "path": "FormalConjectures/Paper/O2.lean",
-            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.1/FormalConjectures/Paper/O2.lean#L210"
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.2/FormalConjectures/Paper/O2.lean#L210"
           },
           "lean_declarations": [
             "ClaudeChallengeO2.classification"
@@ -7814,7 +7815,7 @@
           "statement_body": "by sorry (intentional statement placeholder)",
           "statement_location": {
             "path": "FormalConjectures/Paper/O2.lean",
-            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.1/FormalConjectures/Paper/O2.lean#L217"
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.2/FormalConjectures/Paper/O2.lean#L217"
           },
           "lean_declarations": [
             "ClaudeChallengeO2.main"
@@ -7861,7 +7862,7 @@
           "statement_body": "by sorry (intentional statement placeholder)",
           "statement_location": {
             "path": "FormalConjectures/Paper/D14.lean",
-            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.1/FormalConjectures/Paper/D14.lean#L210"
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.2/FormalConjectures/Paper/D14.lean#L210"
           },
           "lean_declarations": [
             "ClaudeChallengeD14.main"
@@ -7908,7 +7909,7 @@
           "statement_body": "by sorry (intentional statement placeholder)",
           "statement_location": {
             "path": "FormalConjectures/Paper/E10.lean",
-            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.1/FormalConjectures/Paper/E10.lean#L254"
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.2/FormalConjectures/Paper/E10.lean#L254"
           },
           "lean_declarations": [
             "ClaudeChallengeE10.classification"
@@ -7955,7 +7956,7 @@
           "statement_body": "by sorry (intentional statement placeholder)",
           "statement_location": {
             "path": "FormalConjectures/Paper/E10.lean",
-            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.1/FormalConjectures/Paper/E10.lean#L264"
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.2/FormalConjectures/Paper/E10.lean#L264"
           },
           "lean_declarations": [
             "ClaudeChallengeE10.main"
@@ -8002,7 +8003,7 @@
           "statement_body": "by sorry (intentional statement placeholder)",
           "statement_location": {
             "path": "FormalConjectures/Paper/Heesch.lean",
-            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.1/FormalConjectures/Paper/Heesch.lean#L568"
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.2/FormalConjectures/Paper/Heesch.lean#L568"
           },
           "lean_declarations": [
             "Heesch.hh_sound_square"
@@ -8049,7 +8050,7 @@
           "statement_body": "by sorry (intentional statement placeholder)",
           "statement_location": {
             "path": "FormalConjectures/Paper/Heesch.lean",
-            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.1/FormalConjectures/Paper/Heesch.lean#L578"
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.2/FormalConjectures/Paper/Heesch.lean#L578"
           },
           "lean_declarations": [
             "Heesch.hc_sound_square"
@@ -8096,7 +8097,7 @@
           "statement_body": "by sorry (intentional statement placeholder)",
           "statement_location": {
             "path": "FormalConjectures/Paper/Heesch.lean",
-            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.1/FormalConjectures/Paper/Heesch.lean#L588"
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.2/FormalConjectures/Paper/Heesch.lean#L588"
           },
           "lean_declarations": [
             "Heesch.hh_sound_hex"
@@ -8143,7 +8144,7 @@
           "statement_body": "by sorry (intentional statement placeholder)",
           "statement_location": {
             "path": "FormalConjectures/Paper/Heesch.lean",
-            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.1/FormalConjectures/Paper/Heesch.lean#L598"
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.2/FormalConjectures/Paper/Heesch.lean#L598"
           },
           "lean_declarations": [
             "Heesch.hc_sound_hex"
@@ -8190,7 +8191,7 @@
           "statement_body": "by sorry (intentional statement placeholder)",
           "statement_location": {
             "path": "FormalConjectures/Paper/Heesch.lean",
-            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.1/FormalConjectures/Paper/Heesch.lean#L608"
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.2/FormalConjectures/Paper/Heesch.lean#L608"
           },
           "lean_declarations": [
             "Heesch.hh_sound_tri"
@@ -8237,7 +8238,7 @@
           "statement_body": "by sorry (intentional statement placeholder)",
           "statement_location": {
             "path": "FormalConjectures/Paper/Heesch.lean",
-            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.1/FormalConjectures/Paper/Heesch.lean#L618"
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.2/FormalConjectures/Paper/Heesch.lean#L618"
           },
           "lean_declarations": [
             "Heesch.hc_sound_tri"
@@ -8284,7 +8285,7 @@
           "statement_body": "by sorry (intentional statement placeholder)",
           "statement_location": {
             "path": "FormalConjectures/Paper/D12.lean",
-            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.1/FormalConjectures/Paper/D12.lean#L212"
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.2/FormalConjectures/Paper/D12.lean#L212"
           },
           "lean_declarations": [
             "ClaudeChallengeD12.classification"
@@ -8331,7 +8332,7 @@
           "statement_body": "by sorry (intentional statement placeholder)",
           "statement_location": {
             "path": "FormalConjectures/Paper/D12.lean",
-            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.1/FormalConjectures/Paper/D12.lean#L221"
+            "url": "https://github.com/tkmt-lab/lean-statements/blob/v1.0.2/FormalConjectures/Paper/D12.lean#L221"
           },
           "lean_declarations": [
             "ClaudeChallengeD12.main"
