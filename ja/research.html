@@ -161,11 +161,12 @@
 </ul>
     <h3>データと道具</h3>
     <ul class="index-list">
-      <li><a href="#associahedron-a7-matching-certificates"><span class="index-num" aria-hidden="true">16</span><span class="index-question">A7の極大マッチングは何辺まで小さくできるか。</span><span class="index-field">グラフ理論</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
-<li><a href="#periodic-net-wl-tests"><span class="index-num" aria-hidden="true">17</span><span class="index-question">選んだ根つき結晶ネットを、色分けによる比較（1-WL）はどこまで調べると見分けられるか。</span><span class="index-field">結晶ネット</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
-      <li><a href="#boolean-reduction-counterexamples"><span class="index-num" aria-hidden="true">18</span><span class="index-question">単純な安全の条件のもとで、ブールネットワークの変数を一つ消すとモチーフを避けるアトラクターが生まれるか。</span><span class="index-field">ブールネットワーク</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
-      <li><a href="#exception-networks-stability-certificates"><span class="index-num" aria-hidden="true">19</span><span class="index-question">例外の2反応網の定常点と安定性を、正解つき入力で照合する。</span><span class="index-field">化学反応網</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
-      <li><a href="#boolean-release-observation-certificates"><span class="index-num" aria-hidden="true">20</span><span class="index-question">固定した制御の解除を確かめる、ブールネットワークの観測ベンチマーク</span><span class="index-field">ブールネットワーク</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
+      <li><a href="#rna-undesign-minimum-rivals"><span class="index-num" aria-hidden="true">16</span><span class="index-question">固定した108個のRNAモチーフで、設計不能を示す競合構造は最少でいくつ必要か。</span><span class="index-field">RNA設計</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
+      <li><a href="#associahedron-a7-matching-certificates"><span class="index-num" aria-hidden="true">17</span><span class="index-question">A7の極大マッチングは何辺まで小さくできるか。</span><span class="index-field">グラフ理論</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
+<li><a href="#periodic-net-wl-tests"><span class="index-num" aria-hidden="true">18</span><span class="index-question">選んだ根つき結晶ネットを、色分けによる比較（1-WL）はどこまで調べると見分けられるか。</span><span class="index-field">結晶ネット</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
+      <li><a href="#boolean-reduction-counterexamples"><span class="index-num" aria-hidden="true">19</span><span class="index-question">単純な安全の条件のもとで、ブールネットワークの変数を一つ消すとモチーフを避けるアトラクターが生まれるか。</span><span class="index-field">ブールネットワーク</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
+      <li><a href="#exception-networks-stability-certificates"><span class="index-num" aria-hidden="true">20</span><span class="index-question">例外の2反応網の定常点と安定性を、正解つき入力で照合する。</span><span class="index-field">化学反応網</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
+      <li><a href="#boolean-release-observation-certificates"><span class="index-num" aria-hidden="true">21</span><span class="index-question">固定した制御の解除を確かめる、ブールネットワークの観測ベンチマーク</span><span class="index-field">ブールネットワーク</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
     </ul>
   </nav>
 
@@ -1222,6 +1223,55 @@
 
   <h2>データと道具</h2>
   <p>論文ではありませんが、確かめたうえで公開したデータと道具です。それぞれにリポジトリと DOI があり、主張することと主張しないことを書いています。</p>
+  <div class="work" id="rna-undesign-minimum-rivals">
+    <div class="num">データと道具 · 2026</div>
+    <h3 class="t">RNA-Undesign の108モチーフの最少競合被覆</h3>
+    <dl class="work-summary">
+      <div><dt>問い</dt><dd>固定した108個のRNAモチーフで、設計不能を示す競合構造は最少でいくつ必要か。</dd></div>
+      <div><dt>分かったこと</dt><dd>固定した候補集合の中で、最少の競合構造数は1〜6。</dd></div>
+      <div><dt>証拠</dt><dd>別に書いた検査器で108件の最少数と300,119,040通りの適合配列を確認。熱力学の計算には共通の ViennaRNA 2.7.2 を使用。</dd></div>
+    </dl>
+    <p class="plain">RNAの設計不能性を調べる人が、固定した108個の RNA-Undesign モチーフについて、必要な競合構造の最少数を確かめるための証明書と検査器です。ある適合配列で競合構造のエネルギーが目標以下なら、同点を含め、目標は唯一の最低エネルギー構造になりません。上界の証明書は目標に適合する全配列を覆い、下界の証人は固定候補からそれより少ない競合を選んでも足りないことを示します。</p>
+    <figure><svg viewBox="0 0 440 282" role="img" aria-label="固定した108のRNA-Undesign motifについて、指定候補集合内の最少rival数1、2、3、4、5、6の件数はそれぞれ10、31、40、19、6、2。" style="width:100%;max-width:440px;height:auto;display:block">
+<text x="12" y="23" fill="var(--fg)" font-size="16" text-anchor="start">motif の件数</text>
+<text x="424" y="23" fill="var(--muted)" font-size="16" text-anchor="end">全108件</text>
+<line x1="46" x2="424" y1="212" y2="212" stroke="var(--line)"/>
+<text x="36" y="217" fill="var(--muted)" font-size="15" text-anchor="end">0</text>
+<line x1="46" x2="424" y1="174.5" y2="174.5" stroke="var(--line)"/>
+<text x="36" y="179.5" fill="var(--muted)" font-size="15" text-anchor="end">10</text>
+<line x1="46" x2="424" y1="137" y2="137" stroke="var(--line)"/>
+<text x="36" y="142" fill="var(--muted)" font-size="15" text-anchor="end">20</text>
+<line x1="46" x2="424" y1="99.5" y2="99.5" stroke="var(--line)"/>
+<text x="36" y="104.5" fill="var(--muted)" font-size="15" text-anchor="end">30</text>
+<line x1="46" x2="424" y1="62" y2="62" stroke="var(--line)"/>
+<text x="36" y="67" fill="var(--muted)" font-size="15" text-anchor="end">40</text>
+<rect x="55" y="174.5" width="38" height="37.5" fill="var(--fig-yes)"/>
+<text x="74" y="167.5" fill="var(--fg)" font-size="16" text-anchor="middle">10</text>
+<text x="74" y="236" fill="var(--muted)" font-size="16" text-anchor="middle">1</text>
+<rect x="119" y="95.75" width="38" height="116.25" fill="var(--fig-yes)"/>
+<text x="138" y="88.75" fill="var(--fg)" font-size="16" text-anchor="middle">31</text>
+<text x="138" y="236" fill="var(--muted)" font-size="16" text-anchor="middle">2</text>
+<rect x="183" y="62" width="38" height="150" fill="var(--fig-yes)"/>
+<text x="202" y="55" fill="var(--fg)" font-size="16" text-anchor="middle">40</text>
+<text x="202" y="236" fill="var(--muted)" font-size="16" text-anchor="middle">3</text>
+<rect x="247" y="140.75" width="38" height="71.25" fill="var(--fig-yes)"/>
+<text x="266" y="133.75" fill="var(--fg)" font-size="16" text-anchor="middle">19</text>
+<text x="266" y="236" fill="var(--muted)" font-size="16" text-anchor="middle">4</text>
+<rect x="311" y="189.5" width="38" height="22.5" fill="var(--fig-yes)"/>
+<text x="330" y="182.5" fill="var(--fg)" font-size="16" text-anchor="middle">6</text>
+<text x="330" y="236" fill="var(--muted)" font-size="16" text-anchor="middle">5</text>
+<rect x="375" y="204.5" width="38" height="7.5" fill="var(--fig-yes)"/>
+<text x="394" y="197.5" fill="var(--fg)" font-size="16" text-anchor="middle">2</text>
+<text x="394" y="236" fill="var(--muted)" font-size="16" text-anchor="middle">6</text>
+<line x1="46" x2="424" y1="212" y2="212" stroke="var(--muted)"/>
+<text x="235" y="266" fill="var(--muted)" font-size="15" text-anchor="middle">指定候補集合内の最少 rival 数</text>
+</svg><figcaption>公開した108件の最少 rival 数の分布で、候補集合・境界・境界内部AAAを固定し、ViennaRNA 2.7.2／Turner 2004・37℃・dangles=2で同点を含めた値です。</figcaption></figure>
+    <div class="links"><a href="https://github.com/tkmt-lab/rna-undesign-minimum-rivals">リポジトリ</a> · <a href="https://doi.org/10.5281/zenodo.24151121">この版のDOI</a> · <a href="https://doi.org/10.5281/zenodo.24151120">全版の概念DOI</a> · <a href="https://github.com/tkmt-lab/rna-undesign-minimum-rivals/releases/tag/v1.0.0">v1.0.0</a> · 2026-11-12 · <a href="https://github.com/tkmt-lab/rna-undesign-minimum-rivals/commit/942185dc02410ccbea013aa50a71997d3cab62fe"><code>942185dc0241</code></a> · <a href="https://github.com/tkmt-lab/rna-undesign-minimum-rivals/blob/942185dc02410ccbea013aa50a71997d3cab62fe/VERIFICATION-RECORD.md">検証記録</a> · <a href="https://github.com/tkmt-lab/rna-undesign-minimum-rivals/blob/942185dc02410ccbea013aa50a71997d3cab62fe/SOURCE-PERMISSIONS.md">元データの利用条件</a></div>
+    <p class="note">値は外側と境界の塩基対、境界内部のAAA、候補集合を固定し、ViennaRNA 2.7.2・Turner 2004・37 °C・dangles=2で得たものです。制約のない競合全体、任意のモチーフ、別の境界内部やエネルギー設定での最少性、実験のRNAについての結果には広げません。</p>
+    <p class="note">RNA-Undesign の元CSVとモチーフ文字列は同梱していません。再配布の許諾が見つからなかったため、利用者が固定版を別途取得し、SHA-256を確認します。同梱した計算結果とコードのライセンスは、研究室が持つ権利の範囲に限ります。</p>
+    <p class="note">Tianshuo Zhou、Wei Yu Tang、Apoorv Malik、David H. Mathews、Liang Huang の <a href="https://github.com/shanry/RNA-Undesign/tree/8a8de22">RNA-Undesign</a>（RIGENDE、FastMotif、<a href="https://doi.org/10.1177/15578666251398551">2026年の論文</a>）からモチーフの例と競合による設計不能性の枠組みを、<a href="https://doi.org/10.1186/1748-7188-6-26">Lorenz ら</a>の ViennaRNA から熱力学の計算器を受け取りました。公開された例、定義、ソフトウェアに感謝します。</p>
+  </div>
+
   <div class="work" id="associahedron-a7-matching-certificates"><div class="num">データと道具 · 2026</div><h3 class="t">アソシアヘドロン A7 の極大マッチング：構成例と証明書</h3><dl class="work-summary"><div><dt>問い</dt><dd>A7の極大マッチングは何辺まで小さくできるか。</dd></div><div><dt>分かったこと</dt><dd>134 ≤ M(A7) ≤ 143; C9: 144.</dd></div></dl><p class="plain">429頂点の A7 について、極大マッチングの最小辺数は134以上143以下です。正確な値は未解決です。9回転すべてで不変な場合の最小値は144です。143辺の構成はArgon（Gemini）によるもので、研究室が検査しました。</p><figure><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 465 250" role="img" aria-label="保存された極大マッチング：143本; 対応する頂点 286個; 未対応の頂点 143個">
 <text x="16" y="23" fill="var(--fg)" font-size="15">保存された極大マッチング：143本</text>
 <circle cx="17" cy="42" r="3.5" fill="var(--fig-yes)"/>

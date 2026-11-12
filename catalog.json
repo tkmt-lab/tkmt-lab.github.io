@@ -1,12 +1,13 @@
 {
   "$schema": "https://tkmt-lab.github.io/catalog.schema.json",
   "version": "1.2",
-  "generated_at": "2026-11-10T00:00:00+00:00",
+  "generated_at": "2026-11-12T04:10:29+00:00",
   "sources": {
     "releases": "docs/releases.json (lab research repository, input ba31f919e60dbf8603134992e08d20b9654e421d; targeted five-work update)",
     "repositories": "Files read at the exact release commits recorded in work.source_revision. Its ref names belong to the selected local input repositories; when release-pinned offline snapshots are used, origin/main denotes the snapshot-local ref, not a receipt of the current public remote ref. Public-history checks and observed remote refs are recorded separately in the post-release input manifest.",
     "homepage_editorial": "Work summaries and work-level exclusions copied from llms.txt; claim statements, evidence, scope, raw remaining obligations and execution flags retain their source records.",
-    "targeted_update": "Three correction releases and two new papers read from the fixed pkg snapshots in the 2026-11-10 research task; other work records retained from the homepage baseline. Local origin/main denotes each selected snapshot, not a fresh public-remote observation."
+    "targeted_update": "Three correction releases and two new papers read from the fixed pkg snapshots in the 2026-11-10 research task; other work records retained from the homepage baseline. Local origin/main denotes each selected snapshot, not a fresh public-remote observation.",
+    "rna_undesign_update": "Targeted data-and-tools addition from release commit 942185dc02410ccbea013aa50a71997d3cab62fe; release identifiers from research input cc7d15e77d13933feb2608a54f0e7e45ab3fbdc7. Claims entry point: data/certificates.json (108 IDs; no statement/status labels supplied). Work scope quoted from README#Scope; summary and exclusions from reviewed llms.txt wording. Snapshot-local origin/main denotes the fetched pkg commit, not a fresh observation of the public remote. All prior work records retained from homepage baseline f5dfcee515a278b175395daa51cbd8a8b78e6e6c."
   },
   "lab": {
     "name": "tkmt-lab",
@@ -25,7 +26,8 @@
     "Read the repository's AGENTS.md (entry_points.agents_md), then its claims.json.",
     "Run the commands in 'verification' from the stated working directory; for Lean, prefer re-running the build over trusting saved logs.",
     "Respect 'scope', 'not_claimed' and 'scope_flags': do not describe a claim beyond them.",
-    "For three-body-brake-orbit-certificates, local_id claims-N is a navigation key for source /claims/N (zero-based), not an authored claim ID; evidence/status absent from those strings is not inferred."
+    "For three-body-brake-orbit-certificates, local_id claims-N is a navigation key for source /claims/N (zero-based), not an authored claim ID; evidence/status absent from those strings is not inferred.",
+    "For rna-undesign-minimum-rivals, entry_points.claims_json points to data/certificates.json. Its 108 claim IDs locate the numeric minima and certificates; no per-claim prose statement, status or evidence label is supplied. Read the work summary, scope and README model before interpreting those numbers."
   ],
   "evidence_kinds": {
     "lean-proof": "A Lean 4 declaration checked by the Lean kernel; 'axioms' lists what it depends on.",
@@ -9556,6 +9558,741 @@
         }
       ],
       "status_semantics": "Claim evidence paths and source scope are retained; no per-claim proof status or evidence kind is inferred from work-level descriptions. The verification commands were copied, not executed by this catalog update."
+    },
+    {
+      "id": "tkmt-lab/rna-undesign-minimum-rivals",
+      "source_revision": {
+        "ref": "origin/main",
+        "commit": "942185dc02410ccbea013aa50a71997d3cab62fe",
+        "matches_release": true
+      },
+      "work_type": "data-tool",
+      "title": "Minimum rival covers for 108 RNA-Undesign motifs",
+      "authors": [
+        {
+          "name": "Tatsuhiko Takimoto",
+          "affiliation": "Independent researcher"
+        }
+      ],
+      "summary": "Researchers studying RNA undesignability can use these upper-cover and lower-witness certificates to check the minimum number of rival structures for 108 fixed RNA-Undesign motif instances. Documented checks: A separately written certificate checker verified all 108 minima and upper coverage over 300,119,040 sequences, with the claimed optima and certificates known and the ViennaRNA 2.7.2 backend shared. The package checker also has a stored complete run; it shares the research-side candidate grammar. Its default smoke check recomputes all 108 lower bounds and three upper covers over 539,136 sequences, while --full recomputes every upper cover. Checking the stored record hashes does not repeat that calculation. Limits: The optima apply to the fixed candidate and sequence spaces, boundaries and energy settings. They do not establish minima over unconstrained rivals or arbitrary motifs, robustness to other boundary interiors or parameters, or results for pseudoknots or experimental molecules. The sum 310 is the sum of instance-specific minima, not one cover shared by all motifs; witness-set cardinalities and certificate byte sizes are not claimed to be minimum. Details: This is a data-and-tools package. With fixed outer and boundary pairs, AAA boundary interiors and the specified candidate grammar, minimum rival counts 1 through 6 occur in 10, 31, 40, 19, 6 and 2 instances. The energy settings are ViennaRNA 2.7.2, Turner 2004, 37 C and dangles=2, with the remaining settings fixed in README.md. A rival covers a target-compatible sequence when it is compatible with that sequence and has energy no greater than the target. Upper certificates cover every sequence; finite lower witnesses exclude every cover with fewer rivals from the specified candidate set. The instances and rival-based framework come from the RNA-Undesign work of Tianshuo Zhou, Wei Yu Tang, Apoorv Malik, David H. Mathews and Liang Huang. The original CSV and its motif strings are not redistributed: users fetch the pinned source separately, and the checker verifies its SHA-256 before reconstructing motifs by row number. No redistribution grant was identified; laboratory licenses apply only to rights the laboratory holds and grant no rights in third-party source material. Start with README.md and SOURCE-PERMISSIONS.md. After installing the pinned dependency and running tools/fetch_source.py, check with `python3 -B checkers/verify.py`; use --full for the complete enumeration.",
+      "release": {
+        "tag": "v1.0.0",
+        "date": "2026-11-12",
+        "commit": "942185dc02410ccbea013aa50a71997d3cab62fe",
+        "github_release": "https://github.com/tkmt-lab/rna-undesign-minimum-rivals/releases/tag/v1.0.0",
+        "version_doi": "10.5281/zenodo.24151121",
+        "concept_doi": "10.5281/zenodo.24151120",
+        "doi_status": "minted"
+      },
+      "repo_url": "https://github.com/tkmt-lab/rna-undesign-minimum-rivals",
+      "entry_points": {
+        "agents_md": [
+          {
+            "path": "AGENTS.md",
+            "url": "https://github.com/tkmt-lab/rna-undesign-minimum-rivals/blob/v1.0.0/AGENTS.md"
+          }
+        ],
+        "claims_json": {
+          "path": "data/certificates.json",
+          "url": "https://github.com/tkmt-lab/rna-undesign-minimum-rivals/blob/v1.0.0/data/certificates.json",
+          "raw_url": "https://raw.githubusercontent.com/tkmt-lab/rna-undesign-minimum-rivals/v1.0.0/data/certificates.json"
+        },
+        "readme": {
+          "path": "README.md",
+          "url": "https://github.com/tkmt-lab/rna-undesign-minimum-rivals/blob/v1.0.0/README.md"
+        },
+        "citation_cff": {
+          "path": "CITATION.cff",
+          "url": "https://github.com/tkmt-lab/rna-undesign-minimum-rivals/blob/v1.0.0/CITATION.cff"
+        }
+      },
+      "verification": [
+        {
+          "source": "README.md#First check",
+          "working_directory": ".",
+          "shell": "sh",
+          "script": "python3 -m venv .venv\n. .venv/bin/activate\npython -m pip install -r requirements.txt\npython -B tools/manifest.py\npython -B tools/fetch_source.py\npython -B checkers/verify.py",
+          "expected_output_status": "not-documented-in-extracted-section"
+        },
+        {
+          "source": "README.md#Run the checks",
+          "working_directory": ".",
+          "shell": "sh",
+          "script": "python -B checkers/negative_controls.py\npython -B checkers/check_full_record.py",
+          "expected_output_status": "not-documented-in-extracted-section"
+        },
+        {
+          "source": "README.md#Run the checks",
+          "working_directory": ".",
+          "shell": "sh",
+          "script": "python -B tools/fetch_source.py --from-file work/source/results.uniq.csv",
+          "expected_output_status": "not-documented-in-extracted-section"
+        }
+      ],
+      "claims": [
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0025",
+          "local_id": "m0025",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0039",
+          "local_id": "m0039",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0044",
+          "local_id": "m0044",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0081",
+          "local_id": "m0081",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0137",
+          "local_id": "m0137",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0139",
+          "local_id": "m0139",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0144",
+          "local_id": "m0144",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0155",
+          "local_id": "m0155",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0208",
+          "local_id": "m0208",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0215",
+          "local_id": "m0215",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0232",
+          "local_id": "m0232",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0237",
+          "local_id": "m0237",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0254",
+          "local_id": "m0254",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0265",
+          "local_id": "m0265",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0295",
+          "local_id": "m0295",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0314",
+          "local_id": "m0314",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0317",
+          "local_id": "m0317",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0335",
+          "local_id": "m0335",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0353",
+          "local_id": "m0353",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0401",
+          "local_id": "m0401",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0420",
+          "local_id": "m0420",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0470",
+          "local_id": "m0470",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0489",
+          "local_id": "m0489",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0501",
+          "local_id": "m0501",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0525",
+          "local_id": "m0525",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0562",
+          "local_id": "m0562",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0564",
+          "local_id": "m0564",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0569",
+          "local_id": "m0569",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0571",
+          "local_id": "m0571",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0618",
+          "local_id": "m0618",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0624",
+          "local_id": "m0624",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0630",
+          "local_id": "m0630",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0641",
+          "local_id": "m0641",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0653",
+          "local_id": "m0653",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0656",
+          "local_id": "m0656",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0664",
+          "local_id": "m0664",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0682",
+          "local_id": "m0682",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0692",
+          "local_id": "m0692",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0695",
+          "local_id": "m0695",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0716",
+          "local_id": "m0716",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0717",
+          "local_id": "m0717",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0719",
+          "local_id": "m0719",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0732",
+          "local_id": "m0732",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0756",
+          "local_id": "m0756",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0779",
+          "local_id": "m0779",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0812",
+          "local_id": "m0812",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0820",
+          "local_id": "m0820",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0839",
+          "local_id": "m0839",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0855",
+          "local_id": "m0855",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0857",
+          "local_id": "m0857",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0866",
+          "local_id": "m0866",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0885",
+          "local_id": "m0885",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0916",
+          "local_id": "m0916",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0920",
+          "local_id": "m0920",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0941",
+          "local_id": "m0941",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0968",
+          "local_id": "m0968",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0973",
+          "local_id": "m0973",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m0998",
+          "local_id": "m0998",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1006",
+          "local_id": "m1006",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1016",
+          "local_id": "m1016",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1022",
+          "local_id": "m1022",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1053",
+          "local_id": "m1053",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1056",
+          "local_id": "m1056",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1067",
+          "local_id": "m1067",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1075",
+          "local_id": "m1075",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1082",
+          "local_id": "m1082",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1086",
+          "local_id": "m1086",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1099",
+          "local_id": "m1099",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1142",
+          "local_id": "m1142",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1180",
+          "local_id": "m1180",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1208",
+          "local_id": "m1208",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1213",
+          "local_id": "m1213",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1218",
+          "local_id": "m1218",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1220",
+          "local_id": "m1220",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1230",
+          "local_id": "m1230",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1271",
+          "local_id": "m1271",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1293",
+          "local_id": "m1293",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1385",
+          "local_id": "m1385",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1401",
+          "local_id": "m1401",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1419",
+          "local_id": "m1419",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1448",
+          "local_id": "m1448",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1473",
+          "local_id": "m1473",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1491",
+          "local_id": "m1491",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1495",
+          "local_id": "m1495",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1508",
+          "local_id": "m1508",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1522",
+          "local_id": "m1522",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1528",
+          "local_id": "m1528",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1602",
+          "local_id": "m1602",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1616",
+          "local_id": "m1616",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1619",
+          "local_id": "m1619",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1626",
+          "local_id": "m1626",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1629",
+          "local_id": "m1629",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1647",
+          "local_id": "m1647",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1662",
+          "local_id": "m1662",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1663",
+          "local_id": "m1663",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1664",
+          "local_id": "m1664",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1668",
+          "local_id": "m1668",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1680",
+          "local_id": "m1680",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1702",
+          "local_id": "m1702",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1704",
+          "local_id": "m1704",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1718",
+          "local_id": "m1718",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1740",
+          "local_id": "m1740",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1760",
+          "local_id": "m1760",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1780",
+          "local_id": "m1780",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1791",
+          "local_id": "m1791",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1797",
+          "local_id": "m1797",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1802",
+          "local_id": "m1802",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/rna-undesign-minimum-rivals#m1803",
+          "local_id": "m1803",
+          "evidence": [],
+          "evidence_kinds": []
+        }
+      ],
+      "scope": [
+        {
+          "text": "These are finite optima for the specified candidate and sequence spaces, fixed outer and boundary pairs, AAA boundary interiors and energy settings.",
+          "lang": "en",
+          "source": "README.md#Scope"
+        }
+      ],
+      "not_claimed": [
+        {
+          "text": "The optima apply to the fixed candidate and sequence spaces, boundaries and energy settings. They do not establish minima over unconstrained rivals or arbitrary motifs, robustness to other boundary interiors or parameters, or results for pseudoknots or experimental molecules. The sum 310 is the sum of instance-specific minima, not one cover shared by all motifs; witness-set cardinalities and certificate byte sizes are not claimed to be minimum.",
+          "lang": "en",
+          "source": "llms.txt"
+        }
+      ]
     }
   ]
 }

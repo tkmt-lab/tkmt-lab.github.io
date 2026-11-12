@@ -159,11 +159,12 @@
 </ul>
     <h3>Data &amp; tools</h3>
     <ul class="index-list">
-      <li><a href="#associahedron-a7-matching-certificates"><span class="index-num" aria-hidden="true">16</span><span class="index-question">How small can a maximal matching in A7 be?</span><span class="index-field">Graph theory</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
-<li><a href="#periodic-net-wl-tests"><span class="index-num" aria-hidden="true">17</span><span class="index-question">How far must graph colour refinement (1-WL) look to distinguish selected rooted nets?</span><span class="index-field">Crystal nets</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
-      <li><a href="#boolean-reduction-counterexamples"><span class="index-num" aria-hidden="true">18</span><span class="index-question">Can eliminating one Boolean-network variable create a motif-avoidant attractor under simple safety conditions?</span><span class="index-field">Boolean networks</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
-      <li><a href="#exception-networks-stability-certificates"><span class="index-num" aria-hidden="true">19</span><span class="index-question">Exact test inputs for steady-state and stability calculations on two exceptional reaction networks</span><span class="index-field">Reaction networks</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
-      <li><a href="#boolean-release-observation-certificates"><span class="index-num" aria-hidden="true">20</span><span class="index-question">A Boolean-network benchmark for checking when fixed controls can be released</span><span class="index-field">Boolean networks</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
+      <li><a href="#rna-undesign-minimum-rivals"><span class="index-num" aria-hidden="true">16</span><span class="index-question">How many rival structures suffice to certify undesignability for each of 108 fixed RNA motifs?</span><span class="index-field">RNA design</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
+      <li><a href="#associahedron-a7-matching-certificates"><span class="index-num" aria-hidden="true">17</span><span class="index-question">How small can a maximal matching in A7 be?</span><span class="index-field">Graph theory</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
+<li><a href="#periodic-net-wl-tests"><span class="index-num" aria-hidden="true">18</span><span class="index-question">How far must graph colour refinement (1-WL) look to distinguish selected rooted nets?</span><span class="index-field">Crystal nets</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
+      <li><a href="#boolean-reduction-counterexamples"><span class="index-num" aria-hidden="true">19</span><span class="index-question">Can eliminating one Boolean-network variable create a motif-avoidant attractor under simple safety conditions?</span><span class="index-field">Boolean networks</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
+      <li><a href="#exception-networks-stability-certificates"><span class="index-num" aria-hidden="true">20</span><span class="index-question">Exact test inputs for steady-state and stability calculations on two exceptional reaction networks</span><span class="index-field">Reaction networks</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
+      <li><a href="#boolean-release-observation-certificates"><span class="index-num" aria-hidden="true">21</span><span class="index-question">A Boolean-network benchmark for checking when fixed controls can be released</span><span class="index-field">Boolean networks</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
     </ul>
   </nav>
 
@@ -1219,6 +1220,55 @@
 
   <h2>Data &amp; tools</h2>
   <p>Checked data sets and tools that are not papers, each released with a repository, a DOI and a list of what is and is not claimed.</p>
+  <div class="work" id="rna-undesign-minimum-rivals">
+    <div class="num">Data and tool · 2026</div>
+    <h3 class="t">Minimum rival covers for 108 RNA-Undesign motifs</h3>
+    <dl class="work-summary">
+      <div><dt>Question</dt><dd>How many rival structures suffice to certify undesignability for each of 108 fixed RNA motifs?</dd></div>
+      <div><dt>Findings</dt><dd>Minimum rival counts range from 1 to 6 within the fixed candidate sets.</dd></div>
+      <div><dt>Evidence</dt><dd>A separately written checker verified all 108 minima and 300,119,040 compatible sequences, using the shared ViennaRNA 2.7.2 backend.</dd></div>
+    </dl>
+    <p class="plain">Researchers studying RNA undesignability can use these certificates and checkers to check the minimum number of rival structures for 108 fixed RNA-Undesign motifs. A rival rules out a unique minimum-energy target when it has no higher energy for a compatible sequence; ties count. The upper certificates cover every target-compatible sequence, and the lower witnesses show that fewer rivals from the fixed candidate set cannot suffice.</p>
+    <figure><svg viewBox="0 0 440 282" role="img" aria-label="For 108 fixed RNA-Undesign motifs, minimum rival counts of 1, 2, 3, 4, 5 and 6 within the specified candidate sets occur in 10, 31, 40, 19, 6 and 2 instances, respectively." style="width:100%;max-width:440px;height:auto;display:block">
+<text x="12" y="23" fill="var(--fg)" font-size="16" text-anchor="start">Motif instances</text>
+<text x="424" y="23" fill="var(--muted)" font-size="16" text-anchor="end">108 total</text>
+<line x1="46" x2="424" y1="212" y2="212" stroke="var(--line)"/>
+<text x="36" y="217" fill="var(--muted)" font-size="15" text-anchor="end">0</text>
+<line x1="46" x2="424" y1="174.5" y2="174.5" stroke="var(--line)"/>
+<text x="36" y="179.5" fill="var(--muted)" font-size="15" text-anchor="end">10</text>
+<line x1="46" x2="424" y1="137" y2="137" stroke="var(--line)"/>
+<text x="36" y="142" fill="var(--muted)" font-size="15" text-anchor="end">20</text>
+<line x1="46" x2="424" y1="99.5" y2="99.5" stroke="var(--line)"/>
+<text x="36" y="104.5" fill="var(--muted)" font-size="15" text-anchor="end">30</text>
+<line x1="46" x2="424" y1="62" y2="62" stroke="var(--line)"/>
+<text x="36" y="67" fill="var(--muted)" font-size="15" text-anchor="end">40</text>
+<rect x="55" y="174.5" width="38" height="37.5" fill="var(--fig-yes)"/>
+<text x="74" y="167.5" fill="var(--fg)" font-size="16" text-anchor="middle">10</text>
+<text x="74" y="236" fill="var(--muted)" font-size="16" text-anchor="middle">1</text>
+<rect x="119" y="95.75" width="38" height="116.25" fill="var(--fig-yes)"/>
+<text x="138" y="88.75" fill="var(--fg)" font-size="16" text-anchor="middle">31</text>
+<text x="138" y="236" fill="var(--muted)" font-size="16" text-anchor="middle">2</text>
+<rect x="183" y="62" width="38" height="150" fill="var(--fig-yes)"/>
+<text x="202" y="55" fill="var(--fg)" font-size="16" text-anchor="middle">40</text>
+<text x="202" y="236" fill="var(--muted)" font-size="16" text-anchor="middle">3</text>
+<rect x="247" y="140.75" width="38" height="71.25" fill="var(--fig-yes)"/>
+<text x="266" y="133.75" fill="var(--fg)" font-size="16" text-anchor="middle">19</text>
+<text x="266" y="236" fill="var(--muted)" font-size="16" text-anchor="middle">4</text>
+<rect x="311" y="189.5" width="38" height="22.5" fill="var(--fig-yes)"/>
+<text x="330" y="182.5" fill="var(--fg)" font-size="16" text-anchor="middle">6</text>
+<text x="330" y="236" fill="var(--muted)" font-size="16" text-anchor="middle">5</text>
+<rect x="375" y="204.5" width="38" height="7.5" fill="var(--fig-yes)"/>
+<text x="394" y="197.5" fill="var(--fg)" font-size="16" text-anchor="middle">2</text>
+<text x="394" y="236" fill="var(--muted)" font-size="16" text-anchor="middle">6</text>
+<line x1="46" x2="424" y1="212" y2="212" stroke="var(--muted)"/>
+<text x="235" y="266" fill="var(--muted)" font-size="15" text-anchor="middle">Minimum rivals in the specified candidate set</text>
+</svg><figcaption>Distribution of the released minima for 108 instances, with candidate sets, boundaries and AAA boundary interiors fixed, using ViennaRNA 2.7.2 / Turner 2004 at 37 °C with dangles=2 and ties included.</figcaption></figure>
+    <div class="links"><a href="https://github.com/tkmt-lab/rna-undesign-minimum-rivals">Repository</a> · <a href="https://doi.org/10.5281/zenodo.24151121">Version DOI</a> · <a href="https://doi.org/10.5281/zenodo.24151120">Concept DOI (all versions)</a> · <a href="https://github.com/tkmt-lab/rna-undesign-minimum-rivals/releases/tag/v1.0.0">v1.0.0</a> · 2026-11-12 · <a href="https://github.com/tkmt-lab/rna-undesign-minimum-rivals/commit/942185dc02410ccbea013aa50a71997d3cab62fe"><code>942185dc0241</code></a> · <a href="https://github.com/tkmt-lab/rna-undesign-minimum-rivals/blob/942185dc02410ccbea013aa50a71997d3cab62fe/VERIFICATION-RECORD.md">Verification record</a> · <a href="https://github.com/tkmt-lab/rna-undesign-minimum-rivals/blob/942185dc02410ccbea013aa50a71997d3cab62fe/SOURCE-PERMISSIONS.md">Source permissions</a></div>
+    <p class="note">The values use fixed outer and boundary pairs, AAA boundary interiors, ViennaRNA 2.7.2 with Turner 2004 parameters at 37 °C and dangles=2. They do not establish minima over unrestricted rivals, arbitrary motifs or other boundary interiors and energy parameters, or results for experimental RNA.</p>
+    <p class="note">The original RNA-Undesign CSV and its motif strings are not bundled: no redistribution grant was identified. Users fetch the pinned source separately and check its SHA-256. Laboratory licensing covers only the rights the laboratory holds in the included computed results and code.</p>
+    <p class="note">Tianshuo Zhou, Wei Yu Tang, Apoorv Malik, David H. Mathews and Liang Huang supplied the motif instances and rival-based framework through <a href="https://github.com/shanry/RNA-Undesign/tree/8a8de22">RNA-Undesign</a> (RIGENDE, FastMotif and the <a href="https://doi.org/10.1177/15578666251398551">2026 journal account</a>); <a href="https://doi.org/10.1186/1748-7188-6-26">Lorenz and colleagues</a> supplied ViennaRNA. I am grateful for their public instances, definitions and software.</p>
+  </div>
+
   <div class="work" id="associahedron-a7-matching-certificates"><div class="num">Data and tool · 2026</div><h3 class="t">Maximal matchings in the associahedron A7: witnesses and certificates</h3><dl class="work-summary"><div><dt>Question</dt><dd>How small can a maximal matching in A7 be?</dd></div><div><dt>Findings</dt><dd>134 ≤ M(A7) ≤ 143; C9: 144.</dd></div></dl><p class="plain">For A7 with 429 vertices, the minimum size of a maximal matching lies between 134 and 143; its exact value remains open. The minimum restricted to matchings invariant under all nine rotations is 144. The 143-edge construction was produced by Argon (Gemini) and checked by the laboratory.</p><figure><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 465 250" role="img" aria-label="A saved maximal matching: 143 edges; 286 matched vertices; 143 unmatched vertices">
 <text x="16" y="23" fill="var(--fg)" font-size="15">A saved maximal matching: 143 edges</text>
 <circle cx="17" cy="42" r="3.5" fill="var(--fig-yes)"/>
