@@ -1,11 +1,12 @@
 {
   "$schema": "https://tkmt-lab.github.io/catalog.schema.json",
   "version": "1.2",
-  "generated_at": "2026-11-16T13:51:15+09:00",
+  "generated_at": "2026-11-17T00:00:00+00:00",
   "sources": {
     "releases": "docs/releases.json (lab research repository, updated 2026-11-16T13:25:49+09:00)",
     "repositories": "Files read at the exact release commits recorded in work.source_revision. Its ref names belong to the selected local input repositories; when release-pinned offline snapshots are used, origin/main denotes the snapshot-local ref, not a receipt of the current public remote ref. Public-history checks and observed remote refs are recorded separately in the post-release input manifest.",
-    "homepage_editorial": "Work summaries and work-level exclusions copied from llms.txt; claim statements, evidence, scope, raw remaining obligations and execution flags retain their source records."
+    "homepage_editorial": "Work summaries and work-level exclusions copied from llms.txt; claim statements, evidence, scope, raw remaining obligations and execution flags retain their source records.",
+    "cycle_hyperplane_update": "One paper added from release commit fe4a9801b9be076627f9c25d83c2227fc80d985e; release identifiers from docs/releases.json at research input 583982fe9bcdadf2c838d63fa130b4d6a06d3ec2. Scope quotes README.md#the-inclusion at the published commit because the release-register scope reverses the leak term (r_a + lambda_l = r_l instead of r_a = r_l + lambda_l). The register is unchanged. Summary and exclusions come from reviewed llms.txt. The new work source_revision origin/main is a snapshot-local alias, not an observation of the public remote. All prior work records are retained from homepage baseline 8dab720e40c1bb0b129d447f16ea50c38e92c748."
   },
   "lab": {
     "name": "tkmt-lab",
@@ -10430,6 +10431,109 @@
           "id": "tkmt-lab/staged-chain-unknown-order-identifiability#Darboux",
           "local_id": "Darboux",
           "statement": "For equal weights and n>=2 only nonzero scalar multiples of x^k are Darboux polynomials.",
+          "evidence": [],
+          "evidence_kinds": []
+        }
+      ]
+    },
+    {
+      "id": "tkmt-lab/cycle-singular-hyperplane-refinement",
+      "source_revision": {
+        "ref": "origin/main",
+        "commit": "fe4a9801b9be076627f9c25d83c2227fc80d985e",
+        "matches_release": true
+      },
+      "title": "A quantifier refinement for singular hyperplanes in directed-cycle compartmental models",
+      "title_tex": "A quantifier refinement for singular hyperplanes\\\\in directed-cycle compartmental models",
+      "paper_version": "1.0.0",
+      "authors": [
+        {
+          "name": "Tatsuhiko Takimoto"
+        }
+      ],
+      "summary": "For generically locally identifiable directed-cycle compartmental models, the hyperplane inclusion in Ahmed et al.'s Conjecture 4.6 holds when the leak lies strictly before the output, for every cycle size n ≥ 3 and every real point on the hyperplane. A positive three-compartment counterexample disproves the universal inclusion at the output endpoint. Documented checks: An all-n prose proof uses a polynomial kernel identity and a separate equal-column argument when the displayed vector vanishes. Three exact-arithmetic programs check finite examples, including eight reviewer cases and an endpoint minor of -12. Earlier staged AI checks had advance hints; a later AI manuscript review requested two expository corrections, both applied. The finite programs do not verify the all-n proof. Limits: The result does not classify the whole singular locus, infer pointwise global nonidentifiability from rank loss, address other theorems of the source article, or give finite- or noisy-data guarantees. The endpoint example does not imply regularity at every endpoint point. Details: Paper 17. This note specifies the leak-position condition for using a proposed singular-hyperplane inclusion in identifiability analysis. The comparison is to Conjecture 4.6 of Ahmed, Crepeau, Dessauer, Edozie, Garcia-Lopez, Grimsley, Lopez Garcia, Neri and Shiu, arXiv:2412.05283v3; the coefficient formula is credited there to Gerberding, Obatake and Shiu. For input 1, output p, a in [p-1] minus L and ell in L intersect [p-1], the entire real hyperplane r_a = r_ell + lambda_ell is singular under the generic local identifiability assumption. The Jacobian uses all independent edge and leak rates before imposing this relation. At ell = p, the positive n = 3, p = 2, L = {2} point (r1, r2, r3, lambda2) = (2, 1, 3, 1) lies on that hyperplane but has coefficient-Jacobian rank 4 and a maximal minor -12. The final SIAM journal full text and the Dai–Shao primary full text remain unread; the latter's relevance to this inclusion has not been established.",
+      "release": {
+        "tag": "v1.0.0",
+        "date": "2026-11-17",
+        "commit": "fe4a9801b9be076627f9c25d83c2227fc80d985e",
+        "github_release": "https://github.com/tkmt-lab/cycle-singular-hyperplane-refinement/releases/tag/v1.0.0",
+        "version_doi": "10.5281/zenodo.24293964",
+        "concept_doi": "10.5281/zenodo.24293963",
+        "doi_status": "minted"
+      },
+      "repo_url": "https://github.com/tkmt-lab/cycle-singular-hyperplane-refinement",
+      "paper_pdf": {
+        "path": "paper.pdf",
+        "url": "https://github.com/tkmt-lab/cycle-singular-hyperplane-refinement/blob/v1.0.0/paper.pdf",
+        "raw_url": "https://raw.githubusercontent.com/tkmt-lab/cycle-singular-hyperplane-refinement/v1.0.0/paper.pdf"
+      },
+      "paper_source": {
+        "path": "paper.tex",
+        "url": "https://github.com/tkmt-lab/cycle-singular-hyperplane-refinement/blob/v1.0.0/paper.tex"
+      },
+      "entry_points": {
+        "agents_md": [
+          {
+            "path": "AGENTS.md",
+            "url": "https://github.com/tkmt-lab/cycle-singular-hyperplane-refinement/blob/v1.0.0/AGENTS.md"
+          }
+        ],
+        "claims_json": {
+          "path": "claims.json",
+          "url": "https://github.com/tkmt-lab/cycle-singular-hyperplane-refinement/blob/v1.0.0/claims.json",
+          "raw_url": "https://raw.githubusercontent.com/tkmt-lab/cycle-singular-hyperplane-refinement/v1.0.0/claims.json"
+        },
+        "readme": {
+          "path": "README.md",
+          "url": "https://github.com/tkmt-lab/cycle-singular-hyperplane-refinement/blob/v1.0.0/README.md"
+        },
+        "citation_cff": {
+          "path": "CITATION.cff",
+          "url": "https://github.com/tkmt-lab/cycle-singular-hyperplane-refinement/blob/v1.0.0/CITATION.cff"
+        }
+      },
+      "scope": [
+        {
+          "text": "The cycle has input at vertex 1 and output at vertex p. Under the source article's generic local identifiability assumptions, take a non-leak index a in [p-1] minus L and a leak index ell in L intersect [p-1]. The hyperplane r_a=r_ell+lambda_ell is contained in the coefficient-Jacobian rank-defect set. The proof covers zero and negative rates as well as positive rates. It differentiates with respect to all independent edge and leak rates before restricting to the hyperplane, and uses a separate equal-column argument where the displayed kernel vector vanishes.",
+          "lang": "en",
+          "source": "README.md#the-inclusion (published release commit)"
+        }
+      ],
+      "not_claimed": [
+        {
+          "text": "The result does not classify the whole singular locus, infer pointwise global nonidentifiability from rank loss, address other theorems of the source article, or give finite- or noisy-data guarantees. The endpoint example does not imply regularity at every endpoint point.",
+          "lang": "en",
+          "source": "llms.txt"
+        }
+      ],
+      "verification": [
+        {
+          "source": "README.md#Reproduce",
+          "working_directory": ".",
+          "shell": "sh",
+          "script": "python3 -B reproduce.py\npython3 -B check_packet.py\npython3 -B publication_privacy.py",
+          "expected_output_status": "not-documented-in-extracted-section"
+        }
+      ],
+      "claims": [
+        {
+          "id": "tkmt-lab/cycle-singular-hyperplane-refinement#interior-hyperplane",
+          "local_id": "interior-hyperplane",
+          "statement": "For all n>=3, a in [p-1] minus L and ell in L intersect [p-1], the real hyperplane r_ell+lambda_ell=r_a lies in the coefficient-Jacobian rank-defect set of a generically locally identifiable cycle.",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/cycle-singular-hyperplane-refinement#endpoint-counterexample",
+          "local_id": "endpoint-counterexample",
+          "statement": "The positive n=3,p=2,L={2} point (2,1,3,1) lies on r2+lambda2=r1 but its 5x4 coefficient Jacobian has rank 4, with selected minor -12.",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/cycle-singular-hyperplane-refinement#endpoint-mechanism",
+          "local_id": "endpoint-mechanism",
+          "statement": "At ell=p, the same polynomial direction gives V(kappa)=kappa, so it is not a kernel direction at positive rates.",
           "evidence": [],
           "evidence_kinds": []
         }
