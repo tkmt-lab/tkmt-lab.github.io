@@ -639,7 +639,38 @@
 <line x1="231.244" x2="231.244" y1="225" y2="239" stroke="var(--fig-no)" stroke-width="1.5"/>
 <line x1="72" x2="394" y1="266" y2="266" stroke="var(--muted)"/>
 <text x="233.000" y="315.000" fill="var(--muted)" font-size="13" text-anchor="middle">Susceptible population S₀ (model normalization)</text>
-</svg></div><figcaption>In the three released certificate examples at N₀=10, the true and alternate positive points agree on I(0) through I⁽⁴⁾(0) but have different S₀, with orange showing outward-rounded bounds on the alternate point.</figcaption></figure><p class="summary">For each fixed known k = 2, 3, 5/2 and known N0 &gt; 0, exact infectious-population jets identify positive rates and states at minimal order four locally and five globally, for generic true points.</p><p class="disclosure">Checked by: Prose proof, supported by exact positive-branch certificates for the three exponents. The certificates were checked by two algebraic implementations</p><p class="paper"><a href="https://doi.org/10.5281/zenodo.24095239">Paper / DOI →</a> · <a href="https://github.com/tkmt-lab/behavioral-sir-minimal-jets">Code &amp; certificates →</a></p></article><article class="result" id="r017b-feature"><p class="field">RNA DESIGN · DATA &amp; TOOLS</p><h3><a href="research.html#rna-undesign-minimum-rivals">Minimum rival covers for 108 RNA-Undesign motifs</a></h3><figure><svg viewBox="0 0 440 282" role="img" aria-label="For 108 fixed RNA-Undesign motifs, minimum rival counts of 1, 2, 3, 4, 5 and 6 within the specified candidate sets occur in 10, 31, 40, 19, 6 and 2 instances, respectively." style="width:100%;max-width:440px;height:auto;display:block">
+</svg></div><figcaption>In the three released certificate examples at N₀=10, the true and alternate positive points agree on I(0) through I⁽⁴⁾(0) but have different S₀, with orange showing outward-rounded bounds on the alternate point.</figcaption></figure><p class="summary">For each fixed known k = 2, 3, 5/2 and known N0 &gt; 0, exact infectious-population jets identify positive rates and states at minimal order four locally and five globally, for generic true points.</p><p class="disclosure">Checked by: Prose proof, supported by exact positive-branch certificates for the three exponents. The certificates were checked by two algebraic implementations</p><p class="paper"><a href="https://doi.org/10.5281/zenodo.24095239">Paper / DOI →</a> · <a href="https://github.com/tkmt-lab/behavioral-sir-minimal-jets">Code &amp; certificates →</a></p></article><article class="result" id="r049-feature">
+<p class="field">SCHEDULING · DATA &amp; TOOLS</p><h3><a href="research.html#job-shop-repair-frontier">Repairing a job-shop schedule after a machine outage</a></h3>
+<figure><svg viewBox="0 0 416 248" role="img" aria-label="Trade-off for ft06-q25-d1. Changing 3 start times gives completion time 62. Changing 6 gives 58. The original plan finishes at 55." style="width:100%;max-width:440px;height:auto;display:block">
+<text x="8" y="23" font-size="17" fill="var(--fg)">Completion time M (benchmark units)</text>
+<line x1="42" x2="398" y1="187" y2="187" stroke="var(--muted)" stroke-dasharray="5 4"/>
+<text x="32" y="192" font-size="14" fill="var(--muted)" text-anchor="end">55</text>
+<line x1="42" x2="398" y1="171" y2="171" stroke="var(--line)"/>
+<text x="32" y="176" font-size="14" fill="var(--muted)" text-anchor="end">56</text>
+<line x1="42" x2="398" y1="139" y2="139" stroke="var(--line)"/>
+<text x="32" y="144" font-size="14" fill="var(--muted)" text-anchor="end">58</text>
+<line x1="42" x2="398" y1="107" y2="107" stroke="var(--line)"/>
+<text x="32" y="112" font-size="14" fill="var(--muted)" text-anchor="end">60</text>
+<line x1="42" x2="398" y1="75" y2="75" stroke="var(--line)"/>
+<text x="32" y="80" font-size="14" fill="var(--muted)" text-anchor="end">62</text>
+<text x="392" y="183" font-size="14" fill="var(--fg)" text-anchor="end">Original plan (55)</text>
+<text x="42" y="212" font-size="15" fill="var(--muted)" text-anchor="middle">0</text>
+<text x="92" y="212" font-size="15" fill="var(--muted)" text-anchor="middle">1</text>
+<text x="142" y="212" font-size="15" fill="var(--muted)" text-anchor="middle">2</text>
+<text x="192" y="212" font-size="15" fill="var(--muted)" text-anchor="middle">3</text>
+<text x="242" y="212" font-size="15" fill="var(--muted)" text-anchor="middle">4</text>
+<text x="292" y="212" font-size="15" fill="var(--muted)" text-anchor="middle">5</text>
+<text x="342" y="212" font-size="15" fill="var(--muted)" text-anchor="middle">6</text>
+<text x="392" y="212" font-size="15" fill="var(--muted)" text-anchor="middle">7</text>
+<text x="220" y="237" font-size="16" fill="var(--fg)" text-anchor="middle">Operations with changed start times (R)</text>
+<circle cx="192" cy="75" r="6" fill="var(--fig-yes)" stroke="var(--fg)"/>
+<text x="192" y="63" font-size="16" fill="var(--fg)" text-anchor="middle">(3, 62)</text>
+<circle cx="342" cy="139" r="6" fill="var(--fig-yes)" stroke="var(--fg)"/>
+<text x="342" y="127" font-size="16" fill="var(--fg)" text-anchor="middle">(6, 58)</text>
+</svg><figcaption>For the ft06-q25-d1 outage, changing 6 start times instead of 3 recovers 4 time units.</figcaption></figure>
+<p class="summary">With the repair tool, you can compare schedules after a machine outage by how many start times change and when the last job finishes. The dataset records 153 such choices for 20 synthetic outages.</p><p class="disclosure">Checked by: Integer checks on all 153 schedules. Numerical HiGHS MILP checks cover 24 points, including the complete frontiers for ft06 only.</p>
+<p class="paper"><a href="https://doi.org/10.5281/zenodo.24335378">Data / DOI →</a> · <a href="https://github.com/tkmt-lab/job-shop-repair-frontier">Code &amp; checks →</a></p></article>
+<article class="result" id="r017b-feature"><p class="field">RNA DESIGN · DATA &amp; TOOLS</p><h3><a href="research.html#rna-undesign-minimum-rivals">Minimum rival covers for 108 RNA-Undesign motifs</a></h3><figure><svg viewBox="0 0 440 282" role="img" aria-label="For 108 fixed RNA-Undesign motifs, minimum rival counts of 1, 2, 3, 4, 5 and 6 within the specified candidate sets occur in 10, 31, 40, 19, 6 and 2 instances, respectively." style="width:100%;max-width:440px;height:auto;display:block">
 <text x="12" y="23" fill="var(--fg)" font-size="16" text-anchor="start">Motif instances</text>
 <text x="424" y="23" fill="var(--muted)" font-size="16" text-anchor="end">108 total</text>
 <line x1="46" x2="424" y1="212" y2="212" stroke="var(--line)"/>

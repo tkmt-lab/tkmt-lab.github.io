@@ -171,6 +171,7 @@
       <li><a href="#boolean-reduction-counterexamples"><span class="index-num" aria-hidden="true">21</span><span class="index-question">単純な安全の条件のもとで、ブールネットワークの変数を一つ消すとモチーフを避けるアトラクターが生まれるか。</span><span class="index-field">ブールネットワーク</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
       <li><a href="#exception-networks-stability-certificates"><span class="index-num" aria-hidden="true">22</span><span class="index-question">例外の2反応網の定常点と安定性を、正解つき入力で照合する。</span><span class="index-field">化学反応網</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
       <li><a href="#boolean-release-observation-certificates"><span class="index-num" aria-hidden="true">23</span><span class="index-question">固定した制御の解除を確かめる、ブールネットワークの観測ベンチマーク</span><span class="index-field">ブールネットワーク</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
+      <li><a href="#job-shop-repair-frontier"><span class="index-num" aria-hidden="true">24</span><span class="index-question">機械が止まった後、いくつの作業の開始時刻を変えれば、全体の遅れを縮められるか。</span><span class="index-field">スケジューリング</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
     </ul>
   </nav>
 
@@ -1986,6 +1987,46 @@
     <p class="plain">固定した二段階の介入で4bitを制御し、5bitの読出しに加えて、37候補から一度だけ選んだ組を観測します。E1の読出しと、その組の現在値が参照状態に一致する条件を初めて満たしたとき、4bitの制御をすべて解除します。指定の非同期更新と公平性の仮定のもとで、14bitの組は解除までの安全性、公平な経路での有限時間の解除、解除後のE1の維持を満たします。14個の反例が13bit以下を除外し、反例の差分集合すべてと交わる14bitの108候補のうち107組が失敗し、1組が通ります。</p>
     <p class="note">対象はこの模型・介入・解除条件・候補集合です。別の解除条件、観測履歴、介入まで最適化した結果ではなく、生物学的な安全性や治療効果は示しません。107組の除外と一意性を保存証明書の検査器で別に検査したわけではありません。全ての成功する大きな観測集合に14bitすべてが必須だとも示していません。別実装の担当者は以前の手順の証明と改訂版の証明書の短い概要を読んでいました。</p>
     <div class="links"><a href="https://github.com/tkmt-lab/boolean-release-observation-certificates">リポジトリ</a> · <a href="https://github.com/tkmt-lab/boolean-release-observation-certificates/blob/2a6cac69fc1621b37a23a7aae5aa547d481e5c0c/SPEC.md">仕様</a> · <a href="https://github.com/tkmt-lab/boolean-release-observation-certificates/blob/2a6cac69fc1621b37a23a7aae5aa547d481e5c0c/claims.json">主張と範囲</a> · <a href="https://doi.org/10.5281/zenodo.23939998">この版のDOI</a> · <a href="https://doi.org/10.5281/zenodo.23939997">全版の概念DOI</a> · <a href="https://github.com/tkmt-lab/boolean-release-observation-certificates/releases/tag/v1.0.0">v1.0.0</a> · <a href="https://github.com/tkmt-lab/boolean-release-observation-certificates/commit/2a6cac69fc1621b37a23a7aae5aa547d481e5c0c"><code>2a6cac69fc16</code></a></div>
+  </div>
+
+  <div class="work" id="job-shop-repair-frontier">
+    <div class="num">データと道具 · 2026</div>
+    <h3 class="t">機械が止まった後のジョブショップの作業計画を組み直す</h3>
+    <dl class="work-summary">
+      <div><dt>データと用途</dt><dd>このジョブショップ用の道具では、機械が止まった後に開始時刻を変えてよい作業の数に上限を決め、その範囲で最も早く全作業を終えられる時刻を調べられます。</dd></div>
+      <div><dt>記録した結果</dt><dd>三つのベンチマークで機械の停止を20通り設定し、主モデルの OR-Tools CP-SAT で、変更した作業数と全作業の完了時刻の組を153点記録しました。</dd></div>
+      <div><dt>確かめ方</dt><dd>ソルバーを使わない二つの整数検査器で、全153点の作業計画が条件を満たすことと、変更した作業数・完了時刻を確認しました。</dd></div>
+    </dl>
+    <p class="plain">機械の停止後に作業計画を組み直すとき、どこまで予定変更を許せばどれだけ遅れを縮められるかを一覧にできます。各点は、開始時刻を変えた作業数 R と、最後の作業が終わる時刻 M の組です。前線上の点より早く終えるには、さらに多くの開始時刻を変える必要があります。各作業の機械は固定し、すでに始めた作業は動かさず、機械が復旧する時刻は既知とします。</p>
+    <figure><svg viewBox="0 0 416 248" role="img" aria-label="ft06-q25-d1 の故障後の前線。開始時刻を変える工程が3件なら完了時刻は62、6件なら58。故障前の計画では55。" style="width:100%;max-width:440px;height:auto;display:block">
+<text x="8" y="23" font-size="17" fill="var(--fg)">完了時刻 M（ベンチマークの時間単位）</text>
+<line x1="42" x2="398" y1="187" y2="187" stroke="var(--muted)" stroke-dasharray="5 4"/>
+<text x="32" y="192" font-size="14" fill="var(--muted)" text-anchor="end">55</text>
+<line x1="42" x2="398" y1="171" y2="171" stroke="var(--line)"/>
+<text x="32" y="176" font-size="14" fill="var(--muted)" text-anchor="end">56</text>
+<line x1="42" x2="398" y1="139" y2="139" stroke="var(--line)"/>
+<text x="32" y="144" font-size="14" fill="var(--muted)" text-anchor="end">58</text>
+<line x1="42" x2="398" y1="107" y2="107" stroke="var(--line)"/>
+<text x="32" y="112" font-size="14" fill="var(--muted)" text-anchor="end">60</text>
+<line x1="42" x2="398" y1="75" y2="75" stroke="var(--line)"/>
+<text x="32" y="80" font-size="14" fill="var(--muted)" text-anchor="end">62</text>
+<text x="392" y="183" font-size="14" fill="var(--fg)" text-anchor="end">故障前の計画（55）</text>
+<text x="42" y="212" font-size="15" fill="var(--muted)" text-anchor="middle">0</text>
+<text x="92" y="212" font-size="15" fill="var(--muted)" text-anchor="middle">1</text>
+<text x="142" y="212" font-size="15" fill="var(--muted)" text-anchor="middle">2</text>
+<text x="192" y="212" font-size="15" fill="var(--muted)" text-anchor="middle">3</text>
+<text x="242" y="212" font-size="15" fill="var(--muted)" text-anchor="middle">4</text>
+<text x="292" y="212" font-size="15" fill="var(--muted)" text-anchor="middle">5</text>
+<text x="342" y="212" font-size="15" fill="var(--muted)" text-anchor="middle">6</text>
+<text x="392" y="212" font-size="15" fill="var(--muted)" text-anchor="middle">7</text>
+<text x="220" y="237" font-size="16" fill="var(--fg)" text-anchor="middle">開始時刻を変えた工程数 R</text>
+<circle cx="192" cy="75" r="6" fill="var(--fig-yes)" stroke="var(--fg)"/>
+<text x="192" y="63" font-size="16" fill="var(--fg)" text-anchor="middle">(3, 62)</text>
+<circle cx="342" cy="139" r="6" fill="var(--fig-yes)" stroke="var(--fg)"/>
+<text x="342" y="127" font-size="16" fill="var(--fg)" text-anchor="middle">(6, 58)</text>
+</svg><figcaption>ft06-q25-d1 の故障例では、開始時刻を変える工程を3件から6件に増やすと、完了時刻が4単位早まります。</figcaption></figure>
+    <p class="note">HiGHS の別モデルで前線全体を再現したのは ft06 の4通り（10点）です。ft10 と abz5 では選んだ14点を確認しました。この計24点の最適性の確認は浮動小数点の混合整数線形計画による数値判定で、厳密な証明書はありません。残る129点の最適性の根拠は主モデルの CP-SAT の判定です。</p>
+    <div class="links"><a href="https://github.com/tkmt-lab/job-shop-repair-frontier">リポジトリ</a> · <a href="https://doi.org/10.5281/zenodo.24335378">この版のDOI</a> · <a href="https://doi.org/10.5281/zenodo.24335377">全版の概念DOI</a> · <a href="https://github.com/tkmt-lab/job-shop-repair-frontier/releases/tag/v1.0.0">v1.0.0</a> · 2026-11-18 · <a href="https://github.com/tkmt-lab/job-shop-repair-frontier/commit/537bc74d24ce109b78bb6cecdf0507c625ca10ef"><code>537bc74d24ce</code></a> · <a href="https://github.com/tkmt-lab/job-shop-repair-frontier/blob/537bc74d24ce109b78bb6cecdf0507c625ca10ef/claims.json">主張と検証記録</a></div>
   </div>
 
   <p><a href="about.html">研究の進め方・感謝・連絡</a></p></main></body></html>

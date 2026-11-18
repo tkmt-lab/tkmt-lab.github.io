@@ -169,6 +169,7 @@
       <li><a href="#boolean-reduction-counterexamples"><span class="index-num" aria-hidden="true">21</span><span class="index-question">Can eliminating one Boolean-network variable create a motif-avoidant attractor under simple safety conditions?</span><span class="index-field">Boolean networks</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
       <li><a href="#exception-networks-stability-certificates"><span class="index-num" aria-hidden="true">22</span><span class="index-question">Exact test inputs for steady-state and stability calculations on two exceptional reaction networks</span><span class="index-field">Reaction networks</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
       <li><a href="#boolean-release-observation-certificates"><span class="index-num" aria-hidden="true">23</span><span class="index-question">A Boolean-network benchmark for checking when fixed controls can be released</span><span class="index-field">Boolean networks</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
+      <li><a href="#job-shop-repair-frontier"><span class="index-num" aria-hidden="true">24</span><span class="index-question">After a machine outage, how many start times must change to finish earlier?</span><span class="index-field">Scheduling</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
     </ul>
   </nav>
 
@@ -1983,6 +1984,46 @@
     <p class="plain">The fixed two-stage intervention controls four bits. Beyond five readout bits, an observation set is chosen once from 37 candidates. All four clamps are released at the first E1 state whose current values on that set agree with the reference state. Under the specified asynchronous updates and fairness assumption, a 14-bit set ensures prefix safety, finite release on fair paths and E1 persistence after release. Fourteen counterexamples exclude costs at most 13; of the 108 size-14 sets that hit every witness difference set, 107 fail and one passes.</p>
     <p class="note">The result concerns this model, intervention, guard and candidate set. It does not optimize over other guards, observation histories or interventions, or establish biological safety or therapeutic effectiveness. The certificate consumer does not separately check the 107 exclusions or uniqueness. The result does not establish that all fourteen bits are mandatory in every successful larger set. The separate-implementation reviewer had read the earlier protocol proof and a brief revised certificate synopsis.</p>
     <div class="links"><a href="https://github.com/tkmt-lab/boolean-release-observation-certificates">Repository</a> · <a href="https://github.com/tkmt-lab/boolean-release-observation-certificates/blob/2a6cac69fc1621b37a23a7aae5aa547d481e5c0c/SPEC.md">Specification</a> · <a href="https://github.com/tkmt-lab/boolean-release-observation-certificates/blob/2a6cac69fc1621b37a23a7aae5aa547d481e5c0c/claims.json">Claims and scopes</a> · <a href="https://doi.org/10.5281/zenodo.23939998">Version DOI</a> · <a href="https://doi.org/10.5281/zenodo.23939997">Concept DOI (all versions)</a> · <a href="https://github.com/tkmt-lab/boolean-release-observation-certificates/releases/tag/v1.0.0">v1.0.0</a> · <a href="https://github.com/tkmt-lab/boolean-release-observation-certificates/commit/2a6cac69fc1621b37a23a7aae5aa547d481e5c0c"><code>2a6cac69fc16</code></a></div>
+  </div>
+
+  <div class="work" id="job-shop-repair-frontier">
+    <div class="num">Data and tool · 2026</div>
+    <h3 class="t">Repairing a job-shop schedule after a machine outage</h3>
+    <dl class="work-summary">
+      <div><dt>Data and use</dt><dd>With this job-shop scheduling tool, you can cap how many start times may change after an outage and search for the earliest finish under that cap.</dd></div>
+      <div><dt>Saved results</dt><dd>For 20 synthetic outages on three benchmarks, the primary OR-Tools CP-SAT model recorded 153 trade-offs between changed start times and completion time.</dd></div>
+      <div><dt>Checks</dt><dd>Two solver-free integer checkers verified all 153 schedules and their reported change counts and finish times.</dd></div>
+    </dl>
+    <p class="plain">If you are comparing repairs after a machine outage, the tool can list the choices that trade an earlier finish for more changes to the plan. Each point pairs the number of operations whose start time changes (R) with the time the last operation finishes (M). At a frontier point, finishing earlier requires changing more start times. The model fixes each operation’s machine, keeps work already started in place and assumes a known time for the machine to return to service.</p>
+    <figure><svg viewBox="0 0 416 248" role="img" aria-label="Trade-off for ft06-q25-d1. Changing 3 start times gives completion time 62. Changing 6 gives 58. The original plan finishes at 55." style="width:100%;max-width:440px;height:auto;display:block">
+<text x="8" y="23" font-size="17" fill="var(--fg)">Completion time M (benchmark units)</text>
+<line x1="42" x2="398" y1="187" y2="187" stroke="var(--muted)" stroke-dasharray="5 4"/>
+<text x="32" y="192" font-size="14" fill="var(--muted)" text-anchor="end">55</text>
+<line x1="42" x2="398" y1="171" y2="171" stroke="var(--line)"/>
+<text x="32" y="176" font-size="14" fill="var(--muted)" text-anchor="end">56</text>
+<line x1="42" x2="398" y1="139" y2="139" stroke="var(--line)"/>
+<text x="32" y="144" font-size="14" fill="var(--muted)" text-anchor="end">58</text>
+<line x1="42" x2="398" y1="107" y2="107" stroke="var(--line)"/>
+<text x="32" y="112" font-size="14" fill="var(--muted)" text-anchor="end">60</text>
+<line x1="42" x2="398" y1="75" y2="75" stroke="var(--line)"/>
+<text x="32" y="80" font-size="14" fill="var(--muted)" text-anchor="end">62</text>
+<text x="392" y="183" font-size="14" fill="var(--fg)" text-anchor="end">Original plan (55)</text>
+<text x="42" y="212" font-size="15" fill="var(--muted)" text-anchor="middle">0</text>
+<text x="92" y="212" font-size="15" fill="var(--muted)" text-anchor="middle">1</text>
+<text x="142" y="212" font-size="15" fill="var(--muted)" text-anchor="middle">2</text>
+<text x="192" y="212" font-size="15" fill="var(--muted)" text-anchor="middle">3</text>
+<text x="242" y="212" font-size="15" fill="var(--muted)" text-anchor="middle">4</text>
+<text x="292" y="212" font-size="15" fill="var(--muted)" text-anchor="middle">5</text>
+<text x="342" y="212" font-size="15" fill="var(--muted)" text-anchor="middle">6</text>
+<text x="392" y="212" font-size="15" fill="var(--muted)" text-anchor="middle">7</text>
+<text x="220" y="237" font-size="16" fill="var(--fg)" text-anchor="middle">Operations with changed start times (R)</text>
+<circle cx="192" cy="75" r="6" fill="var(--fig-yes)" stroke="var(--fg)"/>
+<text x="192" y="63" font-size="16" fill="var(--fg)" text-anchor="middle">(3, 62)</text>
+<circle cx="342" cy="139" r="6" fill="var(--fig-yes)" stroke="var(--fg)"/>
+<text x="342" y="127" font-size="16" fill="var(--fg)" text-anchor="middle">(6, 58)</text>
+</svg><figcaption>For the ft06-q25-d1 outage, changing 6 start times instead of 3 recovers 4 time units.</figcaption></figure>
+    <p class="note">HiGHS reproduced the complete frontiers for the four ft06 outages (10 points) and checked 14 selected ft10 and abz5 points. These 24 floating-point MILP judgments give numerical evidence of optimality. They do not supply exact proof certificates. For the remaining 129 points, optimality rests on the primary CP-SAT model alone.</p>
+    <div class="links"><a href="https://github.com/tkmt-lab/job-shop-repair-frontier">Repository</a> · <a href="https://doi.org/10.5281/zenodo.24335378">Version DOI</a> · <a href="https://doi.org/10.5281/zenodo.24335377">Concept DOI (all versions)</a> · <a href="https://github.com/tkmt-lab/job-shop-repair-frontier/releases/tag/v1.0.0">v1.0.0</a> · 2026-11-18 · <a href="https://github.com/tkmt-lab/job-shop-repair-frontier/commit/537bc74d24ce109b78bb6cecdf0507c625ca10ef"><code>537bc74d24ce</code></a> · <a href="https://github.com/tkmt-lab/job-shop-repair-frontier/blob/537bc74d24ce109b78bb6cecdf0507c625ca10ef/claims.json">Claims and evidence</a></div>
   </div>
 
   <p><a href="about.html">Process, acknowledgements and contact</a></p></main></body></html>

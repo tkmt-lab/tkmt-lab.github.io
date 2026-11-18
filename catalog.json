@@ -1,9 +1,9 @@
 {
   "$schema": "https://tkmt-lab.github.io/catalog.schema.json",
   "version": "1.2",
-  "generated_at": "2026-11-17T00:00:00+00:00",
+  "generated_at": "2026-11-18T09:34:00+00:00",
   "sources": {
-    "releases": "docs/releases.json (lab research repository, updated 2026-11-16T13:25:49+09:00)",
+    "releases": "docs/releases.json (lab research repository, updated 2026-11-18T17:33:08+09:00)",
     "repositories": "Files read at the exact release commits recorded in work.source_revision. Its ref names belong to the selected local input repositories; when release-pinned offline snapshots are used, origin/main denotes the snapshot-local ref, not a receipt of the current public remote ref. Public-history checks and observed remote refs are recorded separately in the post-release input manifest.",
     "homepage_editorial": "Work summaries and work-level exclusions copied from llms.txt; claim statements, evidence, scope, raw remaining obligations and execution flags retain their source records.",
     "cycle_hyperplane_update": "One paper added from release commit fe4a9801b9be076627f9c25d83c2227fc80d985e; release identifiers from docs/releases.json at research input 583982fe9bcdadf2c838d63fa130b4d6a06d3ec2. Scope quotes README.md#the-inclusion at the published commit because the release-register scope reverses the leak term (r_a + lambda_l = r_l instead of r_a = r_l + lambda_l). The register is unchanged. Summary and exclusions come from reviewed llms.txt. The new work source_revision origin/main is a snapshot-local alias, not an observation of the public remote. All prior work records are retained from homepage baseline 8dab720e40c1bb0b129d447f16ea50c38e92c748."
@@ -10536,6 +10536,120 @@
           "statement": "At ell=p, the same polynomial direction gives V(kappa)=kappa, so it is not a kernel direction at positive rates.",
           "evidence": [],
           "evidence_kinds": []
+        }
+      ]
+    },
+    {
+      "id": "tkmt-lab/job-shop-repair-frontier",
+      "source_revision": {
+        "ref": "origin/main",
+        "commit": "537bc74d24ce109b78bb6cecdf0507c625ca10ef",
+        "matches_release": true
+      },
+      "work_type": "data-tool",
+      "title": "Job-shop repair frontier",
+      "packet_version": "1.0.0",
+      "summary": "Scheduling researchers can use these data and command-line tools to see how many operations must change start time to finish earlier after a machine outage. The repair tool minimizes completion time under a cap K on the number of changes. The frontier tool lists the trade-offs between changed start times R and completion time M. Documented checks: Two solver-free integer checkers verified feasibility, changed start counts and completion times for all 153 saved schedules. The primary OR-Tools CP-SAT model reported complete frontiers for all 20 events. A separate HiGHS MILP model checked 24 points. It reproduced complete frontiers only for ft06 (four events, ten points). For 14 selected ft10 and abz5 points, it found no schedule that improved either metric without worsening the other. These floating-point MILP judgments provide no exact infeasibility certificates. Optimality for the remaining 129 points rests on the primary model. Limits: The release claims no new scheduling algorithm. The 20 synthetic events were reused during development. They do not establish speed gains or performance on real equipment or logs. The model excludes interrupted operations, machine reassignment and uncertain recovery times. Details: For ft06-q25-d1, the original plan finishes at time 55. After the outage, changing three operation start times gives a finish time of 62 and changing six gives 58, in integer benchmark units. Start with README.md. Run `python -B frontier.py --saved-result data/frontiers/ft06-q25-d1.json` to view the saved frontier and `python -S -B verify_data.py` to check the stored schedules, metrics, hashes and evidence labels. Neither command reruns the historical optimizations.",
+      "release": {
+        "tag": "v1.0.0",
+        "date": "2026-11-18",
+        "commit": "537bc74d24ce109b78bb6cecdf0507c625ca10ef",
+        "github_release": "https://github.com/tkmt-lab/job-shop-repair-frontier/releases/tag/v1.0.0",
+        "version_doi": "10.5281/zenodo.24335378",
+        "concept_doi": "10.5281/zenodo.24335377",
+        "doi_status": "minted"
+      },
+      "repo_url": "https://github.com/tkmt-lab/job-shop-repair-frontier",
+      "entry_points": {
+        "agents_md": [
+          {
+            "path": "AGENTS.md",
+            "url": "https://github.com/tkmt-lab/job-shop-repair-frontier/blob/v1.0.0/AGENTS.md"
+          }
+        ],
+        "claims_json": {
+          "path": "claims.json",
+          "url": "https://github.com/tkmt-lab/job-shop-repair-frontier/blob/v1.0.0/claims.json",
+          "raw_url": "https://raw.githubusercontent.com/tkmt-lab/job-shop-repair-frontier/v1.0.0/claims.json"
+        },
+        "readme": {
+          "path": "README.md",
+          "url": "https://github.com/tkmt-lab/job-shop-repair-frontier/blob/v1.0.0/README.md"
+        },
+        "citation_cff": {
+          "path": "CITATION.cff",
+          "url": "https://github.com/tkmt-lab/job-shop-repair-frontier/blob/v1.0.0/CITATION.cff"
+        }
+      },
+      "scope": [
+        {
+          "text": "A CLI for fixed-machine, nonpreemptive job-shop repair under a hard change cap K and for enumerating the frontier between changed start times R and completion time M. The primary CP-SAT model completed frontiers for 20 synthetic outage events (153 points); every saved schedule and its reported R/M values pass solver-free integer feasibility checks. HiGHS MILP additionally checked 24 points (all four ft06 frontiers and 14 selected ft10/abz5 points).",
+          "lang": "en",
+          "source": "docs/releases.json"
+        }
+      ],
+      "not_claimed": [
+        {
+          "text": "The release claims no new scheduling algorithm. The 20 synthetic events were reused during development. They do not establish speed gains or performance on real equipment or logs. The model excludes interrupted operations, machine reassignment and uncertain recovery times.",
+          "lang": "en",
+          "source": "llms.txt"
+        }
+      ],
+      "verification": [
+        {
+          "source": "README.md#Try the recorded example",
+          "working_directory": ".",
+          "shell": "sh",
+          "script": "python -B frontier.py --saved-result data/frontiers/ft06-q25-d1.json\npython -S -B verify_data.py",
+          "expected_output": "R | M\n--: | --:\n3 | 62\n6 | 58\nComplete under the primary CP-SAT model: true",
+          "expected_output_status": "documented-example"
+        },
+        {
+          "source": "README.md#Compute a repair or frontier",
+          "working_directory": ".",
+          "shell": "sh",
+          "script": "python -m venv .venv\n. .venv/bin/activate\npython -m pip install -r requirements.txt\npython -B repair.py data/events/ft06-q25-d1.json > repair-result.json\npython -B checker.py data/events/ft06-q25-d1.json repair-result.json\npython -B frontier.py data/events/ft06-q25-d1.json --budget-seconds 30 --json\npython -B -m unittest discover -s tests -v",
+          "expected_output_status": "not-documented-in-extracted-section"
+        }
+      ],
+      "claims": [
+        {
+          "id": "tkmt-lab/job-shop-repair-frontier#k-bounded-repair",
+          "local_id": "k-bounded-repair",
+          "statement": "Returned repair schedules satisfy the fixed-machine integer contract and R <= input K.",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/job-shop-repair-frontier#recorded-frontiers",
+          "local_id": "recorded-frontiers",
+          "statement": "The recorded primary CP-SAT model completed 20 event frontiers containing 153 points.",
+          "evidence": [],
+          "evidence_kinds": [],
+          "scope": "Solver judgments under the stated finite model; all schedules and reported R/M pass integer checks."
+        },
+        {
+          "id": "tkmt-lab/job-shop-repair-frontier#additional-optimality-checks",
+          "local_id": "additional-optimality-checks",
+          "statement": "HiGHS MILP reproduced all four ft06 frontiers (10 points) and ruled out domination for 14 selected ft10/abz5 points.",
+          "evidence": [],
+          "evidence_kinds": [],
+          "scope": "24 points; numerical MILP judgments, not exact proof certificates. Complete independent enumeration covers ft06 only."
+        },
+        {
+          "id": "tkmt-lab/job-shop-repair-frontier#primary-only-points",
+          "local_id": "primary-only-points",
+          "statement": "The other 129 points have integer feasibility checks but no additional HiGHS optimality check.",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/job-shop-repair-frontier#reviewed-tool-observation",
+          "local_id": "reviewed-tool-observation",
+          "statement": "As of 2026-10-31, no free repair tool returning an R/M frontier with hard K was found within the reviewed tools/APIs listed in README.md.",
+          "evidence": [],
+          "evidence_kinds": [],
+          "scope": "OR-Tools 9.15.6755, JobShopLib 1.7.2 and PyJobShop 0.0.9 as described in README.md; bounded observation only."
         }
       ]
     }
