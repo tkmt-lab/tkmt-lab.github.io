@@ -170,6 +170,7 @@
       <li><a href="#exception-networks-stability-certificates"><span class="index-num" aria-hidden="true">22</span><span class="index-question">Exact test inputs for steady-state and stability calculations on two exceptional reaction networks</span><span class="index-field">Reaction networks</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
       <li><a href="#boolean-release-observation-certificates"><span class="index-num" aria-hidden="true">23</span><span class="index-question">A Boolean-network benchmark for checking when fixed controls can be released</span><span class="index-field">Boolean networks</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
       <li><a href="#job-shop-repair-frontier"><span class="index-num" aria-hidden="true">24</span><span class="index-question">After a machine outage, how many start times must change to finish earlier?</span><span class="index-field">Scheduling</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
+      <li><a href="#fixed-bit-dp-noise-tables"><span class="index-num" aria-hidden="true">25</span><span class="index-question">How small can the expected loss be with a fixed number of random bits and a privacy constraint?</span><span class="index-field">Differential privacy</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
     </ul>
   </nav>
 
@@ -2024,6 +2025,51 @@
 </svg><figcaption>For the ft06-q25-d1 outage, changing 6 start times instead of 3 recovers 4 time units.</figcaption></figure>
     <p class="note">HiGHS reproduced the complete frontiers for the four ft06 outages (10 points) and checked 14 selected ft10 and abz5 points. These 24 floating-point MILP judgments give numerical evidence of optimality. They do not supply exact proof certificates. For the remaining 129 points, optimality rests on the primary CP-SAT model alone.</p>
     <div class="links"><a href="https://github.com/tkmt-lab/job-shop-repair-frontier">Repository</a> · <a href="https://doi.org/10.5281/zenodo.24335378">Version DOI</a> · <a href="https://doi.org/10.5281/zenodo.24335377">Concept DOI (all versions)</a> · <a href="https://github.com/tkmt-lab/job-shop-repair-frontier/releases/tag/v1.0.0">v1.0.0</a> · 2026-11-18 · <a href="https://github.com/tkmt-lab/job-shop-repair-frontier/commit/537bc74d24ce109b78bb6cecdf0507c625ca10ef"><code>537bc74d24ce</code></a> · <a href="https://github.com/tkmt-lab/job-shop-repair-frontier/blob/537bc74d24ce109b78bb6cecdf0507c625ca10ef/claims.json">Claims and evidence</a></div>
+  </div>
+
+  <div class="work" id="fixed-bit-dp-noise-tables">
+    <div class="num">Data and tool · 2026</div>
+    <h3 class="t">Differential privacy with a fixed budget of random bits</h3>
+    <dl class="work-summary">
+      <div><dt>Data and use</dt><dd>Researchers and engineers can generate probability tables for a fixed number of random bits and check their expected loss under pure differential privacy on specified pairs of inputs.</dd></div>
+      <div><dt>Saved results</dt><dd>On a synthetic benchmark with uniform inputs and a privacy multiplier of two for every pair, 52 of 54 conditions have certificates for the minimum expected loss.</dd></div>
+      <div><dt>Checks</dt><dd>A separately written checker rebuilt the constraints from the specifications and checked the certificates with rational arithmetic. Exhaustive tests compared 108 historical pairs of Python and C samplers with their tables for every valid input and random word.</dd></div>
+    </dl>
+    <p class="plain">With four fair bits there are 16 equally likely words. For each input, one row of the table says how many of those words produce each output. In the counting example, moving to a neighboring input can at most double the probability of any output in either direction. With four bits, the smallest possible mean absolute error under that constraint is 7/12.</p>
+    <figure><svg viewBox="0 0 428 240" role="img" aria-label="Saved table losses for the seven-state benchmark at four to twelve bits. Open circles mark feasible tables at b = 5 and 9, where optimality is unresolved." style="width:100%;max-width:440px;height:auto;display:block">
+<text x="9" y="21" font-size="16" fill="var(--fg)">Expected loss</text>
+<text x="49" y="181" font-size="15" fill="var(--muted)" text-anchor="end">2.400</text>
+<line x1="57" x2="409" y1="176.0" y2="176.0" stroke="var(--line)"/>
+<text x="49" y="131" font-size="15" fill="var(--muted)" text-anchor="end">2.405</text>
+<line x1="57" x2="409" y1="126.0" y2="126.0" stroke="var(--line)"/>
+<text x="49" y="81" font-size="15" fill="var(--muted)" text-anchor="end">2.410</text>
+<line x1="57" x2="409" y1="76.0" y2="76.0" stroke="var(--line)"/>
+<circle cx="65" cy="68.9" r="5" fill="var(--fig-yes)" stroke="var(--fg)" stroke-width="2"/>
+<text x="65" y="201" font-size="15" fill="var(--fg)" text-anchor="middle">4</text>
+<circle cx="107" cy="68.9" r="5" fill="none" stroke="var(--fg)" stroke-width="2"/>
+<text x="107" y="201" font-size="15" fill="var(--fg)" text-anchor="middle">5</text>
+<circle cx="149" cy="158.1" r="5" fill="var(--fig-yes)" stroke="var(--fg)" stroke-width="2"/>
+<text x="149" y="201" font-size="15" fill="var(--fg)" text-anchor="middle">6</text>
+<circle cx="191" cy="158.1" r="5" fill="var(--fig-yes)" stroke="var(--fg)" stroke-width="2"/>
+<text x="191" y="201" font-size="15" fill="var(--fg)" text-anchor="middle">7</text>
+<circle cx="233" cy="169.3" r="5" fill="var(--fig-yes)" stroke="var(--fg)" stroke-width="2"/>
+<text x="233" y="201" font-size="15" fill="var(--fg)" text-anchor="middle">8</text>
+<circle cx="275" cy="169.3" r="5" fill="none" stroke="var(--fg)" stroke-width="2"/>
+<text x="275" y="201" font-size="15" fill="var(--fg)" text-anchor="middle">9</text>
+<circle cx="317" cy="174.9" r="5" fill="var(--fig-yes)" stroke="var(--fg)" stroke-width="2"/>
+<text x="317" y="201" font-size="15" fill="var(--fg)" text-anchor="middle">10</text>
+<circle cx="359" cy="174.9" r="5" fill="var(--fig-yes)" stroke="var(--fg)" stroke-width="2"/>
+<text x="359" y="201" font-size="15" fill="var(--fg)" text-anchor="middle">11</text>
+<circle cx="401" cy="175.6" r="5" fill="var(--fig-yes)" stroke="var(--fg)" stroke-width="2"/>
+<text x="401" y="201" font-size="15" fill="var(--fg)" text-anchor="middle">12</text>
+<text x="232" y="229" font-size="16" fill="var(--fg)" text-anchor="middle">Random bits per draw (b)</text>
+<circle cx="65" cy="45.0" r="5" fill="var(--fig-yes)" stroke="var(--fg)" stroke-width="2"/>
+<text x="76" y="50" font-size="15" fill="var(--fg)">Certified optimum</text>
+<circle cx="244" cy="45.0" r="5" fill="none" stroke="var(--fg)" stroke-width="2"/>
+<text x="255" y="50" font-size="15" fill="var(--fg)">Optimality open</text>
+</svg><figcaption>For the seven-state benchmark, the saved loss falls from 135/56 at four bits to 34407/14336 at twelve bits.</figcaption></figure>
+    <p class="note">For seven states, the five-bit and nine-bit tables satisfy the constraints, but their optimality remains open. The guarantees cover the supplied finite specifications and certificates. The samplers assume a valid input and an independent uniform random word. Constant-time execution, side-channel resistance, secure randomness and performance on physical devices remain unchecked.</p>
+    <div class="links"><a href="https://github.com/tkmt-lab/fixed-bit-dp-noise-tables">Repository</a> · <a href="https://doi.org/10.5281/zenodo.24358121">Version DOI</a> · <a href="https://doi.org/10.5281/zenodo.24358120">Concept DOI (all versions)</a> · <a href="https://github.com/tkmt-lab/fixed-bit-dp-noise-tables/releases/tag/v1.0.0">v1.0.0</a> · 2026-11-19 · <a href="https://github.com/tkmt-lab/fixed-bit-dp-noise-tables/commit/96a7adf239d08ef1f32fbb1a5d27ae87b4494d10"><code>96a7adf239d0</code></a> · <a href="https://github.com/tkmt-lab/fixed-bit-dp-noise-tables/blob/96a7adf239d08ef1f32fbb1a5d27ae87b4494d10/claims.json">Claims and evidence</a></div>
   </div>
 
   <p><a href="about.html">Process, acknowledgements and contact</a></p></main></body></html>

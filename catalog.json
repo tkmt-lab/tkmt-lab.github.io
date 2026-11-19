@@ -1,12 +1,11 @@
 {
   "$schema": "https://tkmt-lab.github.io/catalog.schema.json",
   "version": "1.2",
-  "generated_at": "2026-11-18T09:34:00+00:00",
+  "generated_at": "2026-11-19T03:39:08+00:00",
   "sources": {
-    "releases": "docs/releases.json (lab research repository, updated 2026-11-18T17:33:08+09:00)",
+    "releases": "docs/releases.json (lab research repository, updated 2026-11-19T12:25:01+09:00)",
     "repositories": "Files read at the exact release commits recorded in work.source_revision. Its ref names belong to the selected local input repositories; when release-pinned offline snapshots are used, origin/main denotes the snapshot-local ref, not a receipt of the current public remote ref. Public-history checks and observed remote refs are recorded separately in the post-release input manifest.",
-    "homepage_editorial": "Work summaries and work-level exclusions copied from llms.txt; claim statements, evidence, scope, raw remaining obligations and execution flags retain their source records.",
-    "cycle_hyperplane_update": "One paper added from release commit fe4a9801b9be076627f9c25d83c2227fc80d985e; release identifiers from docs/releases.json at research input 583982fe9bcdadf2c838d63fa130b4d6a06d3ec2. Scope quotes README.md#the-inclusion at the published commit because the release-register scope reverses the leak term (r_a + lambda_l = r_l instead of r_a = r_l + lambda_l). The register is unchanged. Summary and exclusions come from reviewed llms.txt. The new work source_revision origin/main is a snapshot-local alias, not an observation of the public remote. All prior work records are retained from homepage baseline 8dab720e40c1bb0b129d447f16ea50c38e92c748."
+    "homepage_editorial": "Work summaries and work-level exclusions copied from llms.txt; claim statements, evidence, scope, raw remaining obligations and execution flags retain their source records."
   },
   "lab": {
     "name": "tkmt-lab",
@@ -10650,6 +10649,125 @@
           "evidence": [],
           "evidence_kinds": [],
           "scope": "OR-Tools 9.15.6755, JobShopLib 1.7.2 and PyJobShop 0.0.9 as described in README.md; bounded observation only."
+        }
+      ]
+    },
+    {
+      "id": "tkmt-lab/fixed-bit-dp-noise-tables",
+      "source_revision": {
+        "ref": "origin/main",
+        "commit": "96a7adf239d08ef1f32fbb1a5d27ae87b4494d10",
+        "matches_release": true
+      },
+      "work_type": "data-tool",
+      "title": "Fixed-bit differential privacy tables and samplers",
+      "packet_version": "1.0.0",
+      "summary": "Privacy researchers and engineers can use these tables and Python and C samplers to check how a fixed budget of random bits affects the minimum expected loss under pure differential privacy. On the synthetic benchmark, 52 of 54 conditions have certified minimum loss, including a corrected table for k=5,b=11. Documented checks: A separate checker reconstructed the constraints from each specification and checked rational certificates. Of the 60 saved records, 56 certify optima, three give feasible tables and one certifies infeasibility. Exhaustive tests checked 1,079,232 mappings across 108 historical Python/C sampler pairs against their saved tables. Limits: The guarantees cover only the supplied finite specifications and certificates. The saved k=7,b=5 and k=7,b=9 tables are feasible, but their optimality remains unresolved. The samplers assume a valid input index and an independent uniform b-bit word. The checks do not establish constant-time execution, side-channel resistance, a secure random source or performance on physical devices. Details: For five states and eleven random bits, the original feasible table has integer cost 16093. The corrected table has certified minimum cost 16092. Start with README.md. Run `python3 -B verify.py` with Python and clang to replay the saved checks.",
+      "release": {
+        "tag": "v1.0.0",
+        "date": "2026-11-19",
+        "commit": "96a7adf239d08ef1f32fbb1a5d27ae87b4494d10",
+        "github_release": "https://github.com/tkmt-lab/fixed-bit-dp-noise-tables/releases/tag/v1.0.0",
+        "version_doi": "10.5281/zenodo.24358121",
+        "concept_doi": "10.5281/zenodo.24358120",
+        "doi_status": "minted"
+      },
+      "repo_url": "https://github.com/tkmt-lab/fixed-bit-dp-noise-tables",
+      "paper_pdf": {
+        "path": "PACKAGE.pdf",
+        "url": "https://github.com/tkmt-lab/fixed-bit-dp-noise-tables/blob/v1.0.0/PACKAGE.pdf",
+        "raw_url": "https://raw.githubusercontent.com/tkmt-lab/fixed-bit-dp-noise-tables/v1.0.0/PACKAGE.pdf"
+      },
+      "entry_points": {
+        "agents_md": [],
+        "claims_json": {
+          "path": "claims.json",
+          "url": "https://github.com/tkmt-lab/fixed-bit-dp-noise-tables/blob/v1.0.0/claims.json",
+          "raw_url": "https://raw.githubusercontent.com/tkmt-lab/fixed-bit-dp-noise-tables/v1.0.0/claims.json"
+        },
+        "readme": {
+          "path": "README.md",
+          "url": "https://github.com/tkmt-lab/fixed-bit-dp-noise-tables/blob/v1.0.0/README.md"
+        },
+        "citation_cff": {
+          "path": "CITATION.cff",
+          "url": "https://github.com/tkmt-lab/fixed-bit-dp-noise-tables/blob/v1.0.0/CITATION.cff"
+        }
+      },
+      "scope": [
+        {
+          "text": "A generator of finite integer probability tables (rows summing to 2^b, up to 12 fair random bits) with Python and C samplers, integer checks of pure differential privacy on specified adjacency edges, and replayable exact-rational optimality and infeasibility certificates. 52 of 54 benchmark conditions have certified optima (k=5,b=11 corrected from cost 16093 to 16092); 60 proof records and 108 historical Python/C sampler pairs (1,079,232 mapping calls) are checked by verify.py.",
+          "lang": "en",
+          "source": "docs/releases.json"
+        }
+      ],
+      "not_claimed": [
+        {
+          "text": "The guarantees cover only the supplied finite specifications and certificates. The saved k=7,b=5 and k=7,b=9 tables are feasible, but their optimality remains unresolved. The samplers assume a valid input index and an independent uniform b-bit word. The checks do not establish constant-time execution, side-channel resistance, a secure random source or performance on physical devices.",
+          "lang": "en",
+          "source": "llms.txt"
+        }
+      ],
+      "verification": [
+        {
+          "source": "README.md#Try one example",
+          "working_directory": ".",
+          "shell": "sh",
+          "script": "python3 -B cli.py examples/counting.json --out ../dp-output\npython3 -B checker.py ../dp-output/result.json\npython3 -B checker.py ../dp-output/result.json --proof-only",
+          "expected_output_status": "not-documented-in-extracted-section"
+        },
+        {
+          "source": "README.md#Check the saved results",
+          "working_directory": ".",
+          "shell": "sh",
+          "script": "python3 -B verify.py",
+          "expected_output_status": "not-documented-in-extracted-section"
+        }
+      ],
+      "claims": [
+        {
+          "id": "tkmt-lab/fixed-bit-dp-noise-tables#benchmark-optimality",
+          "local_id": "benchmark-optimality",
+          "statement": "52 of 54 benchmark conditions have certified optimal tables, including the corrected k=5,b=11 table",
+          "evidence": [],
+          "evidence_kinds": [],
+          "not_claimed": [
+            "the two other optima",
+            "general optimality beyond supplied certificates"
+          ]
+        },
+        {
+          "id": "tkmt-lab/fixed-bit-dp-noise-tables#unsat-example",
+          "local_id": "unsat-example",
+          "statement": "The supplied constrained example has a rational infeasibility certificate",
+          "evidence": [],
+          "evidence_kinds": [],
+          "not_claimed": [
+            "all other instances are infeasible"
+          ]
+        },
+        {
+          "id": "tkmt-lab/fixed-bit-dp-noise-tables#mappings",
+          "local_id": "mappings",
+          "statement": "108 supplied historical sampler pairs implement their saved integer tables for valid indices and fair b-bit words",
+          "evidence": [],
+          "evidence_kinds": [],
+          "not_claimed": [
+            "constant time",
+            "side channel resistance",
+            "secure randomness",
+            "hardware performance"
+          ]
+        },
+        {
+          "id": "tkmt-lab/fixed-bit-dp-noise-tables#correction",
+          "local_id": "correction",
+          "statement": "The original k=5,b=11 feasible table cost 16093 and the certified improved table costs 16092",
+          "evidence": [],
+          "evidence_kinds": [],
+          "not_claimed": [
+            "the original table was optimal"
+          ]
         }
       ]
     }

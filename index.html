@@ -639,7 +639,43 @@
 <line x1="231.244" x2="231.244" y1="225" y2="239" stroke="var(--fig-no)" stroke-width="1.5"/>
 <line x1="72" x2="394" y1="266" y2="266" stroke="var(--muted)"/>
 <text x="233.000" y="315.000" fill="var(--muted)" font-size="13" text-anchor="middle">Susceptible population S₀ (model normalization)</text>
-</svg></div><figcaption>In the three released certificate examples at N₀=10, the true and alternate positive points agree on I(0) through I⁽⁴⁾(0) but have different S₀, with orange showing outward-rounded bounds on the alternate point.</figcaption></figure><p class="summary">For each fixed known k = 2, 3, 5/2 and known N0 &gt; 0, exact infectious-population jets identify positive rates and states at minimal order four locally and five globally, for generic true points.</p><p class="disclosure">Checked by: Prose proof, supported by exact positive-branch certificates for the three exponents. The certificates were checked by two algebraic implementations</p><p class="paper"><a href="https://doi.org/10.5281/zenodo.24095239">Paper / DOI →</a> · <a href="https://github.com/tkmt-lab/behavioral-sir-minimal-jets">Code &amp; certificates →</a></p></article><article class="result" id="r049-feature">
+</svg></div><figcaption>In the three released certificate examples at N₀=10, the true and alternate positive points agree on I(0) through I⁽⁴⁾(0) but have different S₀, with orange showing outward-rounded bounds on the alternate point.</figcaption></figure><p class="summary">For each fixed known k = 2, 3, 5/2 and known N0 &gt; 0, exact infectious-population jets identify positive rates and states at minimal order four locally and five globally, for generic true points.</p><p class="disclosure">Checked by: Prose proof, supported by exact positive-branch certificates for the three exponents. The certificates were checked by two algebraic implementations</p><p class="paper"><a href="https://doi.org/10.5281/zenodo.24095239">Paper / DOI →</a> · <a href="https://github.com/tkmt-lab/behavioral-sir-minimal-jets">Code &amp; certificates →</a></p></article><article class="result" id="r050-feature">
+<p class="field">DIFFERENTIAL PRIVACY · DATA &amp; TOOLS</p><h3><a href="research.html#fixed-bit-dp-noise-tables">Differential privacy with a fixed budget of random bits</a></h3>
+<figure><svg viewBox="0 0 428 240" role="img" aria-label="Saved table losses for the seven-state benchmark at four to twelve bits. Open circles mark feasible tables at b = 5 and 9, where optimality is unresolved." style="width:100%;max-width:440px;height:auto;display:block">
+<text x="9" y="21" font-size="16" fill="var(--fg)">Expected loss</text>
+<text x="49" y="181" font-size="15" fill="var(--muted)" text-anchor="end">2.400</text>
+<line x1="57" x2="409" y1="176.0" y2="176.0" stroke="var(--line)"/>
+<text x="49" y="131" font-size="15" fill="var(--muted)" text-anchor="end">2.405</text>
+<line x1="57" x2="409" y1="126.0" y2="126.0" stroke="var(--line)"/>
+<text x="49" y="81" font-size="15" fill="var(--muted)" text-anchor="end">2.410</text>
+<line x1="57" x2="409" y1="76.0" y2="76.0" stroke="var(--line)"/>
+<circle cx="65" cy="68.9" r="5" fill="var(--fig-yes)" stroke="var(--fg)" stroke-width="2"/>
+<text x="65" y="201" font-size="15" fill="var(--fg)" text-anchor="middle">4</text>
+<circle cx="107" cy="68.9" r="5" fill="none" stroke="var(--fg)" stroke-width="2"/>
+<text x="107" y="201" font-size="15" fill="var(--fg)" text-anchor="middle">5</text>
+<circle cx="149" cy="158.1" r="5" fill="var(--fig-yes)" stroke="var(--fg)" stroke-width="2"/>
+<text x="149" y="201" font-size="15" fill="var(--fg)" text-anchor="middle">6</text>
+<circle cx="191" cy="158.1" r="5" fill="var(--fig-yes)" stroke="var(--fg)" stroke-width="2"/>
+<text x="191" y="201" font-size="15" fill="var(--fg)" text-anchor="middle">7</text>
+<circle cx="233" cy="169.3" r="5" fill="var(--fig-yes)" stroke="var(--fg)" stroke-width="2"/>
+<text x="233" y="201" font-size="15" fill="var(--fg)" text-anchor="middle">8</text>
+<circle cx="275" cy="169.3" r="5" fill="none" stroke="var(--fg)" stroke-width="2"/>
+<text x="275" y="201" font-size="15" fill="var(--fg)" text-anchor="middle">9</text>
+<circle cx="317" cy="174.9" r="5" fill="var(--fig-yes)" stroke="var(--fg)" stroke-width="2"/>
+<text x="317" y="201" font-size="15" fill="var(--fg)" text-anchor="middle">10</text>
+<circle cx="359" cy="174.9" r="5" fill="var(--fig-yes)" stroke="var(--fg)" stroke-width="2"/>
+<text x="359" y="201" font-size="15" fill="var(--fg)" text-anchor="middle">11</text>
+<circle cx="401" cy="175.6" r="5" fill="var(--fig-yes)" stroke="var(--fg)" stroke-width="2"/>
+<text x="401" y="201" font-size="15" fill="var(--fg)" text-anchor="middle">12</text>
+<text x="232" y="229" font-size="16" fill="var(--fg)" text-anchor="middle">Random bits per draw (b)</text>
+<circle cx="65" cy="45.0" r="5" fill="var(--fig-yes)" stroke="var(--fg)" stroke-width="2"/>
+<text x="76" y="50" font-size="15" fill="var(--fg)">Certified optimum</text>
+<circle cx="244" cy="45.0" r="5" fill="none" stroke="var(--fg)" stroke-width="2"/>
+<text x="255" y="50" font-size="15" fill="var(--fg)">Optimality open</text>
+</svg><figcaption>For the seven-state benchmark, the saved loss falls from 135/56 at four bits to 34407/14336 at twelve bits.</figcaption></figure>
+<p class="summary">These tools generate probability tables that meet a privacy constraint with a fixed budget of random bits. In the four-bit counting example, the smallest possible mean absolute error is 7/12.</p><p class="disclosure">Checked by: Exact rational certificates for the counting example and for 52 of the 54 synthetic benchmark conditions.</p>
+<p class="paper"><a href="https://doi.org/10.5281/zenodo.24358121">Data / DOI →</a> · <a href="https://github.com/tkmt-lab/fixed-bit-dp-noise-tables">Code &amp; checks →</a></p></article>
+<article class="result" id="r049-feature">
 <p class="field">SCHEDULING · DATA &amp; TOOLS</p><h3><a href="research.html#job-shop-repair-frontier">Repairing a job-shop schedule after a machine outage</a></h3>
 <figure><svg viewBox="0 0 416 248" role="img" aria-label="Trade-off for ft06-q25-d1. Changing 3 start times gives completion time 62. Changing 6 gives 58. The original plan finishes at 55." style="width:100%;max-width:440px;height:auto;display:block">
 <text x="8" y="23" font-size="17" fill="var(--fg)">Completion time M (benchmark units)</text>

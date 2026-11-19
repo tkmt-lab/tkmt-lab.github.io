@@ -172,6 +172,7 @@
       <li><a href="#exception-networks-stability-certificates"><span class="index-num" aria-hidden="true">22</span><span class="index-question">例外の2反応網の定常点と安定性を、正解つき入力で照合する。</span><span class="index-field">化学反応網</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
       <li><a href="#boolean-release-observation-certificates"><span class="index-num" aria-hidden="true">23</span><span class="index-question">固定した制御の解除を確かめる、ブールネットワークの観測ベンチマーク</span><span class="index-field">ブールネットワーク</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
       <li><a href="#job-shop-repair-frontier"><span class="index-num" aria-hidden="true">24</span><span class="index-question">機械が止まった後、いくつの作業の開始時刻を変えれば、全体の遅れを縮められるか。</span><span class="index-field">スケジューリング</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
+      <li><a href="#fixed-bit-dp-noise-tables"><span class="index-num" aria-hidden="true">25</span><span class="index-question">使える乱数ビット数を決めると、差分プライバシーを保ちながら期待損失をどこまで小さくできるか。</span><span class="index-field">差分プライバシー</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
     </ul>
   </nav>
 
@@ -2027,6 +2028,51 @@
 </svg><figcaption>ft06-q25-d1 の故障例では、開始時刻を変える工程を3件から6件に増やすと、完了時刻が4単位早まります。</figcaption></figure>
     <p class="note">HiGHS の別モデルで前線全体を再現したのは ft06 の4通り（10点）です。ft10 と abz5 では選んだ14点を確認しました。この計24点の最適性の確認は浮動小数点の混合整数線形計画による数値判定で、厳密な証明書はありません。残る129点の最適性の根拠は主モデルの CP-SAT の判定です。</p>
     <div class="links"><a href="https://github.com/tkmt-lab/job-shop-repair-frontier">リポジトリ</a> · <a href="https://doi.org/10.5281/zenodo.24335378">この版のDOI</a> · <a href="https://doi.org/10.5281/zenodo.24335377">全版の概念DOI</a> · <a href="https://github.com/tkmt-lab/job-shop-repair-frontier/releases/tag/v1.0.0">v1.0.0</a> · 2026-11-18 · <a href="https://github.com/tkmt-lab/job-shop-repair-frontier/commit/537bc74d24ce109b78bb6cecdf0507c625ca10ef"><code>537bc74d24ce</code></a> · <a href="https://github.com/tkmt-lab/job-shop-repair-frontier/blob/537bc74d24ce109b78bb6cecdf0507c625ca10ef/claims.json">主張と検証記録</a></div>
+  </div>
+
+  <div class="work" id="fixed-bit-dp-noise-tables">
+    <div class="num">データと道具 · 2026</div>
+    <h3 class="t">固定した数の乱数ビットで差分プライバシーの表を作る</h3>
+    <dl class="work-summary">
+      <div><dt>データと用途</dt><dd>固定ビットの機構を調べる研究者や開発者が、指定した隣接入力間で純粋な差分プライバシーを満たす確率表を作り、その期待損失を検査できます。</dd></div>
+      <div><dt>記録した結果</dt><dd>入力を一様とし、すべての入力対でプライバシー倍率を2とした合成ベンチマークでは、54条件のうち52条件で最小の期待損失を証明書で確認しました。</dd></div>
+      <div><dt>確かめ方</dt><dd>別実装が仕様から制約を組み直し、有理数で証明書を検査しました。過去に保存した Python と C のサンプラー108組については、すべての入力と乱数ビット列を列挙して表と照合しました。</dd></div>
+    </dl>
+    <p class="plain">たとえば4ビットなら、等確率のビット列は16通りです。ツールが作る表の各行には、一つの入力について、この16通りのうちいくつを各出力に割り当てるかが入ります。同梱の数え上げ例では、隣り合う入力で各出力の確率がどちら向きにも2倍を超えないという条件のもとで、絶対誤差の期待値の最小値は 7/12 です。</p>
+    <figure><svg viewBox="0 0 428 240" role="img" aria-label="7状態のベンチマークで、4から12ビットの表の期待損失を示す。白抜きの点は b = 5、9 の実行可能な表で、最適性は未確定。" style="width:100%;max-width:440px;height:auto;display:block">
+<text x="9" y="21" font-size="16" fill="var(--fg)">期待損失</text>
+<text x="49" y="181" font-size="15" fill="var(--muted)" text-anchor="end">2.400</text>
+<line x1="57" x2="409" y1="176.0" y2="176.0" stroke="var(--line)"/>
+<text x="49" y="131" font-size="15" fill="var(--muted)" text-anchor="end">2.405</text>
+<line x1="57" x2="409" y1="126.0" y2="126.0" stroke="var(--line)"/>
+<text x="49" y="81" font-size="15" fill="var(--muted)" text-anchor="end">2.410</text>
+<line x1="57" x2="409" y1="76.0" y2="76.0" stroke="var(--line)"/>
+<circle cx="65" cy="68.9" r="5" fill="var(--fig-yes)" stroke="var(--fg)" stroke-width="2"/>
+<text x="65" y="201" font-size="15" fill="var(--fg)" text-anchor="middle">4</text>
+<circle cx="107" cy="68.9" r="5" fill="none" stroke="var(--fg)" stroke-width="2"/>
+<text x="107" y="201" font-size="15" fill="var(--fg)" text-anchor="middle">5</text>
+<circle cx="149" cy="158.1" r="5" fill="var(--fig-yes)" stroke="var(--fg)" stroke-width="2"/>
+<text x="149" y="201" font-size="15" fill="var(--fg)" text-anchor="middle">6</text>
+<circle cx="191" cy="158.1" r="5" fill="var(--fig-yes)" stroke="var(--fg)" stroke-width="2"/>
+<text x="191" y="201" font-size="15" fill="var(--fg)" text-anchor="middle">7</text>
+<circle cx="233" cy="169.3" r="5" fill="var(--fig-yes)" stroke="var(--fg)" stroke-width="2"/>
+<text x="233" y="201" font-size="15" fill="var(--fg)" text-anchor="middle">8</text>
+<circle cx="275" cy="169.3" r="5" fill="none" stroke="var(--fg)" stroke-width="2"/>
+<text x="275" y="201" font-size="15" fill="var(--fg)" text-anchor="middle">9</text>
+<circle cx="317" cy="174.9" r="5" fill="var(--fig-yes)" stroke="var(--fg)" stroke-width="2"/>
+<text x="317" y="201" font-size="15" fill="var(--fg)" text-anchor="middle">10</text>
+<circle cx="359" cy="174.9" r="5" fill="var(--fig-yes)" stroke="var(--fg)" stroke-width="2"/>
+<text x="359" y="201" font-size="15" fill="var(--fg)" text-anchor="middle">11</text>
+<circle cx="401" cy="175.6" r="5" fill="var(--fig-yes)" stroke="var(--fg)" stroke-width="2"/>
+<text x="401" y="201" font-size="15" fill="var(--fg)" text-anchor="middle">12</text>
+<text x="232" y="229" font-size="16" fill="var(--fg)" text-anchor="middle">1回の抽選に使う乱数ビット数 b</text>
+<circle cx="65" cy="45.0" r="5" fill="var(--fig-yes)" stroke="var(--fg)" stroke-width="2"/>
+<text x="76" y="50" font-size="15" fill="var(--fg)">最適性を確認</text>
+<circle cx="244" cy="45.0" r="5" fill="none" stroke="var(--fg)" stroke-width="2"/>
+<text x="255" y="50" font-size="15" fill="var(--fg)">最適性は未確定</text>
+</svg><figcaption>7状態のベンチマークでは、保存された表の期待損失は4ビットで135/56、12ビットで34407/14336まで下がります。</figcaption></figure>
+    <p class="note">7状態では5ビットと9ビットの表も条件を満たしますが、最適性は未確定です。保証は同梱の有限仕様と証明書に限ります。サンプラーは有効な入力と独立で一様な乱数ビット列を前提とし、定数時間動作、サイドチャネル耐性、乱数源の安全性、実機性能は未確認です。</p>
+    <div class="links"><a href="https://github.com/tkmt-lab/fixed-bit-dp-noise-tables">リポジトリ</a> · <a href="https://doi.org/10.5281/zenodo.24358121">この版のDOI</a> · <a href="https://doi.org/10.5281/zenodo.24358120">全版の概念DOI</a> · <a href="https://github.com/tkmt-lab/fixed-bit-dp-noise-tables/releases/tag/v1.0.0">v1.0.0</a> · 2026-11-19 · <a href="https://github.com/tkmt-lab/fixed-bit-dp-noise-tables/commit/96a7adf239d08ef1f32fbb1a5d27ae87b4494d10"><code>96a7adf239d0</code></a> · <a href="https://github.com/tkmt-lab/fixed-bit-dp-noise-tables/blob/96a7adf239d08ef1f32fbb1a5d27ae87b4494d10/claims.json">主張と検証記録</a></div>
   </div>
 
   <p><a href="about.html">研究の進め方・感謝・連絡</a></p></main></body></html>
