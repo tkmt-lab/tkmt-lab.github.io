@@ -1,9 +1,9 @@
 {
   "$schema": "https://tkmt-lab.github.io/catalog.schema.json",
   "version": "1.2",
-  "generated_at": "2026-11-19T03:39:08+00:00",
+  "generated_at": "2026-11-20T05:10:53+00:00",
   "sources": {
-    "releases": "docs/releases.json (lab research repository, updated 2026-11-19T12:25:01+09:00)",
+    "releases": "docs/releases.json (lab research repository, updated 2026-11-20T13:57:42+09:00)",
     "repositories": "Files read at the exact release commits recorded in work.source_revision. Its ref names belong to the selected local input repositories; when release-pinned offline snapshots are used, origin/main denotes the snapshot-local ref, not a receipt of the current public remote ref. Public-history checks and observed remote refs are recorded separately in the post-release input manifest.",
     "homepage_editorial": "Work summaries and work-level exclusions copied from llms.txt; claim statements, evidence, scope, raw remaining obligations and execution flags retain their source records."
   },
@@ -10768,6 +10768,118 @@
           "not_claimed": [
             "the original table was optimal"
           ]
+        }
+      ]
+    },
+    {
+      "id": "tkmt-lab/schema-check",
+      "source_revision": {
+        "ref": "origin/main",
+        "commit": "03ab0ae653c28fab612b5b39d9b6419f48c9648c",
+        "matches_release": true
+      },
+      "work_type": "data-tool",
+      "title": "schema-check: certificates for canonical JSON completion",
+      "packet_version": "0.1.0",
+      "summary": "Developers building structured-output generators can use schema-check to ask whether a supported schema admits any canonical JSON value and whether a given sequence of bytes can be completed to one. When a completion exists, the tool returns a shortest suffix in UTF-8 bytes. Documented checks: A separate verification entry checks the byte certificates. The frozen v2 corpus contains 123 supported records, 88 UNSUPPORTED and 3 UNKNOWN. Only the 123 supported records carry certificates. The offline replay also checks 83 token certificates for each of the three pinned vocabularies. It verifies the saved external observations by hash without rerunning the backends. Limits: The byte guarantees assume the shared semantic routines and cover only supported schemas and their canonical UTF-8 serializations. Full JSON Schema, open recursion, general references and general regular expressions are outside the supported fragment. Finite probes at fixed backend versions and settings cannot establish whole-language equivalence or a count of new bugs. Details: In the bundled object example, the prefix `{\"modifier\":` needs just three more bytes: `\"\"}`. On the same 123 supported schemas, the saved probes recorded invalid acceptances in 0 cases for llguidance 1.9.1, 58 for XGrammar 0.2.8 and 17 for outlines-core 0.2.14. The project reported two observations on 2026-11-02 (xgrammar#1029 and outlines-core#277). The XGrammar report used a supplemental witness outside the original probe set. Start with README.md. Run `python3 -B verify.py` to replay the frozen checks offline.",
+      "release": {
+        "tag": "v0.1.0",
+        "date": "2026-11-20",
+        "commit": "03ab0ae653c28fab612b5b39d9b6419f48c9648c",
+        "github_release": "https://github.com/tkmt-lab/schema-check/releases/tag/v0.1.0",
+        "version_doi": "10.5281/zenodo.24387241",
+        "concept_doi": "10.5281/zenodo.24387240",
+        "doi_status": "minted"
+      },
+      "repo_url": "https://github.com/tkmt-lab/schema-check",
+      "entry_points": {
+        "agents_md": [],
+        "claims_json": {
+          "path": "claims.json",
+          "url": "https://github.com/tkmt-lab/schema-check/blob/v0.1.0/claims.json",
+          "raw_url": "https://raw.githubusercontent.com/tkmt-lab/schema-check/v0.1.0/claims.json"
+        },
+        "readme": {
+          "path": "README.md",
+          "url": "https://github.com/tkmt-lab/schema-check/blob/v0.1.0/README.md"
+        },
+        "citation_cff": {
+          "path": "CITATION.cff",
+          "url": "https://github.com/tkmt-lab/schema-check/blob/v0.1.0/CITATION.cff"
+        }
+      },
+      "scope": [
+        {
+          "text": "A command-line tool that inspects JSON Schema constraints used in structured-output generation: for supported schemas it computes emptiness and the shortest exact-prefix completion in a documented canonical UTF-8 reference language and writes certificates checked by a separate entry point. The frozen v2 dataset of 214 records (123 supported, 88 UNSUPPORTED, 3 UNKNOWN) and 83 token certificates for three fixed vocabularies are checked by verify.py, conditional on the shared kernels. External backend comparisons are finite observations of fixed versions and settings; two differences were reported upstream on 2026-11-02 (xgrammar#1029, outlines-core#277).",
+          "lang": "en",
+          "source": "docs/releases.json"
+        }
+      ],
+      "not_claimed": [
+        {
+          "text": "The byte guarantees assume the shared semantic routines and cover only supported schemas and their canonical UTF-8 serializations. Full JSON Schema, open recursion, general references and general regular expressions are outside the supported fragment. Finite probes at fixed backend versions and settings cannot establish whole-language equivalence or a count of new bugs.",
+          "lang": "en",
+          "source": "llms.txt"
+        }
+      ],
+      "verification": [
+        {
+          "source": "README.md#Run a byte check",
+          "working_directory": ".",
+          "shell": "sh",
+          "script": "mkdir -p .cache/examples\npython3 -B schema-check examples/object.json --prefix '{\"modifier\":' -o .cache/examples/result.json\npython3 -B schema-check verify .cache/examples/result.json --schema examples/object.json",
+          "expected_output_status": "not-documented-in-extracted-section"
+        },
+        {
+          "source": "README.md#Verify the complete frozen packet",
+          "working_directory": ".",
+          "shell": "sh",
+          "script": "python3 -B verify.py",
+          "expected_output_status": "not-documented-in-extracted-section"
+        }
+      ],
+      "claims": [
+        {
+          "id": "tkmt-lab/schema-check#BYTE",
+          "local_id": "BYTE",
+          "statement": "Supported byte artifacts certify emptiness/nonemptiness and shortest exact-prefix completion in the documented canonical UTF-8 language, conditional on the shared kernels.",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/schema-check#BYTE-DATA",
+          "local_id": "BYTE-DATA",
+          "statement": "Frozen v2 dataset has 214 records: 123 supported, 88 UNSUPPORTED, 3 UNKNOWN.",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/schema-check#TOKEN-GPT2",
+          "local_id": "TOKEN-GPT2",
+          "statement": "All 83 saved fixed-GPT-2 token certificates have separate checking entries; byte-live/token-dead schema count is zero.",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/schema-check#TOKEN-METASPACE",
+          "local_id": "TOKEN-METASPACE",
+          "statement": "Saved first/continuation-phase vocabulary certificates: 83 per pinned vocabulary; root token infeasibility is separate from new dead ends.",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/schema-check#COMPARISON",
+          "local_id": "COMPARISON",
+          "statement": "Pinned-version observations, not distinct/new bug counts.",
+          "evidence": [],
+          "evidence_kinds": []
+        },
+        {
+          "id": "tkmt-lab/schema-check#REPLAY",
+          "local_id": "REPLAY",
+          "statement": "Default verify checks all frozen byte/token evidence and public controls; a PASS is local code checking.",
+          "evidence": [],
+          "evidence_kinds": []
         }
       ]
     }

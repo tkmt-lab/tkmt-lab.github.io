@@ -173,6 +173,7 @@
       <li><a href="#boolean-release-observation-certificates"><span class="index-num" aria-hidden="true">T6</span><span class="index-question">固定した制御の解除を確かめる、ブールネットワークの観測ベンチマーク</span><span class="index-field">ブールネットワーク</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
       <li><a href="#job-shop-repair-frontier"><span class="index-num" aria-hidden="true">T7</span><span class="index-question">機械が止まった後、いくつの作業の開始時刻を変えれば、全体の遅れを縮められるか。</span><span class="index-field">スケジューリング</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
       <li><a href="#fixed-bit-dp-noise-tables"><span class="index-num" aria-hidden="true">T8</span><span class="index-question">使える乱数ビット数を決めると、差分プライバシーを保ちながら期待損失をどこまで小さくできるか。</span><span class="index-field">差分プライバシー</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
+      <li><a href="#schema-check"><span class="index-num" aria-hidden="true">T9</span><span class="index-question">書きかけの JSON をスキーマに従って完成させるには、あと何バイト必要か。</span><span class="index-field">構造化出力</span><span class="index-arrow" aria-hidden="true">↓</span></a></li>
     </ul>
   </nav>
 
@@ -2073,6 +2074,34 @@
 </svg><figcaption>7状態のベンチマークでは、保存された表の期待損失は4ビットで135/56、12ビットで34407/14336まで下がります。</figcaption></figure>
     <p class="note">7状態では5ビットと9ビットの表も条件を満たしますが、最適性は未確定です。保証は同梱の有限仕様と証明書に限ります。サンプラーは有効な入力と独立で一様な乱数ビット列を前提とし、定数時間動作、サイドチャネル耐性、乱数源の安全性、実機性能は未確認です。</p>
     <div class="links"><a href="https://github.com/tkmt-lab/fixed-bit-dp-noise-tables">リポジトリ</a> · <a href="https://doi.org/10.5281/zenodo.24358121">この版のDOI</a> · <a href="https://doi.org/10.5281/zenodo.24358120">全版の概念DOI</a> · <a href="https://github.com/tkmt-lab/fixed-bit-dp-noise-tables/releases/tag/v1.0.0">v1.0.0</a> · 2026-11-19 · <a href="https://github.com/tkmt-lab/fixed-bit-dp-noise-tables/commit/96a7adf239d08ef1f32fbb1a5d27ae87b4494d10"><code>96a7adf239d0</code></a> · <a href="https://github.com/tkmt-lab/fixed-bit-dp-noise-tables/blob/96a7adf239d08ef1f32fbb1a5d27ae87b4494d10/claims.json">主張と検証記録</a></div>
+  </div>
+
+  <div class="work" id="schema-check">
+    <div class="num">データと道具 T9 · 2026</div>
+    <h3 class="t">書きかけの JSON をスキーマに従って最後まで書けるか</h3>
+    <dl class="work-summary">
+      <div><dt>データと用途</dt><dd>構造化出力を扱う開発者が、対応する JSON Schema を満たす値があるかを調べ、書きかけのバイト列から最短の続きを求められます。対象は、鍵の順序や数の表記を定めた正準の UTF-8 参照言語です。</dd></div>
+      <div><dt>記録した結果</dt><dd>v2 の固定データ214件のうち、123件に証明書があります。88件はスキーマが対応範囲外で、3件は計算の上限に達したため結論が出ませんでした。</dd></div>
+      <div><dt>確かめ方</dt><dd>生成器と意味規則の実装を共有する別の検査コマンドが、バイト列の証明書を照合します。固定した3種類の語彙については、トークン列の証明書も各83件検査できます。</dd></div>
+    </dl>
+    <p class="plain">同梱の例では、<code>modifier</code> の値は空文字列か <code>"dark"</code> です。<code>{"modifier":</code> まで書いたところで、空文字列の引用符と閉じ波括弧を足すと完成します。この続き <code>""}</code> が最短で、3バイトです。</p>
+    <figure><svg viewBox="0 0 416 161" role="img" aria-label="スキーマ 214 件のうち、対応 123 件、未対応 88 件、判定保留 3 件。" style="width:100%;max-width:440px;height:auto;display:block">
+<text x="8" y="21" font-size="17" fill="var(--fg)">v2 のスキーマ 214 件</text>
+<text x="8" y="48" font-size="16" fill="var(--fg)">対応</text>
+<text x="408" y="48" font-size="16" fill="var(--fg)" text-anchor="end">123</text>
+<rect x="8" y="54" width="400" height="9" fill="var(--line)"/>
+<rect x="8" y="54" width="229.907" height="9" fill="var(--fig-yes)"/>
+<text x="8" y="92" font-size="16" fill="var(--fg)">未対応</text>
+<text x="408" y="92" font-size="16" fill="var(--fg)" text-anchor="end">88</text>
+<rect x="8" y="98" width="400" height="9" fill="var(--line)"/>
+<rect x="8" y="98" width="164.486" height="9" fill="var(--muted)"/>
+<text x="8" y="136" font-size="16" fill="var(--fg)">判定保留</text>
+<text x="408" y="136" font-size="16" fill="var(--fg)" text-anchor="end">3</text>
+<rect x="8" y="142" width="400" height="9" fill="var(--line)"/>
+<rect x="8" y="142" width="5.607" height="9" fill="var(--fig-no)"/>
+</svg><figcaption>123 件にはバイト列の証明書があり、別の 3 件は資源の上限に達したため判定保留です。</figcaption></figure>
+    <p class="note">一般の正規表現、開いた再帰、一般の参照などは対象外です。外部の生成ツールとの比較は版と設定を固定した有限の入力例での観測です。この比較だけでは、受理する言語全体の同値性や新しい不具合の件数は分かりません。</p>
+    <div class="links"><a href="https://github.com/tkmt-lab/schema-check">リポジトリ</a> · <a href="https://doi.org/10.5281/zenodo.24387241">この版のDOI</a> · <a href="https://doi.org/10.5281/zenodo.24387240">全版の概念DOI</a> · <a href="https://github.com/tkmt-lab/schema-check/releases/tag/v0.1.0">v0.1.0</a> · 2026-11-20 · <a href="https://github.com/tkmt-lab/schema-check/commit/03ab0ae653c28fab612b5b39d9b6419f48c9648c"><code>03ab0ae653c2</code></a> · <a href="https://github.com/tkmt-lab/schema-check/blob/03ab0ae653c28fab612b5b39d9b6419f48c9648c/claims.json">主張と検証記録</a></div>
   </div>
 
   <p><a href="about.html">研究の進め方・感謝・連絡</a></p></main></body></html>
